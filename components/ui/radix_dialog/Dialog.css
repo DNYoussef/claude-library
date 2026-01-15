@@ -1,0 +1,233 @@
+/**
+ * Radix Dialog - CSS Animations
+ *
+ * Custom animations and styles for the Radix Dialog component.
+ * These complement Tailwind CSS and provide smooth enter/exit animations.
+ *
+ * Usage: Import this file in your global styles or component.
+ *
+ * @example
+ * // In your global CSS
+ * @import './components/ui/radix-dialog/Dialog.css';
+ *
+ * // Or in your component
+ * import './Dialog.css';
+ */
+
+/* =============================================================================
+   KEYFRAME ANIMATIONS
+   ============================================================================= */
+
+/* Fade in animation */
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out animation */
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Zoom in from slightly smaller */
+@keyframes dialog-zoom-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Zoom out to slightly smaller */
+@keyframes dialog-zoom-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Slide in from bottom */
+@keyframes dialog-slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 8px)) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Slide out to bottom */
+@keyframes dialog-slide-out-bottom {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 8px)) scale(0.95);
+  }
+}
+
+/* =============================================================================
+   OVERLAY STYLES
+   ============================================================================= */
+
+/* Dialog overlay animations */
+[data-radix-dialog-overlay] {
+  /* Animation timing */
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-radix-dialog-overlay][data-state='open'] {
+  animation-name: dialog-fade-in;
+}
+
+[data-radix-dialog-overlay][data-state='closed'] {
+  animation-name: dialog-fade-out;
+}
+
+/* =============================================================================
+   CONTENT STYLES
+   ============================================================================= */
+
+/* Dialog content animations */
+[data-radix-dialog-content] {
+  /* Animation timing */
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-radix-dialog-content][data-state='open'] {
+  animation-name: dialog-slide-in-bottom;
+}
+
+[data-radix-dialog-content][data-state='closed'] {
+  animation-name: dialog-slide-out-bottom;
+}
+
+/* =============================================================================
+   FOCUS MANAGEMENT
+   ============================================================================= */
+
+/* Remove default focus outline and use custom ring */
+[data-radix-dialog-content]:focus {
+  outline: none;
+}
+
+/* Focus trap visual indicator (optional) */
+[data-radix-dialog-content]:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-500, #6366f1);
+}
+
+/* =============================================================================
+   SCROLLABLE CONTENT
+   ============================================================================= */
+
+/* When dialog content is scrollable */
+[data-radix-dialog-content].scrollable {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar for dialog */
+[data-radix-dialog-content].scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-radix-dialog-content].scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-radix-dialog-content].scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--border-default, #3a3a5a);
+  border-radius: 3px;
+}
+
+[data-radix-dialog-content].scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-muted, #606070);
+}
+
+/* =============================================================================
+   REDUCED MOTION
+   ============================================================================= */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-radix-dialog-overlay],
+  [data-radix-dialog-content] {
+    animation-duration: 0ms;
+  }
+}
+
+/* =============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================= */
+
+/* Full-width dialog on small screens */
+@media (max-width: 640px) {
+  [data-radix-dialog-content] {
+    width: calc(100% - 2rem);
+    max-width: none;
+    margin: 1rem;
+  }
+}
+
+/* Bottom sheet style on very small screens */
+@media (max-width: 480px) {
+  [data-radix-dialog-content].bottom-sheet {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 1rem 1rem 0 0;
+    max-height: 90vh;
+  }
+
+  [data-radix-dialog-content].bottom-sheet[data-state='open'] {
+    animation-name: dialog-slide-in-bottom-mobile;
+  }
+
+  [data-radix-dialog-content].bottom-sheet[data-state='closed'] {
+    animation-name: dialog-slide-out-bottom-mobile;
+  }
+}
+
+/* Bottom sheet animations for mobile */
+@keyframes dialog-slide-in-bottom-mobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-slide-out-bottom-mobile {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}

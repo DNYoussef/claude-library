@@ -1,0 +1,14 @@
+{
+  "name": "claude-library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:py:strict": "set PYTHONPATH=.&& python -W error -m pytest",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  }
+}

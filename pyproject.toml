@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["components"]
+filterwarnings = [
+  "error",
+  "ignore:datetime\\.datetime\\.utcnow\\(\\) is deprecated and scheduled for removal in a future version\\.:DeprecationWarning:pytest_benchmark.utils",
+]
+asyncio_default_fixture_loop_scope = "function"

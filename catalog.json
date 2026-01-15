@@ -1,0 +1,3805 @@
+{
+  "version": "1.3.0",
+  "last_updated": "2026-01-11T20:58:30.746219+00:00",
+  "components": [
+    {
+      "id": "quality-gate",
+      "name": "Quality Gate System",
+      "version": "1.0.0",
+      "description": "Async quality gate with threshold validation for content pipelines. Supports slop detection, score calculation, and pass/fail determination.",
+      "location": "components/utilities/quality_gate/quality_gate.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "quality",
+        "gate",
+        "threshold",
+        "validation",
+        "pipeline",
+        "slop",
+        "content"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 12,
+      "usage_count": 2,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "from library.quality import QualityGate\ngate = QualityGate(threshold=0.7)\nresult = await gate.check(content)",
+      "source_project": "scripts/content-pipeline/gates.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "GateConfig:",
+        "GateFailedError",
+        "GateManager:",
+        "GateResult:",
+        "GateStatus",
+        "GateType",
+        "RichMetricResult:",
+        "create_compile_gate",
+        "create_dependency_gate",
+        "create_quality_gate",
+        "create_sync_gate"
+      ]
+    },
+    {
+      "id": "circuit-breaker",
+      "name": "Circuit Breaker Pattern",
+      "version": "1.0.0",
+      "description": "Generic circuit breaker for non-domain-specific usage.",
+      "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "circuit",
+        "breaker",
+        "resilience",
+        "failover",
+        "backoff",
+        "retry"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 1,
+      "last_used": "2026-01-05T00:00:00Z",
+      "example_usage": "from library.resilience import CircuitBreaker\ncb = CircuitBreaker(failure_threshold=5, recovery_timeout=30)\nresult = await cb.call(async_function)",
+      "source_project": "utils/memory_mcp_circuit_breaker.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "CircuitBreaker:",
+        "CircuitBreakerConfig:",
+        "CircuitBreakerError",
+        "CircuitBreakerManager:",
+        "CircuitBreakerMetrics:",
+        "CircuitBreakerStatus:",
+        "CircuitState"
+      ]
+    },
+    {
+      "id": "health-monitor",
+      "name": "Health Check Monitor",
+      "version": "1.0.0",
+      "description": "Periodic health polling system with alerting. Monitors service endpoints and triggers callbacks on status changes.",
+      "location": "components/utilities/health_monitor/health_monitor.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio",
+        "httpx"
+      ],
+      "keywords": [
+        "health",
+        "monitor",
+        "polling",
+        "alert",
+        "status",
+        "endpoint"
+      ],
+      "dependencies": [
+        "httpx"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 10,
+      "usage_count": 1,
+      "last_used": "2026-01-03T00:00:00Z",
+      "example_usage": "from library.monitoring import HealthMonitor\nmonitor = HealthMonitor(endpoints=[...])\nawait monitor.start()",
+      "source_project": "utils/health_check_monitor.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 80,
+      "lego_compatible": false,
+      "exports": [
+        "AlertConfig:",
+        "HealthCheckConfig:",
+        "HealthCheckResult:",
+        "HealthMonitor:",
+        "HealthState",
+        "HealthStatus:"
+      ]
+    },
+    {
+      "id": "yaml-safe-write",
+      "name": "YAML Safe Write",
+      "version": "1.0.0",
+      "description": "Atomic YAML file writes with automatic backup. Prevents data loss from interrupted writes or corruption.",
+      "location": "components/utilities/io_helpers/yaml_safe_write.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "PyYAML"
+      ],
+      "keywords": [
+        "yaml",
+        "write",
+        "atomic",
+        "backup",
+        "safe",
+        "config"
+      ],
+      "dependencies": [
+        "pyyaml"
+      ],
+      "test_coverage": 95,
+      "tests_passing": 8,
+      "usage_count": 3,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "from library.io import yaml_safe_write\nyaml_safe_write('config.yaml', data, backup=True)",
+      "source_project": "utils/yaml_safe_write.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 95,
+      "lego_compatible": false,
+      "exports": [
+        "AtomicWriter:",
+        "BackupConfig:",
+        "WriteResult:",
+        "list_backups",
+        "yaml_safe_read_sync",
+        "yaml_safe_write_sync"
+      ],
+      "status": "deprecated",
+      "deprecation_reason": "No semantic matches in projects; no evidence of active usage."
+    },
+    {
+      "id": "fastapi-router-template",
+      "name": "FastAPI CRUD Router",
+      "version": "1.0.0",
+      "description": "Standard FastAPI router with CRUD operations, pagination, filtering, and validation. LEGO-compatible: imports from library.common.types for ValidationResult.",
+      "location": "components/api/fastapi_router/",
+      "domain": "api",
+      "technology": [
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "SQLAlchemy"
+      ],
+      "keywords": [
+        "fastapi",
+        "router",
+        "crud",
+        "rest",
+        "api",
+        "endpoint",
+        "pagination",
+        "lego"
+      ],
+      "dependencies": [
+        "fastapi",
+        "pydantic",
+        "sqlalchemy"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 24,
+      "usage_count": 6,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "from library.components.api.fastapi_router import CRUDRouter, create_crud_router\nrouter = create_crud_router(model=Project, schema_create=ProjectCreate, schema_update=ProjectUpdate, schema_response=ProjectResponse, prefix='/projects', tags=['Projects'], get_db=get_db)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\backend\\app\\routers\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": true,
+      "exports": [
+        "CRUDRouter",
+        "PaginationParams",
+        "PaginatedResponse",
+        "create_crud_router"
+      ]
+    },
+    {
+      "id": "pydantic-base-models",
+      "name": "Pydantic Base Models",
+      "version": "1.0.0",
+      "description": "Common Pydantic models for FastAPI: pagination, error responses, timestamps, audit, health checks. LEGO-compatible: imports from library.common.types.",
+      "location": "components/api/pydantic_base/",
+      "domain": "api",
+      "technology": [
+        "Python",
+        "Pydantic"
+      ],
+      "keywords": [
+        "pydantic",
+        "model",
+        "base",
+        "pagination",
+        "error",
+        "timestamp",
+        "mixin",
+        "lego"
+      ],
+      "dependencies": [
+        "pydantic"
+      ],
+      "test_coverage": 92,
+      "tests_passing": 15,
+      "usage_count": 6,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "from library.components.api.pydantic_base import PaginatedResponse, ErrorResponse, TimestampMixin, StatusEnum",
+      "source_project": "D:\\Projects\\life-os-dashboard\\consolidated-ui\\backend\\app\\schemas\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": true,
+      "exports": [
+        "PaginatedResponse",
+        "ErrorResponse",
+        "MessageResponse",
+        "TimestampMixin",
+        "AuditMixin",
+        "StatusEnum",
+        "HealthResponse"
+      ]
+    },
+    {
+      "id": "express-middleware-chain",
+      "name": "Express Middleware Chain",
+      "version": "1.0.0",
+      "description": "Standard Express.js middleware setup: CORS, Helmet, rate limiting, request logging, error handling. TypeScript with consistent interface patterns.",
+      "location": "components/middleware/express_chain/",
+      "domain": "api",
+      "technology": [
+        "TypeScript",
+        "Express"
+      ],
+      "keywords": [
+        "express",
+        "middleware",
+        "cors",
+        "helmet",
+        "rate-limit",
+        "logging",
+        "security",
+        "lego"
+      ],
+      "dependencies": [
+        "express"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 12,
+      "usage_count": 3,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "import { createMiddlewareChain, MiddlewareConfig } from '@library/middleware/express-chain';\nconst middlewares = createMiddlewareChain({ cors: { origins: ['https://app.com'] }, rateLimit: { max: 100 } });\nmiddlewares.forEach(mw => app.use(mw));",
+      "source_project": "C:\\Users\\17175\\nsbu-rpg-app\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": true,
+      "exports": [
+        "createMiddlewareChain",
+        "createCorsMiddleware",
+        "createRateLimitMiddleware",
+        "createHelmetMiddleware",
+        "createLoggingMiddleware",
+        "createErrorHandler",
+        "MiddlewareConfig"
+      ]
+    },
+    {
+      "id": "jwt-auth-middleware",
+      "name": "JWT Authentication Middleware",
+      "version": "1.0.0",
+      "description": "JWT authentication middleware for Express. Validates tokens, extracts user info, handles refresh tokens.",
+      "location": "components/auth/jwt_middleware_ts/middleware.ts",
+      "domain": "authentication",
+      "technology": [
+        "TypeScript",
+        "Express",
+        "jose"
+      ],
+      "keywords": [
+        "jwt",
+        "auth",
+        "authentication",
+        "middleware",
+        "token",
+        "bearer"
+      ],
+      "dependencies": [
+        "jose",
+        "express"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 2,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "import { jwtAuth } from '@library/auth';\napp.use('/api', jwtAuth({ secret: process.env.JWT_SECRET }));",
+      "source_project": "nsbu-rpg-app/server/middleware/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "JWTAuth",
+        "authenticate",
+        "generateApiKey",
+        "generateSecureToken",
+        "requireRole"
+      ]
+    },
+    {
+      "id": "fastapi-jwt-auth",
+      "name": "FastAPI JWT Authentication",
+      "version": "1.0.0",
+      "description": "JWT authentication for FastAPI. Dependency injection pattern, token validation, user extraction.",
+      "location": "components/auth/fastapi_jwt/jwt_auth.py",
+      "domain": "authentication",
+      "technology": [
+        "Python",
+        "FastAPI",
+        "python-jose"
+      ],
+      "keywords": [
+        "jwt",
+        "auth",
+        "authentication",
+        "fastapi",
+        "dependency",
+        "token"
+      ],
+      "dependencies": [
+        "fastapi",
+        "python-jose"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 16,
+      "usage_count": 3,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.auth import get_current_user\n@router.get('/me')\nasync def me(user: User = Depends(get_current_user)):",
+      "source_project": "life-os-dashboard/src/auth/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "AuthenticationError",
+        "AuthorizationError",
+        "JWTAuthConfig:",
+        "JWTAuthService:",
+        "TokenData:",
+        "User:",
+        "get_auth_service",
+        "init_jwt_auth",
+        "require_any_role",
+        "require_role",
+        "verify_resource_ownership",
+        "verify_resource_ownership_or_admin"
+      ]
+    },
+    {
+      "id": "db-connection-pool",
+      "name": "Database Connection Pool",
+      "version": "1.0.0",
+      "description": "PostgreSQL connection pool with health checks, retry logic, and query logging. Async SQLAlchemy pattern.",
+      "location": "components/database/connection_pool/",
+      "domain": "database",
+      "technology": [
+        "Python",
+        "SQLAlchemy",
+        "asyncpg"
+      ],
+      "keywords": [
+        "database",
+        "postgres",
+        "pool",
+        "connection",
+        "sqlalchemy",
+        "async"
+      ],
+      "dependencies": [
+        "sqlalchemy",
+        "asyncpg"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 14,
+      "usage_count": 4,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.database import create_engine, get_session\nengine = create_engine(DATABASE_URL)\nasync with get_session() as session:",
+      "source_project": "life-os-dashboard/src/database/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "Base",
+        "ConnectionPool",
+        "DatabaseHealthChecker",
+        "HealthCheckConfig",
+        "HealthCheckEndpoint",
+        "HealthState",
+        "HealthStatus",
+        "PoolConfig",
+        "close_pool",
+        "get_db",
+        "get_pool",
+        "init_pool",
+        "with_retry"
+      ]
+    },
+    {
+      "id": "radix-dialog",
+      "name": "Radix Dialog Component",
+      "version": "1.0.0",
+      "description": "Pre-styled Radix UI Dialog with Tailwind CSS. Includes animations, overlay, close button, header/body/footer sections, size variants, and full accessibility (ARIA, keyboard navigation, focus trap).",
+      "location": "components/ui/radix_dialog/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Radix UI",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "dialog",
+        "modal",
+        "radix",
+        "ui",
+        "component",
+        "popup",
+        "accessible",
+        "animations"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogBody, DialogFooter, DialogClose } from '@library/ui/radix-dialog';\n<Dialog><DialogTrigger>Open</DialogTrigger><DialogContent><DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader><DialogBody>Content</DialogBody><DialogFooter><DialogClose>Cancel</DialogClose></DialogFooter></DialogContent></Dialog>",
+      "source_project": "LEGO library component",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "DIALOG_ANIMATIONS",
+        "DIALOG_SIZE_STYLES",
+        "Dialog",
+        "DialogBody",
+        "DialogClose",
+        "DialogContent",
+        "DialogDescription",
+        "DialogFooter",
+        "DialogHeader",
+        "DialogOverlay",
+        "DialogTitle",
+        "DialogTrigger",
+        "file",
+        "type"
+      ]
+    },
+    {
+      "id": "radix-dropdown",
+      "name": "Radix Dropdown Menu Component",
+      "version": "1.0.0",
+      "description": "Pre-styled Radix UI Dropdown Menu with Tailwind CSS. Full-featured with submenus, checkbox items, radio groups, separators, labels, icons, keyboard shortcuts display, and complete keyboard navigation.",
+      "location": "components/ui/radix_dropdown/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Radix UI",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "dropdown",
+        "menu",
+        "radix",
+        "ui",
+        "component",
+        "navigation",
+        "submenu",
+        "checkbox",
+        "radio",
+        "keyboard"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from '@library/ui/radix-dropdown';\n<DropdownMenu><DropdownMenuTrigger>Options</DropdownMenuTrigger><DropdownMenuContent><DropdownMenuItem icon={<EditIcon />}>Edit</DropdownMenuItem><DropdownMenuSeparator /><DropdownMenuItem variant='destructive'>Delete</DropdownMenuItem></DropdownMenuContent></DropdownMenu>",
+      "source_project": "LEGO library component",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "DropdownMenu",
+        "DropdownMenuCheckboxItem",
+        "DropdownMenuContent",
+        "DropdownMenuGroup",
+        "DropdownMenuItem",
+        "DropdownMenuLabel",
+        "DropdownMenuRadioGroup",
+        "DropdownMenuRadioItem",
+        "DropdownMenuSeparator",
+        "DropdownMenuSub",
+        "DropdownMenuSubContent",
+        "DropdownMenuSubTrigger",
+        "DropdownMenuTrigger",
+        "ITEM_VARIANT_STYLES",
+        "MENU_ANIMATIONS",
+        "file",
+        "type"
+      ]
+    },
+    {
+      "id": "content-pipeline-template",
+      "name": "Content Pipeline Template",
+      "version": "1.0.0",
+      "description": "11-phase content pipeline: download, transcribe, analyze, synthesize, draft, style, slop-detect, image-gen, commit, deploy.",
+      "location": "components/pipelines/content_pipeline/",
+      "domain": "integrations",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "pipeline",
+        "content",
+        "blog",
+        "youtube",
+        "transcription",
+        "synthesis"
+      ],
+      "dependencies": [
+        "yt-dlp",
+        "openai-whisper"
+      ],
+      "test_coverage": 70,
+      "tests_passing": 22,
+      "usage_count": 1,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "from library.pipelines import ContentPipeline\npipeline = ContentPipeline(config)\nawait pipeline.run(source_url)",
+      "source_project": "scripts/content-pipeline/weekly_zeitgeist_analysis.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 70,
+      "lego_compatible": false,
+      "exports": [
+        "AnalyzePhase",
+        "CommitPhase",
+        "ContentPipeline",
+        "DeployPhase",
+        "DownloadPhase",
+        "DraftPhase",
+        "ImageGenPhase",
+        "Phase",
+        "PhaseResult",
+        "PhaseStatus",
+        "PhaseType",
+        "PipelineConfig",
+        "PipelineResult",
+        "SlopDetectPhase",
+        "StylePhase",
+        "SynthesizePhase",
+        "TranscribePhase"
+      ]
+    },
+    {
+      "id": "multi-model-router",
+      "name": "Multi-Model Router",
+      "version": "1.0.0",
+      "description": "Route tasks to optimal LLM (Claude/Gemini/Codex) based on task characteristics. Supports fallback and load balancing.",
+      "location": "components/ai/model_router/providers.py",
+      "domain": "integrations",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "llm",
+        "router",
+        "claude",
+        "gemini",
+        "codex",
+        "ai",
+        "model"
+      ],
+      "dependencies": [
+        "anthropic",
+        "google-generativeai"
+      ],
+      "test_coverage": 82,
+      "tests_passing": 18,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.ai import ModelRouter\nrouter = ModelRouter()\nresponse = await router.route(task)",
+      "source_project": "context-cascade/skills/multi-model.md",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "BaseProvider",
+        "ClaudeProvider",
+        "CodexProvider",
+        "GeminiProvider",
+        "Provider",
+        "ProviderConfig:",
+        "ProviderHealth:",
+        "ProviderRegistry:",
+        "ProviderStatus"
+      ]
+    },
+    {
+      "id": "pytest-fixtures-base",
+      "name": "Pytest Fixtures Base",
+      "version": "1.0.0",
+      "description": "Common pytest fixtures: async client, database session, mock user, test data factories.",
+      "location": "components/testing/pytest-fixtures/fixtures.py",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "pytest",
+        "pytest-asyncio"
+      ],
+      "keywords": [
+        "pytest",
+        "fixtures",
+        "testing",
+        "mock",
+        "factory",
+        "async"
+      ],
+      "dependencies": [
+        "pytest",
+        "pytest-asyncio",
+        "httpx"
+      ],
+      "test_coverage": 100,
+      "tests_passing": 10,
+      "usage_count": 4,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.testing import async_client, db_session\n@pytest.fixture\ndef client(async_client): yield async_client",
+      "source_project": "life-os-dashboard/tests/conftest.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 100,
+      "lego_compatible": false,
+      "exports": [
+        "PerformanceTracker:",
+        "concurrent_executor",
+        "configure_test_environment",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
+    },
+    {
+      "id": "jest-setup-base",
+      "name": "Jest Setup Base",
+      "version": "1.0.0",
+      "description": "Common Jest setup: React Testing Library, mock providers, test utilities, custom matchers.",
+      "location": "components/testing/jest-setup/setup.ts",
+      "domain": "testing",
+      "technology": [
+        "TypeScript",
+        "Jest",
+        "React Testing Library"
+      ],
+      "keywords": [
+        "jest",
+        "testing",
+        "react",
+        "mock",
+        "setup",
+        "matchers"
+      ],
+      "dependencies": [
+        "jest",
+        "@testing-library/react",
+        "@testing-library/jest-dom"
+      ],
+      "test_coverage": 100,
+      "tests_passing": 8,
+      "usage_count": 3,
+      "last_used": "2026-01-07T00:00:00Z",
+      "example_usage": "// jest.setup.ts\nimport '@library/testing/jest-setup';",
+      "source_project": "life-os-frontend/jest.setup.ts",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 100,
+      "lego_compatible": false,
+      "exports": [
+        "cleanupMocks",
+        "configure",
+        "createMockFetch",
+        "getConfig",
+        "interface",
+        "mockAPIResponse",
+        "mockErrorResponse",
+        "setupMocks"
+      ]
+    },
+    {
+      "id": "frozen-harness",
+      "name": "FrozenHarness Evaluation System",
+      "version": "1.0.0",
+      "description": "Immutable evaluation harness for grading artifacts.",
+      "location": "components/cognitive_architecture/loopctl/core.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "evaluation",
+        "harness",
+        "grading",
+        "metrics"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 15,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from loopctl.core import FrozenHarness",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 80,
+      "lego_compatible": false,
+      "exports": [
+        "FrozenHarness:",
+        "GradeMetrics:",
+        "check_emergency_stop"
+      ]
+    },
+    {
+      "id": "telemetry-bridge",
+      "name": "TelemetryBridge Memory MCP Integration",
+      "version": "1.0.0",
+      "description": "Bridges loop telemetry with Memory MCP storage.",
+      "location": "components/cognitive_architecture/integration/telemetry_bridge.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "Memory MCP"
+      ],
+      "keywords": [
+        "telemetry",
+        "memory",
+        "mcp"
+      ],
+      "dependencies": [
+        "chromadb"
+      ],
+      "test_coverage": 75,
+      "tests_passing": 10,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from integration.telemetry_bridge import TelemetryBridge",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 75,
+      "lego_compatible": false,
+      "exports": [
+        "LoopTelemetryRecord:",
+        "TelemetryBridge:",
+        "bridge_loop_to_telemetry"
+      ]
+    },
+    {
+      "id": "connascence-bridge",
+      "name": "ConnascenceBridge Quality Analyzer",
+      "version": "1.0.0",
+      "description": "7-Analyzer Suite bridge.",
+      "location": "components/cognitive_architecture/integration/connascence_bridge.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "connascence",
+        "quality",
+        "analyzer",
+        "nasa",
+        "six-sigma"
+      ],
+      "dependencies": [],
+      "test_coverage": 70,
+      "tests_passing": 8,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from integration.connascence_bridge import ConnascenceBridge",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 70,
+      "lego_compatible": false,
+      "exports": [
+        "ConnascenceBridge:",
+        "ConnascenceResult:",
+        "analyze_artifact",
+        "quality_gate"
+      ]
+    },
+    {
+      "id": "mode-library",
+      "name": "ModeLibrary Configuration System",
+      "version": "1.0.0",
+      "description": "Pareto-optimal configuration modes.",
+      "location": "components/cognitive_architecture/modes/library.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "mode",
+        "library",
+        "pareto",
+        "configuration"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 12,
+      "usage_count": 2,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from modes.library import get_mode",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "Mode:",
+        "ModeLibrary:",
+        "ModeType",
+        "get_mode",
+        "get_mode_config",
+        "list_modes"
+      ]
+    },
+    {
+      "id": "vcl-validator",
+      "name": "VCL Validator",
+      "version": "1.0.0",
+      "description": "Validates VERILINGUA v3.1.1 compliance.",
+      "location": "components/cognitive_architecture/core/vcl_validator.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "regex"
+      ],
+      "keywords": [
+        "vcl",
+        "validator",
+        "verilingua",
+        "verix"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from core.vcl_validator import VCLValidator",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "ASPType",
+        "CompressionLevel",
+        "EVDType",
+        "HONLevel",
+        "L2Naturalizer:",
+        "VCLConfig:",
+        "VCLSlot",
+        "VCLStatement:",
+        "VCLValidator:",
+        "ValidationResult:",
+        "compute_cluster_signature",
+        "enforce_safety_bounds",
+        "naturalize_to_l2",
+        "validate_vcl"
+      ]
+    },
+    {
+      "id": "two-stage-optimizer",
+      "name": "Two-Stage Multi-Objective Optimizer",
+      "version": "1.0.0",
+      "description": "GlobalMOO 5D + PyMOO NSGA-II 14D optimization.",
+      "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "pymoo"
+      ],
+      "keywords": [
+        "optimization",
+        "pareto",
+        "moo",
+        "nsga-ii"
+      ],
+      "dependencies": [
+        "pymoo",
+        "requests"
+      ],
+      "test_coverage": 75,
+      "tests_passing": 10,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from optimization.two_stage_optimizer import TwoStageOptimizer",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 75,
+      "lego_compatible": false,
+      "exports": [
+        "CognitiveProblem14D",
+        "CognitiveProblem5D",
+        "OptimizationResult:",
+        "TwoStageOptimizer:",
+        "config_14d_to_fullconfig",
+        "distill_named_modes",
+        "evaluate_config_14dim",
+        "evaluate_config_5dim",
+        "expand_5d_to_14d",
+        "main",
+        "run_globalmoo_stage",
+        "run_pymoo_refinement_stage",
+        "run_with_telemetry",
+        "save_results"
+      ]
+    },
+    {
+      "id": "cli-evaluator",
+      "name": "CLI Evaluator (Real LLM)",
+      "version": "1.0.0",
+      "description": "Real LLM-based evaluation using Claude CLI.",
+      "location": "components/cognitive_architecture/evals/cli_evaluator.py",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "subprocess"
+      ],
+      "keywords": [
+        "evaluator",
+        "llm",
+        "claude",
+        "cli"
+      ],
+      "dependencies": [],
+      "test_coverage": 70,
+      "tests_passing": 8,
+      "usage_count": 1,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from evals.cli_evaluator import CLIEvaluator",
+      "source_project": "context-cascade/cognitive-architecture",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 70,
+      "lego_compatible": false,
+      "exports": [
+        "CLITaskEvaluator:",
+        "ClaudeCLI:",
+        "EvaluationResult:",
+        "TaskResult:",
+        "main"
+      ]
+    },
+    {
+      "id": "money-handling",
+      "name": "Money Handling Pattern",
+      "version": "1.0.0",
+      "description": "CRITICAL: Decimal-based currency handling that REJECTS float entirely. Prevents precision errors in financial calculations. Includes Money class, arithmetic operations, formatting, and validation.",
+      "location": "patterns/money_handling/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "Decimal"
+      ],
+      "keywords": [
+        "money",
+        "currency",
+        "decimal",
+        "financial",
+        "amount",
+        "precision",
+        "float-rejection"
+      ],
+      "dependencies": [],
+      "test_coverage": 95,
+      "tests_passing": 25,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.patterns.money_handling import Money, FloatNotAllowedError\nm = Money(Decimal('19.99'), 'USD')  # OK\nm = Money(19.99)  # RAISES FloatNotAllowedError",
+      "source_project": "D:\\Projects\\trader-ai\\src\\utils\\money.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 95,
+      "critical": true,
+      "lego_compatible": false,
+      "exports": [
+        "CurrencyMismatchError",
+        "FloatNotAllowedError",
+        "Money",
+        "MoneyError",
+        "add_money",
+        "allocate_money",
+        "format_money",
+        "is_valid_currency",
+        "parse_money",
+        "subtract_money",
+        "validate_amount"
+      ]
+    },
+    {
+      "id": "webhook-idempotency",
+      "name": "Webhook Idempotency Pattern",
+      "version": "1.0.0",
+      "description": "CRITICAL: Prevents duplicate webhook processing via cached responses and distributed locking. Supports InMemory, Redis, and PostgreSQL backends. Includes FastAPI middleware and decorators.",
+      "location": "patterns/webhook_idempotency/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "asyncio",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "keywords": [
+        "webhook",
+        "idempotency",
+        "duplicate",
+        "stripe",
+        "payment",
+        "cache",
+        "distributed-lock"
+      ],
+      "dependencies": [
+        "redis",
+        "asyncpg"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.patterns.webhook_idempotency import idempotent, RedisIdempotencyStore\nstore = RedisIdempotencyStore(redis_client)\n@idempotent(store)\nasync def handle_webhook(request): ...",
+      "source_project": null,
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "critical": true,
+      "lego_compatible": false,
+      "exports": [
+        "FastAPIIdempotencyMiddleware",
+        "IdempotencyStore",
+        "InMemoryIdempotencyStore",
+        "PostgresIdempotencyStore",
+        "RedisIdempotencyStore",
+        "ensure_idempotent",
+        "extract_key_from_request",
+        "generate_idempotency_key",
+        "idempotent",
+        "idempotent_handler"
+      ]
+    },
+    {
+      "id": "banking-plaid",
+      "name": "Plaid Banking Integration",
+      "version": "1.0.0",
+      "description": "Plaid API client for bank account linking and transaction retrieval. Uses Decimal for all monetary values. Supports sandbox, development, and production environments.",
+      "location": "components/banking/plaid/",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "plaid-python",
+        "Decimal"
+      ],
+      "keywords": [
+        "plaid",
+        "banking",
+        "bank",
+        "account",
+        "transaction",
+        "link",
+        "oauth"
+      ],
+      "dependencies": [
+        "plaid-python"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking.plaid import PlaidClient\nclient = PlaidClient(environment='sandbox')\naccounts = client.get_accounts(access_token)",
+      "source_project": "D:\\Projects\\trader-ai\\src\\finances\\plaid_client.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "PlaidClient",
+        "PlaidError"
+      ]
+    },
+    {
+      "id": "banking-models",
+      "name": "Banking Data Models",
+      "version": "1.0.0",
+      "description": "Common banking dataclasses: BankAccount, Transaction, BankConnection. Uses Decimal for all monetary values. Provider-agnostic design.",
+      "location": "components/banking/models.py",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "dataclasses",
+        "Decimal"
+      ],
+      "keywords": [
+        "banking",
+        "account",
+        "transaction",
+        "model",
+        "dataclass"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 10,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking import BankAccount, Transaction\naccount = BankAccount(id='acc_123', name='Checking', balance=Decimal('1000.00'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\finances\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "AccountType",
+        "BankAccount:",
+        "BankConnection:",
+        "Transaction:",
+        "TransactionType"
+      ]
+    },
+    {
+      "id": "accounting-transactions",
+      "name": "Transaction Store",
+      "version": "1.0.0",
+      "description": "SQLite-based transaction storage with Decimal amounts. Includes TransactionQuery builder for flexible filtering. Supports accounts, transactions, and spending aggregations.",
+      "location": "components/accounting/transactions/",
+      "domain": "accounting",
+      "technology": [
+        "Python",
+        "SQLite",
+        "Decimal"
+      ],
+      "keywords": [
+        "accounting",
+        "transaction",
+        "storage",
+        "sqlite",
+        "query",
+        "spending",
+        "category"
+      ],
+      "dependencies": [],
+      "test_coverage": 82,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.accounting import TransactionStore, TransactionQuery\nstore = TransactionStore('data/transactions.db')\nrecent = store.get_recent_transactions(days=30)",
+      "source_project": "D:\\Projects\\trader-ai\\src\\finances\\bank_database.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "TransactionQuery",
+        "TransactionStore"
+      ]
+    },
+    {
+      "id": "circuit-breaker-trading",
+      "name": "Trading Circuit Breakers",
+      "version": "1.0.0",
+      "description": "Trading-specific circuit breakers and risk thresholds.",
+      "location": "components/trading/circuit_breakers/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal",
+        "threading"
+      ],
+      "keywords": [
+        "circuit-breaker",
+        "trading",
+        "risk",
+        "drawdown",
+        "volatility",
+        "loss-limit"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 24,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.circuit_breakers import CircuitBreakerManager\ncb = CircuitBreakerManager(daily_loss_limit=Decimal('0.02'))\nif cb.can_trade(): execute_trade()",
+      "source_project": "D:\\Projects\\trader-ai\\src\\risk\\circuit_breakers.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
+        "CircuitBreakerManager",
+        "CircuitBreakerMetrics",
+        "CircuitOpenException",
+        "CircuitState",
+        "CircuitType",
+        "PortfolioProvider",
+        "RequestResult",
+        "TradingBreakerConfig",
+        "TradingBreakerStatus",
+        "TradingBreakerType",
+        "TradingCircuitBreakers"
+      ]
+    },
+    {
+      "id": "gate-system-manager",
+      "name": "Gate System Manager",
+      "version": "1.0.0",
+      "description": "Capital-based gate system (G0-G12) with progressive position sizing and risk scaling. Async-safe state transitions. Supports gate upgrades and downgrades.",
+      "location": "components/trading/gate_system/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal",
+        "asyncio"
+      ],
+      "keywords": [
+        "gate",
+        "capital",
+        "position-sizing",
+        "risk-scaling",
+        "tier"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.gate_system import GateManager\ngm = GateManager()\ncurrent_gate = gm.calculate_gate(capital=Decimal('5000'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\gates\\gate_manager.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "DEFAULT_GATE_THRESHOLDS",
+        "GateConfig",
+        "GateLevel",
+        "GateManager",
+        "GraduationMetrics",
+        "TradeValidationResult",
+        "ViolationRecord",
+        "ViolationType",
+        "create_default_gate_configs"
+      ]
+    },
+    {
+      "id": "kelly-criterion-calculator",
+      "name": "Kelly Criterion Calculator",
+      "version": "1.0.0",
+      "description": "Position sizing using Kelly Criterion with fractional Kelly support. Decimal-only calculations, configurable max position size, and risk-adjusted returns.",
+      "location": "components/trading/position_sizing/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal"
+      ],
+      "keywords": [
+        "kelly",
+        "position-sizing",
+        "risk",
+        "optimal-f",
+        "bet-size"
+      ],
+      "dependencies": [],
+      "test_coverage": 92,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.position_sizing import KellyCalculator\nkelly = KellyCalculator(fraction=Decimal('0.5'))\nsize = kelly.calculate(win_rate=Decimal('0.55'), win_loss_ratio=Decimal('1.5'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\sizing\\kelly.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 94,
+      "lego_compatible": false,
+      "exports": [
+        "FULL_KELLY",
+        "HALF_KELLY",
+        "KellyCriterion",
+        "KellyRegime",
+        "KellyResult",
+        "PositionSizeResult",
+        "QUARTER_KELLY",
+        "TENTH_KELLY",
+        "quick_kelly"
+      ]
+    },
+    {
+      "id": "backtest-harness",
+      "name": "Backtest Harness",
+      "version": "1.0.0",
+      "description": "Generic backtesting framework with event-driven architecture. Supports multiple data sources, custom strategies, and comprehensive metrics (Sharpe, Sortino, max drawdown).",
+      "location": "components/testing/backtest_harness/",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "Decimal",
+        "pandas"
+      ],
+      "keywords": [
+        "backtest",
+        "testing",
+        "strategy",
+        "sharpe",
+        "drawdown",
+        "simulation"
+      ],
+      "dependencies": [
+        "pandas",
+        "numpy"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.testing.backtest_harness import BacktestEngine\nengine = BacktestEngine(strategy=my_strategy)\nresults = engine.run(data=historical_data)",
+      "source_project": "D:\\Projects\\trader-ai\\src\\backtest\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "BacktestConfig",
+        "BacktestEngine",
+        "BacktestResults",
+        "CostModel",
+        "FoldResult",
+        "PerformanceCalculator",
+        "SignalFunction",
+        "Strategy",
+        "Trade",
+        "WindowType",
+        "run_slippage_sensitivity"
+      ]
+    },
+    {
+      "id": "security-jwt",
+      "name": "Security JWT Authentication",
+      "version": "1.0.0",
+      "description": "JWT authentication with secure secret validation, issuer verification, and RS256/HS256 support. Includes FastAPI dependencies and middleware.",
+      "location": "components/security/jwt_auth/",
+      "domain": "security",
+      "technology": [
+        "Python",
+        "FastAPI",
+        "python-jose"
+      ],
+      "keywords": [
+        "jwt",
+        "security",
+        "authentication",
+        "token",
+        "bearer",
+        "fastapi"
+      ],
+      "dependencies": [
+        "python-jose",
+        "fastapi"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.security.jwt_auth import JWTAuth\nauth = JWTAuth(secret_key=os.environ['JWT_SECRET'])\ntoken = auth.create_token(user_id='123')",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\auth\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "JWTAuth",
+        "JWTConfig",
+        "generate_api_key",
+        "generate_secure_token"
+      ]
+    },
+    {
+      "id": "tagging-protocol",
+      "name": "WHO/WHEN/PROJECT/WHY Tagging Protocol",
+      "version": "1.0.0",
+      "description": "Standardized tagging protocol for Memory MCP writes. Enforces WHO, WHEN, PROJECT, WHY metadata on all memory operations.",
+      "location": "components/observability/tagging_protocol/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "tagging",
+        "metadata",
+        "memory-mcp",
+        "audit",
+        "traceability"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.tagging_protocol import TaggedEntry\nentry = TaggedEntry(who='agent:1.0', project='trader-ai', why='bugfix')",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\utils\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "AgentCategory",
+        "INTENT_DESCRIPTIONS",
+        "Intent",
+        "TaggingProtocol",
+        "create_simple_tagger",
+        "create_tagger"
+      ]
+    },
+    {
+      "id": "audit-logging",
+      "name": "Audit Logging System",
+      "version": "1.0.0",
+      "description": "Structured audit logging with diff tracking, batch operations, and async support. Tracks changes for compliance and debugging.",
+      "location": "components/observability/audit_logging/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "audit",
+        "logging",
+        "diff",
+        "compliance",
+        "tracking",
+        "history"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.audit_logging import AuditLogger\nlogger = AuditLogger()\nawait logger.log_change(entity='user', action='update', diff=changes)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "AuditEntry",
+        "AuditLogModelProtocol",
+        "AuditLogger",
+        "AuditOperation",
+        "SyncAuditLogger",
+        "create_audit_log_model"
+      ]
+    },
+    {
+      "id": "redis-pubsub",
+      "name": "Redis Pub/Sub Manager",
+      "version": "1.0.0",
+      "description": "Thread-safe Redis pub/sub with connection verification, exponential backoff retry, and async callback support. Prevents race conditions in subscription management.",
+      "location": "components/messaging/redis_pubsub/",
+      "domain": "messaging",
+      "technology": [
+        "Python",
+        "Redis",
+        "asyncio",
+        "threading"
+      ],
+      "keywords": [
+        "redis",
+        "pubsub",
+        "messaging",
+        "subscribe",
+        "publish",
+        "realtime"
+      ],
+      "dependencies": [
+        "redis"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.messaging.redis_pubsub import RedisPubSub\npubsub = RedisPubSub(redis_client)\nawait pubsub.subscribe('channel', callback)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "MessageHandler",
+        "RedisPubSub",
+        "create_redis_pubsub"
+      ]
+    },
+    {
+      "id": "redis-cache",
+      "name": "Redis Cache Layer",
+      "version": "1.0.0",
+      "description": "Redis caching with TTL, namespacing, and JSON serialization. Uses SCAN instead of KEYS for production safety.",
+      "location": "components/caching/redis_cache/",
+      "domain": "caching",
+      "technology": [
+        "Python",
+        "Redis"
+      ],
+      "keywords": [
+        "redis",
+        "cache",
+        "ttl",
+        "performance",
+        "key-value"
+      ],
+      "dependencies": [
+        "redis"
+      ],
+      "test_coverage": 86,
+      "tests_passing": 15,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.caching.redis_cache import RedisCache\ncache = RedisCache(redis_client, namespace='app')\nawait cache.set('key', value, ttl=3600)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "RedisCache",
+        "RedisCacheConfig",
+        "cached",
+        "close_default_cache",
+        "generate_cache_key",
+        "get_default_cache",
+        "init_default_cache",
+        "invalidate_on_write"
+      ]
+    },
+    {
+      "id": "spec-validation",
+      "name": "Spec Validation Framework",
+      "version": "1.0.0",
+      "description": "JSON Schema and Pydantic-based spec validation with detailed error messages. Supports custom validators and nested object validation.",
+      "location": "components/validation/spec_validation/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "Pydantic",
+        "jsonschema"
+      ],
+      "keywords": [
+        "validation",
+        "schema",
+        "spec",
+        "pydantic",
+        "json-schema"
+      ],
+      "dependencies": [
+        "pydantic",
+        "jsonschema"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.spec_validation import SpecValidator\nvalidator = SpecValidator(schema=my_schema)\nresult = validator.validate(data)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\validation\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "BaseValidator",
+        "ContextValidator",
+        "DEFAULT_CONTEXT_SCHEMA",
+        "DEFAULT_IMPLEMENTATION_PLAN_SCHEMA",
+        "DEFAULT_PHASE_SCHEMA",
+        "DEFAULT_REQUIREMENTS_SCHEMA",
+        "DEFAULT_SPEC_RECOMMENDED_SECTIONS",
+        "DEFAULT_SPEC_REQUIRED_SECTIONS",
+        "DEFAULT_SUBTASK_SCHEMA",
+        "DEFAULT_VERIFICATION_SCHEMA",
+        "ImplementationPlanValidator",
+        "JSONFileValidator",
+        "MarkdownDocumentValidator",
+        "PrereqsValidator",
+        "SpecDocumentValidator",
+        "SpecValidator",
+        "Validatable",
+        "ValidationResult",
+        "ValidationSchema",
+        "ValidatorFactory",
+        "create_validator_from_config",
+        "validate_spec_directory"
+      ]
+    },
+    {
+      "id": "memory-mcp-client-v2",
+      "name": "Memory MCP Client v2",
+      "version": "2.0.0",
+      "description": "Thread-safe Memory MCP client with connection pooling, race condition prevention, and proper async lock patterns. Supports triple-layer (24h/7d/30d) memory.",
+      "location": "components/memory/memory_mcp_client/",
+      "domain": "memory",
+      "technology": [
+        "Python",
+        "asyncio",
+        "ChromaDB"
+      ],
+      "keywords": [
+        "memory",
+        "mcp",
+        "client",
+        "chromadb",
+        "triple-layer",
+        "persistence"
+      ],
+      "dependencies": [
+        "chromadb"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.memory.memory_mcp_client import MemoryMCPClient\nclient = MemoryMCPClient()\nawait client.store('key', value, layer='mid-term')",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AgentCategory",
+        "CacheLayer",
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
+        "CircuitBreakerError",
+        "CircuitBreakerState",
+        "CircuitBreakerStatus",
+        "FallbackStorage",
+        "HealthStatus",
+        "INTENT_DESCRIPTIONS",
+        "InMemoryCache",
+        "InMemoryFallback",
+        "Intent",
+        "MCPTransport",
+        "MemoryMCPClient",
+        "MemoryMCPConfig",
+        "MemoryStorePayload",
+        "MemoryTags",
+        "MockMCPTransport",
+        "ProjectTag",
+        "StoreResult",
+        "TaggingConfig",
+        "TaggingProtocol",
+        "TaskHistoryResult",
+        "WhenTag",
+        "WhoTag",
+        "WhyTag",
+        "__author__",
+        "__source__",
+        "__version__",
+        "create_backend_tagger",
+        "create_custom_tagger",
+        "create_frontend_tagger",
+        "create_memory_mcp_client",
+        "create_testing_tagger"
+      ]
+    },
+    {
+      "id": "fetch-api-client",
+      "name": "Fetch API Client",
+      "version": "1.0.0",
+      "description": "TypeScript fetch wrapper with AbortController support, automatic JSON parsing, error handling, and configurable timeouts. SSR-compatible.",
+      "location": "components/http/fetch_api_client/",
+      "domain": "http",
+      "technology": [
+        "TypeScript",
+        "Fetch API"
+      ],
+      "keywords": [
+        "fetch",
+        "http",
+        "client",
+        "api",
+        "abort",
+        "timeout"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { ApiClient } from '@library/http';\nconst client = new ApiClient({ baseUrl: '/api' });\nconst data = await client.get('/users');",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\lib\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "// Class\n  FetchApiClient",
+        "// Error class\n  FetchApiError",
+        "// Factory functions\n  createFetchClient",
+        "// Types - Configuration\n  type FetchClientConfig",
+        "// Types - Context\n  type RequestContext",
+        "// Types - Interceptors\n  type RequestInterceptor",
+        "getDefaultClient",
+        "initDefaultClient",
+        "quickClient",
+        "resetDefaultClient",
+        "restClient",
+        "type ErrorContext",
+        "type ErrorInterceptor",
+        "type ResponseContext",
+        "type ResponseInterceptor",
+        "type RetryConfig"
+      ]
+    },
+    {
+      "id": "kanban-store",
+      "name": "Kanban Store (Zustand)",
+      "version": "1.0.0",
+      "description": "Zustand-based Kanban state management with drag-and-drop support, optimistic updates, and persistence. Includes column/task CRUD operations.",
+      "location": "components/state/kanban_store/",
+      "domain": "state",
+      "technology": [
+        "TypeScript",
+        "Zustand",
+        "React"
+      ],
+      "keywords": [
+        "kanban",
+        "zustand",
+        "state",
+        "drag-drop",
+        "board",
+        "tasks"
+      ],
+      "dependencies": [
+        "zustand"
+      ],
+      "test_coverage": 82,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { useKanbanStore } from '@library/state';\nconst { columns, addTask, moveTask } = useKanbanStore();",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\stores\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "// Helper functions\n  createEmptyColumns",
+        "// Main factory\n  createKanbanStore",
+        "// Persistence adapters\n  createApiPersistenceAdapter",
+        "// Selectors\n  selectColumn",
+        "DEFAULT_3_COLUMN_CONFIG",
+        "DEFAULT_4_COLUMN_CONFIG",
+        "DEFAULT_5_COLUMN_CONFIG",
+        "DEV_PIPELINE_CONFIG",
+        "SCRUM_COLUMN_CONFIG",
+        "createLocalStoragePersistenceAdapter",
+        "findItemInColumns",
+        "organizeItemsByColumn",
+        "selectColumnCounts",
+        "selectItemById",
+        "selectTotalCount",
+        "type",
+        "useTaskKanban"
+      ]
+    },
+    {
+      "id": "design-system",
+      "name": "Design System Components",
+      "version": "1.0.0",
+      "description": "React design system with Button, Card, Input, Badge, and Tooltip components. Tailwind-based styling with theme support.",
+      "location": "components/ui/design_system/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Tailwind"
+      ],
+      "keywords": [
+        "design-system",
+        "ui",
+        "components",
+        "tailwind",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 78,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { Button, Card, Input } from '@library/ui';\n<Card><Input /><Button>Submit</Button></Card>",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\components\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 80,
+      "lego_compatible": false,
+      "exports": [
+        "Badge",
+        "CSS_TOKENS",
+        "Card",
+        "CardContent",
+        "CardFooter",
+        "CardHeader",
+        "Input",
+        "MetricCard",
+        "MetricGrid",
+        "StatusDot",
+        "Textarea",
+        "file",
+        "type"
+      ]
+    },
+    {
+      "id": "consensus-display",
+      "name": "LLM Council Consensus Display",
+      "version": "1.0.0",
+      "description": "React components for displaying LLM Council consensus results. Shows model votes, agreement percentages, and dissent explanations.",
+      "location": "components/ai/consensus_display/",
+      "domain": "ai",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "consensus",
+        "llm",
+        "council",
+        "ai",
+        "voting",
+        "display"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 75,
+      "tests_passing": 10,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { ConsensusDisplay } from '@library/ai';\n<ConsensusDisplay result={councilResult} />",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\components\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 78,
+      "lego_compatible": false,
+      "exports": [
+        "ConsensusDisplay",
+        "DEFAULT_CONSENSUS_COLORS",
+        "MODEL_STATUS_COLORS",
+        "formatConsensusStatus",
+        "getConsensusColor",
+        "getModelStatusColor",
+        "type"
+      ]
+    },
+    {
+      "id": "api-services",
+      "name": "API Service Layer",
+      "version": "1.0.0",
+      "description": "TypeScript service classes for API endpoints: UserService, ProjectService, AgentService, etc. Uses fetch-api-client under the hood.",
+      "location": "components/http/api_services/",
+      "domain": "http",
+      "technology": [
+        "TypeScript"
+      ],
+      "keywords": [
+        "api",
+        "service",
+        "crud",
+        "rest",
+        "typescript"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { UserService } from '@library/http';\nconst users = await UserService.list({ page: 1 });",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "ApiClient",
+        "BaseResourceService",
+        "CalendarService",
+        "IdeasService",
+        "NotesService",
+        "ProductivityService",
+        "QAPipelineService",
+        "QAService",
+        "QueryBuilder",
+        "RecoveryService",
+        "SpecPipelineService",
+        "async",
+        "createApiClient",
+        "createAuthenticatedClient",
+        "createCalendarService",
+        "createClientFromEnv",
+        "createIdeasService",
+        "createNotesService",
+        "createProductivityService",
+        "createQAPipelineService",
+        "createQAService",
+        "createRecoveryService",
+        "createServicesFromEnv",
+        "createSpecPipelineService",
+        "getFieldError",
+        "getValidationErrors",
+        "isApiError",
+        "isForbidden",
+        "isHttpStatus",
+        "isNotFound",
+        "isTimeout",
+        "isUnauthorized",
+        "isValidationError",
+        "query",
+        "type"
+      ]
+    },
+    {
+      "id": "verix-parser",
+      "name": "VERIX Epistemic Parser",
+      "version": "1.0.0",
+      "description": "Parser for VERIX epistemic notation. Extracts confidence scores, grounding sources, and illocutionary acts from marked-up text. ReDoS-protected regex patterns.",
+      "location": "components/cognitive/verix_parser/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "regex"
+      ],
+      "keywords": [
+        "verix",
+        "parser",
+        "epistemic",
+        "confidence",
+        "grounding"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.verix_parser import VerixParser\nparser = VerixParser()\nresult = parser.parse('[assert|neutral] claim [conf:0.9]')",
+      "source_project": "context-cascade/skills/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "Affect",
+        "Agent",
+        "CompressionLevel",
+        "Illocution",
+        "L0_CONTENT_TRUNCATION_LENGTH",
+        "MAX_CLAIMS_LIMIT",
+        "MAX_INPUT_LENGTH",
+        "MetaLevel",
+        "PromptConfig",
+        "State",
+        "VERSION",
+        "VerixClaim",
+        "VerixParser",
+        "VerixStrictness",
+        "VerixValidator",
+        "__version__",
+        "create_claim",
+        "create_meta_claim",
+        "create_meta_verix_claim",
+        "format_claim"
+      ]
+    },
+    {
+      "id": "cognitive-config",
+      "name": "Cognitive Frame Configuration",
+      "version": "1.0.0",
+      "description": "Configuration system for VERILINGUA cognitive frames. Manages frame weights, mode selection, and threshold settings.",
+      "location": "components/cognitive/cognitive_config/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "cognitive",
+        "config",
+        "frames",
+        "verilingua",
+        "weights"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 15,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.cognitive_config import CognitiveConfig\nconfig = CognitiveConfig.load('audit')",
+      "source_project": "context-cascade/modes/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "CompressionLevel",
+        "DEFAULT_CONFIG",
+        "DEFAULT_EVIDENTIAL_MINIMUM",
+        "DEFAULT_FRAME_WEIGHTS",
+        "FrameworkConfig",
+        "FullConfig",
+        "MINIMAL_CONFIG",
+        "NAMED_MODES",
+        "PromptConfig",
+        "STRICT_CONFIG",
+        "VectorCodec",
+        "VerixStrictness",
+        "create_audit_config",
+        "create_balanced_config",
+        "create_research_config",
+        "create_robust_config",
+        "create_speed_config",
+        "get_named_mode"
+      ]
+    },
+    {
+      "id": "skill-validator",
+      "name": "Skill Validator",
+      "version": "1.0.0",
+      "description": "Validates Context Cascade skill definitions. Checks required sections, VCL compliance, and skill chaining references.",
+      "location": "components/validation/skill_validator/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "yaml"
+      ],
+      "keywords": [
+        "skill",
+        "validator",
+        "context-cascade",
+        "vcl",
+        "markdown"
+      ],
+      "dependencies": [
+        "pyyaml"
+      ],
+      "test_coverage": 82,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.skill_validator import SkillValidator\nvalidator = SkillValidator()\nresult = validator.validate_file('skill.md')",
+      "source_project": "context-cascade/validators/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 84,
+      "lego_compatible": false,
+      "exports": [
+        "DEFAULT_CATEGORY_KEYWORDS",
+        "STOPWORDS",
+        "SkillData",
+        "SkillIndexer",
+        "SkillValidator",
+        "ValidationResult",
+        "YAML_AVAILABLE",
+        "__author__",
+        "__version__",
+        "extract_keywords",
+        "extract_section",
+        "extract_trigger_positive",
+        "parse_yaml_fallback",
+        "parse_yaml_frontmatter",
+        "parse_yaml_safe",
+        "validate_single_file"
+      ]
+    },
+    {
+      "id": "markdown-metadata",
+      "name": "Markdown Metadata Parser",
+      "version": "1.0.0",
+      "description": "Extracts frontmatter and structured metadata from markdown files. Supports YAML frontmatter and inline metadata blocks.",
+      "location": "components/parsing/markdown_metadata/",
+      "domain": "parsing",
+      "technology": [
+        "Python",
+        "yaml"
+      ],
+      "keywords": [
+        "markdown",
+        "frontmatter",
+        "metadata",
+        "yaml",
+        "parser"
+      ],
+      "dependencies": [
+        "pyyaml"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.parsing.markdown_metadata import parse_frontmatter\nmeta, content = parse_frontmatter(markdown_text)",
+      "source_project": "context-cascade/utils/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "// Core Parsing\n  detectType",
+        "// File Discovery\n  findMarkdownFiles",
+        "// Serialization\n  serializeFrontmatter",
+        "// Skill Metadata Extraction\n  inferSkillName",
+        "// Type Definitions\n  type FrontmatterValue",
+        "createMarkdown",
+        "extractSkillMetadata",
+        "getShortDescription",
+        "getSkillName",
+        "isValidSkillName",
+        "parseFrontmatter",
+        "parseMarkdown",
+        "type FileSearchResult",
+        "type Frontmatter",
+        "type ParseOptions",
+        "type ParseResult",
+        "type SkillExtractionOptions",
+        "type SkillMetadata"
+      ]
+    },
+    {
+      "id": "opentelemetry-lite",
+      "name": "OpenTelemetry Lite Wrapper",
+      "version": "1.0.0",
+      "description": "Lightweight OpenTelemetry wrapper for tracing and metrics. Configurable exporters, span context propagation, and metric aggregation.",
+      "location": "components/observability/opentelemetry_lite/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "OpenTelemetry"
+      ],
+      "keywords": [
+        "opentelemetry",
+        "tracing",
+        "metrics",
+        "observability",
+        "spans"
+      ],
+      "dependencies": [
+        "opentelemetry-api",
+        "opentelemetry-sdk"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.otel import OTelTracer\nwith OTelTracer.span('operation'):\n    do_work()",
+      "source_project": "context-cascade/telemetry/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "CallbackSpanExporter",
+        "ConsoleSpanExporter",
+        "DEFAULT_TELEMETRY_CONFIG",
+        "InMemorySpanExporter",
+        "LogLevel",
+        "MetricsCollector",
+        "Span",
+        "SpanStatus",
+        "StructuredLogger",
+        "Tracer",
+        "createTelemetry",
+        "generateSpanId",
+        "generateTraceId",
+        "type"
+      ]
+    },
+    {
+      "id": "pattern-matcher",
+      "name": "Pattern Matcher",
+      "version": "1.0.0",
+      "description": "Generic pattern detection with injectable pattern database. LRU-cached regex compilation with error handling. Supports multi-pattern matching.",
+      "location": "components/analysis/pattern_matcher/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "regex"
+      ],
+      "keywords": [
+        "pattern",
+        "matcher",
+        "regex",
+        "detection",
+        "analysis"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.pattern_matcher import PatternMatcher\nmatcher = PatternMatcher(patterns=slop_patterns)\nmatches = matcher.find_all(text)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "MatchResult",
+        "PatternConfig",
+        "PatternDatabase",
+        "PatternDefinition",
+        "PatternMatch",
+        "PatternMatcher",
+        "PatternType",
+        "SignalLevel",
+        "create_matcher_from_wordlist"
+      ]
+    },
+    {
+      "id": "scoring-aggregator",
+      "name": "Scoring Aggregator",
+      "version": "1.0.0",
+      "description": "Weighted score aggregation with configurable grading schemes. Input validation, tuple length checks, and grade calculation.",
+      "location": "components/analysis/scoring_aggregator/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "scoring",
+        "aggregation",
+        "grading",
+        "weighted",
+        "metrics"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.scoring_aggregator import ScoringAggregator\nagg = ScoringAggregator(weights={'accuracy': 0.4, 'speed': 0.6})\nscore = agg.aggregate(scores)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "AggregatedResult",
+        "AnalyzerScore",
+        "ConfidenceLevel",
+        "GradeConfig",
+        "GradeMode",
+        "GradeThreshold",
+        "ScoringAggregator",
+        "TextLengthConfidenceCalculator",
+        "create_content_analysis_aggregator",
+        "create_quality_gate_aggregator"
+      ]
+    },
+    {
+      "id": "violation-factory",
+      "name": "Violation Factory",
+      "version": "1.0.0",
+      "description": "Generic violation/issue creation with standardized schema. SARIF-compatible output, severity comparison, and location tracking.",
+      "location": "components/analysis/violation_factory/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "violation",
+        "issue",
+        "sarif",
+        "severity",
+        "linting"
+      ],
+      "dependencies": [],
+      "test_coverage": 86,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.violation_factory import ViolationFactory\nv = ViolationFactory.create(severity='high', message='Issue found', line=42)",
+      "source_project": "D:\\Projects\\connascence\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "Location",
+        "Severity",
+        "Violation",
+        "ViolationCollection",
+        "ViolationFactory"
+      ]
+    },
+    {
+      "id": "statistical-analyzer",
+      "name": "Statistical Analyzer",
+      "version": "1.0.0",
+      "description": "Text statistics: entropy, burstiness, TTR (Type-Token Ratio), hapax legomena, sentence analysis. Configurable thresholds for quality assessment.",
+      "location": "components/analysis/statistical_analyzer/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "statistics"
+      ],
+      "keywords": [
+        "statistics",
+        "entropy",
+        "ttr",
+        "hapax",
+        "text-analysis"
+      ],
+      "dependencies": [],
+      "test_coverage": 84,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.statistical_analyzer import StatisticalAnalyzer\nanalyzer = StatisticalAnalyzer()\nstats = analyzer.analyze(text)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "BurstinessMetrics",
+        "EntropyMetrics",
+        "HapaxMetrics",
+        "LexicalDiversityMetrics",
+        "SentenceStartMetrics",
+        "StatisticalAnalyzer",
+        "StatisticalMetrics",
+        "calculate_coefficient_of_variation",
+        "calculate_hapax_ratio",
+        "calculate_shannon_entropy",
+        "calculate_type_token_ratio"
+      ]
+    },
+    {
+      "id": "report-generator",
+      "name": "Report Generator",
+      "version": "1.0.0",
+      "description": "Multi-format report generation (TEXT, MARKDOWN, JSON). Configurable section ordering, severity grouping, and summary statistics.",
+      "location": "components/reporting/report_generator/",
+      "domain": "reporting",
+      "technology": [
+        "Python",
+        "json"
+      ],
+      "keywords": [
+        "report",
+        "generator",
+        "markdown",
+        "json",
+        "output"
+      ],
+      "dependencies": [],
+      "test_coverage": 82,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.reporting.report_generator import ReportGenerator\ngen = ReportGenerator(format='markdown')\nreport = gen.generate(violations)",
+      "source_project": "D:\\Projects\\connascence\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 84,
+      "lego_compatible": false,
+      "exports": [
+        "Issue",
+        "OutputFormat",
+        "Report",
+        "ReportGenerator",
+        "ReportSummary",
+        "Severity",
+        "create_issue",
+        "generate_simple_report"
+      ]
+    },
+    {
+      "id": "quality-validator",
+      "name": "Quality Validator",
+      "version": "1.0.0",
+      "description": "Evidence-based quality validation with configurable gates. Theater detection for fake quality indicators. Float comparison epsilon handling.",
+      "location": "components/validation/quality_validator/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "quality",
+        "validator",
+        "gate",
+        "theater-detection",
+        "evidence"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.quality_validator import QualityValidator\nv = QualityValidator(threshold=0.8)\nresult = v.validate(metrics)",
+      "source_project": "D:\\Projects\\connascence\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AnalysisResult",
+        "EvidenceQuality",
+        "QualityClaim",
+        "QualityValidator",
+        "RiskLevel",
+        "Severity",
+        "SystemicTheaterResult",
+        "TheaterDetectionResult",
+        "TheaterDetector",
+        "TheaterPattern",
+        "ValidationResult",
+        "Violation",
+        "detect_theater",
+        "is_theater"
+      ]
+    },
+    {
+      "id": "websocket-manager",
+      "name": "WebSocket Connection Manager",
+      "version": "1.0.0",
+      "description": "Async WebSocket connection manager with heartbeat, reconnection, and Redis backing for horizontal scaling. Thread-safe connection tracking and message broadcasting.",
+      "location": "components/realtime/websocket_manager/",
+      "domain": "realtime",
+      "technology": [
+        "Python",
+        "asyncio",
+        "websockets",
+        "Redis"
+      ],
+      "keywords": [
+        "websocket",
+        "realtime",
+        "connection",
+        "heartbeat",
+        "broadcast",
+        "scaling"
+      ],
+      "dependencies": [
+        "websockets",
+        "redis"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.realtime.websocket_manager import WebSocketManager\nmanager = WebSocketManager(redis_client)\nawait manager.connect(websocket, user_id)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "Connection",
+        "ConnectionManager",
+        "DistributedWebSocketManager",
+        "Message",
+        "MessageType",
+        "RedisBroadcaster"
+      ]
+    },
+    {
+      "id": "auditor-base",
+      "name": "Auditor Base Pattern",
+      "version": "1.0.0",
+      "description": "Abstract base class for structured auditors with VERIX-compatible output. Includes Illocution, Affect, ActionClass enums and AuditorResult dataclass with confidence ceiling enforcement.",
+      "location": "components/patterns/auditor_base/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "auditor",
+        "audit",
+        "verix",
+        "illocution",
+        "confidence",
+        "action-class"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.patterns.auditor_base import BaseAuditor, AuditorResult\nclass MyAuditor(BaseAuditor):\n    auditor_type = 'custom'\n    def audit(self, artifact, eval_report, config): ...",
+      "source_project": "context-cascade/cognitive-architecture/integration/auditors.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "ActionClass",
+        "Affect",
+        "AuditorResult",
+        "BaseAuditor",
+        "Illocution"
+      ]
+    },
+    {
+      "id": "image-generator-base",
+      "name": "Image Generator Base Pattern",
+      "version": "1.0.0",
+      "description": "Abstract base class for pluggable image generation with provider registry. Supports local models (SDXL, SD1.5), APIs (OpenAI, Replicate). Priority-based provider selection prefers local over API.",
+      "location": "components/patterns/image_generator_base/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "image",
+        "generator",
+        "provider",
+        "registry",
+        "sdxl",
+        "dalle",
+        "replicate"
+      ],
+      "dependencies": [],
+      "test_coverage": 78,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.patterns.image_generator_base import ImageGeneratorBase, ProviderRegistry\nclass MyGenerator(ImageGeneratorBase):\n    provider = ImageProvider.CUSTOM\n    def generate(self, prompt, output_path, config=None): ...",
+      "source_project": "context-cascade/scripts/multi-model/image-gen/base.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "GeneratedImage",
+        "ImageConfig",
+        "ImageGeneratorBase",
+        "ImageProvider",
+        "ProviderRegistry"
+      ]
+    },
+    {
+      "id": "ast-visitor-base",
+      "name": "AST Visitor Base Pattern",
+      "version": "1.0.0",
+      "description": "Base visitor classes for Python AST traversal during code analysis. Includes concrete visitors for magic literals (CoM), parameter bombs (CoP), god objects (CoA), and cyclomatic complexity.",
+      "location": "components/analysis/ast_visitor_base/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "ast"
+      ],
+      "keywords": [
+        "ast",
+        "visitor",
+        "connascence",
+        "complexity",
+        "code-analysis",
+        "pattern"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.ast_visitor_base import BaseConnascenceVisitor, VisitorContext\nclass MyVisitor(BaseConnascenceVisitor):\n    def get_violation_type(self): return 'custom'\n    def visit_FunctionDef(self, node): ...",
+      "source_project": "D:\\Projects\\connascence\\analyzer\\ast_engine\\visitors.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "BaseConnascenceVisitor",
+        "ComplexityVisitor",
+        "GodObjectVisitor",
+        "MagicLiteralVisitor",
+        "ParameterPositionVisitor",
+        "VisitorContext"
+      ]
+    },
+    {
+      "id": "stripe-integration",
+      "name": "Stripe Payment Integration",
+      "version": "1.0.0",
+      "description": "Production-ready async Stripe integration with payment intents, customers, subscriptions, and secure webhook handling with HMAC verification.",
+      "location": "components/payments/stripe/",
+      "domain": "payments",
+      "technology": [
+        "Python",
+        "stripe[async]",
+        "asyncio"
+      ],
+      "keywords": [
+        "stripe",
+        "payments",
+        "webhooks",
+        "subscriptions",
+        "checkout"
+      ],
+      "dependencies": [
+        "stripe"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.payments.stripe import StripeClient\nclient = StripeClient()\nintent = await client.create_payment_intent_async(Money(Decimal('19.99'), 'USD'))",
+      "source_project": "https://github.com/stripe/stripe-python",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 90,
+      "critical": true,
+      "lego_compatible": false,
+      "exports": [
+        "Customer",
+        "PaymentIntent",
+        "PaymentStatus",
+        "SignatureVerificationError",
+        "StripeClient",
+        "StripeConfig",
+        "StripeWebhookHandler",
+        "Subscription",
+        "SubscriptionStatus",
+        "WebhookEvent",
+        "WebhookEventType",
+        "WebhookProcessingError",
+        "create_stripe_webhook_route"
+      ]
+    },
+    {
+      "id": "mercury-integration",
+      "name": "Mercury Bank Integration",
+      "version": "1.0.0",
+      "description": "Async Mercury banking API client for accounts, transactions, ACH transfers, and recipient management. Decimal-only money handling.",
+      "location": "components/banking/mercury/",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "httpx",
+        "asyncio"
+      ],
+      "keywords": [
+        "mercury",
+        "banking",
+        "ach",
+        "transfers",
+        "accounts"
+      ],
+      "dependencies": [
+        "httpx"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking.mercury import MercuryClient\nasync with MercuryClient() as client:\n    accounts = await client.get_accounts()",
+      "source_project": "https://github.com/trix-solutions/mercury",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "AccountType",
+        "MercuryAccount",
+        "MercuryClient",
+        "MercuryConfig",
+        "MercuryRecipient",
+        "MercuryTransaction",
+        "TransactionStatus",
+        "TransactionType"
+      ]
+    },
+    {
+      "id": "transaction-categorizer",
+      "name": "Transaction Categorizer",
+      "version": "1.0.0",
+      "description": "ML-based transaction categorization using scikit-learn. Rule-based matching for known merchants, trainable classifier for unknown transactions.",
+      "location": "components/accounting/categorizer/",
+      "domain": "accounting",
+      "technology": [
+        "Python",
+        "scikit-learn"
+      ],
+      "keywords": [
+        "categorization",
+        "ml",
+        "transactions",
+        "classification",
+        "plaid"
+      ],
+      "dependencies": [
+        "scikit-learn"
+      ],
+      "test_coverage": 82,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.accounting.categorizer import TransactionCategorizer\ncategorizer = TransactionCategorizer()\nresult = categorizer.categorize('STARBUCKS #1234')",
+      "source_project": "https://github.com/eli-goodfriend/banking-class",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 84,
+      "lego_compatible": false,
+      "exports": [
+        "CategorizerConfig",
+        "CategoryResult",
+        "TransactionCategorizer",
+        "TransactionCategory"
+      ]
+    },
+    {
+      "id": "task-scheduler",
+      "name": "Task Scheduler",
+      "version": "1.0.0",
+      "description": "Async task scheduling for FastAPI with APScheduler backend. Supports interval, cron, and one-time jobs with decorator-based registration.",
+      "location": "components/scheduling/task_scheduler/",
+      "domain": "scheduling",
+      "technology": [
+        "Python",
+        "APScheduler",
+        "FastAPI"
+      ],
+      "keywords": [
+        "scheduler",
+        "cron",
+        "jobs",
+        "background",
+        "fastapi"
+      ],
+      "dependencies": [
+        "apscheduler"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.scheduling.task_scheduler import TaskScheduler\nscheduler = TaskScheduler()\n@scheduler.cron(hour=2)\nasync def nightly_job(): ...",
+      "source_project": "https://github.com/agronholm/apscheduler",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "JobConfig",
+        "SchedulerConfig",
+        "TaskScheduler",
+        "TriggerType",
+        "create_scheduler_lifespan"
+      ]
+    },
+    {
+      "id": "pipeline-executor",
+      "name": "Pipeline Executor",
+      "version": "1.0.0",
+      "description": "Lightweight async pipeline executor with DAG-based dependency resolution, parallel execution, retry with backoff, and step result caching.",
+      "location": "components/orchestration/pipeline_executor/",
+      "domain": "orchestration",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "pipeline",
+        "workflow",
+        "dag",
+        "orchestration",
+        "etl"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 24,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.orchestration.pipeline_executor import PipelineExecutor\nexecutor = PipelineExecutor()\n@executor.step('fetch')\nasync def fetch(): ...",
+      "source_project": "https://github.com/PrefectHQ/prefect",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "PipelineConfig",
+        "PipelineExecutor",
+        "StepConfig",
+        "StepResult",
+        "StepStatus"
+      ]
+    },
+    {
+      "id": "react-hooks",
+      "name": "React Hooks Library",
+      "version": "1.0.0",
+      "description": "Production React hooks: useLocalStorage (cross-tab sync, SSR-safe), useAsyncState (loading/error states, race condition prevention), useAbortableAsyncState.",
+      "location": "components/react_hooks/",
+      "domain": "react",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "hooks",
+        "localStorage",
+        "async",
+        "state",
+        "react"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { useLocalStorage, useAsyncState } from '@library/react-hooks';\nconst [theme, setTheme] = useLocalStorage('theme', 'light');",
+      "source_project": "https://github.com/juliencrn/usehooks-ts",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "type AbortableAsyncFn",
+        "type AbortableAsyncState",
+        "type AbortableStatus",
+        "type AsyncState",
+        "type AsyncStatus",
+        "type SetValue",
+        "type UseAbortableAsyncOptions",
+        "type UseAbortableAsyncReturn",
+        "type UseAsyncStateOptions",
+        "type UseAsyncStateReturn",
+        "type UseDebounceOptions",
+        "type UseDebounceReturn",
+        "type UseDebouncedCallbackReturn",
+        "type UseLocalStorageOptions",
+        "type UseLocalStorageReturn",
+        "type UseThrottleOptions",
+        "type UseThrottleReturn",
+        "type UseThrottledCallbackReturn",
+        "useAbortableAsync",
+        "useAbortableAsyncState",
+        "useAsyncState",
+        "useDebounce",
+        "useDebouncedCallback",
+        "useLocalStorage",
+        "useThrottle",
+        "useThrottledCallback"
+      ]
+    },
+    {
+      "id": "skill-base",
+      "name": "Skill Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for Context Cascade skills with lifecycle management, metadata registry, hook integration, and composite skill patterns.",
+      "location": "components/cognitive/skill_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "skill",
+        "base",
+        "lifecycle",
+        "registry",
+        "cognitive",
+        "orchestration"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.skill_base import SkillBase, skill_metadata\n@skill_metadata(name='my-skill')\nclass MySkill(SkillBase): ...",
+      "source_project": "https://github.com/Rockhopper-Technologies/pluginlib",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "CompositeSkill",
+        "ConfidenceLevel",
+        "InputContract",
+        "OutputContract",
+        "QualityScore",
+        "SkillBase",
+        "SkillCategory",
+        "SkillContext",
+        "SkillMetadata",
+        "SkillPhase",
+        "SkillResult",
+        "get_skill",
+        "list_skills",
+        "skill_metadata"
+      ]
+    },
+    {
+      "id": "agent-base",
+      "name": "Agent Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for Context Cascade agents with Memory MCP integration, quality gates, artifact contracts, and composite agent patterns.",
+      "location": "components/cognitive/agent_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "agent",
+        "base",
+        "lifecycle",
+        "memory-mcp",
+        "cognitive"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.agent_base import AgentBase, agent_metadata\n@agent_metadata(name='my-agent', category=AgentCategory.DELIVERY)\nclass MyAgent(AgentBase): ...",
+      "source_project": "context-cascade/agents/README.md",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AgentBase",
+        "AgentCategory",
+        "AgentMetadata",
+        "AgentPhase",
+        "AgentResult",
+        "AgentStatus",
+        "AgentTask",
+        "AgentType",
+        "ArtifactContract",
+        "CompositeAgent",
+        "ConfidenceLevel",
+        "InputContract",
+        "MCPServer",
+        "MemoryTag",
+        "OutputContract",
+        "PerformanceMetrics",
+        "QualityGate",
+        "agent_metadata",
+        "get_agent",
+        "list_agents",
+        "list_agents_by_category"
+      ]
+    },
+    {
+      "id": "command-base",
+      "name": "Command Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for Context Cascade slash commands with argument parsing, skill binding, alias support, and help generation.",
+      "location": "components/cognitive/command_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "command",
+        "cli",
+        "slash",
+        "parsing",
+        "routing"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.command_base import CommandBase, command_metadata\n@command_metadata(name='fix-bug', skill_binding='fix-bug')\nclass FixBugCommand(CommandBase): ...",
+      "source_project": "typer-cli-patterns",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "CommandArg",
+        "CommandArgs",
+        "CommandBase",
+        "CommandCategory",
+        "CommandMetadata",
+        "CommandResult",
+        "command_metadata",
+        "get_command",
+        "list_commands",
+        "list_commands_by_category"
+      ]
+    },
+    {
+      "id": "playbook-base",
+      "name": "Playbook Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for Context Cascade playbooks with multi-phase orchestration, checkpoint/recovery, and skill/agent coordination.",
+      "location": "components/cognitive/playbook_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "playbook",
+        "orchestration",
+        "workflow",
+        "checkpoint",
+        "phases"
+      ],
+      "dependencies": [],
+      "test_coverage": 86,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.playbook_base import PlaybookBase, playbook_metadata, PhaseSpec\n@playbook_metadata(name='feature-dev', phases=[PhaseSpec('analyze'), PhaseSpec('implement')])\nclass FeatureDevPlaybook(PlaybookBase): ...",
+      "source_project": "ansible-playbook-patterns",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 89,
+      "lego_compatible": false,
+      "exports": [
+        "PhaseResult",
+        "PhaseSpec",
+        "PhaseStatus",
+        "PlaybookBase",
+        "PlaybookCategory",
+        "PlaybookContext",
+        "PlaybookMetadata",
+        "PlaybookResult",
+        "get_playbook",
+        "list_playbooks",
+        "playbook_metadata"
+      ]
+    },
+    {
+      "id": "hook-base",
+      "name": "Hook Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for Claude Code hooks with lifecycle event interception, state persistence, compliance tracking, and pattern retention.",
+      "location": "components/cognitive/hook_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "hook",
+        "lifecycle",
+        "enforcement",
+        "compliance",
+        "events"
+      ],
+      "dependencies": [],
+      "test_coverage": 84,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.hook_base import HookBase, hook_metadata, HookEvent\n@hook_metadata(name='skill-reminder', event=HookEvent.PRE_TOOL_USE, matcher='Skill')\nclass SkillReminderHook(HookBase): ...",
+      "source_project": "context-cascade/hooks/enforcement/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 87,
+      "lego_compatible": false,
+      "exports": [
+        "CompositeHook",
+        "HookBase",
+        "HookContext",
+        "HookEvent",
+        "HookExitCode",
+        "HookMetadata",
+        "HookResult",
+        "HookState",
+        "get_hook",
+        "hook_metadata",
+        "list_hooks",
+        "list_hooks_by_event"
+      ]
+    },
+    {
+      "id": "script-base",
+      "name": "Script Base Class",
+      "version": "1.0.0",
+      "description": "Abstract base class for automation scripts with CLI argument parsing, cron scheduling, structured logging, and timeout handling.",
+      "location": "components/cognitive/script_base/",
+      "domain": "cognitive",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "script",
+        "automation",
+        "cli",
+        "cron",
+        "scheduling"
+      ],
+      "dependencies": [],
+      "test_coverage": 82,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.cognitive.script_base import ScriptBase, script_metadata\n@script_metadata(name='backup', schedule='0 2 * * *')\nclass BackupScript(ScriptBase): ...",
+      "source_project": "typer-cli-patterns",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "LogLevel",
+        "ScriptArg",
+        "ScriptArgs",
+        "ScriptBase",
+        "ScriptCategory",
+        "ScriptMetadata",
+        "ScriptResult",
+        "get_script",
+        "list_scripts",
+        "script_metadata"
+      ]
+    },
+    {
+      "id": "metric-collector",
+      "name": "Metric Collector",
+      "version": "1.0.0",
+      "description": "Prometheus-compatible metrics collector with Counter, Gauge, Histogram types, thread-safe updates, and text exposition format.",
+      "location": "components/analysis/metric_collector/",
+      "domain": "analysis",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "metrics",
+        "prometheus",
+        "counter",
+        "gauge",
+        "histogram",
+        "monitoring"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.metric_collector import MetricCollector, create_quality_collector\ncollector = create_quality_collector()\ncollector.counter('violations_total').labels(severity='high').inc()",
+      "source_project": "https://github.com/prometheus/client_python",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 91,
+      "lego_compatible": false,
+      "exports": [
+        "Counter",
+        "Gauge",
+        "Histogram",
+        "MetricCollector",
+        "MetricType",
+        "MetricValue",
+        "create_quality_collector"
+      ]
+    },
+    {
+      "id": "websocket-manager",
+      "name": "WebSocket Manager",
+      "version": "1.0.0",
+      "description": "Production-ready WebSocket connection management with room support, broadcasting, and optional Redis pub/sub for horizontal scaling.",
+      "location": "components/realtime/websocket_manager/",
+      "domain": "realtime",
+      "technology": [
+        "Python",
+        "asyncio",
+        "Redis"
+      ],
+      "keywords": [
+        "websocket",
+        "realtime",
+        "broadcast",
+        "rooms",
+        "pub-sub",
+        "redis"
+      ],
+      "dependencies": [
+        "redis"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 15,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.realtime.websocket_manager import ConnectionManager\nmanager = ConnectionManager()\nawait manager.connect(websocket, room_id)\nawait manager.broadcast_to_room(room_id, message)",
+      "source_project": "https://github.com/encode/broadcaster",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "Connection",
+        "ConnectionManager",
+        "DistributedWebSocketManager",
+        "Message",
+        "MessageType",
+        "RedisBroadcaster"
+      ]
+    },
+    {
+      "id": "auth-context",
+      "name": "React Auth Context",
+      "version": "1.0.0",
+      "description": "Type-safe authentication context with hooks for React applications. Supports JWT, OAuth, token refresh, and protected routes.",
+      "location": "components/react_auth/context/",
+      "domain": "react-auth",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "auth",
+        "authentication",
+        "react",
+        "context",
+        "hooks",
+        "jwt",
+        "oauth"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { AuthProvider, useAuth } from 'library/react-auth/context';\nconst { login, logout, isAuthenticated, user } = useAuth();",
+      "source_project": "https://github.com/authts/react-oidc-context",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 89,
+      "lego_compatible": false,
+      "exports": [
+        "// Components\n  ProtectedRoute",
+        "// Hooks\n  useAuth",
+        "// Provider\n  AuthProvider",
+        "// Types\n  type User",
+        "type AuthConfig",
+        "type AuthContextValue",
+        "type AuthProviderProps",
+        "type AuthState",
+        "type AuthTokens",
+        "type LoginCredentials",
+        "type ProtectedRouteProps",
+        "useHasPermission",
+        "useHasRole",
+        "useIsAuthenticated",
+        "useUser"
+      ]
+    },
+    {
+      "id": "ast-visitor",
+      "name": "AST Visitor Base",
+      "version": "1.0.0",
+      "description": "Extended AST visitor with violation collection, path tracking, and pattern matching for code analysis. Uses common/types for LEGO compatibility.",
+      "location": "components/analysis/ast_visitor/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "ast"
+      ],
+      "keywords": [
+        "ast",
+        "visitor",
+        "analysis",
+        "code-quality",
+        "pattern-matching"
+      ],
+      "dependencies": [],
+      "test_coverage": 92,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.ast_visitor import AnalysisVisitor, visit_file\nclass MyChecker(AnalysisVisitor): ...\nviolations = visit_file('code.py', MyChecker)",
+      "source_project": "https://docs.python.org/3/library/ast.html",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 93,
+      "lego_compatible": false,
+      "exports": [
+        "AnalysisTransformer",
+        "AnalysisVisitor",
+        "CompositeVisitor",
+        "VisitorContext",
+        "count_nodes",
+        "get_assigned_name",
+        "is_call",
+        "is_method_call",
+        "is_name",
+        "parse_file",
+        "parse_source",
+        "visit_file",
+        "visit_source"
+      ]
+    },
+    {
+      "id": "tenant-isolation",
+      "name": "Multi-Entity Tenant Isolation",
+      "version": "1.0.0",
+      "description": "Row-Level Security (RLS) based tenant isolation for SQLAlchemy. Automatic tenant_id injection, PostgreSQL RLS policies, and ASGI middleware.",
+      "location": "components/multi_entity/isolation/",
+      "domain": "multi-entity",
+      "technology": [
+        "Python",
+        "SQLAlchemy",
+        "PostgreSQL"
+      ],
+      "keywords": [
+        "multi-tenant",
+        "rls",
+        "isolation",
+        "security",
+        "sqlalchemy",
+        "saas"
+      ],
+      "dependencies": [
+        "sqlalchemy"
+      ],
+      "test_coverage": 87,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.multi_entity.isolation import TenantContext, TenantMixin\nclass Project(TenantMixin, Base): ...\nwith TenantContext('tenant_123'): ...",
+      "source_project": "https://github.com/Telemaco019/sqlalchemy-tenants",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 91,
+      "lego_compatible": false,
+      "exports": [
+        "RLSPolicy",
+        "TenantContext",
+        "TenantMiddleware",
+        "TenantMixin",
+        "create_tenant_policy",
+        "disable_rls",
+        "enable_rls",
+        "extract_tenant_from_header",
+        "extract_tenant_from_path",
+        "extract_tenant_from_subdomain",
+        "force_rls",
+        "generate_rls_migration",
+        "get_current_tenant",
+        "require_tenant",
+        "set_current_tenant",
+        "setup_rls_session",
+        "setup_tenant_isolation"
+      ]
+    },
+    {
+      "id": "pytest-fixtures-collection",
+      "name": "Pytest Fixtures Collection",
+      "version": "1.0.0",
+      "description": "LEGO-compatible pytest fixture collection for FastAPI + SQLAlchemy async testing. Includes event loop, database session, HTTP client, mock fixtures, and test data factories.",
+      "location": "components/testing/pytest-fixtures/",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "pytest",
+        "pytest-asyncio",
+        "httpx",
+        "SQLAlchemy"
+      ],
+      "keywords": [
+        "pytest",
+        "fixtures",
+        "testing",
+        "async",
+        "database",
+        "mock",
+        "factory",
+        "fastapi",
+        "sqlalchemy",
+        "lego"
+      ],
+      "dependencies": [
+        "pytest>=7.0.0",
+        "pytest-asyncio>=0.21.0",
+        "httpx>=0.24.0",
+        "sqlalchemy[asyncio]>=2.0.0"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from pytest_fixtures import event_loop, db_session, async_client, mock_db_session\nfrom pytest_fixtures.factories import UserFactory, ProjectFactory\n\nasync def test_create(db_session):\n    user = UserFactory.create()\n    db_session.add(user)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\consolidated-ui\\backend\\tests\\conftest.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AgentFactory",
+        "BaseFactory",
+        "ExecutionResultFactory",
+        "ProjectFactory",
+        "TaskFactory",
+        "UserFactory",
+        "async_client",
+        "async_db_engine",
+        "cleanup_after_test",
+        "concurrent_executor",
+        "db_session",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
+    },
+    {
+      "id": "jest-setup-collection",
+      "name": "Jest Setup Collection",
+      "version": "1.0.0",
+      "description": "LEGO-compatible Jest + React Testing Library setup for React 18/19 projects. Includes custom render with providers, mock utilities, and custom matchers.",
+      "location": "components/testing/jest-setup/",
+      "domain": "testing",
+      "technology": [
+        "TypeScript",
+        "Jest",
+        "React Testing Library",
+        "React"
+      ],
+      "keywords": [
+        "jest",
+        "testing",
+        "react",
+        "rtl",
+        "mock",
+        "matcher",
+        "providers",
+        "render",
+        "lego"
+      ],
+      "dependencies": [
+        "jest",
+        "@types/jest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "@testing-library/user-event",
+        "react-router-dom",
+        "@tanstack/react-query"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 15,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { render, screen, userEvent } from 'jest-setup/test-utils';\nimport { matchers } from 'jest-setup/matchers';\n\ntest('button click', async () => {\n  render(<Button>Click</Button>);\n  await userEvent.click(screen.getByRole('button'));\n});",
+      "source_project": "D:\\Projects\\life-os-frontend",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "AllProviders",
+        "cleanup",
+        "cleanupMocks",
+        "commonly",
+        "configure",
+        "default",
+        "fireEvent",
+        "render",
+        "renderHook",
+        "screen",
+        "setupMocks",
+        "toBeValidJSON",
+        "toBeWithinRange",
+        "toHaveBeenCalledWithMatch",
+        "toMatchAPIResponse",
+        "waitFor",
+        "within"
+      ]
+    },
+    {
+      "id": "status-registry",
+      "name": "Status Registry",
+      "version": "1.0.0",
+      "description": "Canonical status registry for the AI Exoskeleton doc set. Generates JSON source of truth and renders markdown summaries.",
+      "location": "components/observability/status_registry/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "JSON"
+      ],
+      "keywords": [
+        "status",
+        "registry",
+        "documentation",
+        "metadata",
+        "automation"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 2,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.status_registry import build_registry, render_markdown",
+      "source_project": "2026-AI-EXOSKELETON documentation suite",
+      "created_by": "codex",
+      "created_at": "2026-01-13T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "ProjectStatus:",
+        "RepoSignals:",
+        "STATUS_END_MARKER",
+        "STATUS_START_MARKER",
+        "build_registry",
+        "parse_project_table",
+        "render_project_markdown",
+        "render_markdown",
+        "scan_repo_signals",
+        "update_marked_section",
+        "update_project_readme",
+        "update_repo_readmes"
+      ]
+    },
+    {
+      "id": "library-drift-audit",
+      "name": "Library Drift Audit",
+      "version": "1.0.0",
+      "description": "Component-by-component audit of library drift across repos. Compares imports and on-disk copies of library components.",
+      "location": "components/observability/library_drift_audit/",
+      "domain": "observability",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "drift",
+        "audit",
+        "library",
+        "deployment",
+        "diff"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 2,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.library_drift_audit import build_report",
+      "source_project": "2026-AI-EXOSKELETON documentation suite",
+      "created_by": "codex",
+      "created_at": "2026-01-13T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "build_report"
+      ]
+    }
+  ],
+  "domains": {
+    "accounting": {
+      "description": "Transaction storage, categorization, and financial reporting",
+      "component_count": 2,
+      "primary_technology": "Python/SQLite"
+    },
+    "ai": {
+      "description": "AI/LLM integration components",
+      "component_count": 1,
+      "primary_technology": "TypeScript/React"
+    },
+    "analysis": {
+      "description": "Code and text analysis tools",
+      "component_count": 7,
+      "primary_technology": "Python"
+    },
+    "api": {
+      "description": "API utilities, routers, and middleware",
+      "component_count": 3,
+      "primary_technology": "Python/TypeScript"
+    },
+    "authentication": {
+      "description": "Authentication and authorization components",
+      "component_count": 2,
+      "primary_technology": "Python/TypeScript"
+    },
+    "banking": {
+      "description": "Banking integrations and data models (Plaid, Mercury, Stripe)",
+      "component_count": 3,
+      "primary_technology": "Python"
+    },
+    "caching": {
+      "description": "Caching layers and strategies",
+      "component_count": 1,
+      "primary_technology": "Python/Redis"
+    },
+    "cognitive": {
+      "description": "Cognitive architecture components (VERILINGUA, VERIX)",
+      "component_count": 15,
+      "primary_technology": "Python"
+    },
+    "database": {
+      "description": "Database connection and ORM utilities",
+      "component_count": 1,
+      "primary_technology": "Python/TypeScript"
+    },
+    "http": {
+      "description": "HTTP clients and service layers",
+      "component_count": 2,
+      "primary_technology": "TypeScript"
+    },
+    "integrations": {
+      "description": "External service integrations",
+      "component_count": 2,
+      "primary_technology": "Python"
+    },
+    "memory": {
+      "description": "Memory MCP clients and persistence patterns",
+      "component_count": 1,
+      "primary_technology": "Python/ChromaDB"
+    },
+    "messaging": {
+      "description": "Message queues and pub/sub systems",
+      "component_count": 1,
+      "primary_technology": "Python/Redis"
+    },
+    "multi-entity": {
+      "description": "Multi-tenant isolation and RLS patterns",
+      "component_count": 1,
+      "primary_technology": "Python/SQLAlchemy"
+    },
+    "observability": {
+      "description": "Logging, tracing, and monitoring components",
+      "component_count": 5,
+      "primary_technology": "Python"
+    },
+    "orchestration": {
+      "description": "Auto-generated domain",
+      "component_count": 1,
+      "primary_technology": "Mixed"
+    },
+    "parsing": {
+      "description": "Text and document parsing utilities",
+      "component_count": 1,
+      "primary_technology": "Python"
+    },
+    "patterns": {
+      "description": "Reusable design patterns for common problems (CRITICAL: money-handling, webhook-idempotency)",
+      "component_count": 4,
+      "primary_technology": "Python"
+    },
+    "payments": {
+      "description": "Auto-generated domain",
+      "component_count": 1,
+      "primary_technology": "Mixed"
+    },
+    "react": {
+      "description": "Auto-generated domain",
+      "component_count": 1,
+      "primary_technology": "Mixed"
+    },
+    "react-auth": {
+      "description": "React authentication context and hooks",
+      "component_count": 1,
+      "primary_technology": "TypeScript/React"
+    },
+    "realtime": {
+      "description": "WebSocket and real-time communication",
+      "component_count": 2,
+      "primary_technology": "Python/asyncio"
+    },
+    "reporting": {
+      "description": "Report generation and formatting",
+      "component_count": 1,
+      "primary_technology": "Python"
+    },
+    "scheduling": {
+      "description": "Auto-generated domain",
+      "component_count": 1,
+      "primary_technology": "Mixed"
+    },
+    "security": {
+      "description": "Security components: JWT auth, encryption, validation",
+      "component_count": 1,
+      "primary_technology": "Python"
+    },
+    "state": {
+      "description": "State management patterns and stores",
+      "component_count": 1,
+      "primary_technology": "TypeScript/Zustand"
+    },
+    "testing": {
+      "description": "Testing utilities and fixtures",
+      "component_count": 5,
+      "primary_technology": "Python/TypeScript"
+    },
+    "trading": {
+      "description": "Trading system components: circuit breakers, gate system, position sizing",
+      "component_count": 3,
+      "primary_technology": "Python/Decimal"
+    },
+    "ui-components": {
+      "description": "Reusable UI component library",
+      "component_count": 3,
+      "primary_technology": "TypeScript/React"
+    },
+    "utilities": {
+      "description": "General utility functions and helpers",
+      "component_count": 4,
+      "primary_technology": "Python"
+    },
+    "validation": {
+      "description": "Input validation, schema validation, and quality gates",
+      "component_count": 3,
+      "primary_technology": "Python"
+    }
+  },
+  "statistics": {
+    "total_components": 80,
+    "total_usage": 48,
+    "avg_quality_score": 86.8,
+    "avg_test_coverage": 85.0,
+    "critical_patterns": 2,
+    "last_sprint": "2026-01-10",
+    "sprint_additions": 54,
+    "phase_0b_complete": true,
+    "phase_0b_plus_complete": true,
+    "open_source_derived": 11,
+    "cognitive_base_classes": 6
+  }
+}

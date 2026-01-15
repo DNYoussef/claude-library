@@ -1,0 +1,25 @@
+/* SolarArcana theme tokens for the shared design system. */
+:root {
+  /* Surfaces */
+  --surface-primary: hsl(168 30% 10%);
+  --surface-elevated: hsl(168 32% 12%);
+
+  /* Borders */
+  --border-subtle: hsl(170 22% 20%);
+  --border-default: hsl(170 24% 24%);
+
+  /* Text */
+  --text-primary: hsl(60 20% 96%);
+  --text-secondary: hsl(155 15% 70%);
+  --text-muted: hsl(155 12% 55%);
+
+  /* Accent */
+  --accent-400: hsl(145 70% 45%);
+  --accent-500: hsl(45 90% 55%);
+
+  /* Semantic */
+  --success: hsl(145 70% 45%);
+  --warning: hsl(40 90% 55%);
+  --error: hsl(0 75% 55%);
+  --info: hsl(195 80% 50%);
+}
