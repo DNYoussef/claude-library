@@ -26,6 +26,7 @@ COMPONENT_MAP = {
     "jwt-auth": "components/security/jwt_auth",
     "tagging-protocol": "components/observability/tagging_protocol",
     "memory-mcp-client": "components/memory/memory_mcp_client",
+    "connascence-bridge": "components/cognitive_architecture/integration",
 }
 
 # Projects that need each component (from audit)
@@ -41,6 +42,38 @@ COMPONENT_TARGETS = {
         "content-pipeline", "corporate-council", "fog-compute", "life-os-dashboard",
         "life-os-frontend", "memory-mcp", "meta-calculus", "nsbu-rpg-app",
         "portfolio", "slop-detector", "the-agent-maker", "trader-ai"
+    ],
+    "jwt-auth": [
+        "life-os-dashboard", "life-os-frontend", "trader-ai", "slop-detector",
+        "memory-mcp", "connascence", "fog-compute", "the-agent-maker",
+        "corporate-council", "agentwise", "nsbu-rpg-app", "claude-dev-cli"
+    ],
+    "audit-logging": [
+        "life-os-dashboard", "trader-ai", "memory-mcp", "connascence",
+        "fog-compute", "the-agent-maker", "corporate-council", "agentwise",
+        "content-pipeline", "slop-detector", "claude-dev-cli"
+    ],
+    "health-monitor": [
+        "life-os-dashboard", "trader-ai", "memory-mcp", "connascence",
+        "fog-compute", "the-agent-maker", "corporate-council", "agentwise",
+        "content-pipeline", "slop-detector", "claude-dev-cli"
+    ],
+    "circuit-breaker": [
+        "life-os-dashboard", "trader-ai", "memory-mcp", "fog-compute",
+        "the-agent-maker", "corporate-council", "agentwise", "content-pipeline",
+        "slop-detector", "claude-dev-cli"
+    ],
+    "tagging-protocol": [
+        "life-os-dashboard", "trader-ai", "memory-mcp", "content-pipeline",
+        "connascence", "claude-dev-cli"
+    ],
+    "memory-mcp-client": [
+        "life-os-dashboard", "trader-ai", "content-pipeline", "connascence",
+        "fog-compute", "the-agent-maker", "claude-dev-cli"
+    ],
+    "connascence-bridge": [
+        "life-os-dashboard", "trader-ai", "memory-mcp", "fog-compute",
+        "the-agent-maker", "corporate-council", "claude-dev-cli", "content-pipeline"
     ],
 }
 

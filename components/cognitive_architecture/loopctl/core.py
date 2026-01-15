@@ -89,6 +89,7 @@ class FrozenHarness:
         loop_dir: Optional[Path] = None,
         harness_version: str = "1.0.0",
         use_cli_evaluator: bool = True,
+        enable_audit_log: bool = True,
     ):
         """
         Initialize FrozenHarness.
@@ -97,12 +98,15 @@ class FrozenHarness:
             loop_dir: Directory for loop state (default: current dir)
             harness_version: Version for integrity tracking
             use_cli_evaluator: Attempt CLI evaluator first
+            enable_audit_log: Record all grades for audit trail
         """
         self.loop_dir = Path(loop_dir) if loop_dir else Path(".")
         self.harness_version = harness_version
         self.use_cli_evaluator = use_cli_evaluator
+        self.enable_audit_log = enable_audit_log
         self._harness_hash = self._compute_hash()
         self._cli_evaluator = None
+        self._audit_log: List[Dict[str, Any]] = []
 
         # Try to initialize CLI evaluator
         if use_cli_evaluator:
@@ -153,6 +157,52 @@ class FrozenHarness:
             return True
         return self._harness_hash == expected_hash
 
+    def _record_audit(self, artifact_path: Path, metrics: Dict[str, Any]) -> None:
+        """Record a grading event in the audit log."""
+        if not self.enable_audit_log:
+            return
+
+        entry = {
+            "timestamp": datetime.now(tz=None).astimezone().isoformat(),
+            "harness_hash": self._harness_hash,
+            "harness_version": self.harness_version,
+            "artifact": str(artifact_path),
+            "metrics": metrics.copy(),
+        }
+        self._audit_log.append(entry)
+
+    @property
+    def audit_log(self) -> List[Dict[str, Any]]:
+        """Get the audit log of all grades."""
+        return self._audit_log.copy()
+
+    def persist_audit_log(self, output_path: Optional[Path] = None) -> Path:
+        """
+        Persist audit log to a JSON file.
+
+        Args:
+            output_path: Path for output file (default: loop_dir/audit_log.json)
+
+        Returns:
+            Path to the persisted audit log file
+        """
+        if output_path is None:
+            output_path = self.loop_dir / "audit_log.json"
+
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(output_path, "w") as f:
+            json.dump(self._audit_log, f, indent=2)
+
+        return output_path
+
+    def clear_audit_log(self) -> int:
+        """Clear the audit log and return the number of entries cleared."""
+        count = len(self._audit_log)
+        self._audit_log = []
+        return count
+
     def grade(self, artifact_path: Path) -> Dict[str, Any]:
         """
         Grade an artifact and return metrics.
@@ -188,6 +238,7 @@ class FrozenHarness:
             try:
                 metrics = self._grade_with_cli(content)
                 metrics["evaluation_mode"] = "cli_evaluator"
+                self._record_audit(artifact_path, metrics)
                 return metrics
             except Exception:
                 # Fall through to heuristics
@@ -196,6 +247,10 @@ class FrozenHarness:
         # Fallback: heuristic grading
         metrics = self._grade_with_heuristics(content)
         metrics["evaluation_mode"] = "heuristic"
+
+        # Record in audit log
+        self._record_audit(artifact_path, metrics)
+
         return metrics
 
     def _grade_with_cli(self, content: str) -> Dict[str, float]:
