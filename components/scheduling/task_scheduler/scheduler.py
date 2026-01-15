@@ -4,20 +4,34 @@ Task Scheduler Component
 Production-ready async task scheduling for FastAPI applications.
 Based on APScheduler patterns with FastAPI lifespan integration.
 
+Features:
+- Interval-based scheduling (every N seconds/minutes/hours)
+- Cron-based scheduling (crontab syntax)
+- One-time scheduled jobs
+- Decorator-based job registration
+- Programmatic job management (add/remove/pause/resume)
+- FastAPI lifespan integration
+- Cron expression validation
+- Job status tracking
+
 References:
 - https://github.com/agronholm/apscheduler
 - https://github.com/amisadmin/fastapi-scheduler
 
 Installation:
     pip install apscheduler
+
+Extracted from:
+- life-os-dashboard (D:\\Projects\\life-os-dashboard)
 """
 
 from dataclasses import dataclass, field
-from typing import Any, Callable, Dict, List, Optional, Union, Awaitable
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union, Awaitable
 from datetime import datetime
 from enum import Enum
 import asyncio
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +41,160 @@ class TriggerType(Enum):
     INTERVAL = "interval"
     CRON = "cron"
     DATE = "date"
+
+
+class JobStatus(Enum):
+    """
+    Job execution status.
+
+    Maps to common scheduler states used in persistence layers.
+    Derived from life-os-dashboard ScheduledTask model.
+    """
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    PAUSED = "paused"
+    DISABLED = "disabled"
+
+
+class TaskStatus(Enum):
+    """
+    Kanban workflow status for task tracking.
+
+    5-state workflow for visual task management.
+    Derived from life-os-dashboard ScheduledTask model.
+    """
+    TODO = "todo"
+    IN_PROGRESS = "in_progress"
+    IN_REVIEW = "in_review"
+    DONE = "done"
+    CANCELLED = "cancelled"
+
+
+def validate_cron_expression(expression: str) -> Tuple[bool, Optional[str]]:
+    """
+    Validate a cron expression.
+
+    Args:
+        expression: Cron string (e.g., "0 2 * * *" for 2 AM daily)
+
+    Returns:
+        Tuple of (is_valid, error_message)
+        - (True, None) if valid
+        - (False, "error description") if invalid
+
+    Examples:
+        >>> validate_cron_expression("0 2 * * *")
+        (True, None)
+
+        >>> validate_cron_expression("invalid")
+        (False, "Expected 5 fields, got 1")
+
+        >>> validate_cron_expression("60 * * * *")
+        (False, "Minute must be 0-59, got 60")
+    """
+    parts = expression.strip().split()
+
+    if len(parts) != 5:
+        return (False, f"Expected 5 fields, got {len(parts)}")
+
+    minute, hour, day, month, day_of_week = parts
+
+    # Validation patterns
+    field_specs = [
+        ("Minute", minute, 0, 59),
+        ("Hour", hour, 0, 23),
+        ("Day", day, 1, 31),
+        ("Month", month, 1, 12),
+        ("Day of week", day_of_week, 0, 6),
+    ]
+
+    for name, value, min_val, max_val in field_specs:
+        if value == "*":
+            continue
+
+        # Handle step values like */5
+        if value.startswith("*/"):
+            try:
+                step = int(value[2:])
+                if step < 1:
+                    return (False, f"{name} step must be >= 1")
+                continue
+            except ValueError:
+                return (False, f"{name} invalid step: {value}")
+
+        # Handle ranges like 1-5
+        if "-" in value:
+            try:
+                start, end = value.split("-")
+                start_int = int(start)
+                end_int = int(end)
+                if not (min_val <= start_int <= max_val):
+                    return (False, f"{name} range start must be {min_val}-{max_val}")
+                if not (min_val <= end_int <= max_val):
+                    return (False, f"{name} range end must be {min_val}-{max_val}")
+                continue
+            except ValueError:
+                return (False, f"{name} invalid range: {value}")
+
+        # Handle lists like 1,3,5
+        if "," in value:
+            for v in value.split(","):
+                try:
+                    v_int = int(v)
+                    if not (min_val <= v_int <= max_val):
+                        return (False, f"{name} must be {min_val}-{max_val}, got {v}")
+                except ValueError:
+                    return (False, f"{name} invalid list value: {v}")
+            continue
+
+        # Handle day of week names
+        if name == "Day of week":
+            day_names = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+            if value.lower() in day_names:
+                continue
+
+        # Plain number
+        try:
+            val_int = int(value)
+            if not (min_val <= val_int <= max_val):
+                return (False, f"{name} must be {min_val}-{max_val}, got {val_int}")
+        except ValueError:
+            return (False, f"{name} invalid value: {value}")
+
+    return (True, None)
+
+
+def parse_cron_expression(expression: str) -> Dict[str, str]:
+    """
+    Parse a cron expression into APScheduler trigger arguments.
+
+    Args:
+        expression: Cron string (e.g., "0 2 * * *")
+
+    Returns:
+        Dict with minute, hour, day, month, day_of_week keys
+
+    Raises:
+        ValueError: If expression is invalid
+
+    Example:
+        >>> parse_cron_expression("30 14 * * mon")
+        {'minute': '30', 'hour': '14', 'day': '*', 'month': '*', 'day_of_week': 'mon'}
+    """
+    is_valid, error = validate_cron_expression(expression)
+    if not is_valid:
+        raise ValueError(f"Invalid cron expression: {error}")
+
+    parts = expression.strip().split()
+    return {
+        "minute": parts[0],
+        "hour": parts[1],
+        "day": parts[2],
+        "month": parts[3],
+        "day_of_week": parts[4],
+    }
 
 
 @dataclass

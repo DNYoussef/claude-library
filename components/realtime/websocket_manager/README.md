@@ -1,15 +1,17 @@
 # WebSocket Manager Component
 
-Production-ready WebSocket connection management with room support, broadcasting, and optional Redis pub/sub for horizontal scaling.
+Production-ready WebSocket connection management with room support, broadcasting, and optional Redis pub/sub for horizontal scaling. Designed for 45-50k concurrent connections.
 
 ## Features
 
-- Connection lifecycle management
-- Room-based subscriptions
-- Broadcast to all/room/user
-- Redis pub/sub for multi-instance scaling
-- Message type support (text, JSON, bytes)
-- Graceful disconnect handling
+- Connection lifecycle management with user tracking
+- Room-based subscriptions for targeted messaging
+- Broadcast to all/room/user patterns
+- Redis pub/sub for multi-instance scaling (RedisPubSub class)
+- Heartbeat/ping-pong with automatic stale connection cleanup
+- JWT authentication support (pluggable authenticator)
+- Message type safety with dataclass-based schemas
+- Graceful disconnect handling with TTL-based cleanup
 
 ## Usage
 
@@ -161,8 +163,148 @@ class MessageType(Enum):
     CLOSE = "close"
 ```
 
+## Redis Pub/Sub for Multi-Worker
+
+For horizontal scaling across multiple server instances with full pub/sub support:
+
+```python
+from library.components.realtime.websocket_manager import RedisPubSub
+
+# Initialize pub/sub
+pubsub = RedisPubSub("redis://localhost:6379")
+await pubsub.initialize()
+
+# Subscribe to channels
+async def handle_broadcast(data: dict):
+    await manager.broadcast(data)
+
+await pubsub.subscribe("ws:broadcast", handle_broadcast)
+await pubsub.subscribe(f"ws:user:{user_id}", handle_user_message)
+
+# Publish messages
+await pubsub.publish_broadcast(message)       # All connections
+await pubsub.publish_to_user("user123", msg)  # Specific user
+await pubsub.publish_to_room("room1", msg)    # Room subscribers
+
+# Cleanup
+await pubsub.close()
+```
+
+Channel conventions:
+- `ws:broadcast` - All connections across all workers
+- `ws:user:{user_id}` - All connections for a specific user
+- `ws:connection:{conn_id}` - Single specific connection
+- `ws:room:{room_id}` - Room subscribers
+
+## Heartbeat Manager
+
+Monitor connection health with automatic cleanup:
+
+```python
+from library.components.realtime.websocket_manager import HeartbeatManager
+
+heartbeat = HeartbeatManager(ping_interval=30, pong_timeout=60)
+
+# Start heartbeat for a connection
+heartbeat.start_heartbeat(
+    connection_id="conn-123",
+    websocket=ws,
+    on_disconnect_callback=handle_disconnect
+)
+
+# Record pong from client
+heartbeat.record_pong("conn-123")
+
+# Check health
+is_alive = heartbeat.is_connection_alive("conn-123")
+metrics = heartbeat.get_all_health_metrics()
+
+# Stop heartbeat
+heartbeat.stop_heartbeat("conn-123")
+```
+
+## Message Types
+
+Base message schemas for type-safe WebSocket communication:
+
+```python
+from library.components.realtime.websocket_manager import (
+    WSMessage, PingMessage, PongMessage, ErrorMessage, AckMessage
+)
+
+# Create messages
+ping = PingMessage(event_id="uuid-123")
+error = ErrorMessage(event_id="uuid-456", error="Invalid request")
+ack = AckMessage(event_id="uuid-789", ack_event_id="uuid-123")
+
+# Serialize
+json_str = ping.to_json()
+data_dict = error.to_dict()
+
+# Parse
+msg = WSMessage.from_json(json_str)
+```
+
+## Authentication-Enabled Manager
+
+For JWT authentication with pluggable authenticators:
+
+```python
+from library.components.realtime.websocket_manager import (
+    AuthConnectionManager,
+    ConnectionConfig,
+)
+
+config = ConnectionConfig(
+    redis_url="redis://localhost:6379",
+    connection_ttl=3600,
+    max_redis_connections=100,
+)
+manager = AuthConnectionManager(config)
+await manager.initialize()
+
+# Connect with authentication
+conn_id, user_id = await manager.connect(
+    websocket=ws,
+    token="jwt-token",
+    authenticator=my_jwt_authenticator
+)
+
+# Send messages
+await manager.send_to_user(message, user_id)
+await manager.broadcast(message)
+
+# Cleanup
+await manager.disconnect(conn_id)
+await manager.close()
+```
+
+## Production Configuration
+
+### Redis for 45-50k connections
+
+```bash
+redis-server --maxmemory 2gb \
+             --maxmemory-policy allkeys-lru \
+             --maxclients 50000 \
+             --tcp-backlog 511
+```
+
+### TLS/SSL (Nginx)
+
+```nginx
+location /ws {
+    proxy_pass http://localhost:8000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+}
+```
+
 ## Sources
 
 - [FastAPI WebSockets](https://fastapi.tiangolo.com/advanced/websockets/)
 - [encode/broadcaster](https://github.com/encode/broadcaster)
 - [fastapi-distributed-websocket](https://libraries.io/pypi/fastapi-distributed-websocket)
+- [Redis Pub/Sub](https://redis.io/topics/pubsub)
+- [WebSocket RFC 6455](https://tools.ietf.org/html/rfc6455)

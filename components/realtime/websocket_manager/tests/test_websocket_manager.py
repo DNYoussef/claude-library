@@ -7,7 +7,31 @@ import types
 import pytest
 
 MODULE_PATH = 'components.realtime.websocket_manager'
-EXPORTS = ['Connection', 'ConnectionManager', 'DistributedWebSocketManager', 'Message', 'MessageType', 'RedisBroadcaster']
+EXPORTS = [
+    # Room-based manager
+    'Connection',
+    'ConnectionManager',
+    'DistributedWebSocketManager',
+    'Message',
+    'MessageType',
+    'RedisBroadcaster',
+    # Auth-enabled manager
+    'AuthConnectionManager',
+    'ConnectionConfig',
+    'WebSocketProtocol',
+    'AuthenticatorProtocol',
+    # Heartbeat
+    'HeartbeatManager',
+    # Message types
+    'WSMessage',
+    'BaseMessageType',
+    'PingMessage',
+    'PongMessage',
+    'ErrorMessage',
+    'AckMessage',
+    # Redis pub/sub
+    'RedisPubSub',
+]
 
 
 def _library_root() -> Path:

@@ -10,6 +10,8 @@ Async task scheduling for FastAPI applications with APScheduler.
 - Decorator-based registration
 - FastAPI lifespan integration
 - Job pause/resume/remove
+- **Cron expression validation** (extracted from life-os-dashboard)
+- **Job/Task status enums** for persistence layers
 
 ## Installation
 
@@ -144,8 +146,59 @@ scheduler = TaskScheduler(config)
 | month | 1-12 |
 | day_of_week | 0-6 or mon,tue,wed,thu,fri,sat,sun |
 
+## Cron Validation
+
+Validate cron expressions before storing or using them:
+
+```python
+from library.components.scheduling.task_scheduler import (
+    validate_cron_expression,
+    parse_cron_expression,
+)
+
+# Validate
+is_valid, error = validate_cron_expression("0 2 * * *")
+if not is_valid:
+    raise ValueError(f"Invalid cron: {error}")
+
+# Parse to APScheduler args
+args = parse_cron_expression("0 2 * * *")
+# Returns: {'minute': '0', 'hour': '2', 'day': '*', 'month': '*', 'day_of_week': '*'}
+```
+
+Supported patterns:
+- Plain values: `0`, `15`, `mon`
+- Wildcards: `*`
+- Steps: `*/5`
+- Ranges: `1-5`
+- Lists: `0,15,30,45`
+- Day names: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`
+
+## Status Enums
+
+For persistence layers (databases, APIs), use these status enums:
+
+```python
+from library.components.scheduling.task_scheduler import JobStatus, TaskStatus
+
+# Job execution status
+status = JobStatus.PENDING  # pending, running, completed, failed, paused, disabled
+
+# Kanban workflow status (5-state)
+task_status = TaskStatus.IN_PROGRESS  # todo, in_progress, in_review, done, cancelled
+```
+
+These enums are derived from the life-os-dashboard ScheduledTask model for consistency.
+
 ## Sources
 
 - [APScheduler](https://github.com/agronholm/apscheduler) - Advanced Python Scheduler
 - [fastapi-scheduler](https://github.com/amisadmin/fastapi-scheduler) - FastAPI extension
 - [APScheduler Examples](https://github.com/agronholm/apscheduler/tree/master/examples)
+
+## Extracted From
+
+- **life-os-dashboard** (`D:\Projects\life-os-dashboard`)
+  - `backend/app/models/scheduled_task.py` - Status enums, Kanban workflow
+  - `backend/app/crud/scheduled_task.py` - CRUD patterns (not extracted - app-specific)
+  - `backend/app/services/node_handlers/trigger_handler.py` - Trigger types
