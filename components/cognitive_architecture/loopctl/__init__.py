@@ -43,6 +43,14 @@ from .authority import (
     DecisionAuthority,
 )
 
+from .telemetry import (
+    TelemetryPacket,
+    GradeEvent,
+    ConvergenceEvent,
+    HarnessTelemetry,
+    create_sleep_system_exporter,
+)
+
 __all__ = [
     # Core harness
     "FrozenHarness",
@@ -54,6 +62,12 @@ __all__ = [
     "Decision",
     "DecisionResult",
     "DecisionAuthority",
+    # Telemetry
+    "TelemetryPacket",
+    "GradeEvent",
+    "ConvergenceEvent",
+    "HarnessTelemetry",
+    "create_sleep_system_exporter",
 ]
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
