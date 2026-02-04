@@ -1,0 +1,1081 @@
+{
+  "schema_version": "2.0.0",
+  "last_updated": "2026-02-04T12:00:00.000000",
+  "total_components": 80,
+  "domains": {
+    "accounting": {
+      "count": 2,
+      "file": "domains/accounting.json",
+      "components": [
+        {
+          "id": "accounting-transactions",
+          "name": "Transaction Store",
+          "location": "components/accounting/transactions/",
+          "quality_score": 85
+        },
+        {
+          "id": "transaction-categorizer",
+          "name": "Transaction Categorizer",
+          "location": "components/accounting/categorizer/",
+          "quality_score": 84
+        }
+      ]
+    },
+    "ai": {
+      "count": 1,
+      "file": "domains/ai.json",
+      "components": [
+        {
+          "id": "consensus-display",
+          "name": "LLM Council Consensus Display",
+          "location": "components/ai/consensus_display/",
+          "quality_score": 78
+        }
+      ]
+    },
+    "analysis": {
+      "count": 7,
+      "file": "domains/analysis.json",
+      "components": [
+        {
+          "id": "pattern-matcher",
+          "name": "Pattern Matcher",
+          "location": "components/analysis/pattern_matcher/",
+          "quality_score": 90
+        },
+        {
+          "id": "scoring-aggregator",
+          "name": "Scoring Aggregator",
+          "location": "components/analysis/scoring_aggregator/",
+          "quality_score": 86
+        },
+        {
+          "id": "violation-factory",
+          "name": "Violation Factory",
+          "location": "components/analysis/violation_factory/",
+          "quality_score": 88
+        },
+        {
+          "id": "statistical-analyzer",
+          "name": "Statistical Analyzer",
+          "location": "components/analysis/statistical_analyzer/",
+          "quality_score": 86
+        },
+        {
+          "id": "ast-visitor-base",
+          "name": "AST Visitor Base Pattern",
+          "location": "components/analysis/ast_visitor_base/",
+          "quality_score": 88
+        },
+        {
+          "id": "metric-collector",
+          "name": "Metric Collector",
+          "location": "components/analysis/metric_collector/",
+          "quality_score": 91
+        },
+        {
+          "id": "ast-visitor",
+          "name": "AST Visitor Base",
+          "location": "components/analysis/ast_visitor/",
+          "quality_score": 93
+        }
+      ]
+    },
+    "api": {
+      "count": 3,
+      "file": "domains/api.json",
+      "components": [
+        {
+          "id": "fastapi-router-template",
+          "name": "FastAPI CRUD Router",
+          "location": "components/api/fastapi_router/",
+          "quality_score": 88
+        },
+        {
+          "id": "pydantic-base-models",
+          "name": "Pydantic Base Models",
+          "location": "components/api/pydantic_base/",
+          "quality_score": 92
+        },
+        {
+          "id": "express-middleware-chain",
+          "name": "Express Middleware Chain",
+          "location": "components/middleware/express_chain/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "authentication": {
+      "count": 2,
+      "file": "domains/authentication.json",
+      "components": [
+        {
+          "id": "jwt-auth-middleware",
+          "name": "JWT Authentication Middleware",
+          "location": "components/auth/jwt_middleware_ts/middleware.ts",
+          "quality_score": 90
+        },
+        {
+          "id": "fastapi-jwt-auth",
+          "name": "FastAPI JWT Authentication",
+          "location": "components/auth/fastapi_jwt/jwt_auth.py",
+          "quality_score": 88
+        }
+      ]
+    },
+    "banking": {
+      "count": 3,
+      "file": "domains/banking.json",
+      "components": [
+        {
+          "id": "banking-plaid",
+          "name": "Plaid Banking Integration",
+          "location": "components/banking/plaid/",
+          "quality_score": 85
+        },
+        {
+          "id": "banking-models",
+          "name": "Banking Data Models",
+          "location": "components/banking/models.py",
+          "quality_score": 85
+        },
+        {
+          "id": "mercury-integration",
+          "name": "Mercury Bank Integration",
+          "location": "components/banking/mercury/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "caching": {
+      "count": 1,
+      "file": "domains/caching.json",
+      "components": [
+        {
+          "id": "redis-cache",
+          "name": "Redis Cache Layer",
+          "location": "components/caching/redis_cache/",
+          "quality_score": 88
+        }
+      ]
+    },
+    "cognitive": {
+      "count": 15,
+      "file": "domains/cognitive.json",
+      "components": [
+        {
+          "id": "frozen-harness",
+          "name": "FrozenHarness Evaluation System",
+          "location": "components/cognitive_architecture/loopctl/core.py",
+          "quality_score": 80
+        },
+        {
+          "id": "telemetry-bridge",
+          "name": "TelemetryBridge Memory MCP Integration",
+          "location": "components/cognitive_architecture/integration/telemetry_bridge.py",
+          "quality_score": 75
+        },
+        {
+          "id": "connascence-bridge",
+          "name": "ConnascenceBridge Quality Analyzer",
+          "location": "components/cognitive_architecture/integration/connascence_bridge.py",
+          "quality_score": 70
+        },
+        {
+          "id": "mode-library",
+          "name": "ModeLibrary Configuration System",
+          "location": "components/cognitive_architecture/modes/library.py",
+          "quality_score": 85
+        },
+        {
+          "id": "vcl-validator",
+          "name": "VCL Validator",
+          "location": "components/cognitive_architecture/core/vcl_validator.py",
+          "quality_score": 90
+        },
+        {
+          "id": "two-stage-optimizer",
+          "name": "Two-Stage Multi-Objective Optimizer",
+          "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py",
+          "quality_score": 75
+        },
+        {
+          "id": "cli-evaluator",
+          "name": "CLI Evaluator (Real LLM)",
+          "location": "components/cognitive_architecture/evals/cli_evaluator.py",
+          "quality_score": 70
+        },
+        {
+          "id": "verix-parser",
+          "name": "VERIX Epistemic Parser",
+          "location": "components/cognitive/verix_parser/",
+          "quality_score": 90
+        },
+        {
+          "id": "cognitive-config",
+          "name": "Cognitive Frame Configuration",
+          "location": "components/cognitive/cognitive_config/",
+          "quality_score": 86
+        },
+        {
+          "id": "skill-base",
+          "name": "Skill Base Class",
+          "location": "components/cognitive/skill_base/",
+          "quality_score": 92
+        },
+        {
+          "id": "agent-base",
+          "name": "Agent Base Class",
+          "location": "components/cognitive/agent_base/",
+          "quality_score": 90
+        },
+        {
+          "id": "command-base",
+          "name": "Command Base Class",
+          "location": "components/cognitive/command_base/",
+          "quality_score": 88
+        },
+        {
+          "id": "playbook-base",
+          "name": "Playbook Base Class",
+          "location": "components/cognitive/playbook_base/",
+          "quality_score": 89
+        },
+        {
+          "id": "hook-base",
+          "name": "Hook Base Class",
+          "location": "components/cognitive/hook_base/",
+          "quality_score": 87
+        },
+        {
+          "id": "script-base",
+          "name": "Script Base Class",
+          "location": "components/cognitive/script_base/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "database": {
+      "count": 1,
+      "file": "domains/database.json",
+      "components": [
+        {
+          "id": "db-connection-pool",
+          "name": "Database Connection Pool",
+          "location": "components/database/connection_pool/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "http": {
+      "count": 2,
+      "file": "domains/http.json",
+      "components": [
+        {
+          "id": "fetch-api-client",
+          "name": "Fetch API Client",
+          "location": "components/http/fetch_api_client/",
+          "quality_score": 88
+        },
+        {
+          "id": "api-services",
+          "name": "API Service Layer",
+          "location": "components/http/api_services/",
+          "quality_score": 82
+        }
+      ]
+    },
+    "integrations": {
+      "count": 2,
+      "file": "domains/integrations.json",
+      "components": [
+        {
+          "id": "content-pipeline-template",
+          "name": "Content Pipeline Template",
+          "location": "components/pipelines/content_pipeline/",
+          "quality_score": 70
+        },
+        {
+          "id": "multi-model-router",
+          "name": "Multi-Model Router",
+          "location": "components/ai/model_router/providers.py",
+          "quality_score": 82
+        }
+      ]
+    },
+    "memory": {
+      "count": 1,
+      "file": "domains/memory.json",
+      "components": [
+        {
+          "id": "memory-mcp-client-v2",
+          "name": "Memory MCP Client v2",
+          "location": "components/memory/memory_mcp_client/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "messaging": {
+      "count": 1,
+      "file": "domains/messaging.json",
+      "components": [
+        {
+          "id": "redis-pubsub",
+          "name": "Redis Pub/Sub Manager",
+          "location": "components/messaging/redis_pubsub/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "multi-entity": {
+      "count": 1,
+      "file": "domains/multi-entity.json",
+      "components": [
+        {
+          "id": "tenant-isolation",
+          "name": "Multi-Entity Tenant Isolation",
+          "location": "components/multi_entity/isolation/",
+          "quality_score": 91
+        }
+      ]
+    },
+    "observability": {
+      "count": 5,
+      "file": "domains/observability.json",
+      "components": [
+        {
+          "id": "tagging-protocol",
+          "name": "WHO/WHEN/PROJECT/WHY Tagging Protocol",
+          "location": "components/observability/tagging_protocol/",
+          "quality_score": 88
+        },
+        {
+          "id": "audit-logging",
+          "name": "Audit Logging System",
+          "location": "components/observability/audit_logging/",
+          "quality_score": 86
+        },
+        {
+          "id": "opentelemetry-lite",
+          "name": "OpenTelemetry Lite Wrapper",
+          "location": "components/observability/opentelemetry_lite/",
+          "quality_score": 82
+        },
+        {
+          "id": "status-registry",
+          "name": "Status Registry",
+          "location": "components/observability/status_registry/",
+          "quality_score": 85
+        },
+        {
+          "id": "library-drift-audit",
+          "name": "Library Drift Audit",
+          "location": "components/observability/library_drift_audit/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "orchestration": {
+      "count": 1,
+      "file": "domains/orchestration.json",
+      "components": [
+        {
+          "id": "pipeline-executor",
+          "name": "Pipeline Executor",
+          "location": "components/orchestration/pipeline_executor/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "parsing": {
+      "count": 1,
+      "file": "domains/parsing.json",
+      "components": [
+        {
+          "id": "markdown-metadata",
+          "name": "Markdown Metadata Parser",
+          "location": "components/parsing/markdown_metadata/",
+          "quality_score": 88
+        }
+      ]
+    },
+    "patterns": {
+      "count": 4,
+      "file": "domains/patterns.json",
+      "components": [
+        {
+          "id": "money-handling",
+          "name": "Money Handling Pattern",
+          "location": "patterns/money_handling/",
+          "quality_score": 95
+        },
+        {
+          "id": "webhook-idempotency",
+          "name": "Webhook Idempotency Pattern",
+          "location": "patterns/webhook_idempotency/",
+          "quality_score": 90
+        },
+        {
+          "id": "auditor-base",
+          "name": "Auditor Base Pattern",
+          "location": "components/patterns/auditor_base/",
+          "quality_score": 85
+        },
+        {
+          "id": "image-generator-base",
+          "name": "Image Generator Base Pattern",
+          "location": "components/patterns/image_generator_base/",
+          "quality_score": 82
+        }
+      ]
+    },
+    "payments": {
+      "count": 1,
+      "file": "domains/payments.json",
+      "components": [
+        {
+          "id": "stripe-integration",
+          "name": "Stripe Payment Integration",
+          "location": "components/payments/stripe/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "react": {
+      "count": 1,
+      "file": "domains/react.json",
+      "components": [
+        {
+          "id": "react-hooks",
+          "name": "React Hooks Library",
+          "location": "components/react_hooks/",
+          "quality_score": 88
+        }
+      ]
+    },
+    "react-auth": {
+      "count": 1,
+      "file": "domains/react-auth.json",
+      "components": [
+        {
+          "id": "auth-context",
+          "name": "React Auth Context",
+          "location": "components/react_auth/context/",
+          "quality_score": 89
+        }
+      ]
+    },
+    "realtime": {
+      "count": 1,
+      "file": "domains/realtime.json",
+      "components": [
+        {
+          "id": "websocket-manager",
+          "name": "WebSocket Connection Manager",
+          "location": "components/realtime/websocket_manager/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "reporting": {
+      "count": 1,
+      "file": "domains/reporting.json",
+      "components": [
+        {
+          "id": "report-generator",
+          "name": "Report Generator",
+          "location": "components/reporting/report_generator/",
+          "quality_score": 84
+        }
+      ]
+    },
+    "scheduling": {
+      "count": 1,
+      "file": "domains/scheduling.json",
+      "components": [
+        {
+          "id": "task-scheduler",
+          "name": "Task Scheduler",
+          "location": "components/scheduling/task_scheduler/",
+          "quality_score": 88
+        }
+      ]
+    },
+    "security": {
+      "count": 1,
+      "file": "domains/security.json",
+      "components": [
+        {
+          "id": "security-jwt",
+          "name": "Security JWT Authentication",
+          "location": "components/security/jwt_auth/",
+          "quality_score": 92
+        }
+      ]
+    },
+    "state": {
+      "count": 1,
+      "file": "domains/state.json",
+      "components": [
+        {
+          "id": "kanban-store",
+          "name": "Kanban Store (Zustand)",
+          "location": "components/state/kanban_store/",
+          "quality_score": 85
+        }
+      ]
+    },
+    "testing": {
+      "count": 5,
+      "file": "domains/testing.json",
+      "components": [
+        {
+          "id": "pytest-fixtures-base",
+          "name": "Pytest Fixtures Base",
+          "location": "components/testing/pytest_fixtures/fixtures.py",
+          "quality_score": 100
+        },
+        {
+          "id": "jest-setup-base",
+          "name": "Jest Setup Base",
+          "location": "components/testing/jest_setup/setup.ts",
+          "quality_score": 100
+        },
+        {
+          "id": "backtest-harness",
+          "name": "Backtest Harness",
+          "location": "components/testing/backtest_harness/",
+          "quality_score": 88
+        },
+        {
+          "id": "pytest-fixtures-collection",
+          "name": "Pytest Fixtures Collection",
+          "location": "components/testing/pytest_fixtures/",
+          "quality_score": 90
+        },
+        {
+          "id": "jest-setup-collection",
+          "name": "Jest Setup Collection",
+          "location": "components/testing/jest_setup/",
+          "quality_score": 88
+        }
+      ]
+    },
+    "trading": {
+      "count": 3,
+      "file": "domains/trading.json",
+      "components": [
+        {
+          "id": "circuit-breaker-trading",
+          "name": "Trading Circuit Breakers",
+          "location": "components/trading/circuit_breakers/",
+          "quality_score": 92
+        },
+        {
+          "id": "gate-system-manager",
+          "name": "Gate System Manager",
+          "location": "components/trading/gate_system/",
+          "quality_score": 90
+        },
+        {
+          "id": "kelly-criterion-calculator",
+          "name": "Kelly Criterion Calculator",
+          "location": "components/trading/position_sizing/",
+          "quality_score": 94
+        }
+      ]
+    },
+    "ui-components": {
+      "count": 3,
+      "file": "domains/ui-components.json",
+      "components": [
+        {
+          "id": "radix-dialog",
+          "name": "Radix Dialog Component",
+          "location": "components/ui/radix_dialog/",
+          "quality_score": 85
+        },
+        {
+          "id": "radix-dropdown",
+          "name": "Radix Dropdown Menu Component",
+          "location": "components/ui/radix_dropdown/",
+          "quality_score": 85
+        },
+        {
+          "id": "design-system",
+          "name": "Design System Components",
+          "location": "components/ui/design_system/",
+          "quality_score": 80
+        }
+      ]
+    },
+    "utilities": {
+      "count": 4,
+      "file": "domains/utilities.json",
+      "components": [
+        {
+          "id": "quality-gate",
+          "name": "Quality Gate System",
+          "location": "components/utilities/quality_gate/quality_gate.py",
+          "quality_score": 85
+        },
+        {
+          "id": "circuit-breaker",
+          "name": "Circuit Breaker Pattern",
+          "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+          "quality_score": 90
+        },
+        {
+          "id": "health-monitor",
+          "name": "Health Check Monitor",
+          "location": "components/utilities/health_monitor/health_monitor.py",
+          "quality_score": 80
+        },
+        {
+          "id": "yaml-safe-write",
+          "name": "YAML Safe Write",
+          "location": "components/utilities/io_helpers/yaml_safe_write.py",
+          "quality_score": 95
+        }
+      ]
+    },
+    "validation": {
+      "count": 3,
+      "file": "domains/validation.json",
+      "components": [
+        {
+          "id": "spec-validation",
+          "name": "Spec Validation Framework",
+          "location": "components/validation/spec_validation/",
+          "quality_score": 92
+        },
+        {
+          "id": "skill-validator",
+          "name": "Skill Validator",
+          "location": "components/validation/skill_validator/",
+          "quality_score": 84
+        },
+        {
+          "id": "quality-validator",
+          "name": "Quality Validator",
+          "location": "components/validation/quality_validator/",
+          "quality_score": 90
+        }
+      ]
+    },
+    "governance": {
+      "count": 1,
+      "file": "domains/governance.json",
+      "components": [
+        {
+          "id": "guard-lane-base",
+          "name": "Guard Lane Base ABC",
+          "location": "components/governance/guard_lane_base/",
+          "quality_score": 95
+        }
+      ]
+    }
+  },
+  "quick_lookup": {
+    "accounting-transactions": {
+      "domain": "accounting",
+      "name": "Transaction Store",
+      "location": "components/accounting/transactions/"
+    },
+    "transaction-categorizer": {
+      "domain": "accounting",
+      "name": "Transaction Categorizer",
+      "location": "components/accounting/categorizer/"
+    },
+    "consensus-display": {
+      "domain": "ai",
+      "name": "LLM Council Consensus Display",
+      "location": "components/ai/consensus_display/"
+    },
+    "pattern-matcher": {
+      "domain": "analysis",
+      "name": "Pattern Matcher",
+      "location": "components/analysis/pattern_matcher/"
+    },
+    "scoring-aggregator": {
+      "domain": "analysis",
+      "name": "Scoring Aggregator",
+      "location": "components/analysis/scoring_aggregator/"
+    },
+    "violation-factory": {
+      "domain": "analysis",
+      "name": "Violation Factory",
+      "location": "components/analysis/violation_factory/"
+    },
+    "statistical-analyzer": {
+      "domain": "analysis",
+      "name": "Statistical Analyzer",
+      "location": "components/analysis/statistical_analyzer/"
+    },
+    "ast-visitor-base": {
+      "domain": "analysis",
+      "name": "AST Visitor Base Pattern",
+      "location": "components/analysis/ast_visitor_base/"
+    },
+    "metric-collector": {
+      "domain": "analysis",
+      "name": "Metric Collector",
+      "location": "components/analysis/metric_collector/"
+    },
+    "ast-visitor": {
+      "domain": "analysis",
+      "name": "AST Visitor Base",
+      "location": "components/analysis/ast_visitor/"
+    },
+    "fastapi-router-template": {
+      "domain": "api",
+      "name": "FastAPI CRUD Router",
+      "location": "components/api/fastapi_router/"
+    },
+    "pydantic-base-models": {
+      "domain": "api",
+      "name": "Pydantic Base Models",
+      "location": "components/api/pydantic_base/"
+    },
+    "express-middleware-chain": {
+      "domain": "api",
+      "name": "Express Middleware Chain",
+      "location": "components/middleware/express_chain/"
+    },
+    "jwt-auth-middleware": {
+      "domain": "authentication",
+      "name": "JWT Authentication Middleware",
+      "location": "components/auth/jwt_middleware_ts/middleware.ts"
+    },
+    "fastapi-jwt-auth": {
+      "domain": "authentication",
+      "name": "FastAPI JWT Authentication",
+      "location": "components/auth/fastapi_jwt/jwt_auth.py"
+    },
+    "banking-plaid": {
+      "domain": "banking",
+      "name": "Plaid Banking Integration",
+      "location": "components/banking/plaid/"
+    },
+    "banking-models": {
+      "domain": "banking",
+      "name": "Banking Data Models",
+      "location": "components/banking/models.py"
+    },
+    "mercury-integration": {
+      "domain": "banking",
+      "name": "Mercury Bank Integration",
+      "location": "components/banking/mercury/"
+    },
+    "redis-cache": {
+      "domain": "caching",
+      "name": "Redis Cache Layer",
+      "location": "components/caching/redis_cache/"
+    },
+    "frozen-harness": {
+      "domain": "cognitive",
+      "name": "FrozenHarness Evaluation System",
+      "location": "components/cognitive_architecture/loopctl/core.py"
+    },
+    "telemetry-bridge": {
+      "domain": "cognitive",
+      "name": "TelemetryBridge Memory MCP Integration",
+      "location": "components/cognitive_architecture/integration/telemetry_bridge.py"
+    },
+    "connascence-bridge": {
+      "domain": "cognitive",
+      "name": "ConnascenceBridge Quality Analyzer",
+      "location": "components/cognitive_architecture/integration/connascence_bridge.py"
+    },
+    "mode-library": {
+      "domain": "cognitive",
+      "name": "ModeLibrary Configuration System",
+      "location": "components/cognitive_architecture/modes/library.py"
+    },
+    "vcl-validator": {
+      "domain": "cognitive",
+      "name": "VCL Validator",
+      "location": "components/cognitive_architecture/core/vcl_validator.py"
+    },
+    "two-stage-optimizer": {
+      "domain": "cognitive",
+      "name": "Two-Stage Multi-Objective Optimizer",
+      "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py"
+    },
+    "cli-evaluator": {
+      "domain": "cognitive",
+      "name": "CLI Evaluator (Real LLM)",
+      "location": "components/cognitive_architecture/evals/cli_evaluator.py"
+    },
+    "verix-parser": {
+      "domain": "cognitive",
+      "name": "VERIX Epistemic Parser",
+      "location": "components/cognitive/verix_parser/"
+    },
+    "cognitive-config": {
+      "domain": "cognitive",
+      "name": "Cognitive Frame Configuration",
+      "location": "components/cognitive/cognitive_config/"
+    },
+    "skill-base": {
+      "domain": "cognitive",
+      "name": "Skill Base Class",
+      "location": "components/cognitive/skill_base/"
+    },
+    "agent-base": {
+      "domain": "cognitive",
+      "name": "Agent Base Class",
+      "location": "components/cognitive/agent_base/"
+    },
+    "command-base": {
+      "domain": "cognitive",
+      "name": "Command Base Class",
+      "location": "components/cognitive/command_base/"
+    },
+    "playbook-base": {
+      "domain": "cognitive",
+      "name": "Playbook Base Class",
+      "location": "components/cognitive/playbook_base/"
+    },
+    "hook-base": {
+      "domain": "cognitive",
+      "name": "Hook Base Class",
+      "location": "components/cognitive/hook_base/"
+    },
+    "script-base": {
+      "domain": "cognitive",
+      "name": "Script Base Class",
+      "location": "components/cognitive/script_base/"
+    },
+    "db-connection-pool": {
+      "domain": "database",
+      "name": "Database Connection Pool",
+      "location": "components/database/connection_pool/"
+    },
+    "fetch-api-client": {
+      "domain": "http",
+      "name": "Fetch API Client",
+      "location": "components/http/fetch_api_client/"
+    },
+    "api-services": {
+      "domain": "http",
+      "name": "API Service Layer",
+      "location": "components/http/api_services/"
+    },
+    "content-pipeline-template": {
+      "domain": "integrations",
+      "name": "Content Pipeline Template",
+      "location": "components/pipelines/content_pipeline/"
+    },
+    "multi-model-router": {
+      "domain": "integrations",
+      "name": "Multi-Model Router",
+      "location": "components/ai/model_router/providers.py"
+    },
+    "memory-mcp-client-v2": {
+      "domain": "memory",
+      "name": "Memory MCP Client v2",
+      "location": "components/memory/memory_mcp_client/"
+    },
+    "redis-pubsub": {
+      "domain": "messaging",
+      "name": "Redis Pub/Sub Manager",
+      "location": "components/messaging/redis_pubsub/"
+    },
+    "tenant-isolation": {
+      "domain": "multi-entity",
+      "name": "Multi-Entity Tenant Isolation",
+      "location": "components/multi_entity/isolation/"
+    },
+    "tagging-protocol": {
+      "domain": "observability",
+      "name": "WHO/WHEN/PROJECT/WHY Tagging Protocol",
+      "location": "components/observability/tagging_protocol/"
+    },
+    "audit-logging": {
+      "domain": "observability",
+      "name": "Audit Logging System",
+      "location": "components/observability/audit_logging/"
+    },
+    "opentelemetry-lite": {
+      "domain": "observability",
+      "name": "OpenTelemetry Lite Wrapper",
+      "location": "components/observability/opentelemetry_lite/"
+    },
+    "status-registry": {
+      "domain": "observability",
+      "name": "Status Registry",
+      "location": "components/observability/status_registry/"
+    },
+    "library-drift-audit": {
+      "domain": "observability",
+      "name": "Library Drift Audit",
+      "location": "components/observability/library_drift_audit/"
+    },
+    "pipeline-executor": {
+      "domain": "orchestration",
+      "name": "Pipeline Executor",
+      "location": "components/orchestration/pipeline_executor/"
+    },
+    "markdown-metadata": {
+      "domain": "parsing",
+      "name": "Markdown Metadata Parser",
+      "location": "components/parsing/markdown_metadata/"
+    },
+    "money-handling": {
+      "domain": "patterns",
+      "name": "Money Handling Pattern",
+      "location": "patterns/money_handling/"
+    },
+    "webhook-idempotency": {
+      "domain": "patterns",
+      "name": "Webhook Idempotency Pattern",
+      "location": "patterns/webhook_idempotency/"
+    },
+    "auditor-base": {
+      "domain": "patterns",
+      "name": "Auditor Base Pattern",
+      "location": "components/patterns/auditor_base/"
+    },
+    "image-generator-base": {
+      "domain": "patterns",
+      "name": "Image Generator Base Pattern",
+      "location": "components/patterns/image_generator_base/"
+    },
+    "stripe-integration": {
+      "domain": "payments",
+      "name": "Stripe Payment Integration",
+      "location": "components/payments/stripe/"
+    },
+    "react-hooks": {
+      "domain": "react",
+      "name": "React Hooks Library",
+      "location": "components/react_hooks/"
+    },
+    "auth-context": {
+      "domain": "react-auth",
+      "name": "React Auth Context",
+      "location": "components/react_auth/context/"
+    },
+    "websocket-manager": {
+      "domain": "realtime",
+      "name": "WebSocket Manager",
+      "location": "components/realtime/websocket_manager/"
+    },
+    "report-generator": {
+      "domain": "reporting",
+      "name": "Report Generator",
+      "location": "components/reporting/report_generator/"
+    },
+    "task-scheduler": {
+      "domain": "scheduling",
+      "name": "Task Scheduler",
+      "location": "components/scheduling/task_scheduler/"
+    },
+    "security-jwt": {
+      "domain": "security",
+      "name": "Security JWT Authentication",
+      "location": "components/security/jwt_auth/"
+    },
+    "kanban-store": {
+      "domain": "state",
+      "name": "Kanban Store (Zustand)",
+      "location": "components/state/kanban_store/"
+    },
+    "pytest-fixtures-base": {
+      "domain": "testing",
+      "name": "Pytest Fixtures Base",
+      "location": "components/testing/pytest_fixtures/fixtures.py"
+    },
+    "jest-setup-base": {
+      "domain": "testing",
+      "name": "Jest Setup Base",
+      "location": "components/testing/jest_setup/setup.ts"
+    },
+    "backtest-harness": {
+      "domain": "testing",
+      "name": "Backtest Harness",
+      "location": "components/testing/backtest_harness/"
+    },
+    "pytest-fixtures-collection": {
+      "domain": "testing",
+      "name": "Pytest Fixtures Collection",
+      "location": "components/testing/pytest_fixtures/"
+    },
+    "jest-setup-collection": {
+      "domain": "testing",
+      "name": "Jest Setup Collection",
+      "location": "components/testing/jest_setup/"
+    },
+    "circuit-breaker-trading": {
+      "domain": "trading",
+      "name": "Trading Circuit Breakers",
+      "location": "components/trading/circuit_breakers/"
+    },
+    "gate-system-manager": {
+      "domain": "trading",
+      "name": "Gate System Manager",
+      "location": "components/trading/gate_system/"
+    },
+    "kelly-criterion-calculator": {
+      "domain": "trading",
+      "name": "Kelly Criterion Calculator",
+      "location": "components/trading/position_sizing/"
+    },
+    "radix-dialog": {
+      "domain": "ui-components",
+      "name": "Radix Dialog Component",
+      "location": "components/ui/radix_dialog/"
+    },
+    "radix-dropdown": {
+      "domain": "ui-components",
+      "name": "Radix Dropdown Menu Component",
+      "location": "components/ui/radix_dropdown/"
+    },
+    "design-system": {
+      "domain": "ui-components",
+      "name": "Design System Components",
+      "location": "components/ui/design_system/"
+    },
+    "quality-gate": {
+      "domain": "utilities",
+      "name": "Quality Gate System",
+      "location": "components/utilities/quality_gate/quality_gate.py"
+    },
+    "circuit-breaker": {
+      "domain": "utilities",
+      "name": "Circuit Breaker Pattern",
+      "location": "components/utilities/circuit_breaker/circuit_breaker.py"
+    },
+    "health-monitor": {
+      "domain": "utilities",
+      "name": "Health Check Monitor",
+      "location": "components/utilities/health_monitor/health_monitor.py"
+    },
+    "yaml-safe-write": {
+      "domain": "utilities",
+      "name": "YAML Safe Write",
+      "location": "components/utilities/io_helpers/yaml_safe_write.py"
+    },
+    "spec-validation": {
+      "domain": "validation",
+      "name": "Spec Validation Framework",
+      "location": "components/validation/spec_validation/"
+    },
+    "skill-validator": {
+      "domain": "validation",
+      "name": "Skill Validator",
+      "location": "components/validation/skill_validator/"
+    },
+    "quality-validator": {
+      "domain": "validation",
+      "name": "Quality Validator",
+      "location": "components/validation/quality_validator/"
+    },
+    "guard-lane-base": {
+      "domain": "governance",
+      "name": "Guard Lane Base ABC",
+      "location": "components/governance/guard_lane_base/"
+    }
+  }
+}
