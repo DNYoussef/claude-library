@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+const workflowContent = `name: Library CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python \${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: \${{ matrix.python-version }}
+      - name: Install test dependencies
+        run: pip install pytest
+      - name: Run Python tests
+        run: |
+          find components -name 'test_*.py' -exec pytest {} \;
+
+  typescript-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run TypeScript tests
+        run: npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run linter
+        run: npm run lint
+
+  validate-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate catalog-index.json
+        run: node scripts/validate-catalog.cjs
+`;
+
+const workflowPath = path.join(__dirname, '..', '.github', 'workflows', 'ci.yml');
+fs.writeFileSync(workflowPath, workflowContent);
+console.log('CI workflow written to:', workflowPath);
