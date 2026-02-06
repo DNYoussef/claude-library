@@ -1,0 +1,36 @@
+{
+  "id": "banking-models",
+  "name": "Banking Data Models",
+  "version": "1.0.0",
+  "description": "Common banking dataclasses: BankAccount, Transaction, BankConnection. Uses Decimal for all monetary values. Provider-agnostic design.",
+  "location": "components/banking/",
+  "domain": "banking",
+  "technology": [
+    "Python",
+    "dataclasses",
+    "Decimal"
+  ],
+  "keywords": [
+    "banking",
+    "account",
+    "transaction",
+    "model",
+    "dataclass"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 10,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.banking import BankAccount, Transaction\naccount = BankAccount(id='acc_123', name='Checking', balance=Decimal('1000.00'))",
+  "source_project": "D:\\Projects\\trader-ai\\src\\finances\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "BankAccount",
+    "Transaction",
+    "BankConnection"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "agent-base",
+  "name": "Agent Base Class",
+  "version": "1.0.0",
+  "description": "Abstract base class for Context Cascade agents with Memory MCP integration, quality gates, artifact contracts, and composite agent patterns.",
+  "location": "components/cognitive/agent_base/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "agent",
+    "base",
+    "lifecycle",
+    "memory-mcp",
+    "cognitive"
+  ],
+  "dependencies": [],
+  "test_coverage": 88,
+  "tests_passing": 22,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.cognitive.agent_base import AgentBase, agent_metadata\n@agent_metadata(name='my-agent', category=AgentCategory.DELIVERY)\nclass MyAgent(AgentBase): ...",
+  "source_project": "context-cascade/agents/README.md",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T14:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "AgentBase",
+    "AgentCategory",
+    "AgentMetadata",
+    "AgentPhase",
+    "AgentResult",
+    "AgentStatus",
+    "AgentTask",
+    "AgentType",
+    "ArtifactContract",
+    "CompositeAgent",
+    "ConfidenceLevel",
+    "InputContract",
+    "MCPServer",
+    "MemoryTag",
+    "OutputContract",
+    "PerformanceMetrics",
+    "QualityGate",
+    "agent_metadata",
+    "get_agent",
+    "list_agents",
+    "list_agents_by_category"
+  ]
+}

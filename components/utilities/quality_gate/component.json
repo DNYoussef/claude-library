@@ -1,0 +1,45 @@
+{
+  "id": "quality-gate",
+  "name": "Quality Gate System",
+  "version": "1.0.0",
+  "description": "Async quality gate with threshold validation for content pipelines. Supports slop detection, score calculation, and pass/fail determination.",
+  "location": "components/utilities/quality_gate/",
+  "domain": "utilities",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "quality",
+    "gate",
+    "threshold",
+    "validation",
+    "pipeline",
+    "slop",
+    "content"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 12,
+  "usage_count": 2,
+  "last_used": "2026-01-08T00:00:00Z",
+  "example_usage": "from library.quality import QualityGate\ngate = QualityGate(threshold=0.7)\nresult = await gate.check(content)",
+  "source_project": "scripts/content-pipeline/gates.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "GateConfig",
+    "GateFailedError",
+    "GateManager",
+    "GateResult",
+    "GateStatus",
+    "GateType",
+    "RichMetricResult",
+    "create_compile_gate",
+    "create_dependency_gate",
+    "create_quality_gate",
+    "create_sync_gate"
+  ]
+}

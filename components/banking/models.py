@@ -3,7 +3,7 @@ Banking Data Models - Common structures for banking integrations.
 
 These models are provider-agnostic and can be used with Plaid, Mercury, or other APIs.
 
-Source: Adapted from D:/Projects/trader-ai/src/finances/plaid_client.py
+Source: Adapted from trader-ai/src/finances/plaid_client.py
 Enhanced: Added validation for required fields and currency codes (2026-01-10)
 """
 

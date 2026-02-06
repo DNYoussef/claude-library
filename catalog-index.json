@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0.0",
-  "last_updated": "2026-02-06T16:27:19.867380+00:00",
+  "last_updated": "2026-02-06T16:45:49.300208+00:00",
   "total_components": 80,
   "domains": {
     "accounting": {
@@ -112,13 +112,13 @@
         {
           "id": "jwt-auth-middleware",
           "name": "JWT Authentication Middleware",
-          "location": "components/auth/jwt_middleware_ts/middleware.ts",
+          "location": "components/auth/jwt_middleware_ts/",
           "quality_score": 90
         },
         {
           "id": "fastapi-jwt-auth",
           "name": "FastAPI JWT Authentication",
-          "location": "components/auth/fastapi_jwt/jwt_auth.py",
+          "location": "components/auth/fastapi_jwt/",
           "quality_score": 88
         }
       ]
@@ -136,7 +136,7 @@
         {
           "id": "banking-models",
           "name": "Banking Data Models",
-          "location": "components/banking/models.py",
+          "location": "components/banking/",
           "quality_score": 85
         },
         {
@@ -166,43 +166,43 @@
         {
           "id": "frozen-harness",
           "name": "FrozenHarness Evaluation System",
-          "location": "components/cognitive_architecture/loopctl/core.py",
+          "location": "components/cognitive_architecture/loopctl/",
           "quality_score": 80
         },
         {
           "id": "telemetry-bridge",
           "name": "TelemetryBridge Memory MCP Integration",
-          "location": "components/cognitive_architecture/integration/telemetry_bridge.py",
+          "location": "components/cognitive_architecture/integration/",
           "quality_score": 75
         },
         {
           "id": "connascence-bridge",
           "name": "ConnascenceBridge Quality Analyzer",
-          "location": "components/cognitive_architecture/integration/connascence_bridge.py",
+          "location": "components/cognitive_architecture/integration/",
           "quality_score": 70
         },
         {
           "id": "mode-library",
           "name": "ModeLibrary Configuration System",
-          "location": "components/cognitive_architecture/modes/library.py",
+          "location": "components/cognitive_architecture/modes/",
           "quality_score": 85
         },
         {
           "id": "vcl-validator",
           "name": "VCL Validator",
-          "location": "components/cognitive_architecture/core/vcl_validator.py",
+          "location": "components/cognitive_architecture/core/",
           "quality_score": 90
         },
         {
           "id": "two-stage-optimizer",
           "name": "Two-Stage Multi-Objective Optimizer",
-          "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py",
+          "location": "components/cognitive_architecture/optimization/",
           "quality_score": 75
         },
         {
           "id": "cli-evaluator",
           "name": "CLI Evaluator (Real LLM)",
-          "location": "components/cognitive_architecture/evals/cli_evaluator.py",
+          "location": "components/cognitive_architecture/evals/",
           "quality_score": 70
         },
         {
@@ -298,7 +298,7 @@
         {
           "id": "multi-model-router",
           "name": "Multi-Model Router",
-          "location": "components/ai/model_router/providers.py",
+          "location": "components/ai/model_router/",
           "quality_score": 82
         }
       ]
@@ -532,13 +532,13 @@
         {
           "id": "pytest-fixtures-base",
           "name": "Pytest Fixtures Base",
-          "location": "components/testing/pytest_fixtures/fixtures.py",
+          "location": "components/testing/pytest_fixtures/",
           "quality_score": 100
         },
         {
           "id": "jest-setup-base",
           "name": "Jest Setup Base",
-          "location": "components/testing/jest_setup/setup.ts",
+          "location": "components/testing/jest_setup/",
           "quality_score": 100
         },
         {
@@ -616,25 +616,25 @@
         {
           "id": "quality-gate",
           "name": "Quality Gate System",
-          "location": "components/utilities/quality_gate/quality_gate.py",
+          "location": "components/utilities/quality_gate/",
           "quality_score": 85
         },
         {
           "id": "circuit-breaker",
           "name": "Circuit Breaker Pattern",
-          "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+          "location": "components/utilities/circuit_breaker/",
           "quality_score": 90
         },
         {
           "id": "health-monitor",
           "name": "Health Check Monitor",
-          "location": "components/utilities/health_monitor/health_monitor.py",
+          "location": "components/utilities/health_monitor/",
           "quality_score": 80
         },
         {
           "id": "yaml-safe-write",
           "name": "YAML Safe Write",
-          "location": "components/utilities/io_helpers/yaml_safe_write.py",
+          "location": "components/utilities/io_helpers/",
           "quality_score": 95
         }
       ]
@@ -745,12 +745,12 @@
     "jwt-auth-middleware": {
       "domain": "authentication",
       "name": "JWT Authentication Middleware",
-      "location": "components/auth/jwt_middleware_ts/middleware.ts"
+      "location": "components/auth/jwt_middleware_ts/"
     },
     "fastapi-jwt-auth": {
       "domain": "authentication",
       "name": "FastAPI JWT Authentication",
-      "location": "components/auth/fastapi_jwt/jwt_auth.py"
+      "location": "components/auth/fastapi_jwt/"
     },
     "banking-plaid": {
       "domain": "banking",
@@ -760,7 +760,7 @@
     "banking-models": {
       "domain": "banking",
       "name": "Banking Data Models",
-      "location": "components/banking/models.py"
+      "location": "components/banking/"
     },
     "mercury-integration": {
       "domain": "banking",
@@ -775,37 +775,37 @@
     "frozen-harness": {
       "domain": "cognitive",
       "name": "FrozenHarness Evaluation System",
-      "location": "components/cognitive_architecture/loopctl/core.py"
+      "location": "components/cognitive_architecture/loopctl/"
     },
     "telemetry-bridge": {
       "domain": "cognitive",
       "name": "TelemetryBridge Memory MCP Integration",
-      "location": "components/cognitive_architecture/integration/telemetry_bridge.py"
+      "location": "components/cognitive_architecture/integration/"
     },
     "connascence-bridge": {
       "domain": "cognitive",
       "name": "ConnascenceBridge Quality Analyzer",
-      "location": "components/cognitive_architecture/integration/connascence_bridge.py"
+      "location": "components/cognitive_architecture/integration/"
     },
     "mode-library": {
       "domain": "cognitive",
       "name": "ModeLibrary Configuration System",
-      "location": "components/cognitive_architecture/modes/library.py"
+      "location": "components/cognitive_architecture/modes/"
     },
     "vcl-validator": {
       "domain": "cognitive",
       "name": "VCL Validator",
-      "location": "components/cognitive_architecture/core/vcl_validator.py"
+      "location": "components/cognitive_architecture/core/"
     },
     "two-stage-optimizer": {
       "domain": "cognitive",
       "name": "Two-Stage Multi-Objective Optimizer",
-      "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py"
+      "location": "components/cognitive_architecture/optimization/"
     },
     "cli-evaluator": {
       "domain": "cognitive",
       "name": "CLI Evaluator (Real LLM)",
-      "location": "components/cognitive_architecture/evals/cli_evaluator.py"
+      "location": "components/cognitive_architecture/evals/"
     },
     "verix-parser": {
       "domain": "cognitive",
@@ -870,7 +870,7 @@
     "multi-model-router": {
       "domain": "integrations",
       "name": "Multi-Model Router",
-      "location": "components/ai/model_router/providers.py"
+      "location": "components/ai/model_router/"
     },
     "memory-mcp-client-v2": {
       "domain": "memory",
@@ -985,12 +985,12 @@
     "pytest-fixtures-base": {
       "domain": "testing",
       "name": "Pytest Fixtures Base",
-      "location": "components/testing/pytest_fixtures/fixtures.py"
+      "location": "components/testing/pytest_fixtures/"
     },
     "jest-setup-base": {
       "domain": "testing",
       "name": "Jest Setup Base",
-      "location": "components/testing/jest_setup/setup.ts"
+      "location": "components/testing/jest_setup/"
     },
     "backtest-harness": {
       "domain": "testing",
@@ -1040,22 +1040,22 @@
     "quality-gate": {
       "domain": "utilities",
       "name": "Quality Gate System",
-      "location": "components/utilities/quality_gate/quality_gate.py"
+      "location": "components/utilities/quality_gate/"
     },
     "circuit-breaker": {
       "domain": "utilities",
       "name": "Circuit Breaker Pattern",
-      "location": "components/utilities/circuit_breaker/circuit_breaker.py"
+      "location": "components/utilities/circuit_breaker/"
     },
     "health-monitor": {
       "domain": "utilities",
       "name": "Health Check Monitor",
-      "location": "components/utilities/health_monitor/health_monitor.py"
+      "location": "components/utilities/health_monitor/"
     },
     "yaml-safe-write": {
       "domain": "utilities",
       "name": "YAML Safe Write",
-      "location": "components/utilities/io_helpers/yaml_safe_write.py"
+      "location": "components/utilities/io_helpers/"
     },
     "spec-validation": {
       "domain": "validation",

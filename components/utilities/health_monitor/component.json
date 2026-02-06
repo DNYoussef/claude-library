@@ -1,0 +1,42 @@
+{
+  "id": "health-monitor",
+  "name": "Health Check Monitor",
+  "version": "1.0.0",
+  "description": "Periodic health polling system with alerting. Monitors service endpoints and triggers callbacks on status changes.",
+  "location": "components/utilities/health_monitor/",
+  "domain": "utilities",
+  "technology": [
+    "Python",
+    "asyncio",
+    "httpx"
+  ],
+  "keywords": [
+    "health",
+    "monitor",
+    "polling",
+    "alert",
+    "status",
+    "endpoint"
+  ],
+  "dependencies": [
+    "httpx"
+  ],
+  "test_coverage": 80,
+  "tests_passing": 10,
+  "usage_count": 1,
+  "last_used": "2026-01-03T00:00:00Z",
+  "example_usage": "from library.monitoring import HealthMonitor\nmonitor = HealthMonitor(endpoints=[...])\nawait monitor.start()",
+  "source_project": "utils/health_check_monitor.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 80,
+  "lego_compatible": false,
+  "exports": [
+    "AlertConfig",
+    "HealthCheckConfig",
+    "HealthCheckResult",
+    "HealthMonitor",
+    "HealthState",
+    "HealthStatus"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "playbook-base",
+  "name": "Playbook Base Class",
+  "version": "1.0.0",
+  "description": "Abstract base class for Context Cascade playbooks with multi-phase orchestration, checkpoint/recovery, and skill/agent coordination.",
+  "location": "components/cognitive/playbook_base/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "playbook",
+    "orchestration",
+    "workflow",
+    "checkpoint",
+    "phases"
+  ],
+  "dependencies": [],
+  "test_coverage": 86,
+  "tests_passing": 18,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.cognitive.playbook_base import PlaybookBase, playbook_metadata, PhaseSpec\n@playbook_metadata(name='feature-dev', phases=[PhaseSpec('analyze'), PhaseSpec('implement')])\nclass FeatureDevPlaybook(PlaybookBase): ...",
+  "source_project": "ansible-playbook-patterns",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T14:00:00Z",
+  "quality_score": 89,
+  "lego_compatible": false,
+  "exports": [
+    "PhaseResult",
+    "PhaseSpec",
+    "PhaseStatus",
+    "PlaybookBase",
+    "PlaybookCategory",
+    "PlaybookContext",
+    "PlaybookMetadata",
+    "PlaybookResult",
+    "get_playbook",
+    "list_playbooks",
+    "playbook_metadata"
+  ]
+}

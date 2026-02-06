@@ -35,17 +35,17 @@
       "critical": true,
       "lego_compatible": false,
       "exports": [
-        "CurrencyMismatchError",
-        "FloatNotAllowedError",
         "Money",
         "MoneyError",
+        "FloatNotAllowedError",
+        "CurrencyMismatchError",
         "add_money",
+        "subtract_money",
         "allocate_money",
         "format_money",
-        "is_valid_currency",
         "parse_money",
-        "subtract_money",
-        "validate_amount"
+        "validate_amount",
+        "is_valid_currency"
       ]
     },
     {
@@ -86,16 +86,16 @@
       "critical": true,
       "lego_compatible": false,
       "exports": [
-        "FastAPIIdempotencyMiddleware",
         "IdempotencyStore",
         "InMemoryIdempotencyStore",
-        "PostgresIdempotencyStore",
         "RedisIdempotencyStore",
-        "ensure_idempotent",
-        "extract_key_from_request",
-        "generate_idempotency_key",
+        "PostgresIdempotencyStore",
         "idempotent",
-        "idempotent_handler"
+        "FastAPIIdempotencyMiddleware",
+        "idempotent_handler",
+        "ensure_idempotent",
+        "generate_idempotency_key",
+        "extract_key_from_request"
       ]
     },
     {

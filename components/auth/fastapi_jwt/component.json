@@ -1,0 +1,49 @@
+{
+  "id": "fastapi-jwt-auth",
+  "name": "FastAPI JWT Authentication",
+  "version": "1.0.0",
+  "description": "JWT authentication for FastAPI. Dependency injection pattern, token validation, user extraction.",
+  "location": "components/auth/fastapi_jwt/",
+  "domain": "authentication",
+  "technology": [
+    "Python",
+    "FastAPI",
+    "python-jose"
+  ],
+  "keywords": [
+    "jwt",
+    "auth",
+    "authentication",
+    "fastapi",
+    "dependency",
+    "token"
+  ],
+  "dependencies": [
+    "fastapi",
+    "python-jose"
+  ],
+  "test_coverage": 88,
+  "tests_passing": 16,
+  "usage_count": 3,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from library.auth import get_current_user\n@router.get('/me')\nasync def me(user: User = Depends(get_current_user)):",
+  "source_project": "life-os-dashboard/src/auth/",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 88,
+  "lego_compatible": false,
+  "exports": [
+    "AuthenticationError",
+    "AuthorizationError",
+    "JWTAuthConfig",
+    "JWTAuthService",
+    "TokenData",
+    "User",
+    "get_auth_service",
+    "init_jwt_auth",
+    "require_any_role",
+    "require_role",
+    "verify_resource_ownership",
+    "verify_resource_ownership_or_admin"
+  ]
+}

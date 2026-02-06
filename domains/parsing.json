@@ -34,24 +34,13 @@
       "quality_score": 88,
       "lego_compatible": false,
       "exports": [
-        "// Core Parsing\n  detectType",
-        "// File Discovery\n  findMarkdownFiles",
-        "// Serialization\n  serializeFrontmatter",
-        "// Skill Metadata Extraction\n  inferSkillName",
-        "// Type Definitions\n  type FrontmatterValue",
         "createMarkdown",
         "extractSkillMetadata",
         "getShortDescription",
         "getSkillName",
         "isValidSkillName",
         "parseFrontmatter",
-        "parseMarkdown",
-        "type FileSearchResult",
-        "type Frontmatter",
-        "type ParseOptions",
-        "type ParseResult",
-        "type SkillExtractionOptions",
-        "type SkillMetadata"
+        "parseMarkdown"
       ]
     }
   ]

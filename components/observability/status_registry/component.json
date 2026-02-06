@@ -1,0 +1,44 @@
+{
+  "id": "status-registry",
+  "name": "Status Registry",
+  "version": "1.0.0",
+  "description": "Canonical status registry for the AI Exoskeleton doc set. Generates JSON source of truth and renders markdown summaries.",
+  "location": "components/observability/status_registry/",
+  "domain": "observability",
+  "technology": [
+    "Python",
+    "JSON"
+  ],
+  "keywords": [
+    "status",
+    "registry",
+    "documentation",
+    "metadata",
+    "automation"
+  ],
+  "dependencies": [],
+  "test_coverage": 80,
+  "tests_passing": 2,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.observability.status_registry import build_registry, render_markdown",
+  "source_project": "2026-AI-EXOSKELETON documentation suite",
+  "created_by": "codex",
+  "created_at": "2026-01-13T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "ProjectStatus",
+    "RepoSignals",
+    "STATUS_END_MARKER",
+    "STATUS_START_MARKER",
+    "build_registry",
+    "parse_project_table",
+    "render_project_markdown",
+    "render_markdown",
+    "scan_repo_signals",
+    "update_marked_section",
+    "update_project_readme",
+    "update_repo_readmes"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "redis-cache",
+  "name": "Redis Cache Layer",
+  "version": "1.0.0",
+  "description": "Redis caching with TTL, namespacing, and JSON serialization. Uses SCAN instead of KEYS for production safety.",
+  "location": "components/caching/redis_cache/",
+  "domain": "caching",
+  "technology": [
+    "Python",
+    "Redis"
+  ],
+  "keywords": [
+    "redis",
+    "cache",
+    "ttl",
+    "performance",
+    "key-value"
+  ],
+  "dependencies": [
+    "redis"
+  ],
+  "test_coverage": 86,
+  "tests_passing": 15,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.caching.redis_cache import RedisCache\ncache = RedisCache(redis_client, namespace='app')\nawait cache.set('key', value, ttl=3600)",
+  "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 88,
+  "lego_compatible": false,
+  "exports": [
+    "RedisCache",
+    "RedisCacheConfig",
+    "cached",
+    "close_default_cache",
+    "generate_cache_key",
+    "get_default_cache",
+    "init_default_cache",
+    "invalidate_on_write"
+  ]
+}

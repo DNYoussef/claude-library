@@ -1,0 +1,38 @@
+{
+  "id": "auditor-base",
+  "name": "Auditor Base Pattern",
+  "version": "1.0.0",
+  "description": "Abstract base class for structured auditors with VERIX-compatible output. Includes Illocution, Affect, ActionClass enums and AuditorResult dataclass with confidence ceiling enforcement.",
+  "location": "components/patterns/auditor_base/",
+  "domain": "patterns",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "auditor",
+    "audit",
+    "verix",
+    "illocution",
+    "confidence",
+    "action-class"
+  ],
+  "dependencies": [],
+  "test_coverage": 80,
+  "tests_passing": 12,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.patterns.auditor_base import BaseAuditor, AuditorResult\nclass MyAuditor(BaseAuditor):\n    auditor_type = 'custom'\n    def audit(self, artifact, eval_report, config): ...",
+  "source_project": "context-cascade/cognitive-architecture/integration/auditors.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "ActionClass",
+    "Affect",
+    "AuditorResult",
+    "BaseAuditor",
+    "Illocution"
+  ]
+}

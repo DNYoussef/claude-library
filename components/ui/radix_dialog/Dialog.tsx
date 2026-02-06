@@ -31,20 +31,21 @@
 
 import { forwardRef, createContext, useContext } from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import type {
-  DialogProps,
-  DialogTriggerProps,
-  DialogContentProps,
-  DialogOverlayProps,
-  DialogHeaderProps,
-  DialogTitleProps,
-  DialogDescriptionProps,
-  DialogBodyProps,
-  DialogFooterProps,
-  DialogCloseProps,
-  DialogSize,
+import {
+  DIALOG_SIZE_STYLES,
+  DIALOG_ANIMATIONS,
+  type DialogProps,
+  type DialogTriggerProps,
+  type DialogContentProps,
+  type DialogOverlayProps,
+  type DialogHeaderProps,
+  type DialogTitleProps,
+  type DialogDescriptionProps,
+  type DialogBodyProps,
+  type DialogFooterProps,
+  type DialogCloseProps,
+  type DialogSize,
 } from './types';
-import { DIALOG_SIZE_STYLES, DIALOG_ANIMATIONS } from './types';
 
 // =============================================================================
 // CONTEXT

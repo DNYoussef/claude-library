@@ -7,7 +7,7 @@
       "name": "FrozenHarness Evaluation System",
       "version": "1.0.0",
       "description": "Immutable evaluation harness for grading artifacts.",
-      "location": "components/cognitive_architecture/loopctl/core.py",
+      "location": "components/cognitive_architecture/loopctl/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -31,9 +31,11 @@
       "quality_score": 80,
       "lego_compatible": false,
       "exports": [
-        "FrozenHarness:",
-        "GradeMetrics:",
-        "check_emergency_stop"
+        "AuthorityLevel",
+        "DecisionAction",
+        "Decision",
+        "DecisionResult",
+        "DecisionAuthority"
       ]
     },
     {
@@ -41,7 +43,7 @@
       "name": "TelemetryBridge Memory MCP Integration",
       "version": "1.0.0",
       "description": "Bridges loop telemetry with Memory MCP storage.",
-      "location": "components/cognitive_architecture/integration/telemetry_bridge.py",
+      "location": "components/cognitive_architecture/integration/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -66,8 +68,8 @@
       "quality_score": 75,
       "lego_compatible": false,
       "exports": [
-        "LoopTelemetryRecord:",
-        "TelemetryBridge:",
+        "LoopTelemetryRecord",
+        "TelemetryBridge",
         "bridge_loop_to_telemetry"
       ]
     },
@@ -76,7 +78,7 @@
       "name": "ConnascenceBridge Quality Analyzer",
       "version": "1.0.0",
       "description": "7-Analyzer Suite bridge.",
-      "location": "components/cognitive_architecture/integration/connascence_bridge.py",
+      "location": "components/cognitive_architecture/integration/",
       "domain": "cognitive",
       "technology": [
         "Python"
@@ -100,10 +102,9 @@
       "quality_score": 70,
       "lego_compatible": false,
       "exports": [
-        "ConnascenceBridge:",
-        "ConnascenceResult:",
-        "analyze_artifact",
-        "quality_gate"
+        "LoopTelemetryRecord",
+        "TelemetryBridge",
+        "bridge_loop_to_telemetry"
       ]
     },
     {
@@ -111,7 +112,7 @@
       "name": "ModeLibrary Configuration System",
       "version": "1.0.0",
       "description": "Pareto-optimal configuration modes.",
-      "location": "components/cognitive_architecture/modes/library.py",
+      "location": "components/cognitive_architecture/modes/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -135,8 +136,8 @@
       "quality_score": 85,
       "lego_compatible": false,
       "exports": [
-        "Mode:",
-        "ModeLibrary:",
+        "Mode",
+        "ModeLibrary",
         "ModeType",
         "get_mode",
         "get_mode_config",
@@ -148,7 +149,7 @@
       "name": "VCL Validator",
       "version": "1.0.0",
       "description": "Validates VERILINGUA v3.1.1 compliance.",
-      "location": "components/cognitive_architecture/core/vcl_validator.py",
+      "location": "components/cognitive_architecture/core/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -176,12 +177,12 @@
         "CompressionLevel",
         "EVDType",
         "HONLevel",
-        "L2Naturalizer:",
-        "VCLConfig:",
+        "L2Naturalizer",
+        "VCLConfig",
         "VCLSlot",
-        "VCLStatement:",
-        "VCLValidator:",
-        "ValidationResult:",
+        "VCLStatement",
+        "VCLValidator",
+        "ValidationResult",
         "compute_cluster_signature",
         "enforce_safety_bounds",
         "naturalize_to_l2",
@@ -193,7 +194,7 @@
       "name": "Two-Stage Multi-Objective Optimizer",
       "version": "1.0.0",
       "description": "GlobalMOO 5D + PyMOO NSGA-II 14D optimization.",
-      "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py",
+      "location": "components/cognitive_architecture/optimization/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -222,8 +223,8 @@
       "exports": [
         "CognitiveProblem14D",
         "CognitiveProblem5D",
-        "OptimizationResult:",
-        "TwoStageOptimizer:",
+        "OptimizationResult",
+        "TwoStageOptimizer",
         "config_14d_to_fullconfig",
         "distill_named_modes",
         "evaluate_config_14dim",
@@ -241,7 +242,7 @@
       "name": "CLI Evaluator (Real LLM)",
       "version": "1.0.0",
       "description": "Real LLM-based evaluation using Claude CLI.",
-      "location": "components/cognitive_architecture/evals/cli_evaluator.py",
+      "location": "components/cognitive_architecture/evals/",
       "domain": "cognitive",
       "technology": [
         "Python",
@@ -265,10 +266,10 @@
       "quality_score": 70,
       "lego_compatible": false,
       "exports": [
-        "CLITaskEvaluator:",
-        "ClaudeCLI:",
-        "EvaluationResult:",
-        "TaskResult:",
+        "CLITaskEvaluator",
+        "ClaudeCLI",
+        "EvaluationResult",
+        "TaskResult",
         "main"
       ]
     },

@@ -1,0 +1,48 @@
+{
+  "id": "kanban-store",
+  "name": "Kanban Store (Zustand)",
+  "version": "1.0.0",
+  "description": "Zustand-based Kanban state management with drag-and-drop support, optimistic updates, and persistence. Includes column/task CRUD operations.",
+  "location": "components/state/kanban_store/",
+  "domain": "state",
+  "technology": [
+    "TypeScript",
+    "Zustand",
+    "React"
+  ],
+  "keywords": [
+    "kanban",
+    "zustand",
+    "state",
+    "drag-drop",
+    "board",
+    "tasks"
+  ],
+  "dependencies": [
+    "zustand"
+  ],
+  "test_coverage": 82,
+  "tests_passing": 18,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "import { useKanbanStore } from '@library/state';\nconst { columns, addTask, moveTask } = useKanbanStore();",
+  "source_project": "D:\\Projects\\life-os-frontend\\src\\stores\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "DEFAULT_3_COLUMN_CONFIG",
+    "DEFAULT_4_COLUMN_CONFIG",
+    "DEFAULT_5_COLUMN_CONFIG",
+    "DEV_PIPELINE_CONFIG",
+    "SCRUM_COLUMN_CONFIG",
+    "createLocalStoragePersistenceAdapter",
+    "findItemInColumns",
+    "organizeItemsByColumn",
+    "selectColumnCounts",
+    "selectItemById",
+    "selectTotalCount",
+    "useTaskKanban"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "radix-dialog",
+  "name": "Radix Dialog Component",
+  "version": "1.0.0",
+  "description": "Pre-styled Radix UI Dialog with Tailwind CSS. Includes animations, overlay, close button, header/body/footer sections, size variants, and full accessibility (ARIA, keyboard navigation, focus trap).",
+  "location": "components/ui/radix_dialog/",
+  "domain": "ui-components",
+  "technology": [
+    "TypeScript",
+    "React",
+    "Radix UI",
+    "Tailwind CSS"
+  ],
+  "keywords": [
+    "dialog",
+    "modal",
+    "radix",
+    "ui",
+    "component",
+    "popup",
+    "accessible",
+    "animations"
+  ],
+  "dependencies": [
+    "@radix-ui/react-dialog",
+    "tailwindcss",
+    "react"
+  ],
+  "test_coverage": 80,
+  "tests_passing": 12,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogBody, DialogFooter, DialogClose } from '@library/ui/radix-dialog';\n<Dialog><DialogTrigger>Open</DialogTrigger><DialogContent><DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader><DialogBody>Content</DialogBody><DialogFooter><DialogClose>Cancel</DialogClose></DialogFooter></DialogContent></Dialog>",
+  "source_project": "LEGO library component",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T16:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "DIALOG_ANIMATIONS",
+    "DIALOG_SIZE_STYLES",
+    "Dialog",
+    "DialogBody",
+    "DialogClose",
+    "DialogContent",
+    "DialogDescription",
+    "DialogFooter",
+    "DialogHeader",
+    "DialogOverlay",
+    "DialogTitle",
+    "DialogTrigger"
+  ]
+}

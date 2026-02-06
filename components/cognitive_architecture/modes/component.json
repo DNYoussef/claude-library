@@ -1,0 +1,37 @@
+{
+  "id": "mode-library",
+  "name": "ModeLibrary Configuration System",
+  "version": "1.0.0",
+  "description": "Pareto-optimal configuration modes.",
+  "location": "components/cognitive_architecture/modes/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "mode",
+    "library",
+    "pareto",
+    "configuration"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 12,
+  "usage_count": 2,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from modes.library import get_mode",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "Mode",
+    "ModeLibrary",
+    "ModeType",
+    "get_mode",
+    "get_mode_config",
+    "list_modes"
+  ]
+}

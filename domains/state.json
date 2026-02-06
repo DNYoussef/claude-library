@@ -36,10 +36,6 @@
       "quality_score": 85,
       "lego_compatible": false,
       "exports": [
-        "// Helper functions\n  createEmptyColumns",
-        "// Main factory\n  createKanbanStore",
-        "// Persistence adapters\n  createApiPersistenceAdapter",
-        "// Selectors\n  selectColumn",
         "DEFAULT_3_COLUMN_CONFIG",
         "DEFAULT_4_COLUMN_CONFIG",
         "DEFAULT_5_COLUMN_CONFIG",
@@ -51,7 +47,6 @@
         "selectColumnCounts",
         "selectItemById",
         "selectTotalCount",
-        "type",
         "useTaskKanban"
       ]
     }

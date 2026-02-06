@@ -25,22 +25,23 @@
 
 import { forwardRef } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import type {
-  DropdownMenuProps,
-  DropdownMenuTriggerProps,
-  DropdownMenuContentProps,
-  DropdownMenuItemProps,
-  DropdownMenuCheckboxItemProps,
-  DropdownMenuRadioGroupProps,
-  DropdownMenuRadioItemProps,
-  DropdownMenuLabelProps,
-  DropdownMenuSeparatorProps,
-  DropdownMenuSubProps,
-  DropdownMenuSubTriggerProps,
-  DropdownMenuSubContentProps,
-  DropdownMenuGroupProps,
+import {
+  ITEM_VARIANT_STYLES,
+  MENU_ANIMATIONS,
+  type DropdownMenuProps,
+  type DropdownMenuTriggerProps,
+  type DropdownMenuContentProps,
+  type DropdownMenuItemProps,
+  type DropdownMenuCheckboxItemProps,
+  type DropdownMenuRadioGroupProps,
+  type DropdownMenuRadioItemProps,
+  type DropdownMenuLabelProps,
+  type DropdownMenuSeparatorProps,
+  type DropdownMenuSubProps,
+  type DropdownMenuSubTriggerProps,
+  type DropdownMenuSubContentProps,
+  type DropdownMenuGroupProps,
 } from './types';
-import { ITEM_VARIANT_STYLES, MENU_ANIMATIONS } from './types';
 
 // =============================================================================
 // DROPDOWN MENU ROOT

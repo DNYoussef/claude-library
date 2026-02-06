@@ -1,0 +1,40 @@
+{
+  "id": "report-generator",
+  "name": "Report Generator",
+  "version": "1.0.0",
+  "description": "Multi-format report generation (TEXT, MARKDOWN, JSON). Configurable section ordering, severity grouping, and summary statistics.",
+  "location": "components/reporting/report_generator/",
+  "domain": "reporting",
+  "technology": [
+    "Python",
+    "json"
+  ],
+  "keywords": [
+    "report",
+    "generator",
+    "markdown",
+    "json",
+    "output"
+  ],
+  "dependencies": [],
+  "test_coverage": 82,
+  "tests_passing": 16,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.reporting.report_generator import ReportGenerator\ngen = ReportGenerator(format='markdown')\nreport = gen.generate(violations)",
+  "source_project": "D:\\Projects\\connascence\\src\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 84,
+  "lego_compatible": false,
+  "exports": [
+    "Issue",
+    "OutputFormat",
+    "Report",
+    "ReportGenerator",
+    "ReportSummary",
+    "Severity",
+    "create_issue",
+    "generate_simple_report"
+  ]
+}

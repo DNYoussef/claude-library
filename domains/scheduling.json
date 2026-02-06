@@ -39,7 +39,11 @@
         "SchedulerConfig",
         "TaskScheduler",
         "TriggerType",
-        "create_scheduler_lifespan"
+        "create_scheduler_lifespan",
+        "JobStatus",
+        "TaskStatus",
+        "validate_cron_expression",
+        "parse_cron_expression"
       ]
     }
   ]

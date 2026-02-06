@@ -36,12 +36,14 @@
   "quality_score": 95,
   "lego_compatible": true,
   "exports": [
-    "BaseGuardLane",
-    "TriggerType",
-    "GuardEvent",
     "ApprovalSet",
+    "BaseGuardLane",
+    "ConsensusType",
+    "GuardEvent",
     "LaneEvaluationResult",
     "LaneRegistry",
+    "RiskTier",
+    "TriggerType",
     "register_lane"
   ],
   "related_components": [

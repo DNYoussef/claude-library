@@ -1,0 +1,54 @@
+{
+  "id": "websocket-manager",
+  "name": "WebSocket Connection Manager",
+  "version": "1.0.0",
+  "description": "Production-ready WebSocket connection management with room support, broadcasting, and optional Redis pub/sub for horizontal scaling.",
+  "location": "components/realtime/websocket_manager/",
+  "domain": "realtime",
+  "technology": [
+    "Python",
+    "asyncio",
+    "Redis"
+  ],
+  "keywords": [
+    "websocket",
+    "realtime",
+    "broadcast",
+    "rooms",
+    "pub-sub",
+    "redis"
+  ],
+  "dependencies": [
+    "redis"
+  ],
+  "test_coverage": 88,
+  "tests_passing": 15,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.realtime.websocket_manager import ConnectionManager\nmanager = ConnectionManager()\nawait manager.connect(websocket, room_id)\nawait manager.broadcast_to_room(room_id, message)",
+  "source_project": "https://github.com/encode/broadcaster",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T15:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "Connection",
+    "ConnectionManager",
+    "DistributedWebSocketManager",
+    "Message",
+    "MessageType",
+    "RedisBroadcaster",
+    "AuthConnectionManager",
+    "ConnectionConfig",
+    "WebSocketProtocol",
+    "AuthenticatorProtocol",
+    "HeartbeatManager",
+    "WSMessage",
+    "BaseMessageType",
+    "PingMessage",
+    "PongMessage",
+    "ErrorMessage",
+    "AckMessage",
+    "RedisPubSub"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "backtest-harness",
+  "name": "Backtest Harness",
+  "version": "1.0.0",
+  "description": "Generic backtesting framework with event-driven architecture. Supports multiple data sources, custom strategies, and comprehensive metrics (Sharpe, Sortino, max drawdown).",
+  "location": "components/testing/backtest_harness/",
+  "domain": "testing",
+  "technology": [
+    "Python",
+    "Decimal",
+    "pandas"
+  ],
+  "keywords": [
+    "backtest",
+    "testing",
+    "strategy",
+    "sharpe",
+    "drawdown",
+    "simulation"
+  ],
+  "dependencies": [
+    "pandas",
+    "numpy"
+  ],
+  "test_coverage": 85,
+  "tests_passing": 22,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.testing.backtest_harness import BacktestEngine\nengine = BacktestEngine(strategy=my_strategy)\nresults = engine.run(data=historical_data)",
+  "source_project": "D:\\Projects\\trader-ai\\src\\backtest\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 88,
+  "lego_compatible": false,
+  "exports": [
+    "BacktestConfig",
+    "CostModel",
+    "WindowType",
+    "BacktestEngine",
+    "BacktestResults",
+    "FoldResult",
+    "Trade",
+    "Strategy",
+    "SignalFunction",
+    "PerformanceCalculator",
+    "run_slippage_sensitivity"
+  ]
+}

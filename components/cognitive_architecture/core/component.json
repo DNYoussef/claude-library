@@ -1,0 +1,45 @@
+{
+  "id": "vcl-validator",
+  "name": "VCL Validator",
+  "version": "1.0.0",
+  "description": "Validates VERILINGUA v3.1.1 compliance.",
+  "location": "components/cognitive_architecture/core/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "regex"
+  ],
+  "keywords": [
+    "vcl",
+    "validator",
+    "verilingua",
+    "verix"
+  ],
+  "dependencies": [],
+  "test_coverage": 90,
+  "tests_passing": 20,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from core.vcl_validator import VCLValidator",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "ASPType",
+    "CompressionLevel",
+    "EVDType",
+    "HONLevel",
+    "L2Naturalizer",
+    "VCLConfig",
+    "VCLSlot",
+    "VCLStatement",
+    "VCLValidator",
+    "ValidationResult",
+    "compute_cluster_signature",
+    "enforce_safety_bounds",
+    "naturalize_to_l2",
+    "validate_vcl"
+  ]
+}

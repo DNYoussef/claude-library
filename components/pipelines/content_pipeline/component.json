@@ -1,0 +1,53 @@
+{
+  "id": "content-pipeline-template",
+  "name": "Content Pipeline Template",
+  "version": "1.0.0",
+  "description": "11-phase content pipeline: download, transcribe, analyze, synthesize, draft, style, slop-detect, image-gen, commit, deploy.",
+  "location": "components/pipelines/content_pipeline/",
+  "domain": "integrations",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "pipeline",
+    "content",
+    "blog",
+    "youtube",
+    "transcription",
+    "synthesis"
+  ],
+  "dependencies": [
+    "yt-dlp",
+    "openai-whisper"
+  ],
+  "test_coverage": 70,
+  "tests_passing": 22,
+  "usage_count": 1,
+  "last_used": "2026-01-08T00:00:00Z",
+  "example_usage": "from library.pipelines import ContentPipeline\npipeline = ContentPipeline(config)\nawait pipeline.run(source_url)",
+  "source_project": "scripts/content-pipeline/weekly_zeitgeist_analysis.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 70,
+  "lego_compatible": false,
+  "exports": [
+    "AnalyzePhase",
+    "CommitPhase",
+    "ContentPipeline",
+    "DeployPhase",
+    "DownloadPhase",
+    "DraftPhase",
+    "ImageGenPhase",
+    "Phase",
+    "PhaseResult",
+    "PhaseStatus",
+    "PhaseType",
+    "PipelineConfig",
+    "PipelineResult",
+    "SlopDetectPhase",
+    "StylePhase",
+    "SynthesizePhase",
+    "TranscribePhase"
+  ]
+}

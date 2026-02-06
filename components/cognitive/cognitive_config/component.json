@@ -1,0 +1,50 @@
+{
+  "id": "cognitive-config",
+  "name": "Cognitive Frame Configuration",
+  "version": "1.0.0",
+  "description": "Configuration system for VERILINGUA cognitive frames. Manages frame weights, mode selection, and threshold settings.",
+  "location": "components/cognitive/cognitive_config/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "cognitive",
+    "config",
+    "frames",
+    "verilingua",
+    "weights"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 15,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.cognitive.cognitive_config import CognitiveConfig\nconfig = CognitiveConfig.load('audit')",
+  "source_project": "context-cascade/modes/",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 86,
+  "lego_compatible": false,
+  "exports": [
+    "CompressionLevel",
+    "DEFAULT_CONFIG",
+    "DEFAULT_EVIDENTIAL_MINIMUM",
+    "DEFAULT_FRAME_WEIGHTS",
+    "FrameworkConfig",
+    "FullConfig",
+    "MINIMAL_CONFIG",
+    "NAMED_MODES",
+    "PromptConfig",
+    "STRICT_CONFIG",
+    "VectorCodec",
+    "VerixStrictness",
+    "create_audit_config",
+    "create_balanced_config",
+    "create_research_config",
+    "create_robust_config",
+    "create_speed_config",
+    "get_named_mode"
+  ]
+}

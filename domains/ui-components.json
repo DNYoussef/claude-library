@@ -52,9 +52,7 @@
         "DialogHeader",
         "DialogOverlay",
         "DialogTitle",
-        "DialogTrigger",
-        "file",
-        "type"
+        "DialogTrigger"
       ]
     },
     {
@@ -112,9 +110,7 @@
         "DropdownMenuSubTrigger",
         "DropdownMenuTrigger",
         "ITEM_VARIANT_STYLES",
-        "MENU_ANIMATIONS",
-        "file",
-        "type"
+        "MENU_ANIMATIONS"
       ]
     },
     {
@@ -162,9 +158,7 @@
         "MetricCard",
         "MetricGrid",
         "StatusDot",
-        "Textarea",
-        "file",
-        "type"
+        "Textarea"
       ]
     }
   ]

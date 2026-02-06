@@ -7,7 +7,7 @@
       "name": "Pytest Fixtures Base",
       "version": "1.0.0",
       "description": "Common pytest fixtures: async client, database session, mock user, test data factories.",
-      "location": "components/testing/pytest-fixtures/fixtures.py",
+      "location": "components/testing/pytest_fixtures/",
       "domain": "testing",
       "technology": [
         "Python",
@@ -38,7 +38,7 @@
       "quality_score": 100,
       "lego_compatible": false,
       "exports": [
-        "PerformanceTracker:",
+        "PerformanceTracker",
         "concurrent_executor",
         "configure_test_environment",
         "event_loop",
@@ -55,7 +55,7 @@
       "name": "Jest Setup Base",
       "version": "1.0.0",
       "description": "Common Jest setup: React Testing Library, mock providers, test utilities, custom matchers.",
-      "location": "components/testing/jest-setup/setup.ts",
+      "location": "components/testing/jest_setup/",
       "domain": "testing",
       "technology": [
         "TypeScript",
@@ -90,7 +90,6 @@
         "configure",
         "createMockFetch",
         "getConfig",
-        "interface",
         "mockAPIResponse",
         "mockErrorResponse",
         "setupMocks"
@@ -132,15 +131,15 @@
       "lego_compatible": false,
       "exports": [
         "BacktestConfig",
+        "CostModel",
+        "WindowType",
         "BacktestEngine",
         "BacktestResults",
-        "CostModel",
         "FoldResult",
-        "PerformanceCalculator",
-        "SignalFunction",
-        "Strategy",
         "Trade",
-        "WindowType",
+        "Strategy",
+        "SignalFunction",
+        "PerformanceCalculator",
         "run_slippage_sensitivity"
       ]
     },
@@ -149,7 +148,7 @@
       "name": "Pytest Fixtures Collection",
       "version": "1.0.0",
       "description": "LEGO-compatible pytest fixture collection for FastAPI + SQLAlchemy async testing. Includes event loop, database session, HTTP client, mock fixtures, and test data factories.",
-      "location": "components/testing/pytest-fixtures/",
+      "location": "components/testing/pytest_fixtures/",
       "domain": "testing",
       "technology": [
         "Python",
@@ -187,17 +186,9 @@
       "quality_score": 90,
       "lego_compatible": false,
       "exports": [
-        "AgentFactory",
-        "BaseFactory",
-        "ExecutionResultFactory",
-        "ProjectFactory",
-        "TaskFactory",
-        "UserFactory",
-        "async_client",
-        "async_db_engine",
-        "cleanup_after_test",
+        "PerformanceTracker",
         "concurrent_executor",
-        "db_session",
+        "configure_test_environment",
         "event_loop",
         "mock_db_session",
         "mock_memory_mcp_client",
@@ -212,7 +203,7 @@
       "name": "Jest Setup Collection",
       "version": "1.0.0",
       "description": "LEGO-compatible Jest + React Testing Library setup for React 18/19 projects. Includes custom render with providers, mock utilities, and custom matchers.",
-      "location": "components/testing/jest-setup/",
+      "location": "components/testing/jest_setup/",
       "domain": "testing",
       "technology": [
         "TypeScript",
@@ -251,23 +242,13 @@
       "quality_score": 88,
       "lego_compatible": false,
       "exports": [
-        "AllProviders",
-        "cleanup",
         "cleanupMocks",
-        "commonly",
         "configure",
-        "default",
-        "fireEvent",
-        "render",
-        "renderHook",
-        "screen",
-        "setupMocks",
-        "toBeValidJSON",
-        "toBeWithinRange",
-        "toHaveBeenCalledWithMatch",
-        "toMatchAPIResponse",
-        "waitFor",
-        "within"
+        "createMockFetch",
+        "getConfig",
+        "mockAPIResponse",
+        "mockErrorResponse",
+        "setupMocks"
       ]
     }
   ]

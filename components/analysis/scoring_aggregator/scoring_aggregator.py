@@ -5,7 +5,7 @@ A reusable component for combining multiple analyzer scores into a unified resul
 with support for weighted aggregation, configurable grade thresholds, and confidence
 calculation.
 
-Extracted from: D:/Projects/slop-detector/backend/scoring.py
+Extracted from: slop-detector/backend/scoring.py
 Generalized for: Multi-analyzer scoring systems (quality gates, content analysis, etc.)
 
 Usage:

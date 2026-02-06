@@ -1,0 +1,58 @@
+{
+  "id": "spec-validation",
+  "name": "Spec Validation Framework",
+  "version": "1.0.0",
+  "description": "JSON Schema and Pydantic-based spec validation with detailed error messages. Supports custom validators and nested object validation.",
+  "location": "components/validation/spec_validation/",
+  "domain": "validation",
+  "technology": [
+    "Python",
+    "Pydantic",
+    "jsonschema"
+  ],
+  "keywords": [
+    "validation",
+    "schema",
+    "spec",
+    "pydantic",
+    "json-schema"
+  ],
+  "dependencies": [
+    "pydantic",
+    "jsonschema"
+  ],
+  "test_coverage": 90,
+  "tests_passing": 20,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.validation.spec_validation import SpecValidator\nvalidator = SpecValidator(schema=my_schema)\nresult = validator.validate(data)",
+  "source_project": "D:\\Projects\\life-os-dashboard\\src\\validation\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 92,
+  "lego_compatible": false,
+  "exports": [
+    "BaseValidator",
+    "ContextValidator",
+    "DEFAULT_CONTEXT_SCHEMA",
+    "DEFAULT_IMPLEMENTATION_PLAN_SCHEMA",
+    "DEFAULT_PHASE_SCHEMA",
+    "DEFAULT_REQUIREMENTS_SCHEMA",
+    "DEFAULT_SPEC_RECOMMENDED_SECTIONS",
+    "DEFAULT_SPEC_REQUIRED_SECTIONS",
+    "DEFAULT_SUBTASK_SCHEMA",
+    "DEFAULT_VERIFICATION_SCHEMA",
+    "ImplementationPlanValidator",
+    "JSONFileValidator",
+    "MarkdownDocumentValidator",
+    "PrereqsValidator",
+    "SpecDocumentValidator",
+    "SpecValidator",
+    "Validatable",
+    "ValidationResult",
+    "ValidationSchema",
+    "ValidatorFactory",
+    "create_validator_from_config",
+    "validate_spec_directory"
+  ]
+}

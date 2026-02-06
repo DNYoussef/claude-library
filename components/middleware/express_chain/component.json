@@ -1,0 +1,44 @@
+{
+  "id": "express-middleware-chain",
+  "name": "Express Middleware Chain",
+  "version": "1.0.0",
+  "description": "Standard Express.js middleware setup: CORS, Helmet, rate limiting, request logging, error handling. TypeScript with consistent interface patterns.",
+  "location": "components/middleware/express_chain/",
+  "domain": "api",
+  "technology": [
+    "TypeScript",
+    "Express"
+  ],
+  "keywords": [
+    "express",
+    "middleware",
+    "cors",
+    "helmet",
+    "rate-limit",
+    "logging",
+    "security",
+    "lego"
+  ],
+  "dependencies": [
+    "express"
+  ],
+  "test_coverage": 85,
+  "tests_passing": 12,
+  "usage_count": 3,
+  "last_used": "2026-01-10T00:00:00Z",
+  "example_usage": "import { createMiddlewareChain, MiddlewareConfig } from '@library/middleware/express-chain';\nconst middlewares = createMiddlewareChain({ cors: { origins: ['https://app.com'] }, rateLimit: { max: 100 } });\nmiddlewares.forEach(mw => app.use(mw));",
+  "source_project": "C:\\Users\\17175\\nsbu-rpg-app\\src\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": true,
+  "exports": [
+    "createMiddlewareChain",
+    "createCorsMiddleware",
+    "createRateLimitMiddleware",
+    "createHelmetMiddleware",
+    "createLoggingMiddleware",
+    "createErrorHandler",
+    "MiddlewareConfig"
+  ]
+}

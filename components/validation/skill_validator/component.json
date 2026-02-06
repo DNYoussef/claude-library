@@ -1,0 +1,50 @@
+{
+  "id": "skill-validator",
+  "name": "Skill Validator",
+  "version": "1.0.0",
+  "description": "Validates Context Cascade skill definitions. Checks required sections, VCL compliance, and skill chaining references.",
+  "location": "components/validation/skill_validator/",
+  "domain": "validation",
+  "technology": [
+    "Python",
+    "yaml"
+  ],
+  "keywords": [
+    "skill",
+    "validator",
+    "context-cascade",
+    "vcl",
+    "markdown"
+  ],
+  "dependencies": [
+    "pyyaml"
+  ],
+  "test_coverage": 82,
+  "tests_passing": 18,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.validation.skill_validator import SkillValidator\nvalidator = SkillValidator()\nresult = validator.validate_file('skill.md')",
+  "source_project": "context-cascade/validators/",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 84,
+  "lego_compatible": false,
+  "exports": [
+    "DEFAULT_CATEGORY_KEYWORDS",
+    "STOPWORDS",
+    "SkillData",
+    "SkillIndexer",
+    "SkillValidator",
+    "ValidationResult",
+    "YAML_AVAILABLE",
+    "__author__",
+    "__version__",
+    "extract_keywords",
+    "extract_section",
+    "extract_trigger_positive",
+    "parse_yaml_fallback",
+    "parse_yaml_frontmatter",
+    "parse_yaml_safe",
+    "validate_single_file"
+  ]
+}

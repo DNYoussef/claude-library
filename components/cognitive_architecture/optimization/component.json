@@ -1,0 +1,48 @@
+{
+  "id": "two-stage-optimizer",
+  "name": "Two-Stage Multi-Objective Optimizer",
+  "version": "1.0.0",
+  "description": "GlobalMOO 5D + PyMOO NSGA-II 14D optimization.",
+  "location": "components/cognitive_architecture/optimization/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "pymoo"
+  ],
+  "keywords": [
+    "optimization",
+    "pareto",
+    "moo",
+    "nsga-ii"
+  ],
+  "dependencies": [
+    "pymoo",
+    "requests"
+  ],
+  "test_coverage": 75,
+  "tests_passing": 10,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from optimization.two_stage_optimizer import TwoStageOptimizer",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 75,
+  "lego_compatible": false,
+  "exports": [
+    "CognitiveProblem14D",
+    "CognitiveProblem5D",
+    "OptimizationResult",
+    "TwoStageOptimizer",
+    "config_14d_to_fullconfig",
+    "distill_named_modes",
+    "evaluate_config_14dim",
+    "evaluate_config_5dim",
+    "expand_5d_to_14d",
+    "main",
+    "run_globalmoo_stage",
+    "run_pymoo_refinement_stage",
+    "run_with_telemetry",
+    "save_results"
+  ]
+}

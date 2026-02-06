@@ -4,7 +4,7 @@ Transaction Store - SQLite-based storage for banking transactions.
 Provides atomic operations for storing and querying transactions.
 Uses Decimal for all monetary values.
 
-Source: Adapted from D:/Projects/trader-ai/src/finances/bank_database.py
+Source: Adapted from trader-ai/src/finances/bank_database.py
 Improvements:
 - Uses Decimal instead of float for amounts
 - Cleaner API without Plaid-specific dependencies

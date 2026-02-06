@@ -1,0 +1,39 @@
+{
+  "id": "audit-logging",
+  "name": "Audit Logging System",
+  "version": "1.0.0",
+  "description": "Structured audit logging with diff tracking, batch operations, and async support. Tracks changes for compliance and debugging.",
+  "location": "components/observability/audit_logging/",
+  "domain": "observability",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "audit",
+    "logging",
+    "diff",
+    "compliance",
+    "tracking",
+    "history"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 14,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.observability.audit_logging import AuditLogger\nlogger = AuditLogger()\nawait logger.log_change(entity='user', action='update', diff=changes)",
+  "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 86,
+  "lego_compatible": false,
+  "exports": [
+    "AuditEntry",
+    "AuditLogModelProtocol",
+    "AuditLogger",
+    "AuditOperation",
+    "SyncAuditLogger",
+    "create_audit_log_model"
+  ]
+}

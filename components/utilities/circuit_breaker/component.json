@@ -1,0 +1,40 @@
+{
+  "id": "circuit-breaker",
+  "name": "Circuit Breaker Pattern",
+  "version": "1.0.0",
+  "description": "Generic circuit breaker for non-domain-specific usage.",
+  "location": "components/utilities/circuit_breaker/",
+  "domain": "utilities",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "circuit",
+    "breaker",
+    "resilience",
+    "failover",
+    "backoff",
+    "retry"
+  ],
+  "dependencies": [],
+  "test_coverage": 90,
+  "tests_passing": 18,
+  "usage_count": 1,
+  "last_used": "2026-01-05T00:00:00Z",
+  "example_usage": "from library.resilience import CircuitBreaker\ncb = CircuitBreaker(failure_threshold=5, recovery_timeout=30)\nresult = await cb.call(async_function)",
+  "source_project": "utils/memory_mcp_circuit_breaker.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "CircuitBreaker",
+    "CircuitBreakerConfig",
+    "CircuitBreakerError",
+    "CircuitBreakerManager",
+    "CircuitBreakerMetrics",
+    "CircuitBreakerStatus",
+    "CircuitState"
+  ]
+}

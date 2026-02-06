@@ -1,0 +1,41 @@
+{
+  "id": "markdown-metadata",
+  "name": "Markdown Metadata Parser",
+  "version": "1.0.0",
+  "description": "Extracts frontmatter and structured metadata from markdown files. Supports YAML frontmatter and inline metadata blocks.",
+  "location": "components/parsing/markdown_metadata/",
+  "domain": "parsing",
+  "technology": [
+    "Python",
+    "yaml"
+  ],
+  "keywords": [
+    "markdown",
+    "frontmatter",
+    "metadata",
+    "yaml",
+    "parser"
+  ],
+  "dependencies": [
+    "pyyaml"
+  ],
+  "test_coverage": 88,
+  "tests_passing": 14,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.parsing.markdown_metadata import parse_frontmatter\nmeta, content = parse_frontmatter(markdown_text)",
+  "source_project": "context-cascade/utils/",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 88,
+  "lego_compatible": false,
+  "exports": [
+    "createMarkdown",
+    "extractSkillMetadata",
+    "getShortDescription",
+    "getSkillName",
+    "isValidSkillName",
+    "parseFrontmatter",
+    "parseMarkdown"
+  ]
+}

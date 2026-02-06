@@ -35,18 +35,18 @@
       "lego_compatible": false,
       "exports": [
         "CircuitBreaker",
-        "CircuitBreakerConfig",
         "CircuitBreakerManager",
+        "CircuitBreakerConfig",
         "CircuitBreakerMetrics",
-        "CircuitOpenException",
         "CircuitState",
         "CircuitType",
-        "PortfolioProvider",
         "RequestResult",
+        "CircuitOpenException",
+        "TradingCircuitBreakers",
         "TradingBreakerConfig",
         "TradingBreakerStatus",
         "TradingBreakerType",
-        "TradingCircuitBreakers"
+        "PortfolioProvider"
       ]
     },
     {
@@ -80,15 +80,15 @@
       "quality_score": 90,
       "lego_compatible": false,
       "exports": [
-        "DEFAULT_GATE_THRESHOLDS",
-        "GateConfig",
         "GateLevel",
-        "GateManager",
-        "GraduationMetrics",
+        "ViolationType",
+        "GateConfig",
         "TradeValidationResult",
         "ViolationRecord",
-        "ViolationType",
-        "create_default_gate_configs"
+        "GraduationMetrics",
+        "GateManager",
+        "create_default_gate_configs",
+        "DEFAULT_GATE_THRESHOLDS"
       ]
     },
     {
@@ -121,15 +121,15 @@
       "quality_score": 94,
       "lego_compatible": false,
       "exports": [
-        "FULL_KELLY",
-        "HALF_KELLY",
         "KellyCriterion",
-        "KellyRegime",
         "KellyResult",
         "PositionSizeResult",
+        "KellyRegime",
+        "quick_kelly",
+        "FULL_KELLY",
+        "HALF_KELLY",
         "QUARTER_KELLY",
-        "TENTH_KELLY",
-        "quick_kelly"
+        "TENTH_KELLY"
       ]
     }
   ]

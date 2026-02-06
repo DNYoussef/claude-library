@@ -1,0 +1,42 @@
+{
+  "id": "scoring-aggregator",
+  "name": "Scoring Aggregator",
+  "version": "1.0.0",
+  "description": "Weighted score aggregation with configurable grading schemes. Input validation, tuple length checks, and grade calculation.",
+  "location": "components/analysis/scoring_aggregator/",
+  "domain": "analysis",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "scoring",
+    "aggregation",
+    "grading",
+    "weighted",
+    "metrics"
+  ],
+  "dependencies": [],
+  "test_coverage": 85,
+  "tests_passing": 16,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.analysis.scoring_aggregator import ScoringAggregator\nagg = ScoringAggregator(weights={'accuracy': 0.4, 'speed': 0.6})\nscore = agg.aggregate(scores)",
+  "source_project": "D:\\Projects\\slop-detector\\src\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 86,
+  "lego_compatible": false,
+  "exports": [
+    "AggregatedResult",
+    "AnalyzerScore",
+    "ConfidenceLevel",
+    "GradeConfig",
+    "GradeMode",
+    "GradeThreshold",
+    "ScoringAggregator",
+    "TextLengthConfidenceCalculator",
+    "create_content_analysis_aggregator",
+    "create_quality_gate_aggregator"
+  ]
+}

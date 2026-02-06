@@ -1,0 +1,48 @@
+{
+  "id": "pytest-fixtures-collection",
+  "name": "Pytest Fixtures Collection",
+  "version": "1.0.0",
+  "description": "Common pytest fixtures: async client, database session, mock user, test data factories.",
+  "location": "components/testing/pytest_fixtures/",
+  "domain": "testing",
+  "technology": [
+    "Python",
+    "pytest",
+    "pytest-asyncio"
+  ],
+  "keywords": [
+    "pytest",
+    "fixtures",
+    "testing",
+    "mock",
+    "factory",
+    "async"
+  ],
+  "dependencies": [
+    "pytest",
+    "pytest-asyncio",
+    "httpx"
+  ],
+  "test_coverage": 100,
+  "tests_passing": 10,
+  "usage_count": 4,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from library.testing import async_client, db_session\n@pytest.fixture\ndef client(async_client): yield async_client",
+  "source_project": "life-os-dashboard/tests/conftest.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "PerformanceTracker",
+    "concurrent_executor",
+    "configure_test_environment",
+    "event_loop",
+    "mock_db_session",
+    "mock_memory_mcp_client",
+    "mock_redis_client",
+    "mock_websocket",
+    "performance_tracker",
+    "pytest_configure"
+  ]
+}

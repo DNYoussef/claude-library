@@ -1,0 +1,45 @@
+{
+  "id": "jest-setup-collection",
+  "name": "Jest Setup Collection",
+  "version": "1.0.0",
+  "description": "Common Jest setup: React Testing Library, mock providers, test utilities, custom matchers.",
+  "location": "components/testing/jest_setup/",
+  "domain": "testing",
+  "technology": [
+    "TypeScript",
+    "Jest",
+    "React Testing Library"
+  ],
+  "keywords": [
+    "jest",
+    "testing",
+    "react",
+    "mock",
+    "setup",
+    "matchers"
+  ],
+  "dependencies": [
+    "jest",
+    "@testing-library/react",
+    "@testing-library/jest-dom"
+  ],
+  "test_coverage": 100,
+  "tests_passing": 8,
+  "usage_count": 3,
+  "last_used": "2026-01-07T00:00:00Z",
+  "example_usage": "// jest.setup.ts\nimport '@library/testing/jest-setup';",
+  "source_project": "life-os-frontend/jest.setup.ts",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 88,
+  "lego_compatible": false,
+  "exports": [
+    "cleanupMocks",
+    "configure",
+    "createMockFetch",
+    "getConfig",
+    "mockAPIResponse",
+    "mockErrorResponse",
+    "setupMocks"
+  ]
+}

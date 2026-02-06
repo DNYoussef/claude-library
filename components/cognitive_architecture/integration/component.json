@@ -1,0 +1,35 @@
+{
+  "id": "connascence-bridge",
+  "name": "ConnascenceBridge Quality Analyzer",
+  "version": "1.0.0",
+  "description": "Bridges loop telemetry with Memory MCP storage.",
+  "location": "components/cognitive_architecture/integration/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "Memory MCP"
+  ],
+  "keywords": [
+    "telemetry",
+    "memory",
+    "mcp"
+  ],
+  "dependencies": [
+    "chromadb"
+  ],
+  "test_coverage": 75,
+  "tests_passing": 10,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from integration.telemetry_bridge import TelemetryBridge",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 70,
+  "lego_compatible": false,
+  "exports": [
+    "LoopTelemetryRecord",
+    "TelemetryBridge",
+    "bridge_loop_to_telemetry"
+  ]
+}

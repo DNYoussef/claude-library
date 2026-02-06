@@ -1,0 +1,36 @@
+{
+  "id": "frozen-harness",
+  "name": "FrozenHarness Evaluation System",
+  "version": "1.0.0",
+  "description": "Immutable evaluation harness for grading artifacts.",
+  "location": "components/cognitive_architecture/loopctl/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "evaluation",
+    "harness",
+    "grading",
+    "metrics"
+  ],
+  "dependencies": [],
+  "test_coverage": 80,
+  "tests_passing": 15,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from loopctl.core import FrozenHarness",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 80,
+  "lego_compatible": false,
+  "exports": [
+    "AuthorityLevel",
+    "DecisionAction",
+    "Decision",
+    "DecisionResult",
+    "DecisionAuthority"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "statistical-analyzer",
+  "name": "Statistical Analyzer",
+  "version": "1.0.0",
+  "description": "Text statistics: entropy, burstiness, TTR (Type-Token Ratio), hapax legomena, sentence analysis. Configurable thresholds for quality assessment.",
+  "location": "components/analysis/statistical_analyzer/",
+  "domain": "analysis",
+  "technology": [
+    "Python",
+    "statistics"
+  ],
+  "keywords": [
+    "statistics",
+    "entropy",
+    "ttr",
+    "hapax",
+    "text-analysis"
+  ],
+  "dependencies": [],
+  "test_coverage": 84,
+  "tests_passing": 20,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.analysis.statistical_analyzer import StatisticalAnalyzer\nanalyzer = StatisticalAnalyzer()\nstats = analyzer.analyze(text)",
+  "source_project": "D:\\Projects\\slop-detector\\src\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 86,
+  "lego_compatible": false,
+  "exports": [
+    "BurstinessMetrics",
+    "EntropyMetrics",
+    "HapaxMetrics",
+    "LexicalDiversityMetrics",
+    "SentenceStartMetrics",
+    "StatisticalAnalyzer",
+    "StatisticalMetrics",
+    "calculate_coefficient_of_variation",
+    "calculate_hapax_ratio",
+    "calculate_shannon_entropy",
+    "calculate_type_token_ratio"
+  ]
+}

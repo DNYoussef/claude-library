@@ -1,0 +1,36 @@
+{
+  "id": "cli-evaluator",
+  "name": "CLI Evaluator (Real LLM)",
+  "version": "1.0.0",
+  "description": "Real LLM-based evaluation using Claude CLI.",
+  "location": "components/cognitive_architecture/evals/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "subprocess"
+  ],
+  "keywords": [
+    "evaluator",
+    "llm",
+    "claude",
+    "cli"
+  ],
+  "dependencies": [],
+  "test_coverage": 70,
+  "tests_passing": 8,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from evals.cli_evaluator import CLIEvaluator",
+  "source_project": "context-cascade/cognitive-architecture",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 70,
+  "lego_compatible": false,
+  "exports": [
+    "CLITaskEvaluator",
+    "ClaudeCLI",
+    "EvaluationResult",
+    "TaskResult",
+    "main"
+  ]
+}

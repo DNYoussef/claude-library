@@ -1,0 +1,42 @@
+{
+  "id": "gate-system-manager",
+  "name": "Gate System Manager",
+  "version": "1.0.0",
+  "description": "Capital-based gate system (G0-G12) with progressive position sizing and risk scaling. Async-safe state transitions. Supports gate upgrades and downgrades.",
+  "location": "components/trading/gate_system/",
+  "domain": "trading",
+  "technology": [
+    "Python",
+    "Decimal",
+    "asyncio"
+  ],
+  "keywords": [
+    "gate",
+    "capital",
+    "position-sizing",
+    "risk-scaling",
+    "tier"
+  ],
+  "dependencies": [],
+  "test_coverage": 88,
+  "tests_passing": 20,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.trading.gate_system import GateManager\ngm = GateManager()\ncurrent_gate = gm.calculate_gate(capital=Decimal('5000'))",
+  "source_project": "D:\\Projects\\trader-ai\\src\\gates\\gate_manager.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "GateLevel",
+    "ViolationType",
+    "GateConfig",
+    "TradeValidationResult",
+    "ViolationRecord",
+    "GraduationMetrics",
+    "GateManager",
+    "create_default_gate_configs",
+    "DEFAULT_GATE_THRESHOLDS"
+  ]
+}

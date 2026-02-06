@@ -7,7 +7,7 @@
       "name": "Quality Gate System",
       "version": "1.0.0",
       "description": "Async quality gate with threshold validation for content pipelines. Supports slop detection, score calculation, and pass/fail determination.",
-      "location": "components/utilities/quality_gate/quality_gate.py",
+      "location": "components/utilities/quality_gate/",
       "domain": "utilities",
       "technology": [
         "Python",
@@ -34,13 +34,13 @@
       "quality_score": 85,
       "lego_compatible": false,
       "exports": [
-        "GateConfig:",
+        "GateConfig",
         "GateFailedError",
-        "GateManager:",
-        "GateResult:",
+        "GateManager",
+        "GateResult",
         "GateStatus",
         "GateType",
-        "RichMetricResult:",
+        "RichMetricResult",
         "create_compile_gate",
         "create_dependency_gate",
         "create_quality_gate",
@@ -52,7 +52,7 @@
       "name": "Circuit Breaker Pattern",
       "version": "1.0.0",
       "description": "Generic circuit breaker for non-domain-specific usage.",
-      "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+      "location": "components/utilities/circuit_breaker/",
       "domain": "utilities",
       "technology": [
         "Python",
@@ -78,12 +78,12 @@
       "quality_score": 90,
       "lego_compatible": false,
       "exports": [
-        "CircuitBreaker:",
-        "CircuitBreakerConfig:",
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
         "CircuitBreakerError",
-        "CircuitBreakerManager:",
-        "CircuitBreakerMetrics:",
-        "CircuitBreakerStatus:",
+        "CircuitBreakerManager",
+        "CircuitBreakerMetrics",
+        "CircuitBreakerStatus",
         "CircuitState"
       ]
     },
@@ -92,7 +92,7 @@
       "name": "Health Check Monitor",
       "version": "1.0.0",
       "description": "Periodic health polling system with alerting. Monitors service endpoints and triggers callbacks on status changes.",
-      "location": "components/utilities/health_monitor/health_monitor.py",
+      "location": "components/utilities/health_monitor/",
       "domain": "utilities",
       "technology": [
         "Python",
@@ -121,12 +121,12 @@
       "quality_score": 80,
       "lego_compatible": false,
       "exports": [
-        "AlertConfig:",
-        "HealthCheckConfig:",
-        "HealthCheckResult:",
-        "HealthMonitor:",
+        "AlertConfig",
+        "HealthCheckConfig",
+        "HealthCheckResult",
+        "HealthMonitor",
         "HealthState",
-        "HealthStatus:"
+        "HealthStatus"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "name": "YAML Safe Write",
       "version": "1.0.0",
       "description": "Atomic YAML file writes with automatic backup. Prevents data loss from interrupted writes or corruption.",
-      "location": "components/utilities/io_helpers/yaml_safe_write.py",
+      "location": "components/utilities/io_helpers/",
       "domain": "utilities",
       "technology": [
         "Python",
@@ -162,9 +162,9 @@
       "quality_score": 95,
       "lego_compatible": false,
       "exports": [
-        "AtomicWriter:",
-        "BackupConfig:",
-        "WriteResult:",
+        "AtomicWriter",
+        "BackupConfig",
+        "WriteResult",
         "list_backups",
         "yaml_safe_read_sync",
         "yaml_safe_write_sync"

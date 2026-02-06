@@ -43,7 +43,19 @@
         "DistributedWebSocketManager",
         "Message",
         "MessageType",
-        "RedisBroadcaster"
+        "RedisBroadcaster",
+        "AuthConnectionManager",
+        "ConnectionConfig",
+        "WebSocketProtocol",
+        "AuthenticatorProtocol",
+        "HeartbeatManager",
+        "WSMessage",
+        "BaseMessageType",
+        "PingMessage",
+        "PongMessage",
+        "ErrorMessage",
+        "AckMessage",
+        "RedisPubSub"
       ]
     },
     {
@@ -85,7 +97,19 @@
         "DistributedWebSocketManager",
         "Message",
         "MessageType",
-        "RedisBroadcaster"
+        "RedisBroadcaster",
+        "AuthConnectionManager",
+        "ConnectionConfig",
+        "WebSocketProtocol",
+        "AuthenticatorProtocol",
+        "HeartbeatManager",
+        "WSMessage",
+        "BaseMessageType",
+        "PingMessage",
+        "PongMessage",
+        "ErrorMessage",
+        "AckMessage",
+        "RedisPubSub"
       ]
     }
   ]

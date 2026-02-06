@@ -1,0 +1,46 @@
+{
+  "id": "multi-model-router",
+  "name": "Multi-Model Router",
+  "version": "1.0.0",
+  "description": "Route tasks to optimal LLM (Claude/Gemini/Codex) based on task characteristics. Supports fallback and load balancing.",
+  "location": "components/ai/model_router/",
+  "domain": "integrations",
+  "technology": [
+    "Python",
+    "asyncio"
+  ],
+  "keywords": [
+    "llm",
+    "router",
+    "claude",
+    "gemini",
+    "codex",
+    "ai",
+    "model"
+  ],
+  "dependencies": [
+    "anthropic",
+    "google-generativeai"
+  ],
+  "test_coverage": 82,
+  "tests_passing": 18,
+  "usage_count": 1,
+  "last_used": "2026-01-09T00:00:00Z",
+  "example_usage": "from library.ai import ModelRouter\nrouter = ModelRouter()\nresponse = await router.route(task)",
+  "source_project": "context-cascade/skills/multi-model.md",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 82,
+  "lego_compatible": false,
+  "exports": [
+    "BaseProvider",
+    "ClaudeProvider",
+    "CodexProvider",
+    "GeminiProvider",
+    "Provider",
+    "ProviderConfig",
+    "ProviderHealth",
+    "ProviderRegistry",
+    "ProviderStatus"
+  ]
+}

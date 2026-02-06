@@ -1,0 +1,52 @@
+{
+  "id": "verix-parser",
+  "name": "VERIX Epistemic Parser",
+  "version": "1.0.0",
+  "description": "Parser for VERIX epistemic notation. Extracts confidence scores, grounding sources, and illocutionary acts from marked-up text. ReDoS-protected regex patterns.",
+  "location": "components/cognitive/verix_parser/",
+  "domain": "cognitive",
+  "technology": [
+    "Python",
+    "regex"
+  ],
+  "keywords": [
+    "verix",
+    "parser",
+    "epistemic",
+    "confidence",
+    "grounding"
+  ],
+  "dependencies": [],
+  "test_coverage": 88,
+  "tests_passing": 22,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.cognitive.verix_parser import VerixParser\nparser = VerixParser()\nresult = parser.parse('[assert|neutral] claim [conf:0.9]')",
+  "source_project": "context-cascade/skills/",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "Affect",
+    "Agent",
+    "CompressionLevel",
+    "Illocution",
+    "L0_CONTENT_TRUNCATION_LENGTH",
+    "MAX_CLAIMS_LIMIT",
+    "MAX_INPUT_LENGTH",
+    "MetaLevel",
+    "PromptConfig",
+    "State",
+    "VERSION",
+    "VerixClaim",
+    "VerixParser",
+    "VerixStrictness",
+    "VerixValidator",
+    "__version__",
+    "create_claim",
+    "create_meta_claim",
+    "create_meta_verix_claim",
+    "format_claim"
+  ]
+}

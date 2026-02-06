@@ -1,0 +1,46 @@
+{
+  "id": "money-handling",
+  "name": "Money Handling Pattern",
+  "version": "1.0.0",
+  "description": "CRITICAL: Decimal-based currency handling that REJECTS float entirely. Prevents precision errors in financial calculations. Includes Money class, arithmetic operations, formatting, and validation.",
+  "location": "patterns/money_handling/",
+  "domain": "patterns",
+  "technology": [
+    "Python",
+    "Decimal"
+  ],
+  "keywords": [
+    "money",
+    "currency",
+    "decimal",
+    "financial",
+    "amount",
+    "precision",
+    "float-rejection"
+  ],
+  "dependencies": [],
+  "test_coverage": 95,
+  "tests_passing": 25,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.patterns.money_handling import Money, FloatNotAllowedError\nm = Money(Decimal('19.99'), 'USD')  # OK\nm = Money(19.99)  # RAISES FloatNotAllowedError",
+  "source_project": "D:\\Projects\\trader-ai\\src\\utils\\money.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 95,
+  "critical": true,
+  "lego_compatible": false,
+  "exports": [
+    "Money",
+    "MoneyError",
+    "FloatNotAllowedError",
+    "CurrencyMismatchError",
+    "add_money",
+    "subtract_money",
+    "allocate_money",
+    "format_money",
+    "parse_money",
+    "validate_amount",
+    "is_valid_currency"
+  ]
+}

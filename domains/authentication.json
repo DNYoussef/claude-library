@@ -7,7 +7,7 @@
       "name": "JWT Authentication Middleware",
       "version": "1.0.0",
       "description": "JWT authentication middleware for Express. Validates tokens, extracts user info, handles refresh tokens.",
-      "location": "components/auth/jwt_middleware_ts/middleware.ts",
+      "location": "components/auth/jwt_middleware_ts/",
       "domain": "authentication",
       "technology": [
         "TypeScript",
@@ -49,7 +49,7 @@
       "name": "FastAPI JWT Authentication",
       "version": "1.0.0",
       "description": "JWT authentication for FastAPI. Dependency injection pattern, token validation, user extraction.",
-      "location": "components/auth/fastapi_jwt/jwt_auth.py",
+      "location": "components/auth/fastapi_jwt/",
       "domain": "authentication",
       "technology": [
         "Python",
@@ -81,10 +81,10 @@
       "exports": [
         "AuthenticationError",
         "AuthorizationError",
-        "JWTAuthConfig:",
-        "JWTAuthService:",
-        "TokenData:",
-        "User:",
+        "JWTAuthConfig",
+        "JWTAuthService",
+        "TokenData",
+        "User",
         "get_auth_service",
         "init_jwt_auth",
         "require_any_role",

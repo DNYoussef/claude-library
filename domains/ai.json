@@ -40,8 +40,7 @@
         "MODEL_STATUS_COLORS",
         "formatConsensusStatus",
         "getConsensusColor",
-        "getModelStatusColor",
-        "type"
+        "getModelStatusColor"
       ]
     }
   ]

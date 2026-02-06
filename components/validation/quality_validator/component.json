@@ -1,0 +1,46 @@
+{
+  "id": "quality-validator",
+  "name": "Quality Validator",
+  "version": "1.0.0",
+  "description": "Evidence-based quality validation with configurable gates. Theater detection for fake quality indicators. Float comparison epsilon handling.",
+  "location": "components/validation/quality_validator/",
+  "domain": "validation",
+  "technology": [
+    "Python",
+    "dataclasses"
+  ],
+  "keywords": [
+    "quality",
+    "validator",
+    "gate",
+    "theater-detection",
+    "evidence"
+  ],
+  "dependencies": [],
+  "test_coverage": 88,
+  "tests_passing": 22,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.validation.quality_validator import QualityValidator\nv = QualityValidator(threshold=0.8)\nresult = v.validate(metrics)",
+  "source_project": "D:\\Projects\\connascence\\src\\",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 90,
+  "lego_compatible": false,
+  "exports": [
+    "AnalysisResult",
+    "EvidenceQuality",
+    "QualityClaim",
+    "QualityValidator",
+    "RiskLevel",
+    "Severity",
+    "SystemicTheaterResult",
+    "TheaterDetectionResult",
+    "TheaterDetector",
+    "TheaterPattern",
+    "ValidationResult",
+    "Violation",
+    "detect_theater",
+    "is_theater"
+  ]
+}

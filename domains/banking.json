@@ -46,7 +46,7 @@
       "name": "Banking Data Models",
       "version": "1.0.0",
       "description": "Common banking dataclasses: BankAccount, Transaction, BankConnection. Uses Decimal for all monetary values. Provider-agnostic design.",
-      "location": "components/banking/models.py",
+      "location": "components/banking/",
       "domain": "banking",
       "technology": [
         "Python",
@@ -72,11 +72,9 @@
       "quality_score": 85,
       "lego_compatible": false,
       "exports": [
-        "AccountType",
-        "BankAccount:",
-        "BankConnection:",
-        "Transaction:",
-        "TransactionType"
+        "BankAccount",
+        "Transaction",
+        "BankConnection"
       ]
     },
     {

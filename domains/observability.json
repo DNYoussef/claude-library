@@ -124,8 +124,7 @@
         "Tracer",
         "createTelemetry",
         "generateSpanId",
-        "generateTraceId",
-        "type"
+        "generateTraceId"
       ]
     },
     {
@@ -158,8 +157,8 @@
       "quality_score": 85,
       "lego_compatible": false,
       "exports": [
-        "ProjectStatus:",
-        "RepoSignals:",
+        "ProjectStatus",
+        "RepoSignals",
         "STATUS_END_MARKER",
         "STATUS_START_MARKER",
         "build_registry",

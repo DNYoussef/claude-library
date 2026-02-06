@@ -27,17 +27,15 @@
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import type {
-  ModelStatus,
-  ConsensusResult,
-  ConsensusDisplayProps,
-  TaskType,
-  TaskTypeOption,
-  ConsensusColorConfig,
-} from './types';
 import {
   DEFAULT_CONSENSUS_COLORS,
   MODEL_STATUS_COLORS,
+  type ModelStatus,
+  type ConsensusResult,
+  type ConsensusDisplayProps,
+  type TaskType,
+  type TaskTypeOption,
+  type ConsensusColorConfig,
 } from './types';
 
 /**

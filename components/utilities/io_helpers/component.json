@@ -1,0 +1,43 @@
+{
+  "id": "yaml-safe-write",
+  "name": "YAML Safe Write",
+  "version": "1.0.0",
+  "description": "Atomic YAML file writes with automatic backup. Prevents data loss from interrupted writes or corruption.",
+  "location": "components/utilities/io_helpers/",
+  "domain": "utilities",
+  "technology": [
+    "Python",
+    "PyYAML"
+  ],
+  "keywords": [
+    "yaml",
+    "write",
+    "atomic",
+    "backup",
+    "safe",
+    "config"
+  ],
+  "dependencies": [
+    "pyyaml"
+  ],
+  "test_coverage": 95,
+  "tests_passing": 8,
+  "usage_count": 3,
+  "last_used": "2026-01-08T00:00:00Z",
+  "example_usage": "from library.io import yaml_safe_write\nyaml_safe_write('config.yaml', data, backup=True)",
+  "source_project": "utils/yaml_safe_write.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-09T00:00:00Z",
+  "quality_score": 95,
+  "lego_compatible": false,
+  "exports": [
+    "AtomicWriter",
+    "BackupConfig",
+    "WriteResult",
+    "list_backups",
+    "yaml_safe_read_sync",
+    "yaml_safe_write_sync"
+  ],
+  "status": "deprecated",
+  "deprecation_reason": "No semantic matches in projects; no evidence of active usage."
+}

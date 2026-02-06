@@ -4,7 +4,7 @@ Transaction Storage and Querying
 Provides a database layer for storing and querying transactions.
 Works with any banking provider (Plaid, Mercury, etc.).
 
-Source: Adapted from D:/Projects/trader-ai/src/finances/bank_database.py
+Source: Adapted from trader-ai/src/finances/bank_database.py
 
 Usage:
     from library.components.accounting.transactions import TransactionStore

@@ -4,7 +4,7 @@ Plaid API Client
 Handles all Plaid API interactions with proper error handling.
 Supports sandbox, development, and production environments.
 
-Source: Adapted from D:/Projects/trader-ai/src/finances/plaid_client.py
+Source: Adapted from trader-ai/src/finances/plaid_client.py
 Improvements:
 - Uses Decimal for all money values (not float)
 - Better error handling with PlaidError

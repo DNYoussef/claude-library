@@ -1,0 +1,58 @@
+{
+  "id": "radix-dropdown",
+  "name": "Radix Dropdown Menu Component",
+  "version": "1.0.0",
+  "description": "Pre-styled Radix UI Dropdown Menu with Tailwind CSS. Full-featured with submenus, checkbox items, radio groups, separators, labels, icons, keyboard shortcuts display, and complete keyboard navigation.",
+  "location": "components/ui/radix_dropdown/",
+  "domain": "ui-components",
+  "technology": [
+    "TypeScript",
+    "React",
+    "Radix UI",
+    "Tailwind CSS"
+  ],
+  "keywords": [
+    "dropdown",
+    "menu",
+    "radix",
+    "ui",
+    "component",
+    "navigation",
+    "submenu",
+    "checkbox",
+    "radio",
+    "keyboard"
+  ],
+  "dependencies": [
+    "@radix-ui/react-dropdown-menu",
+    "tailwindcss",
+    "react"
+  ],
+  "test_coverage": 80,
+  "tests_passing": 14,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from '@library/ui/radix-dropdown';\n<DropdownMenu><DropdownMenuTrigger>Options</DropdownMenuTrigger><DropdownMenuContent><DropdownMenuItem icon={<EditIcon />}>Edit</DropdownMenuItem><DropdownMenuSeparator /><DropdownMenuItem variant='destructive'>Delete</DropdownMenuItem></DropdownMenuContent></DropdownMenu>",
+  "source_project": "LEGO library component",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T16:00:00Z",
+  "quality_score": 85,
+  "lego_compatible": false,
+  "exports": [
+    "DropdownMenu",
+    "DropdownMenuCheckboxItem",
+    "DropdownMenuContent",
+    "DropdownMenuGroup",
+    "DropdownMenuItem",
+    "DropdownMenuLabel",
+    "DropdownMenuRadioGroup",
+    "DropdownMenuRadioItem",
+    "DropdownMenuSeparator",
+    "DropdownMenuSub",
+    "DropdownMenuSubContent",
+    "DropdownMenuSubTrigger",
+    "DropdownMenuTrigger",
+    "ITEM_VARIANT_STYLES",
+    "MENU_ANIMATIONS"
+  ]
+}

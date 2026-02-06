@@ -60,7 +60,7 @@
       "name": "Multi-Model Router",
       "version": "1.0.0",
       "description": "Route tasks to optimal LLM (Claude/Gemini/Codex) based on task characteristics. Supports fallback and load balancing.",
-      "location": "components/ai/model_router/providers.py",
+      "location": "components/ai/model_router/",
       "domain": "integrations",
       "technology": [
         "Python",
@@ -95,9 +95,9 @@
         "CodexProvider",
         "GeminiProvider",
         "Provider",
-        "ProviderConfig:",
-        "ProviderHealth:",
-        "ProviderRegistry:",
+        "ProviderConfig",
+        "ProviderHealth",
+        "ProviderRegistry",
         "ProviderStatus"
       ]
     }

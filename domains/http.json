@@ -33,22 +33,11 @@
       "quality_score": 88,
       "lego_compatible": false,
       "exports": [
-        "// Class\n  FetchApiClient",
-        "// Error class\n  FetchApiError",
-        "// Factory functions\n  createFetchClient",
-        "// Types - Configuration\n  type FetchClientConfig",
-        "// Types - Context\n  type RequestContext",
-        "// Types - Interceptors\n  type RequestInterceptor",
         "getDefaultClient",
         "initDefaultClient",
         "quickClient",
         "resetDefaultClient",
-        "restClient",
-        "type ErrorContext",
-        "type ErrorInterceptor",
-        "type ResponseContext",
-        "type ResponseInterceptor",
-        "type RetryConfig"
+        "restClient"
       ]
     },
     {
@@ -91,7 +80,6 @@
         "QueryBuilder",
         "RecoveryService",
         "SpecPipelineService",
-        "async",
         "createApiClient",
         "createAuthenticatedClient",
         "createCalendarService",
@@ -113,8 +101,7 @@
         "isTimeout",
         "isUnauthorized",
         "isValidationError",
-        "query",
-        "type"
+        "query"
       ]
     }
   ]

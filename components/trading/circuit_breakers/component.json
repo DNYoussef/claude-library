@@ -1,0 +1,47 @@
+{
+  "id": "circuit-breaker-trading",
+  "name": "Trading Circuit Breakers",
+  "version": "1.0.0",
+  "description": "Trading-specific circuit breakers and risk thresholds.",
+  "location": "components/trading/circuit_breakers/",
+  "domain": "trading",
+  "technology": [
+    "Python",
+    "Decimal",
+    "threading"
+  ],
+  "keywords": [
+    "circuit-breaker",
+    "trading",
+    "risk",
+    "drawdown",
+    "volatility",
+    "loss-limit"
+  ],
+  "dependencies": [],
+  "test_coverage": 90,
+  "tests_passing": 24,
+  "usage_count": 0,
+  "last_used": null,
+  "example_usage": "from library.components.trading.circuit_breakers import CircuitBreakerManager\ncb = CircuitBreakerManager(daily_loss_limit=Decimal('0.02'))\nif cb.can_trade(): execute_trade()",
+  "source_project": "D:\\Projects\\trader-ai\\src\\risk\\circuit_breakers.py",
+  "created_by": "claude-code",
+  "created_at": "2026-01-10T00:00:00Z",
+  "quality_score": 92,
+  "lego_compatible": false,
+  "exports": [
+    "CircuitBreaker",
+    "CircuitBreakerManager",
+    "CircuitBreakerConfig",
+    "CircuitBreakerMetrics",
+    "CircuitState",
+    "CircuitType",
+    "RequestResult",
+    "CircuitOpenException",
+    "TradingCircuitBreakers",
+    "TradingBreakerConfig",
+    "TradingBreakerStatus",
+    "TradingBreakerType",
+    "PortfolioProvider"
+  ]
+}

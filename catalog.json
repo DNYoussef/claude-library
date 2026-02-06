@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "last_updated": "2026-02-06T16:27:19.867380+00:00",
+  "last_updated": "2026-02-06T16:45:49.300208+00:00",
   "total_components": 80,
   "components": [
     {
@@ -9,7 +9,10 @@
       "domain": "accounting",
       "location": "components/accounting/transactions/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "TransactionQuery",
+        "TransactionStore"
+      ]
     },
     {
       "id": "transaction-categorizer",
@@ -17,7 +20,12 @@
       "domain": "accounting",
       "location": "components/accounting/categorizer/",
       "quality_score": 84,
-      "exports": []
+      "exports": [
+        "CategorizerConfig",
+        "CategoryResult",
+        "TransactionCategorizer",
+        "TransactionCategory"
+      ]
     },
     {
       "id": "consensus-display",
@@ -25,7 +33,14 @@
       "domain": "ai",
       "location": "components/ai/consensus_display/",
       "quality_score": 78,
-      "exports": []
+      "exports": [
+        "ConsensusDisplay",
+        "DEFAULT_CONSENSUS_COLORS",
+        "MODEL_STATUS_COLORS",
+        "formatConsensusStatus",
+        "getConsensusColor",
+        "getModelStatusColor"
+      ]
     },
     {
       "id": "pattern-matcher",
@@ -33,7 +48,17 @@
       "domain": "analysis",
       "location": "components/analysis/pattern_matcher/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "MatchResult",
+        "PatternConfig",
+        "PatternDatabase",
+        "PatternDefinition",
+        "PatternMatch",
+        "PatternMatcher",
+        "PatternType",
+        "SignalLevel",
+        "create_matcher_from_wordlist"
+      ]
     },
     {
       "id": "scoring-aggregator",
@@ -41,7 +66,18 @@
       "domain": "analysis",
       "location": "components/analysis/scoring_aggregator/",
       "quality_score": 86,
-      "exports": []
+      "exports": [
+        "AggregatedResult",
+        "AnalyzerScore",
+        "ConfidenceLevel",
+        "GradeConfig",
+        "GradeMode",
+        "GradeThreshold",
+        "ScoringAggregator",
+        "TextLengthConfidenceCalculator",
+        "create_content_analysis_aggregator",
+        "create_quality_gate_aggregator"
+      ]
     },
     {
       "id": "violation-factory",
@@ -49,7 +85,13 @@
       "domain": "analysis",
       "location": "components/analysis/violation_factory/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "Location",
+        "Severity",
+        "Violation",
+        "ViolationCollection",
+        "ViolationFactory"
+      ]
     },
     {
       "id": "statistical-analyzer",
@@ -57,7 +99,19 @@
       "domain": "analysis",
       "location": "components/analysis/statistical_analyzer/",
       "quality_score": 86,
-      "exports": []
+      "exports": [
+        "BurstinessMetrics",
+        "EntropyMetrics",
+        "HapaxMetrics",
+        "LexicalDiversityMetrics",
+        "SentenceStartMetrics",
+        "StatisticalAnalyzer",
+        "StatisticalMetrics",
+        "calculate_coefficient_of_variation",
+        "calculate_hapax_ratio",
+        "calculate_shannon_entropy",
+        "calculate_type_token_ratio"
+      ]
     },
     {
       "id": "ast-visitor-base",
@@ -65,7 +119,14 @@
       "domain": "analysis",
       "location": "components/analysis/ast_visitor_base/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "BaseConnascenceVisitor",
+        "ComplexityVisitor",
+        "GodObjectVisitor",
+        "MagicLiteralVisitor",
+        "ParameterPositionVisitor",
+        "VisitorContext"
+      ]
     },
     {
       "id": "metric-collector",
@@ -73,7 +134,15 @@
       "domain": "analysis",
       "location": "components/analysis/metric_collector/",
       "quality_score": 91,
-      "exports": []
+      "exports": [
+        "Counter",
+        "Gauge",
+        "Histogram",
+        "MetricCollector",
+        "MetricType",
+        "MetricValue",
+        "create_quality_collector"
+      ]
     },
     {
       "id": "ast-visitor",
@@ -81,7 +150,21 @@
       "domain": "analysis",
       "location": "components/analysis/ast_visitor/",
       "quality_score": 93,
-      "exports": []
+      "exports": [
+        "AnalysisTransformer",
+        "AnalysisVisitor",
+        "CompositeVisitor",
+        "VisitorContext",
+        "count_nodes",
+        "get_assigned_name",
+        "is_call",
+        "is_method_call",
+        "is_name",
+        "parse_file",
+        "parse_source",
+        "visit_file",
+        "visit_source"
+      ]
     },
     {
       "id": "fastapi-router-template",
@@ -89,7 +172,12 @@
       "domain": "api",
       "location": "components/api/fastapi_router/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "CRUDRouter",
+        "PaginationParams",
+        "PaginatedResponse",
+        "create_crud_router"
+      ]
     },
     {
       "id": "pydantic-base-models",
@@ -97,7 +185,15 @@
       "domain": "api",
       "location": "components/api/pydantic_base/",
       "quality_score": 92,
-      "exports": []
+      "exports": [
+        "PaginatedResponse",
+        "ErrorResponse",
+        "MessageResponse",
+        "TimestampMixin",
+        "AuditMixin",
+        "StatusEnum",
+        "HealthResponse"
+      ]
     },
     {
       "id": "express-middleware-chain",
@@ -105,23 +201,50 @@
       "domain": "api",
       "location": "components/middleware/express_chain/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "createMiddlewareChain",
+        "createCorsMiddleware",
+        "createRateLimitMiddleware",
+        "createHelmetMiddleware",
+        "createLoggingMiddleware",
+        "createErrorHandler",
+        "MiddlewareConfig"
+      ]
     },
     {
       "id": "jwt-auth-middleware",
       "name": "JWT Authentication Middleware",
       "domain": "authentication",
-      "location": "components/auth/jwt_middleware_ts/middleware.ts",
+      "location": "components/auth/jwt_middleware_ts/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "JWTAuth",
+        "authenticate",
+        "generateApiKey",
+        "generateSecureToken",
+        "requireRole"
+      ]
     },
     {
       "id": "fastapi-jwt-auth",
       "name": "FastAPI JWT Authentication",
       "domain": "authentication",
-      "location": "components/auth/fastapi_jwt/jwt_auth.py",
+      "location": "components/auth/fastapi_jwt/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "AuthenticationError",
+        "AuthorizationError",
+        "JWTAuthConfig",
+        "JWTAuthService",
+        "TokenData",
+        "User",
+        "get_auth_service",
+        "init_jwt_auth",
+        "require_any_role",
+        "require_role",
+        "verify_resource_ownership",
+        "verify_resource_ownership_or_admin"
+      ]
     },
     {
       "id": "banking-plaid",
@@ -129,15 +252,22 @@
       "domain": "banking",
       "location": "components/banking/plaid/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "PlaidClient",
+        "PlaidError"
+      ]
     },
     {
       "id": "banking-models",
       "name": "Banking Data Models",
       "domain": "banking",
-      "location": "components/banking/models.py",
+      "location": "components/banking/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "BankAccount",
+        "Transaction",
+        "BankConnection"
+      ]
     },
     {
       "id": "mercury-integration",
@@ -145,7 +275,16 @@
       "domain": "banking",
       "location": "components/banking/mercury/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "AccountType",
+        "MercuryAccount",
+        "MercuryClient",
+        "MercuryConfig",
+        "MercuryRecipient",
+        "MercuryTransaction",
+        "TransactionStatus",
+        "TransactionType"
+      ]
     },
     {
       "id": "redis-cache",
@@ -153,63 +292,129 @@
       "domain": "caching",
       "location": "components/caching/redis_cache/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "RedisCache",
+        "RedisCacheConfig",
+        "cached",
+        "close_default_cache",
+        "generate_cache_key",
+        "get_default_cache",
+        "init_default_cache",
+        "invalidate_on_write"
+      ]
     },
     {
       "id": "frozen-harness",
       "name": "FrozenHarness Evaluation System",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/loopctl/core.py",
+      "location": "components/cognitive_architecture/loopctl/",
       "quality_score": 80,
-      "exports": []
+      "exports": [
+        "AuthorityLevel",
+        "DecisionAction",
+        "Decision",
+        "DecisionResult",
+        "DecisionAuthority"
+      ]
     },
     {
       "id": "telemetry-bridge",
       "name": "TelemetryBridge Memory MCP Integration",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/integration/telemetry_bridge.py",
+      "location": "components/cognitive_architecture/integration/",
       "quality_score": 75,
-      "exports": []
+      "exports": [
+        "LoopTelemetryRecord",
+        "TelemetryBridge",
+        "bridge_loop_to_telemetry"
+      ]
     },
     {
       "id": "connascence-bridge",
       "name": "ConnascenceBridge Quality Analyzer",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/integration/connascence_bridge.py",
+      "location": "components/cognitive_architecture/integration/",
       "quality_score": 70,
-      "exports": []
+      "exports": [
+        "LoopTelemetryRecord",
+        "TelemetryBridge",
+        "bridge_loop_to_telemetry"
+      ]
     },
     {
       "id": "mode-library",
       "name": "ModeLibrary Configuration System",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/modes/library.py",
+      "location": "components/cognitive_architecture/modes/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "Mode",
+        "ModeLibrary",
+        "ModeType",
+        "get_mode",
+        "get_mode_config",
+        "list_modes"
+      ]
     },
     {
       "id": "vcl-validator",
       "name": "VCL Validator",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/core/vcl_validator.py",
+      "location": "components/cognitive_architecture/core/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "ASPType",
+        "CompressionLevel",
+        "EVDType",
+        "HONLevel",
+        "L2Naturalizer",
+        "VCLConfig",
+        "VCLSlot",
+        "VCLStatement",
+        "VCLValidator",
+        "ValidationResult",
+        "compute_cluster_signature",
+        "enforce_safety_bounds",
+        "naturalize_to_l2",
+        "validate_vcl"
+      ]
     },
     {
       "id": "two-stage-optimizer",
       "name": "Two-Stage Multi-Objective Optimizer",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/optimization/two_stage_optimizer.py",
+      "location": "components/cognitive_architecture/optimization/",
       "quality_score": 75,
-      "exports": []
+      "exports": [
+        "CognitiveProblem14D",
+        "CognitiveProblem5D",
+        "OptimizationResult",
+        "TwoStageOptimizer",
+        "config_14d_to_fullconfig",
+        "distill_named_modes",
+        "evaluate_config_14dim",
+        "evaluate_config_5dim",
+        "expand_5d_to_14d",
+        "main",
+        "run_globalmoo_stage",
+        "run_pymoo_refinement_stage",
+        "run_with_telemetry",
+        "save_results"
+      ]
     },
     {
       "id": "cli-evaluator",
       "name": "CLI Evaluator (Real LLM)",
       "domain": "cognitive",
-      "location": "components/cognitive_architecture/evals/cli_evaluator.py",
+      "location": "components/cognitive_architecture/evals/",
       "quality_score": 70,
-      "exports": []
+      "exports": [
+        "CLITaskEvaluator",
+        "ClaudeCLI",
+        "EvaluationResult",
+        "TaskResult",
+        "main"
+      ]
     },
     {
       "id": "verix-parser",
@@ -217,7 +422,28 @@
       "domain": "cognitive",
       "location": "components/cognitive/verix_parser/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "Affect",
+        "Agent",
+        "CompressionLevel",
+        "Illocution",
+        "L0_CONTENT_TRUNCATION_LENGTH",
+        "MAX_CLAIMS_LIMIT",
+        "MAX_INPUT_LENGTH",
+        "MetaLevel",
+        "PromptConfig",
+        "State",
+        "VERSION",
+        "VerixClaim",
+        "VerixParser",
+        "VerixStrictness",
+        "VerixValidator",
+        "__version__",
+        "create_claim",
+        "create_meta_claim",
+        "create_meta_verix_claim",
+        "format_claim"
+      ]
     },
     {
       "id": "cognitive-config",
@@ -225,7 +451,26 @@
       "domain": "cognitive",
       "location": "components/cognitive/cognitive_config/",
       "quality_score": 86,
-      "exports": []
+      "exports": [
+        "CompressionLevel",
+        "DEFAULT_CONFIG",
+        "DEFAULT_EVIDENTIAL_MINIMUM",
+        "DEFAULT_FRAME_WEIGHTS",
+        "FrameworkConfig",
+        "FullConfig",
+        "MINIMAL_CONFIG",
+        "NAMED_MODES",
+        "PromptConfig",
+        "STRICT_CONFIG",
+        "VectorCodec",
+        "VerixStrictness",
+        "create_audit_config",
+        "create_balanced_config",
+        "create_research_config",
+        "create_robust_config",
+        "create_speed_config",
+        "get_named_mode"
+      ]
     },
     {
       "id": "skill-base",
@@ -233,7 +478,22 @@
       "domain": "cognitive",
       "location": "components/cognitive/skill_base/",
       "quality_score": 92,
-      "exports": []
+      "exports": [
+        "CompositeSkill",
+        "ConfidenceLevel",
+        "InputContract",
+        "OutputContract",
+        "QualityScore",
+        "SkillBase",
+        "SkillCategory",
+        "SkillContext",
+        "SkillMetadata",
+        "SkillPhase",
+        "SkillResult",
+        "get_skill",
+        "list_skills",
+        "skill_metadata"
+      ]
     },
     {
       "id": "agent-base",
@@ -241,7 +501,29 @@
       "domain": "cognitive",
       "location": "components/cognitive/agent_base/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "AgentBase",
+        "AgentCategory",
+        "AgentMetadata",
+        "AgentPhase",
+        "AgentResult",
+        "AgentStatus",
+        "AgentTask",
+        "AgentType",
+        "ArtifactContract",
+        "CompositeAgent",
+        "ConfidenceLevel",
+        "InputContract",
+        "MCPServer",
+        "MemoryTag",
+        "OutputContract",
+        "PerformanceMetrics",
+        "QualityGate",
+        "agent_metadata",
+        "get_agent",
+        "list_agents",
+        "list_agents_by_category"
+      ]
     },
     {
       "id": "command-base",
@@ -249,7 +531,18 @@
       "domain": "cognitive",
       "location": "components/cognitive/command_base/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "CommandArg",
+        "CommandArgs",
+        "CommandBase",
+        "CommandCategory",
+        "CommandMetadata",
+        "CommandResult",
+        "command_metadata",
+        "get_command",
+        "list_commands",
+        "list_commands_by_category"
+      ]
     },
     {
       "id": "playbook-base",
@@ -257,7 +550,19 @@
       "domain": "cognitive",
       "location": "components/cognitive/playbook_base/",
       "quality_score": 89,
-      "exports": []
+      "exports": [
+        "PhaseResult",
+        "PhaseSpec",
+        "PhaseStatus",
+        "PlaybookBase",
+        "PlaybookCategory",
+        "PlaybookContext",
+        "PlaybookMetadata",
+        "PlaybookResult",
+        "get_playbook",
+        "list_playbooks",
+        "playbook_metadata"
+      ]
     },
     {
       "id": "hook-base",
@@ -265,7 +570,20 @@
       "domain": "cognitive",
       "location": "components/cognitive/hook_base/",
       "quality_score": 87,
-      "exports": []
+      "exports": [
+        "CompositeHook",
+        "HookBase",
+        "HookContext",
+        "HookEvent",
+        "HookExitCode",
+        "HookMetadata",
+        "HookResult",
+        "HookState",
+        "get_hook",
+        "hook_metadata",
+        "list_hooks",
+        "list_hooks_by_event"
+      ]
     },
     {
       "id": "script-base",
@@ -273,7 +591,18 @@
       "domain": "cognitive",
       "location": "components/cognitive/script_base/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "LogLevel",
+        "ScriptArg",
+        "ScriptArgs",
+        "ScriptBase",
+        "ScriptCategory",
+        "ScriptMetadata",
+        "ScriptResult",
+        "get_script",
+        "list_scripts",
+        "script_metadata"
+      ]
     },
     {
       "id": "db-connection-pool",
@@ -281,7 +610,21 @@
       "domain": "database",
       "location": "components/database/connection_pool/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "Base",
+        "ConnectionPool",
+        "DatabaseHealthChecker",
+        "HealthCheckConfig",
+        "HealthCheckEndpoint",
+        "HealthState",
+        "HealthStatus",
+        "PoolConfig",
+        "close_pool",
+        "get_db",
+        "get_pool",
+        "init_pool",
+        "with_retry"
+      ]
     },
     {
       "id": "fetch-api-client",
@@ -289,7 +632,13 @@
       "domain": "http",
       "location": "components/http/fetch_api_client/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "getDefaultClient",
+        "initDefaultClient",
+        "quickClient",
+        "resetDefaultClient",
+        "restClient"
+      ]
     },
     {
       "id": "api-services",
@@ -297,7 +646,41 @@
       "domain": "http",
       "location": "components/http/api_services/",
       "quality_score": 82,
-      "exports": []
+      "exports": [
+        "ApiClient",
+        "BaseResourceService",
+        "CalendarService",
+        "IdeasService",
+        "NotesService",
+        "ProductivityService",
+        "QAPipelineService",
+        "QAService",
+        "QueryBuilder",
+        "RecoveryService",
+        "SpecPipelineService",
+        "createApiClient",
+        "createAuthenticatedClient",
+        "createCalendarService",
+        "createClientFromEnv",
+        "createIdeasService",
+        "createNotesService",
+        "createProductivityService",
+        "createQAPipelineService",
+        "createQAService",
+        "createRecoveryService",
+        "createServicesFromEnv",
+        "createSpecPipelineService",
+        "getFieldError",
+        "getValidationErrors",
+        "isApiError",
+        "isForbidden",
+        "isHttpStatus",
+        "isNotFound",
+        "isTimeout",
+        "isUnauthorized",
+        "isValidationError",
+        "query"
+      ]
     },
     {
       "id": "content-pipeline-template",
@@ -305,15 +688,43 @@
       "domain": "integrations",
       "location": "components/pipelines/content_pipeline/",
       "quality_score": 70,
-      "exports": []
+      "exports": [
+        "AnalyzePhase",
+        "CommitPhase",
+        "ContentPipeline",
+        "DeployPhase",
+        "DownloadPhase",
+        "DraftPhase",
+        "ImageGenPhase",
+        "Phase",
+        "PhaseResult",
+        "PhaseStatus",
+        "PhaseType",
+        "PipelineConfig",
+        "PipelineResult",
+        "SlopDetectPhase",
+        "StylePhase",
+        "SynthesizePhase",
+        "TranscribePhase"
+      ]
     },
     {
       "id": "multi-model-router",
       "name": "Multi-Model Router",
       "domain": "integrations",
-      "location": "components/ai/model_router/providers.py",
+      "location": "components/ai/model_router/",
       "quality_score": 82,
-      "exports": []
+      "exports": [
+        "BaseProvider",
+        "ClaudeProvider",
+        "CodexProvider",
+        "GeminiProvider",
+        "Provider",
+        "ProviderConfig",
+        "ProviderHealth",
+        "ProviderRegistry",
+        "ProviderStatus"
+      ]
     },
     {
       "id": "memory-mcp-client-v2",
@@ -321,7 +732,43 @@
       "domain": "memory",
       "location": "components/memory/memory_mcp_client/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "AgentCategory",
+        "CacheLayer",
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
+        "CircuitBreakerError",
+        "CircuitBreakerState",
+        "CircuitBreakerStatus",
+        "FallbackStorage",
+        "HealthStatus",
+        "INTENT_DESCRIPTIONS",
+        "InMemoryCache",
+        "InMemoryFallback",
+        "Intent",
+        "MCPTransport",
+        "MemoryMCPClient",
+        "MemoryMCPConfig",
+        "MemoryStorePayload",
+        "MemoryTags",
+        "MockMCPTransport",
+        "ProjectTag",
+        "StoreResult",
+        "TaggingConfig",
+        "TaggingProtocol",
+        "TaskHistoryResult",
+        "WhenTag",
+        "WhoTag",
+        "WhyTag",
+        "__author__",
+        "__source__",
+        "__version__",
+        "create_backend_tagger",
+        "create_custom_tagger",
+        "create_frontend_tagger",
+        "create_memory_mcp_client",
+        "create_testing_tagger"
+      ]
     },
     {
       "id": "redis-pubsub",
@@ -329,7 +776,11 @@
       "domain": "messaging",
       "location": "components/messaging/redis_pubsub/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "MessageHandler",
+        "RedisPubSub",
+        "create_redis_pubsub"
+      ]
     },
     {
       "id": "tenant-isolation",
@@ -337,7 +788,25 @@
       "domain": "multi-entity",
       "location": "components/multi_entity/isolation/",
       "quality_score": 91,
-      "exports": []
+      "exports": [
+        "RLSPolicy",
+        "TenantContext",
+        "TenantMiddleware",
+        "TenantMixin",
+        "create_tenant_policy",
+        "disable_rls",
+        "enable_rls",
+        "extract_tenant_from_header",
+        "extract_tenant_from_path",
+        "extract_tenant_from_subdomain",
+        "force_rls",
+        "generate_rls_migration",
+        "get_current_tenant",
+        "require_tenant",
+        "set_current_tenant",
+        "setup_rls_session",
+        "setup_tenant_isolation"
+      ]
     },
     {
       "id": "tagging-protocol",
@@ -345,7 +814,14 @@
       "domain": "observability",
       "location": "components/observability/tagging_protocol/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "AgentCategory",
+        "INTENT_DESCRIPTIONS",
+        "Intent",
+        "TaggingProtocol",
+        "create_simple_tagger",
+        "create_tagger"
+      ]
     },
     {
       "id": "audit-logging",
@@ -353,7 +829,14 @@
       "domain": "observability",
       "location": "components/observability/audit_logging/",
       "quality_score": 86,
-      "exports": []
+      "exports": [
+        "AuditEntry",
+        "AuditLogModelProtocol",
+        "AuditLogger",
+        "AuditOperation",
+        "SyncAuditLogger",
+        "create_audit_log_model"
+      ]
     },
     {
       "id": "opentelemetry-lite",
@@ -361,7 +844,21 @@
       "domain": "observability",
       "location": "components/observability/opentelemetry_lite/",
       "quality_score": 82,
-      "exports": []
+      "exports": [
+        "CallbackSpanExporter",
+        "ConsoleSpanExporter",
+        "DEFAULT_TELEMETRY_CONFIG",
+        "InMemorySpanExporter",
+        "LogLevel",
+        "MetricsCollector",
+        "Span",
+        "SpanStatus",
+        "StructuredLogger",
+        "Tracer",
+        "createTelemetry",
+        "generateSpanId",
+        "generateTraceId"
+      ]
     },
     {
       "id": "status-registry",
@@ -369,7 +866,20 @@
       "domain": "observability",
       "location": "components/observability/status_registry/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "ProjectStatus",
+        "RepoSignals",
+        "STATUS_END_MARKER",
+        "STATUS_START_MARKER",
+        "build_registry",
+        "parse_project_table",
+        "render_project_markdown",
+        "render_markdown",
+        "scan_repo_signals",
+        "update_marked_section",
+        "update_project_readme",
+        "update_repo_readmes"
+      ]
     },
     {
       "id": "library-drift-audit",
@@ -377,7 +887,9 @@
       "domain": "observability",
       "location": "components/observability/library_drift_audit/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "build_report"
+      ]
     },
     {
       "id": "pipeline-executor",
@@ -385,7 +897,13 @@
       "domain": "orchestration",
       "location": "components/orchestration/pipeline_executor/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "PipelineConfig",
+        "PipelineExecutor",
+        "StepConfig",
+        "StepResult",
+        "StepStatus"
+      ]
     },
     {
       "id": "markdown-metadata",
@@ -393,7 +911,15 @@
       "domain": "parsing",
       "location": "components/parsing/markdown_metadata/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "createMarkdown",
+        "extractSkillMetadata",
+        "getShortDescription",
+        "getSkillName",
+        "isValidSkillName",
+        "parseFrontmatter",
+        "parseMarkdown"
+      ]
     },
     {
       "id": "money-handling",
@@ -401,7 +927,19 @@
       "domain": "patterns",
       "location": "patterns/money_handling/",
       "quality_score": 95,
-      "exports": []
+      "exports": [
+        "Money",
+        "MoneyError",
+        "FloatNotAllowedError",
+        "CurrencyMismatchError",
+        "add_money",
+        "subtract_money",
+        "allocate_money",
+        "format_money",
+        "parse_money",
+        "validate_amount",
+        "is_valid_currency"
+      ]
     },
     {
       "id": "webhook-idempotency",
@@ -409,7 +947,18 @@
       "domain": "patterns",
       "location": "patterns/webhook_idempotency/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "IdempotencyStore",
+        "InMemoryIdempotencyStore",
+        "RedisIdempotencyStore",
+        "PostgresIdempotencyStore",
+        "idempotent",
+        "FastAPIIdempotencyMiddleware",
+        "idempotent_handler",
+        "ensure_idempotent",
+        "generate_idempotency_key",
+        "extract_key_from_request"
+      ]
     },
     {
       "id": "auditor-base",
@@ -417,7 +966,13 @@
       "domain": "patterns",
       "location": "components/patterns/auditor_base/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "ActionClass",
+        "Affect",
+        "AuditorResult",
+        "BaseAuditor",
+        "Illocution"
+      ]
     },
     {
       "id": "image-generator-base",
@@ -425,7 +980,13 @@
       "domain": "patterns",
       "location": "components/patterns/image_generator_base/",
       "quality_score": 82,
-      "exports": []
+      "exports": [
+        "GeneratedImage",
+        "ImageConfig",
+        "ImageGeneratorBase",
+        "ImageProvider",
+        "ProviderRegistry"
+      ]
     },
     {
       "id": "stripe-integration",
@@ -433,7 +994,21 @@
       "domain": "payments",
       "location": "components/payments/stripe/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "Customer",
+        "PaymentIntent",
+        "PaymentStatus",
+        "SignatureVerificationError",
+        "StripeClient",
+        "StripeConfig",
+        "StripeWebhookHandler",
+        "Subscription",
+        "SubscriptionStatus",
+        "WebhookEvent",
+        "WebhookEventType",
+        "WebhookProcessingError",
+        "create_stripe_webhook_route"
+      ]
     },
     {
       "id": "react-hooks",
@@ -441,7 +1016,16 @@
       "domain": "react",
       "location": "components/react_hooks/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "useAbortableAsync",
+        "useAbortableAsyncState",
+        "useAsyncState",
+        "useDebounce",
+        "useDebouncedCallback",
+        "useLocalStorage",
+        "useThrottle",
+        "useThrottledCallback"
+      ]
     },
     {
       "id": "auth-context",
@@ -449,7 +1033,12 @@
       "domain": "react-auth",
       "location": "components/react_auth/context/",
       "quality_score": 89,
-      "exports": []
+      "exports": [
+        "useHasPermission",
+        "useHasRole",
+        "useIsAuthenticated",
+        "useUser"
+      ]
     },
     {
       "id": "websocket-manager",
@@ -457,7 +1046,26 @@
       "domain": "realtime",
       "location": "components/realtime/websocket_manager/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "Connection",
+        "ConnectionManager",
+        "DistributedWebSocketManager",
+        "Message",
+        "MessageType",
+        "RedisBroadcaster",
+        "AuthConnectionManager",
+        "ConnectionConfig",
+        "WebSocketProtocol",
+        "AuthenticatorProtocol",
+        "HeartbeatManager",
+        "WSMessage",
+        "BaseMessageType",
+        "PingMessage",
+        "PongMessage",
+        "ErrorMessage",
+        "AckMessage",
+        "RedisPubSub"
+      ]
     },
     {
       "id": "report-generator",
@@ -465,7 +1073,16 @@
       "domain": "reporting",
       "location": "components/reporting/report_generator/",
       "quality_score": 84,
-      "exports": []
+      "exports": [
+        "Issue",
+        "OutputFormat",
+        "Report",
+        "ReportGenerator",
+        "ReportSummary",
+        "Severity",
+        "create_issue",
+        "generate_simple_report"
+      ]
     },
     {
       "id": "task-scheduler",
@@ -473,7 +1090,17 @@
       "domain": "scheduling",
       "location": "components/scheduling/task_scheduler/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "JobConfig",
+        "SchedulerConfig",
+        "TaskScheduler",
+        "TriggerType",
+        "create_scheduler_lifespan",
+        "JobStatus",
+        "TaskStatus",
+        "validate_cron_expression",
+        "parse_cron_expression"
+      ]
     },
     {
       "id": "security-jwt",
@@ -481,7 +1108,12 @@
       "domain": "security",
       "location": "components/security/jwt_auth/",
       "quality_score": 92,
-      "exports": []
+      "exports": [
+        "JWTAuth",
+        "JWTConfig",
+        "generate_api_key",
+        "generate_secure_token"
+      ]
     },
     {
       "id": "kanban-store",
@@ -489,23 +1121,55 @@
       "domain": "state",
       "location": "components/state/kanban_store/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "DEFAULT_3_COLUMN_CONFIG",
+        "DEFAULT_4_COLUMN_CONFIG",
+        "DEFAULT_5_COLUMN_CONFIG",
+        "DEV_PIPELINE_CONFIG",
+        "SCRUM_COLUMN_CONFIG",
+        "createLocalStoragePersistenceAdapter",
+        "findItemInColumns",
+        "organizeItemsByColumn",
+        "selectColumnCounts",
+        "selectItemById",
+        "selectTotalCount",
+        "useTaskKanban"
+      ]
     },
     {
       "id": "pytest-fixtures-base",
       "name": "Pytest Fixtures Base",
       "domain": "testing",
-      "location": "components/testing/pytest_fixtures/fixtures.py",
+      "location": "components/testing/pytest_fixtures/",
       "quality_score": 100,
-      "exports": []
+      "exports": [
+        "PerformanceTracker",
+        "concurrent_executor",
+        "configure_test_environment",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
     },
     {
       "id": "jest-setup-base",
       "name": "Jest Setup Base",
       "domain": "testing",
-      "location": "components/testing/jest_setup/setup.ts",
+      "location": "components/testing/jest_setup/",
       "quality_score": 100,
-      "exports": []
+      "exports": [
+        "cleanupMocks",
+        "configure",
+        "createMockFetch",
+        "getConfig",
+        "mockAPIResponse",
+        "mockErrorResponse",
+        "setupMocks"
+      ]
     },
     {
       "id": "backtest-harness",
@@ -513,7 +1177,19 @@
       "domain": "testing",
       "location": "components/testing/backtest_harness/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "BacktestConfig",
+        "CostModel",
+        "WindowType",
+        "BacktestEngine",
+        "BacktestResults",
+        "FoldResult",
+        "Trade",
+        "Strategy",
+        "SignalFunction",
+        "PerformanceCalculator",
+        "run_slippage_sensitivity"
+      ]
     },
     {
       "id": "pytest-fixtures-collection",
@@ -521,7 +1197,18 @@
       "domain": "testing",
       "location": "components/testing/pytest_fixtures/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "PerformanceTracker",
+        "concurrent_executor",
+        "configure_test_environment",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
     },
     {
       "id": "jest-setup-collection",
@@ -529,7 +1216,15 @@
       "domain": "testing",
       "location": "components/testing/jest_setup/",
       "quality_score": 88,
-      "exports": []
+      "exports": [
+        "cleanupMocks",
+        "configure",
+        "createMockFetch",
+        "getConfig",
+        "mockAPIResponse",
+        "mockErrorResponse",
+        "setupMocks"
+      ]
     },
     {
       "id": "circuit-breaker-trading",
@@ -537,7 +1232,21 @@
       "domain": "trading",
       "location": "components/trading/circuit_breakers/",
       "quality_score": 92,
-      "exports": []
+      "exports": [
+        "CircuitBreaker",
+        "CircuitBreakerManager",
+        "CircuitBreakerConfig",
+        "CircuitBreakerMetrics",
+        "CircuitState",
+        "CircuitType",
+        "RequestResult",
+        "CircuitOpenException",
+        "TradingCircuitBreakers",
+        "TradingBreakerConfig",
+        "TradingBreakerStatus",
+        "TradingBreakerType",
+        "PortfolioProvider"
+      ]
     },
     {
       "id": "gate-system-manager",
@@ -545,7 +1254,17 @@
       "domain": "trading",
       "location": "components/trading/gate_system/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "GateLevel",
+        "ViolationType",
+        "GateConfig",
+        "TradeValidationResult",
+        "ViolationRecord",
+        "GraduationMetrics",
+        "GateManager",
+        "create_default_gate_configs",
+        "DEFAULT_GATE_THRESHOLDS"
+      ]
     },
     {
       "id": "kelly-criterion-calculator",
@@ -553,7 +1272,17 @@
       "domain": "trading",
       "location": "components/trading/position_sizing/",
       "quality_score": 94,
-      "exports": []
+      "exports": [
+        "KellyCriterion",
+        "KellyResult",
+        "PositionSizeResult",
+        "KellyRegime",
+        "quick_kelly",
+        "FULL_KELLY",
+        "HALF_KELLY",
+        "QUARTER_KELLY",
+        "TENTH_KELLY"
+      ]
     },
     {
       "id": "radix-dialog",
@@ -561,7 +1290,20 @@
       "domain": "ui-components",
       "location": "components/ui/radix_dialog/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "DIALOG_ANIMATIONS",
+        "DIALOG_SIZE_STYLES",
+        "Dialog",
+        "DialogBody",
+        "DialogClose",
+        "DialogContent",
+        "DialogDescription",
+        "DialogFooter",
+        "DialogHeader",
+        "DialogOverlay",
+        "DialogTitle",
+        "DialogTrigger"
+      ]
     },
     {
       "id": "radix-dropdown",
@@ -569,7 +1311,23 @@
       "domain": "ui-components",
       "location": "components/ui/radix_dropdown/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "DropdownMenu",
+        "DropdownMenuCheckboxItem",
+        "DropdownMenuContent",
+        "DropdownMenuGroup",
+        "DropdownMenuItem",
+        "DropdownMenuLabel",
+        "DropdownMenuRadioGroup",
+        "DropdownMenuRadioItem",
+        "DropdownMenuSeparator",
+        "DropdownMenuSub",
+        "DropdownMenuSubContent",
+        "DropdownMenuSubTrigger",
+        "DropdownMenuTrigger",
+        "ITEM_VARIANT_STYLES",
+        "MENU_ANIMATIONS"
+      ]
     },
     {
       "id": "design-system",
@@ -577,39 +1335,85 @@
       "domain": "ui-components",
       "location": "components/ui/design_system/",
       "quality_score": 80,
-      "exports": []
+      "exports": [
+        "Badge",
+        "CSS_TOKENS",
+        "Card",
+        "CardContent",
+        "CardFooter",
+        "CardHeader",
+        "Input",
+        "MetricCard",
+        "MetricGrid",
+        "StatusDot",
+        "Textarea"
+      ]
     },
     {
       "id": "quality-gate",
       "name": "Quality Gate System",
       "domain": "utilities",
-      "location": "components/utilities/quality_gate/quality_gate.py",
+      "location": "components/utilities/quality_gate/",
       "quality_score": 85,
-      "exports": []
+      "exports": [
+        "GateConfig",
+        "GateFailedError",
+        "GateManager",
+        "GateResult",
+        "GateStatus",
+        "GateType",
+        "RichMetricResult",
+        "create_compile_gate",
+        "create_dependency_gate",
+        "create_quality_gate",
+        "create_sync_gate"
+      ]
     },
     {
       "id": "circuit-breaker",
       "name": "Circuit Breaker Pattern",
       "domain": "utilities",
-      "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+      "location": "components/utilities/circuit_breaker/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
+        "CircuitBreakerError",
+        "CircuitBreakerManager",
+        "CircuitBreakerMetrics",
+        "CircuitBreakerStatus",
+        "CircuitState"
+      ]
     },
     {
       "id": "health-monitor",
       "name": "Health Check Monitor",
       "domain": "utilities",
-      "location": "components/utilities/health_monitor/health_monitor.py",
+      "location": "components/utilities/health_monitor/",
       "quality_score": 80,
-      "exports": []
+      "exports": [
+        "AlertConfig",
+        "HealthCheckConfig",
+        "HealthCheckResult",
+        "HealthMonitor",
+        "HealthState",
+        "HealthStatus"
+      ]
     },
     {
       "id": "yaml-safe-write",
       "name": "YAML Safe Write",
       "domain": "utilities",
-      "location": "components/utilities/io_helpers/yaml_safe_write.py",
+      "location": "components/utilities/io_helpers/",
       "quality_score": 95,
-      "exports": []
+      "exports": [
+        "AtomicWriter",
+        "BackupConfig",
+        "WriteResult",
+        "list_backups",
+        "yaml_safe_read_sync",
+        "yaml_safe_write_sync"
+      ]
     },
     {
       "id": "spec-validation",
@@ -617,7 +1421,30 @@
       "domain": "validation",
       "location": "components/validation/spec_validation/",
       "quality_score": 92,
-      "exports": []
+      "exports": [
+        "BaseValidator",
+        "ContextValidator",
+        "DEFAULT_CONTEXT_SCHEMA",
+        "DEFAULT_IMPLEMENTATION_PLAN_SCHEMA",
+        "DEFAULT_PHASE_SCHEMA",
+        "DEFAULT_REQUIREMENTS_SCHEMA",
+        "DEFAULT_SPEC_RECOMMENDED_SECTIONS",
+        "DEFAULT_SPEC_REQUIRED_SECTIONS",
+        "DEFAULT_SUBTASK_SCHEMA",
+        "DEFAULT_VERIFICATION_SCHEMA",
+        "ImplementationPlanValidator",
+        "JSONFileValidator",
+        "MarkdownDocumentValidator",
+        "PrereqsValidator",
+        "SpecDocumentValidator",
+        "SpecValidator",
+        "Validatable",
+        "ValidationResult",
+        "ValidationSchema",
+        "ValidatorFactory",
+        "create_validator_from_config",
+        "validate_spec_directory"
+      ]
     },
     {
       "id": "skill-validator",
@@ -625,7 +1452,24 @@
       "domain": "validation",
       "location": "components/validation/skill_validator/",
       "quality_score": 84,
-      "exports": []
+      "exports": [
+        "DEFAULT_CATEGORY_KEYWORDS",
+        "STOPWORDS",
+        "SkillData",
+        "SkillIndexer",
+        "SkillValidator",
+        "ValidationResult",
+        "YAML_AVAILABLE",
+        "__author__",
+        "__version__",
+        "extract_keywords",
+        "extract_section",
+        "extract_trigger_positive",
+        "parse_yaml_fallback",
+        "parse_yaml_frontmatter",
+        "parse_yaml_safe",
+        "validate_single_file"
+      ]
     },
     {
       "id": "quality-validator",
@@ -633,7 +1477,22 @@
       "domain": "validation",
       "location": "components/validation/quality_validator/",
       "quality_score": 90,
-      "exports": []
+      "exports": [
+        "AnalysisResult",
+        "EvidenceQuality",
+        "QualityClaim",
+        "QualityValidator",
+        "RiskLevel",
+        "Severity",
+        "SystemicTheaterResult",
+        "TheaterDetectionResult",
+        "TheaterDetector",
+        "TheaterPattern",
+        "ValidationResult",
+        "Violation",
+        "detect_theater",
+        "is_theater"
+      ]
     },
     {
       "id": "guard-lane-base",
@@ -642,12 +1501,14 @@
       "location": "components/governance/guard_lane_base/",
       "quality_score": 95,
       "exports": [
-        "BaseGuardLane",
-        "TriggerType",
-        "GuardEvent",
         "ApprovalSet",
+        "BaseGuardLane",
+        "ConsensusType",
+        "GuardEvent",
         "LaneEvaluationResult",
         "LaneRegistry",
+        "RiskTier",
+        "TriggerType",
         "register_lane"
       ]
     }
