@@ -1,0 +1,292 @@
+{
+  "domain": "analysis",
+  "count": 7,
+  "components": [
+    {
+      "id": "pattern-matcher",
+      "name": "Pattern Matcher",
+      "version": "1.0.0",
+      "description": "Generic pattern detection with injectable pattern database. LRU-cached regex compilation with error handling. Supports multi-pattern matching.",
+      "location": "components/analysis/pattern_matcher/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "regex"
+      ],
+      "keywords": [
+        "pattern",
+        "matcher",
+        "regex",
+        "detection",
+        "analysis"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.pattern_matcher import PatternMatcher\nmatcher = PatternMatcher(patterns=slop_patterns)\nmatches = matcher.find_all(text)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "MatchResult",
+        "PatternConfig",
+        "PatternDatabase",
+        "PatternDefinition",
+        "PatternMatch",
+        "PatternMatcher",
+        "PatternType",
+        "SignalLevel",
+        "create_matcher_from_wordlist"
+      ]
+    },
+    {
+      "id": "scoring-aggregator",
+      "name": "Scoring Aggregator",
+      "version": "1.0.0",
+      "description": "Weighted score aggregation with configurable grading schemes. Input validation, tuple length checks, and grade calculation.",
+      "location": "components/analysis/scoring_aggregator/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "scoring",
+        "aggregation",
+        "grading",
+        "weighted",
+        "metrics"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.scoring_aggregator import ScoringAggregator\nagg = ScoringAggregator(weights={'accuracy': 0.4, 'speed': 0.6})\nscore = agg.aggregate(scores)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "AggregatedResult",
+        "AnalyzerScore",
+        "ConfidenceLevel",
+        "GradeConfig",
+        "GradeMode",
+        "GradeThreshold",
+        "ScoringAggregator",
+        "TextLengthConfidenceCalculator",
+        "create_content_analysis_aggregator",
+        "create_quality_gate_aggregator"
+      ]
+    },
+    {
+      "id": "violation-factory",
+      "name": "Violation Factory",
+      "version": "1.0.0",
+      "description": "Generic violation/issue creation with standardized schema. SARIF-compatible output, severity comparison, and location tracking.",
+      "location": "components/analysis/violation_factory/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "violation",
+        "issue",
+        "sarif",
+        "severity",
+        "linting"
+      ],
+      "dependencies": [],
+      "test_coverage": 86,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.violation_factory import ViolationFactory\nv = ViolationFactory.create(severity='high', message='Issue found', line=42)",
+      "source_project": "D:\\Projects\\connascence\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "Location",
+        "Severity",
+        "Violation",
+        "ViolationCollection",
+        "ViolationFactory"
+      ]
+    },
+    {
+      "id": "statistical-analyzer",
+      "name": "Statistical Analyzer",
+      "version": "1.0.0",
+      "description": "Text statistics: entropy, burstiness, TTR (Type-Token Ratio), hapax legomena, sentence analysis. Configurable thresholds for quality assessment.",
+      "location": "components/analysis/statistical_analyzer/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "statistics"
+      ],
+      "keywords": [
+        "statistics",
+        "entropy",
+        "ttr",
+        "hapax",
+        "text-analysis"
+      ],
+      "dependencies": [],
+      "test_coverage": 84,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.statistical_analyzer import StatisticalAnalyzer\nanalyzer = StatisticalAnalyzer()\nstats = analyzer.analyze(text)",
+      "source_project": "D:\\Projects\\slop-detector\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "BurstinessMetrics",
+        "EntropyMetrics",
+        "HapaxMetrics",
+        "LexicalDiversityMetrics",
+        "SentenceStartMetrics",
+        "StatisticalAnalyzer",
+        "StatisticalMetrics",
+        "calculate_coefficient_of_variation",
+        "calculate_hapax_ratio",
+        "calculate_shannon_entropy",
+        "calculate_type_token_ratio"
+      ]
+    },
+    {
+      "id": "ast-visitor-base",
+      "name": "AST Visitor Base Pattern",
+      "version": "1.0.0",
+      "description": "Base visitor classes for Python AST traversal during code analysis. Includes concrete visitors for magic literals (CoM), parameter bombs (CoP), god objects (CoA), and cyclomatic complexity.",
+      "location": "components/analysis/ast_visitor_base/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "ast"
+      ],
+      "keywords": [
+        "ast",
+        "visitor",
+        "connascence",
+        "complexity",
+        "code-analysis",
+        "pattern"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.ast_visitor_base import BaseConnascenceVisitor, VisitorContext\nclass MyVisitor(BaseConnascenceVisitor):\n    def get_violation_type(self): return 'custom'\n    def visit_FunctionDef(self, node): ...",
+      "source_project": "D:\\Projects\\connascence\\analyzer\\ast_engine\\visitors.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "BaseConnascenceVisitor",
+        "ComplexityVisitor",
+        "GodObjectVisitor",
+        "MagicLiteralVisitor",
+        "ParameterPositionVisitor",
+        "VisitorContext"
+      ]
+    },
+    {
+      "id": "metric-collector",
+      "name": "Metric Collector",
+      "version": "1.0.0",
+      "description": "Prometheus-compatible metrics collector with Counter, Gauge, Histogram types, thread-safe updates, and text exposition format.",
+      "location": "components/analysis/metric_collector/",
+      "domain": "analysis",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "metrics",
+        "prometheus",
+        "counter",
+        "gauge",
+        "histogram",
+        "monitoring"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.metric_collector import MetricCollector, create_quality_collector\ncollector = create_quality_collector()\ncollector.counter('violations_total').labels(severity='high').inc()",
+      "source_project": "https://github.com/prometheus/client_python",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T14:00:00Z",
+      "quality_score": 91,
+      "lego_compatible": false,
+      "exports": [
+        "Counter",
+        "Gauge",
+        "Histogram",
+        "MetricCollector",
+        "MetricType",
+        "MetricValue",
+        "create_quality_collector"
+      ]
+    },
+    {
+      "id": "ast-visitor",
+      "name": "AST Visitor Base",
+      "version": "1.0.0",
+      "description": "Extended AST visitor with violation collection, path tracking, and pattern matching for code analysis. Uses common/types for LEGO compatibility.",
+      "location": "components/analysis/ast_visitor/",
+      "domain": "analysis",
+      "technology": [
+        "Python",
+        "ast"
+      ],
+      "keywords": [
+        "ast",
+        "visitor",
+        "analysis",
+        "code-quality",
+        "pattern-matching"
+      ],
+      "dependencies": [],
+      "test_coverage": 92,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.analysis.ast_visitor import AnalysisVisitor, visit_file\nclass MyChecker(AnalysisVisitor): ...\nviolations = visit_file('code.py', MyChecker)",
+      "source_project": "https://docs.python.org/3/library/ast.html",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 93,
+      "lego_compatible": false,
+      "exports": [
+        "AnalysisTransformer",
+        "AnalysisVisitor",
+        "CompositeVisitor",
+        "VisitorContext",
+        "count_nodes",
+        "get_assigned_name",
+        "is_call",
+        "is_method_call",
+        "is_name",
+        "parse_file",
+        "parse_source",
+        "visit_file",
+        "visit_source"
+      ]
+    }
+  ]
+}

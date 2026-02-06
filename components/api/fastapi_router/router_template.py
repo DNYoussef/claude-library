@@ -39,42 +39,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
 # LEGO Import: Use shared types from library
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import ValidationResult, Violation, Severity
 except ImportError:
-    try:
-        from common.types import ValidationResult, Violation, Severity
-    except ImportError:
-        # Fallback for standalone use
-        from dataclasses import dataclass, field
-        from enum import Enum
-
-        @dataclass
-        class ValidationResult:
-            """Fallback ValidationResult for standalone use."""
-            valid: bool
-            errors: List[str] = field(default_factory=list)
-            warnings: List[str] = field(default_factory=list)
-            metadata: Dict[str, Any] = field(default_factory=dict)
-
-            def __bool__(self) -> bool:
-                return self.valid
-
-        @dataclass
-        class Violation:
-            """Fallback Violation for standalone use."""
-            severity: str
-            message: str
-            file_path: Optional[str] = None
-            line: Optional[int] = None
-
-        class Severity(Enum):
-            """Fallback Severity enum for standalone use."""
-            CRITICAL = "critical"
-            HIGH = "high"
-            MEDIUM = "medium"
-            LOW = "low"
-            INFO = "info"
+    from common.types import ValidationResult, Violation, Severity
 
 
 # Type variables for generics

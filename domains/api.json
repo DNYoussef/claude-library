@@ -1,0 +1,139 @@
+{
+  "domain": "api",
+  "count": 3,
+  "components": [
+    {
+      "id": "fastapi-router-template",
+      "name": "FastAPI CRUD Router",
+      "version": "1.0.0",
+      "description": "Standard FastAPI router with CRUD operations, pagination, filtering, and validation. LEGO-compatible: imports from library.common.types for ValidationResult.",
+      "location": "components/api/fastapi_router/",
+      "domain": "api",
+      "technology": [
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "SQLAlchemy"
+      ],
+      "keywords": [
+        "fastapi",
+        "router",
+        "crud",
+        "rest",
+        "api",
+        "endpoint",
+        "pagination",
+        "lego"
+      ],
+      "dependencies": [
+        "fastapi",
+        "pydantic",
+        "sqlalchemy"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 24,
+      "usage_count": 6,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "from library.components.api.fastapi_router import CRUDRouter, create_crud_router\nrouter = create_crud_router(model=Project, schema_create=ProjectCreate, schema_update=ProjectUpdate, schema_response=ProjectResponse, prefix='/projects', tags=['Projects'], get_db=get_db)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\backend\\app\\routers\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": true,
+      "exports": [
+        "CRUDRouter",
+        "PaginationParams",
+        "PaginatedResponse",
+        "create_crud_router"
+      ]
+    },
+    {
+      "id": "pydantic-base-models",
+      "name": "Pydantic Base Models",
+      "version": "1.0.0",
+      "description": "Common Pydantic models for FastAPI: pagination, error responses, timestamps, audit, health checks. LEGO-compatible: imports from library.common.types.",
+      "location": "components/api/pydantic_base/",
+      "domain": "api",
+      "technology": [
+        "Python",
+        "Pydantic"
+      ],
+      "keywords": [
+        "pydantic",
+        "model",
+        "base",
+        "pagination",
+        "error",
+        "timestamp",
+        "mixin",
+        "lego"
+      ],
+      "dependencies": [
+        "pydantic"
+      ],
+      "test_coverage": 92,
+      "tests_passing": 15,
+      "usage_count": 6,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "from library.components.api.pydantic_base import PaginatedResponse, ErrorResponse, TimestampMixin, StatusEnum",
+      "source_project": "D:\\Projects\\life-os-dashboard\\consolidated-ui\\backend\\app\\schemas\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": true,
+      "exports": [
+        "PaginatedResponse",
+        "ErrorResponse",
+        "MessageResponse",
+        "TimestampMixin",
+        "AuditMixin",
+        "StatusEnum",
+        "HealthResponse"
+      ]
+    },
+    {
+      "id": "express-middleware-chain",
+      "name": "Express Middleware Chain",
+      "version": "1.0.0",
+      "description": "Standard Express.js middleware setup: CORS, Helmet, rate limiting, request logging, error handling. TypeScript with consistent interface patterns.",
+      "location": "components/middleware/express_chain/",
+      "domain": "api",
+      "technology": [
+        "TypeScript",
+        "Express"
+      ],
+      "keywords": [
+        "express",
+        "middleware",
+        "cors",
+        "helmet",
+        "rate-limit",
+        "logging",
+        "security",
+        "lego"
+      ],
+      "dependencies": [
+        "express"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 12,
+      "usage_count": 3,
+      "last_used": "2026-01-10T00:00:00Z",
+      "example_usage": "import { createMiddlewareChain, MiddlewareConfig } from '@library/middleware/express-chain';\nconst middlewares = createMiddlewareChain({ cors: { origins: ['https://app.com'] }, rateLimit: { max: 100 } });\nmiddlewares.forEach(mw => app.use(mw));",
+      "source_project": "C:\\Users\\17175\\nsbu-rpg-app\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": true,
+      "exports": [
+        "createMiddlewareChain",
+        "createCorsMiddleware",
+        "createRateLimitMiddleware",
+        "createHelmetMiddleware",
+        "createLoggingMiddleware",
+        "createErrorHandler",
+        "MiddlewareConfig"
+      ]
+    }
+  ]
+}

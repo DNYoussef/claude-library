@@ -1,0 +1,47 @@
+{
+  "domain": "security",
+  "count": 1,
+  "components": [
+    {
+      "id": "security-jwt",
+      "name": "Security JWT Authentication",
+      "version": "1.0.0",
+      "description": "JWT authentication with secure secret validation, issuer verification, and RS256/HS256 support. Includes FastAPI dependencies and middleware.",
+      "location": "components/security/jwt_auth/",
+      "domain": "security",
+      "technology": [
+        "Python",
+        "FastAPI",
+        "python-jose"
+      ],
+      "keywords": [
+        "jwt",
+        "security",
+        "authentication",
+        "token",
+        "bearer",
+        "fastapi"
+      ],
+      "dependencies": [
+        "python-jose",
+        "fastapi"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.security.jwt_auth import JWTAuth\nauth = JWTAuth(secret_key=os.environ['JWT_SECRET'])\ntoken = auth.create_token(user_id='123')",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\auth\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "JWTAuth",
+        "JWTConfig",
+        "generate_api_key",
+        "generate_secure_token"
+      ]
+    }
+  ]
+}

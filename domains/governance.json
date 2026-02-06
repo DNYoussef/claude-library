@@ -1,0 +1,58 @@
+{
+  "domain": "governance",
+  "count": 1,
+  "components": [
+    {
+      "id": "guard-lane-base",
+      "name": "Guard Lane Base ABC",
+      "version": "1.0.0",
+      "description": "Abstract base class for governance guard lanes with risk tier evaluation, approval sets, and evidence bundle generation.",
+      "location": "components/governance/guard_lane_base/",
+      "source_location": "D:/Projects/life-os-dashboard/src/guardspine/lanes/base.py",
+      "domain": "governance",
+      "technology": [
+        "Python",
+        "asyncio",
+        "SQLAlchemy"
+      ],
+      "keywords": [
+        "guard-lane",
+        "governance",
+        "risk-tier",
+        "approval",
+        "consensus",
+        "evidence",
+        "ABC",
+        "council"
+      ],
+      "dependencies": [
+        "src.schema.council.enums"
+      ],
+      "test_coverage": 100,
+      "tests_passing": 32,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from src.guardspine.lanes import BaseGuardLane, TriggerType, GuardEvent, ApprovalSet, LaneEvaluationResult\n\nclass CodeGuard(BaseGuardLane):\n    @property\n    def lane_name(self): return 'CODE_GUARD'\n    @property\n    def lane_enum(self): return GuardLaneEnum.CODE_GUARD\n    @property\n    def supported_triggers(self): return {TriggerType.PR_OPENED}\n    async def evaluate_event(self, event): pass\n    def get_evidence_requirements(self, tier): return []\n    def get_approval_set(self, tier): return ApprovalSet()",
+      "source_project": "life-os-dashboard",
+      "source_bead": "life-os-dashboard-31jo",
+      "created_by": "claude-code",
+      "created_at": "2026-01-24T00:00:00Z",
+      "quality_score": 95,
+      "lego_compatible": true,
+      "exports": [
+        "BaseGuardLane",
+        "TriggerType",
+        "GuardEvent",
+        "ApprovalSet",
+        "LaneEvaluationResult",
+        "LaneRegistry",
+        "register_lane"
+      ],
+      "related_components": [
+        "auditor_base",
+        "quality_gate",
+        "circuit_breaker"
+      ]
+    }
+  ]
+}

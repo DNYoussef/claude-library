@@ -2,29 +2,35 @@
 
 WHO/WHEN/PROJECT/WHY metadata tagging for memory and logging operations.
 
+This is the **canonical** generic tagging protocol. For Memory MCP-specific
+usage with dataclass-based config, see:
+`components/memory/memory_mcp_client/tagging_protocol.py`
+
 ## Features
 
 - WHO: Agent identity and capabilities
 - WHEN: Timestamps (ISO, Unix, readable)
 - PROJECT: Project and task context
-- WHY: Intent categorization
+- WHY: Intent categorization (12 intent types)
 - Flat tags for logging systems
+- Method chaining with `update_context()`
 
 ## Usage
 
 ```python
 from tagging_protocol import (
-    TaggingProtocol, TaggingConfig,
+    TaggingProtocol,
     Intent, AgentCategory,
-    create_simple_tagger
+    create_simple_tagger,
+    create_tagger
 )
 
 # Quick setup
 tagger = create_simple_tagger("my-agent", "my-project")
 tags = tagger.generate_tags(Intent.IMPLEMENTATION)
 
-# Full configuration
-config = TaggingConfig(
+# Full configuration (direct initialization)
+tagger = TaggingProtocol(
     agent_id="backend-worker",
     agent_category=AgentCategory.BACKEND,
     capabilities=["api-dev", "database"],
@@ -32,7 +38,14 @@ config = TaggingConfig(
     project_name="Life OS Dashboard"
 )
 
-tagger = TaggingProtocol(config)
+# Or use factory function
+tagger = create_tagger(
+    agent_id="backend-worker",
+    agent_category=AgentCategory.BACKEND,
+    capabilities=["api-dev", "database"],
+    project_id="proj-123",
+    project_name="Life OS Dashboard"
+)
 
 # Generate tags with task context
 tags = tagger.generate_tags(

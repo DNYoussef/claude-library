@@ -41,6 +41,7 @@ import {
 
 // Minimum secret key length for HS256 security (32 bytes = 256 bits)
 const MIN_SECRET_KEY_LENGTH = 32;
+type JWTUserClaims = Pick<JWTPayload, 'sub'> & Partial<Omit<JWTPayload, 'sub' | 'type' | 'iat' | 'exp' | 'jti'>>;
 
 /**
  * JWT Authentication Manager
@@ -85,7 +86,7 @@ export class JWTAuth {
    * @returns Signed JWT access token
    */
   async createAccessToken(
-    payload: Partial<JWTPayload>,
+    payload: JWTUserClaims,
     options?: TokenOptions
   ): Promise<string> {
     const now = Math.floor(Date.now() / 1000);
@@ -120,7 +121,7 @@ export class JWTAuth {
    * @returns Signed JWT refresh token with JTI for revocation
    */
   async createRefreshToken(
-    payload: Partial<JWTPayload>,
+    payload: JWTUserClaims,
     options?: TokenOptions
   ): Promise<string> {
     const now = Math.floor(Date.now() / 1000);
@@ -154,7 +155,7 @@ export class JWTAuth {
    * @param payload - Token payload with user data
    * @returns Token pair with access, refresh, and expiry info
    */
-  async createTokenPair(payload: Partial<JWTPayload>): Promise<TokenPair> {
+  async createTokenPair(payload: JWTUserClaims): Promise<TokenPair> {
     const [accessToken, refreshToken] = await Promise.all([
       this.createAccessToken(payload),
       this.createRefreshToken(payload),
@@ -232,7 +233,7 @@ export class JWTAuth {
    */
   async refreshAccessToken(refreshToken: string): Promise<string | null> {
     const payload = await this.verifyToken(refreshToken, 'refresh');
-    if (!payload) {
+    if (!payload || !payload.sub) {
       return null;
     }
 
@@ -267,7 +268,7 @@ export class JWTAuth {
    */
   async rotateRefreshToken(refreshToken: string): Promise<TokenPair | null> {
     const payload = await this.verifyToken(refreshToken, 'refresh');
-    if (!payload) {
+    if (!payload || !payload.sub) {
       return null;
     }
 

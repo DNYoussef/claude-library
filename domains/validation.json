@@ -1,0 +1,160 @@
+{
+  "domain": "validation",
+  "count": 3,
+  "components": [
+    {
+      "id": "spec-validation",
+      "name": "Spec Validation Framework",
+      "version": "1.0.0",
+      "description": "JSON Schema and Pydantic-based spec validation with detailed error messages. Supports custom validators and nested object validation.",
+      "location": "components/validation/spec_validation/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "Pydantic",
+        "jsonschema"
+      ],
+      "keywords": [
+        "validation",
+        "schema",
+        "spec",
+        "pydantic",
+        "json-schema"
+      ],
+      "dependencies": [
+        "pydantic",
+        "jsonschema"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.spec_validation import SpecValidator\nvalidator = SpecValidator(schema=my_schema)\nresult = validator.validate(data)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\validation\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "BaseValidator",
+        "ContextValidator",
+        "DEFAULT_CONTEXT_SCHEMA",
+        "DEFAULT_IMPLEMENTATION_PLAN_SCHEMA",
+        "DEFAULT_PHASE_SCHEMA",
+        "DEFAULT_REQUIREMENTS_SCHEMA",
+        "DEFAULT_SPEC_RECOMMENDED_SECTIONS",
+        "DEFAULT_SPEC_REQUIRED_SECTIONS",
+        "DEFAULT_SUBTASK_SCHEMA",
+        "DEFAULT_VERIFICATION_SCHEMA",
+        "ImplementationPlanValidator",
+        "JSONFileValidator",
+        "MarkdownDocumentValidator",
+        "PrereqsValidator",
+        "SpecDocumentValidator",
+        "SpecValidator",
+        "Validatable",
+        "ValidationResult",
+        "ValidationSchema",
+        "ValidatorFactory",
+        "create_validator_from_config",
+        "validate_spec_directory"
+      ]
+    },
+    {
+      "id": "skill-validator",
+      "name": "Skill Validator",
+      "version": "1.0.0",
+      "description": "Validates Context Cascade skill definitions. Checks required sections, VCL compliance, and skill chaining references.",
+      "location": "components/validation/skill_validator/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "yaml"
+      ],
+      "keywords": [
+        "skill",
+        "validator",
+        "context-cascade",
+        "vcl",
+        "markdown"
+      ],
+      "dependencies": [
+        "pyyaml"
+      ],
+      "test_coverage": 82,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.skill_validator import SkillValidator\nvalidator = SkillValidator()\nresult = validator.validate_file('skill.md')",
+      "source_project": "context-cascade/validators/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 84,
+      "lego_compatible": false,
+      "exports": [
+        "DEFAULT_CATEGORY_KEYWORDS",
+        "STOPWORDS",
+        "SkillData",
+        "SkillIndexer",
+        "SkillValidator",
+        "ValidationResult",
+        "YAML_AVAILABLE",
+        "__author__",
+        "__version__",
+        "extract_keywords",
+        "extract_section",
+        "extract_trigger_positive",
+        "parse_yaml_fallback",
+        "parse_yaml_frontmatter",
+        "parse_yaml_safe",
+        "validate_single_file"
+      ]
+    },
+    {
+      "id": "quality-validator",
+      "name": "Quality Validator",
+      "version": "1.0.0",
+      "description": "Evidence-based quality validation with configurable gates. Theater detection for fake quality indicators. Float comparison epsilon handling.",
+      "location": "components/validation/quality_validator/",
+      "domain": "validation",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "quality",
+        "validator",
+        "gate",
+        "theater-detection",
+        "evidence"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.validation.quality_validator import QualityValidator\nv = QualityValidator(threshold=0.8)\nresult = v.validate(metrics)",
+      "source_project": "D:\\Projects\\connascence\\src\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AnalysisResult",
+        "EvidenceQuality",
+        "QualityClaim",
+        "QualityValidator",
+        "RiskLevel",
+        "Severity",
+        "SystemicTheaterResult",
+        "TheaterDetectionResult",
+        "TheaterDetector",
+        "TheaterPattern",
+        "ValidationResult",
+        "Violation",
+        "detect_theater",
+        "is_theater"
+      ]
+    }
+  ]
+}

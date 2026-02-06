@@ -1,0 +1,126 @@
+{
+  "domain": "banking",
+  "count": 3,
+  "components": [
+    {
+      "id": "banking-plaid",
+      "name": "Plaid Banking Integration",
+      "version": "1.0.0",
+      "description": "Plaid API client for bank account linking and transaction retrieval. Uses Decimal for all monetary values. Supports sandbox, development, and production environments.",
+      "location": "components/banking/plaid/",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "plaid-python",
+        "Decimal"
+      ],
+      "keywords": [
+        "plaid",
+        "banking",
+        "bank",
+        "account",
+        "transaction",
+        "link",
+        "oauth"
+      ],
+      "dependencies": [
+        "plaid-python"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking.plaid import PlaidClient\nclient = PlaidClient(environment='sandbox')\naccounts = client.get_accounts(access_token)",
+      "source_project": "D:\\Projects\\trader-ai\\src\\finances\\plaid_client.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "PlaidClient",
+        "PlaidError"
+      ]
+    },
+    {
+      "id": "banking-models",
+      "name": "Banking Data Models",
+      "version": "1.0.0",
+      "description": "Common banking dataclasses: BankAccount, Transaction, BankConnection. Uses Decimal for all monetary values. Provider-agnostic design.",
+      "location": "components/banking/models.py",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "dataclasses",
+        "Decimal"
+      ],
+      "keywords": [
+        "banking",
+        "account",
+        "transaction",
+        "model",
+        "dataclass"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 10,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking import BankAccount, Transaction\naccount = BankAccount(id='acc_123', name='Checking', balance=Decimal('1000.00'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\finances\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "AccountType",
+        "BankAccount:",
+        "BankConnection:",
+        "Transaction:",
+        "TransactionType"
+      ]
+    },
+    {
+      "id": "mercury-integration",
+      "name": "Mercury Bank Integration",
+      "version": "1.0.0",
+      "description": "Async Mercury banking API client for accounts, transactions, ACH transfers, and recipient management. Decimal-only money handling.",
+      "location": "components/banking/mercury/",
+      "domain": "banking",
+      "technology": [
+        "Python",
+        "httpx",
+        "asyncio"
+      ],
+      "keywords": [
+        "mercury",
+        "banking",
+        "ach",
+        "transfers",
+        "accounts"
+      ],
+      "dependencies": [
+        "httpx"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.banking.mercury import MercuryClient\nasync with MercuryClient() as client:\n    accounts = await client.get_accounts()",
+      "source_project": "https://github.com/trix-solutions/mercury",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "AccountType",
+        "MercuryAccount",
+        "MercuryClient",
+        "MercuryConfig",
+        "MercuryRecipient",
+        "MercuryTransaction",
+        "TransactionStatus",
+        "TransactionType"
+      ]
+    }
+  ]
+}

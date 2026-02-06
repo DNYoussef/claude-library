@@ -14,43 +14,13 @@ from typing import Any, Dict, List, Optional, Union
 import json
 
 # Import shared types from library common types for LEGO compatibility
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import Severity
     from library.common.types import Violation as BaseViolation
 except ImportError:
-    try:
-        from common.types import Severity
-        from common.types import Violation as BaseViolation
-    except ImportError:
-        # Fallback for standalone usage
-        from enum import Enum
-        BaseViolation = None  # Will use local definition below
-
-        @total_ordering
-        class Severity(Enum):
-            """
-            Violation severity levels - FALLBACK (prefer library.common.types).
-            """
-            CRITICAL = "critical"
-            HIGH = "high"
-            MEDIUM = "medium"
-            LOW = "low"
-            INFO = "info"
-
-            @classmethod
-            def from_string(cls, value: str) -> "Severity":
-                normalized = value.lower().strip()
-                for member in cls:
-                    if member.value == normalized:
-                        return member
-                valid = [m.value for m in cls]
-                raise ValueError(f"Invalid severity '{value}'. Valid: {valid}")
-
-            def __lt__(self, other: "Severity") -> bool:
-                if not isinstance(other, Severity):
-                    return NotImplemented
-                order = [Severity.CRITICAL, Severity.HIGH, Severity.MEDIUM, Severity.LOW, Severity.INFO]
-                return order.index(self) < order.index(other)
+    from common.types import Severity
+    from common.types import Violation as BaseViolation
 
 
 @dataclass

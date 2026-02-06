@@ -15,33 +15,11 @@ from enum import Enum
 import json
 
 # Import shared Severity from library common types for LEGO compatibility
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import Severity
 except ImportError:
-    try:
-        from common.types import Severity
-    except ImportError:
-        # Fallback for standalone use
-        from enum import Enum
-
-        class Severity(Enum):
-            """Issue severity levels - FALLBACK (prefer library.common.types)."""
-            CRITICAL = "critical"
-            HIGH = "high"
-            MEDIUM = "medium"
-            LOW = "low"
-            INFO = "info"
-
-            @property
-            def weight(self) -> int:
-                weights = {"critical": 4, "high": 3, "medium": 2, "low": 1, "info": 0}
-                return weights[self.value]
-
-            def __lt__(self, other: "Severity") -> bool:
-                return self.weight < other.weight
-
-            def __gt__(self, other: "Severity") -> bool:
-                return self.weight > other.weight
+    from common.types import Severity
 
 
 class OutputFormat(Enum):

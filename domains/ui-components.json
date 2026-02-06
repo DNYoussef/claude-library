@@ -1,0 +1,171 @@
+{
+  "domain": "ui-components",
+  "count": 3,
+  "components": [
+    {
+      "id": "radix-dialog",
+      "name": "Radix Dialog Component",
+      "version": "1.0.0",
+      "description": "Pre-styled Radix UI Dialog with Tailwind CSS. Includes animations, overlay, close button, header/body/footer sections, size variants, and full accessibility (ARIA, keyboard navigation, focus trap).",
+      "location": "components/ui/radix_dialog/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Radix UI",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "dialog",
+        "modal",
+        "radix",
+        "ui",
+        "component",
+        "popup",
+        "accessible",
+        "animations"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogBody, DialogFooter, DialogClose } from '@library/ui/radix-dialog';\n<Dialog><DialogTrigger>Open</DialogTrigger><DialogContent><DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader><DialogBody>Content</DialogBody><DialogFooter><DialogClose>Cancel</DialogClose></DialogFooter></DialogContent></Dialog>",
+      "source_project": "LEGO library component",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "DIALOG_ANIMATIONS",
+        "DIALOG_SIZE_STYLES",
+        "Dialog",
+        "DialogBody",
+        "DialogClose",
+        "DialogContent",
+        "DialogDescription",
+        "DialogFooter",
+        "DialogHeader",
+        "DialogOverlay",
+        "DialogTitle",
+        "DialogTrigger",
+        "file",
+        "type"
+      ]
+    },
+    {
+      "id": "radix-dropdown",
+      "name": "Radix Dropdown Menu Component",
+      "version": "1.0.0",
+      "description": "Pre-styled Radix UI Dropdown Menu with Tailwind CSS. Full-featured with submenus, checkbox items, radio groups, separators, labels, icons, keyboard shortcuts display, and complete keyboard navigation.",
+      "location": "components/ui/radix_dropdown/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Radix UI",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "dropdown",
+        "menu",
+        "radix",
+        "ui",
+        "component",
+        "navigation",
+        "submenu",
+        "checkbox",
+        "radio",
+        "keyboard"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from '@library/ui/radix-dropdown';\n<DropdownMenu><DropdownMenuTrigger>Options</DropdownMenuTrigger><DropdownMenuContent><DropdownMenuItem icon={<EditIcon />}>Edit</DropdownMenuItem><DropdownMenuSeparator /><DropdownMenuItem variant='destructive'>Delete</DropdownMenuItem></DropdownMenuContent></DropdownMenu>",
+      "source_project": "LEGO library component",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "DropdownMenu",
+        "DropdownMenuCheckboxItem",
+        "DropdownMenuContent",
+        "DropdownMenuGroup",
+        "DropdownMenuItem",
+        "DropdownMenuLabel",
+        "DropdownMenuRadioGroup",
+        "DropdownMenuRadioItem",
+        "DropdownMenuSeparator",
+        "DropdownMenuSub",
+        "DropdownMenuSubContent",
+        "DropdownMenuSubTrigger",
+        "DropdownMenuTrigger",
+        "ITEM_VARIANT_STYLES",
+        "MENU_ANIMATIONS",
+        "file",
+        "type"
+      ]
+    },
+    {
+      "id": "design-system",
+      "name": "Design System Components",
+      "version": "1.0.0",
+      "description": "React design system with Button, Card, Input, Badge, and Tooltip components. Tailwind-based styling with theme support.",
+      "location": "components/ui/design_system/",
+      "domain": "ui-components",
+      "technology": [
+        "TypeScript",
+        "React",
+        "Tailwind"
+      ],
+      "keywords": [
+        "design-system",
+        "ui",
+        "components",
+        "tailwind",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "tailwindcss",
+        "react"
+      ],
+      "test_coverage": 78,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { Button, Card, Input } from '@library/ui';\n<Card><Input /><Button>Submit</Button></Card>",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\components\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 80,
+      "lego_compatible": false,
+      "exports": [
+        "Badge",
+        "CSS_TOKENS",
+        "Card",
+        "CardContent",
+        "CardFooter",
+        "CardHeader",
+        "Input",
+        "MetricCard",
+        "MetricGrid",
+        "StatusDot",
+        "Textarea",
+        "file",
+        "type"
+      ]
+    }
+  ]
+}

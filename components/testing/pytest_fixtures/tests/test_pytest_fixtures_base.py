@@ -6,7 +6,7 @@ import sys
 import types
 import pytest
 
-MODULE_PATH = 'components.testing.pytest-fixtures.fixtures'
+MODULE_PATH = 'components.testing.pytest_fixtures.fixtures'
 EXPORTS = ['PerformanceTracker', 'concurrent_executor', 'configure_test_environment', 'event_loop', 'mock_db_session', 'mock_memory_mcp_client', 'mock_redis_client', 'mock_websocket', 'performance_tracker', 'pytest_configure']
 
 

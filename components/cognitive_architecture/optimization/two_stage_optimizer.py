@@ -25,21 +25,30 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Load .env
-env_file = Path(__file__).parent.parent / ".env"
-if env_file.exists():
-    with open(env_file) as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            key, value = line.split("=", 1)
-            if key in os.environ or value.startswith("${"):
-                continue
-            os.environ[key] = value
+def _setup_environment() -> None:
+    """Setup environment for standalone script execution.
+
+    Call this explicitly before using the module in standalone mode.
+    NOT called at import time to prevent side effects.
+    """
+    # Add parent directory to path if needed
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if parent_dir not in sys.path:
+        sys.path.insert(0, parent_dir)
+
+    # Load .env if exists
+    env_file = Path(__file__).parent.parent / ".env"
+    if env_file.exists():
+        with open(env_file) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, value = line.split("=", 1)
+                if key in os.environ or value.startswith("${"):
+                    continue
+                os.environ[key] = value
 
 # PyMOO imports
 from pymoo.core.problem import Problem
@@ -49,16 +58,30 @@ from pymoo.operators.mutation.pm import PM
 from pymoo.operators.sampling.rnd import FloatRandomSampling
 from pymoo.optimize import minimize
 
-# Local imports
-from core.config import FullConfig, FrameworkConfig, PromptConfig, VerixStrictness
-from optimization.globalmoo_client import GlobalMOOClient, ParetoPoint
+# Local imports - use try/except for LEGO pattern compatibility
+# REQUIRED: Either install cognitive_architecture package OR run _setup_environment() first
+try:
+    from cognitive_architecture.core.config import FullConfig, FrameworkConfig, PromptConfig, VerixStrictness
+    from cognitive_architecture.optimization.globalmoo_client import GlobalMOOClient, ParetoPoint
+except ImportError:
+    try:
+        from core.config import FullConfig, FrameworkConfig, PromptConfig, VerixStrictness
+        from optimization.globalmoo_client import GlobalMOOClient, ParetoPoint
+    except ImportError:
+        # Will fail if neither path works and _setup_environment() wasn't called
+        FullConfig = FrameworkConfig = PromptConfig = VerixStrictness = None
+        GlobalMOOClient = ParetoPoint = None
 
 # Telemetry integration for real data
 try:
-    from optimization.telemetry_schema import TelemetryStore
+    from cognitive_architecture.optimization.telemetry_schema import TelemetryStore
     TELEMETRY_AVAILABLE = True
 except ImportError:
-    TELEMETRY_AVAILABLE = False
+    try:
+        from optimization.telemetry_schema import TelemetryStore
+        TELEMETRY_AVAILABLE = True
+    except ImportError:
+        TELEMETRY_AVAILABLE = False
 
 
 # =============================================================================
@@ -852,6 +875,37 @@ def save_results(
 
 
 # =============================================================================
+# PUBLIC ENTRYPOINT
+# =============================================================================
+
+def run_optimization(
+    seed_configs: Optional[List[Any]] = None,
+    stage1_iterations: int = 50,
+    stage2_generations: int = 100,
+    stage2_population: int = 200,
+) -> OptimizationResult:
+    """
+    Run two-stage optimization via the class API.
+
+    This wrapper preserves compatibility with templates that import
+    `run_optimization` directly from the optimization package.
+    """
+    if GlobalMOOClient is None:
+        raise ImportError(
+            "Optimization dependencies are unavailable. "
+            "Install cognitive architecture dependencies before running."
+        )
+
+    optimizer = TwoStageOptimizer()
+    return optimizer.optimize(
+        seed_configs=seed_configs,
+        stage1_iterations=stage1_iterations,
+        stage2_generations=stage2_generations,
+        stage2_population=stage2_population,
+    )
+
+
+# =============================================================================
 # MAIN
 # =============================================================================
 
@@ -908,6 +962,7 @@ def main():
 
 
 if __name__ == "__main__":
+    _setup_environment()  # Only setup env when run as script
     main()
 
 

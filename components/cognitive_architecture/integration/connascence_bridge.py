@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import subprocess
 import re
 from pathlib import Path
@@ -109,8 +110,8 @@ class ConnascenceBridge:
     3. Heuristic fallback (when analyzer unavailable)
     """
 
-    # Default connascence project location
-    DEFAULT_CONNASCENCE_PATH = Path("D:/Projects/connascence")
+    # Default connascence project location (override via CONNASCENCE_PATH).
+    DEFAULT_CONNASCENCE_PATH = Path(os.getenv("CONNASCENCE_PATH", "connascence"))
 
     def __init__(self, connascence_path: Optional[Path] = None):
         """

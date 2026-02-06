@@ -57,8 +57,8 @@ def test_parse_project_table_extracts_rows(tmp_path: Path):
                 "Intro",
                 module.PROJECT_TABLE_HEADER,
                 "|---|---|---|---|---|",
-                "| 1 | Memory MCP | CNS | `D:\\Projects\\memory-mcp` | VERIFIED |",
-                "| 2 | Context Cascade | Cortex | `C:\\Users\\17175\\context` | VERIFIED |",
+                "| 1 | Memory MCP | CNS | `./projects/memory-mcp` | VERIFIED |",
+                "| 2 | Context Cascade | Cortex | `./projects/context-cascade` | VERIFIED |",
                 "",
             ]
         ),
@@ -67,7 +67,7 @@ def test_parse_project_table_extracts_rows(tmp_path: Path):
     projects = module.parse_project_table(organ_map)
     assert [p.name for p in projects] == ["Memory MCP", "Context Cascade"]
     assert projects[0].project_id == "memory-mcp"
-    assert projects[0].location == "D:\\Projects\\memory-mcp"
+    assert projects[0].location == "./projects/memory-mcp"
 
 
 def test_update_marked_section_replaces_block(tmp_path: Path):

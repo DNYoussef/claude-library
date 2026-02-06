@@ -653,11 +653,10 @@ export function selectTotalCount<
   TItem extends KanbanItemBase,
   TColumnId extends string
 >() {
-  return (state: KanbanStore<TItem, TColumnId>) =>
-    Object.values(state.columns).reduce(
-      (sum, items) => sum + (items as TItem[]).length,
-      0
-    );
+  return (state: KanbanStore<TItem, TColumnId>) => {
+    const columnValues = Object.values(state.columns) as TItem[][];
+    return columnValues.reduce((sum, items) => sum + items.length, 0);
+  };
 }
 
 /**

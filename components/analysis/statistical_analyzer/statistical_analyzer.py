@@ -1,7 +1,7 @@
 """
 Statistical Analyzer - Text analysis using entropy, burstiness, and lexical diversity metrics.
 
-Extracted from: D:\Projects\slop-detector\backend\analyzers\statistical.py
+Extracted from: D:/Projects/slop-detector/backend/analyzers/statistical.py
 Purpose: Standalone statistical text analysis component with zero external dependencies.
 
 Metrics calculated:

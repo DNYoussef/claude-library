@@ -35,19 +35,11 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
 
 # Use library common types where applicable
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import Severity
 except ImportError:
-    try:
-        from common.types import Severity
-    except ImportError:
-        # Fallback for standalone use
-        class Severity(Enum):
-            CRITICAL = "critical"
-            HIGH = "high"
-            MEDIUM = "medium"
-            LOW = "low"
-            INFO = "info"
+    from common.types import Severity
 
 
 logger = logging.getLogger(__name__)

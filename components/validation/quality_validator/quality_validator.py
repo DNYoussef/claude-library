@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
 # LEGO Import: Use shared types from library for common validation types
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import (
         ValidationResult as BaseValidationResult,
@@ -22,24 +23,11 @@ try:
         Severity,
     )
 except ImportError:
-    try:
-        from common.types import (
-            ValidationResult as BaseValidationResult,
-            Violation as BaseViolation,
-            Severity,
-        )
-    except ImportError:
-        # Fallback for standalone usage (Enum already imported at module level)
-        BaseValidationResult = None  # type: ignore
-        BaseViolation = None  # type: ignore
-
-        class Severity(Enum):  # type: ignore[no-redef]
-            """Violation severity levels - FALLBACK (prefer library.common.types)"""
-            CRITICAL = "critical"
-            HIGH = "high"
-            MEDIUM = "medium"
-            LOW = "low"
-            INFO = "info"
+    from common.types import (
+        ValidationResult as BaseValidationResult,
+        Violation as BaseViolation,
+        Severity,
+    )
 
 
 class EvidenceQuality(Enum):

@@ -255,4 +255,13 @@ export function useAbortableAsync<T, E = Error>(
 // CONVENIENCE EXPORT
 // ============================================================================
 
+/**
+ * Backward-compatible alias for older templates that used useAbortableAsyncState.
+ */
+export function useAbortableAsyncState<T, E = Error>(
+  options: UseAbortableAsyncOptions<T, E> = {}
+): UseAbortableAsyncReturn<T, E> {
+  return useAbortableAsync(options);
+}
+
 export default useAbortableAsync;

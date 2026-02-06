@@ -1,0 +1,176 @@
+{
+  "domain": "utilities",
+  "count": 4,
+  "components": [
+    {
+      "id": "quality-gate",
+      "name": "Quality Gate System",
+      "version": "1.0.0",
+      "description": "Async quality gate with threshold validation for content pipelines. Supports slop detection, score calculation, and pass/fail determination.",
+      "location": "components/utilities/quality_gate/quality_gate.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "quality",
+        "gate",
+        "threshold",
+        "validation",
+        "pipeline",
+        "slop",
+        "content"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 12,
+      "usage_count": 2,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "from library.quality import QualityGate\ngate = QualityGate(threshold=0.7)\nresult = await gate.check(content)",
+      "source_project": "scripts/content-pipeline/gates.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "GateConfig:",
+        "GateFailedError",
+        "GateManager:",
+        "GateResult:",
+        "GateStatus",
+        "GateType",
+        "RichMetricResult:",
+        "create_compile_gate",
+        "create_dependency_gate",
+        "create_quality_gate",
+        "create_sync_gate"
+      ]
+    },
+    {
+      "id": "circuit-breaker",
+      "name": "Circuit Breaker Pattern",
+      "version": "1.0.0",
+      "description": "Generic circuit breaker for non-domain-specific usage.",
+      "location": "components/utilities/circuit_breaker/circuit_breaker.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "circuit",
+        "breaker",
+        "resilience",
+        "failover",
+        "backoff",
+        "retry"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 1,
+      "last_used": "2026-01-05T00:00:00Z",
+      "example_usage": "from library.resilience import CircuitBreaker\ncb = CircuitBreaker(failure_threshold=5, recovery_timeout=30)\nresult = await cb.call(async_function)",
+      "source_project": "utils/memory_mcp_circuit_breaker.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "CircuitBreaker:",
+        "CircuitBreakerConfig:",
+        "CircuitBreakerError",
+        "CircuitBreakerManager:",
+        "CircuitBreakerMetrics:",
+        "CircuitBreakerStatus:",
+        "CircuitState"
+      ]
+    },
+    {
+      "id": "health-monitor",
+      "name": "Health Check Monitor",
+      "version": "1.0.0",
+      "description": "Periodic health polling system with alerting. Monitors service endpoints and triggers callbacks on status changes.",
+      "location": "components/utilities/health_monitor/health_monitor.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "asyncio",
+        "httpx"
+      ],
+      "keywords": [
+        "health",
+        "monitor",
+        "polling",
+        "alert",
+        "status",
+        "endpoint"
+      ],
+      "dependencies": [
+        "httpx"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 10,
+      "usage_count": 1,
+      "last_used": "2026-01-03T00:00:00Z",
+      "example_usage": "from library.monitoring import HealthMonitor\nmonitor = HealthMonitor(endpoints=[...])\nawait monitor.start()",
+      "source_project": "utils/health_check_monitor.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 80,
+      "lego_compatible": false,
+      "exports": [
+        "AlertConfig:",
+        "HealthCheckConfig:",
+        "HealthCheckResult:",
+        "HealthMonitor:",
+        "HealthState",
+        "HealthStatus:"
+      ]
+    },
+    {
+      "id": "yaml-safe-write",
+      "name": "YAML Safe Write",
+      "version": "1.0.0",
+      "description": "Atomic YAML file writes with automatic backup. Prevents data loss from interrupted writes or corruption.",
+      "location": "components/utilities/io_helpers/yaml_safe_write.py",
+      "domain": "utilities",
+      "technology": [
+        "Python",
+        "PyYAML"
+      ],
+      "keywords": [
+        "yaml",
+        "write",
+        "atomic",
+        "backup",
+        "safe",
+        "config"
+      ],
+      "dependencies": [
+        "pyyaml"
+      ],
+      "test_coverage": 95,
+      "tests_passing": 8,
+      "usage_count": 3,
+      "last_used": "2026-01-08T00:00:00Z",
+      "example_usage": "from library.io import yaml_safe_write\nyaml_safe_write('config.yaml', data, backup=True)",
+      "source_project": "utils/yaml_safe_write.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 95,
+      "lego_compatible": false,
+      "exports": [
+        "AtomicWriter:",
+        "BackupConfig:",
+        "WriteResult:",
+        "list_backups",
+        "yaml_safe_read_sync",
+        "yaml_safe_write_sync"
+      ],
+      "status": "deprecated",
+      "deprecation_reason": "No semantic matches in projects; no evidence of active usage."
+    }
+  ]
+}

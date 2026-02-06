@@ -6,16 +6,16 @@
 Canonical status from `2026-EXOSKELETON-STATUS.json`.
 
 Status: TBD (source: manual)
-Registry refreshed: 2026-01-14T07:37:15.658148+00:00
-Signals: git=no, tests=yes, ci=no, readme=yes, last_commit=unknown
+Registry refreshed: 2026-02-04T00:00:00+00:00
+Signals: git=yes, tests=yes, ci=yes, readme=yes
 <!-- STATUS:END -->
 
 
 A collection of reusable, production-ready components extracted from multiple projects.
 
-**Version**: 1.3.0
-**Last Updated**: 2026-01-10
-**Components**: 69 | **Patterns**: 2 | **Total**: 71
+**Version**: 2.0.0
+**Last Updated**: 2026-02-04
+**Components**: 80 | **Domains**: 32
 
 ---
 
@@ -44,40 +44,40 @@ from library.common.types import Money, Severity, Violation, ValidationResult
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| trading | 3 | Circuit breakers, gate system, Kelly criterion |
-| analysis | 7 | Pattern matching, scoring, AST visitors, metrics |
-| validation | 3 | Quality, spec, skill validators |
-| cognitive | 8 | Skill/agent/command bases, VERIX parser, config |
-| cognitive_architecture | 6 | Loopctl, modes, optimization, evals, integration |
-| observability | 5 | Tagging, audit logging, OpenTelemetry, status registry, drift audit |
-| security | 1 | JWT authentication |
-| api | 2 | FastAPI router, Pydantic base models |
-| auth | 2 | FastAPI JWT, Express JWT middleware |
-| database | 2 | Connection pool, Prisma setup |
-| http | 2 | Fetch API client, API services |
-| ui | 3 | Radix dialog, dropdown, design system |
-| testing | 3 | Backtest harness, pytest fixtures, jest setup |
-| banking | 2 | Plaid client, Mercury integration |
-| accounting | 2 | Transaction store, categorizer |
-| payments | 1 | Stripe client |
-| memory | 1 | Memory MCP client with circuit breaker |
-| caching | 1 | Redis cache |
-| messaging | 1 | Redis pub/sub |
-| middleware | 1 | Express middleware chain |
-| orchestration | 1 | Pipeline executor |
-| pipelines | 1 | Content pipeline template |
-| ai | 2 | Model router, consensus display |
-| realtime | 1 | WebSocket connection manager |
-| state | 1 | Kanban store (React) |
-| react_auth | 1 | Auth context (React) |
-| reporting | 1 | Report generator |
-| parsing | 1 | Markdown metadata |
-| scheduling | 1 | Task scheduler |
-| multi_entity | 1 | Entity isolation |
-| utilities | 4 | Quality gate, circuit breaker, health monitor, IO |
+| cognitive | 15 | Skill/agent/command bases, VERIX parser, optimizer, modes, evals |
+| analysis | 7 | Pattern matching, scoring, AST visitors, metrics, violations |
+| testing | 5 | Backtest harness, pytest fixtures, jest setup |
+| observability | 5 | Tagging protocol, audit logging, OpenTelemetry, status registry |
 | patterns | 4 | Money handling, webhook idempotency, auditor base, image gen |
+| utilities | 4 | Quality gate, circuit breaker, health monitor, IO helpers |
+| trading | 3 | Circuit breakers, gate system, Kelly criterion |
+| banking | 3 | Plaid client, Mercury integration, banking models |
+| validation | 3 | Quality, spec, skill validators |
+| api | 3 | FastAPI router, Pydantic base models, Express middleware |
+| ui-components | 3 | Radix dialog, dropdown, design system |
+| authentication | 2 | FastAPI JWT, Express JWT middleware |
+| http | 2 | Fetch API client, API services |
+| integrations | 2 | Content pipeline template, multi-model router |
+| accounting | 2 | Transaction store, categorizer |
+| realtime | 2 | WebSocket connection manager |
+| ai | 1 | LLM Council consensus display |
+| caching | 1 | Redis cache |
+| database | 1 | Connection pool |
+| governance | 1 | Guard lane base ABC |
+| memory | 1 | Memory MCP client with circuit breaker |
+| messaging | 1 | Redis pub/sub |
+| multi-entity | 1 | Tenant isolation |
+| orchestration | 1 | Pipeline executor |
+| parsing | 1 | Markdown metadata parser |
+| payments | 1 | Stripe client |
+| react | 1 | React hooks library |
+| react-auth | 1 | Auth context (React) |
+| reporting | 1 | Report generator |
+| scheduling | 1 | Task scheduler |
+| security | 1 | JWT authentication |
+| state | 1 | Kanban store (Zustand) |
 
-**Total**: 69 components + 2 top-level patterns = 71
+**Total**: 80 components across 32 domains
 
 ---
 
@@ -105,35 +105,7 @@ Trading components use `threading.RLock` for thread-safe operations.
 
 ## Component Index
 
-### Trading (Financial Systems)
-
-| Component | Path | Purpose |
-|-----------|------|---------|
-| circuit_breakers | trading/circuit_breakers/ | 6-type protection triggers |
-| gate_system | trading/gate_system/ | G0-G12 capital progression |
-| position_sizing | trading/position_sizing/ | Kelly criterion calculator |
-
-### Analysis (Code Quality)
-
-| Component | Path | Purpose |
-|-----------|------|---------|
-| pattern_matcher | analysis/pattern_matcher/ | Regex/word boundary matching |
-| ast_visitor | analysis/ast_visitor/ | Python AST visitors |
-| ast_visitor_base | analysis/ast_visitor_base/ | Base AST analysis visitors |
-| scoring_aggregator | analysis/scoring_aggregator/ | Score aggregation |
-| statistical_analyzer | analysis/statistical_analyzer/ | Statistical metrics |
-| violation_factory | analysis/violation_factory/ | SARIF violation creation |
-| metric_collector | analysis/metric_collector/ | Metric collection |
-
-### Validation
-
-| Component | Path | Purpose |
-|-----------|------|---------|
-| quality_validator | validation/quality_validator/ | Evidence-based quality gates |
-| spec_validation | validation/spec_validation/ | Spec file validation |
-| skill_validator | validation/skill_validator/ | Skill/command validation |
-
-### Cognitive (AI/LLM)
+### Cognitive Architecture (15 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
@@ -145,16 +117,43 @@ Trading components use `threading.RLock` for thread-safe operations.
 | script_base | cognitive/script_base/ | Script base class |
 | verix_parser | cognitive/verix_parser/ | VERIX notation parser |
 | cognitive_config | cognitive/cognitive_config/ | Cognitive frame config |
+| frozen_harness | cognitive_architecture/loopctl/ | Evaluation system |
+| mode_library | cognitive_architecture/modes/ | Configuration modes |
+| two_stage_optimizer | cognitive_architecture/optimization/ | Multi-objective optimizer |
+| vcl_validator | cognitive_architecture/core/ | VCL validation |
+| cli_evaluator | cognitive_architecture/evals/ | CLI evaluation |
+| telemetry_bridge | cognitive_architecture/integration/ | Memory MCP bridge |
+| connascence_bridge | cognitive_architecture/integration/ | Quality analyzer bridge |
 
-### Security & Auth
+### Analysis (7 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
-| jwt_auth | security/jwt_auth/ | JWT tokens with refresh |
-| fastapi_jwt | auth/fastapi_jwt/ | FastAPI JWT auth |
-| jwt_middleware_ts | auth/jwt_middleware_ts/ | Express JWT middleware |
+| pattern_matcher | analysis/pattern_matcher/ | Regex/word boundary matching |
+| ast_visitor | analysis/ast_visitor/ | Python AST visitors |
+| ast_visitor_base | analysis/ast_visitor_base/ | Base AST analysis visitors |
+| scoring_aggregator | analysis/scoring_aggregator/ | Score aggregation |
+| statistical_analyzer | analysis/statistical_analyzer/ | Statistical metrics |
+| violation_factory | analysis/violation_factory/ | SARIF violation creation |
+| metric_collector | analysis/metric_collector/ | Metric collection |
 
-### Observability
+### Trading (3 components)
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| circuit_breakers | trading/circuit_breakers/ | 6-type protection triggers |
+| gate_system | trading/gate_system/ | G0-G12 capital progression |
+| position_sizing | trading/position_sizing/ | Kelly criterion calculator |
+
+### Validation (3 components)
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| quality_validator | validation/quality_validator/ | Evidence-based quality gates |
+| spec_validation | validation/spec_validation/ | Spec file validation |
+| skill_validator | validation/skill_validator/ | Skill/command validation |
+
+### Observability (5 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
@@ -164,20 +163,38 @@ Trading components use `threading.RLock` for thread-safe operations.
 | status_registry | observability/status_registry/ | Canonical project status |
 | library_drift_audit | observability/library_drift_audit/ | Component drift audit |
 
-### Memory
+### Security & Auth (3 components)
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| jwt_auth | security/jwt_auth/ | JWT tokens with refresh |
+| fastapi_jwt | auth/fastapi_jwt/ | FastAPI JWT auth |
+| jwt_middleware_ts | auth/jwt_middleware_ts/ | Express JWT middleware |
+
+### Testing (5 components)
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| backtest_harness | testing/backtest_harness/ | Trading backtest harness |
+| pytest_fixtures | testing/pytest_fixtures/ | Python test fixtures |
+| jest_setup | testing/jest_setup/ | JavaScript test setup |
+
+### Memory & Caching (2 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
 | memory_mcp_client | memory/memory_mcp_client/ | Memory MCP with circuit breaker |
+| redis_cache | caching/redis_cache/ | Redis cache layer |
 
-### HTTP (Network)
+### HTTP & Realtime (4 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
 | fetch_api_client | http/fetch_api_client/ | TypeScript fetch with retry |
 | api_services | http/api_services/ | API service abstractions |
+| websocket_manager | realtime/websocket_manager/ | WebSocket connections |
 
-### Patterns (Base Classes)
+### Patterns (4 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
@@ -186,11 +203,14 @@ Trading components use `threading.RLock` for thread-safe operations.
 | money_handling | patterns/money_handling/ | Decimal-only money |
 | webhook_idempotency | patterns/webhook_idempotency/ | Idempotent webhook processing |
 
-### Realtime
+### Utilities (4 components)
 
 | Component | Path | Purpose |
 |-----------|------|---------|
-| websocket_manager | realtime/websocket_manager/ | WebSocket connections |
+| quality_gate | utilities/quality_gate/ | Quality gate system |
+| circuit_breaker | utilities/circuit_breaker/ | Generic circuit breaker |
+| health_monitor | utilities/health_monitor/ | Health check monitor |
+| yaml_safe_write | utilities/io_helpers/ | Safe YAML operations |
 
 ---
 
@@ -213,11 +233,10 @@ All integration tests passed!
 
 ## Documentation
 
-- [AUDIT-REPORT.md](AUDIT-REPORT.md) - Component audit findings
-- [DEDUPLICATION-PLAN.md](DEDUPLICATION-PLAN.md) - Cross-project deduplication  
+- [CANONICAL-MECE-AUDIT.md](CANONICAL-MECE-AUDIT.md) - MECE audit and cleanup plan
+- [catalog-index.json](catalog-index.json) - Component catalog (source of truth)
 - [INTERFACE-MAPPING.md](INTERFACE-MAPPING.md) - Type mappings
 - [STANDARD-SCAFFOLDS.md](STANDARD-SCAFFOLDS.md) - Canonical repo scaffolds
-- [REPLACEMENT-MAP.md](REPLACEMENT-MAP.md) - Non-standard to standard mapping
 
 ---
 
@@ -228,4 +247,4 @@ When adding new components:
 2. Use types from `common/types.py`
 3. Add README.md to component directory
 4. Add tests in `tests/` subdirectory
-5. Update this index
+5. Run `python update_catalog.py` to update catalog-index.json

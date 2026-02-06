@@ -1,0 +1,57 @@
+{
+  "domain": "react-auth",
+  "count": 1,
+  "components": [
+    {
+      "id": "auth-context",
+      "name": "React Auth Context",
+      "version": "1.0.0",
+      "description": "Type-safe authentication context with hooks for React applications. Supports JWT, OAuth, token refresh, and protected routes.",
+      "location": "components/react_auth/context/",
+      "domain": "react-auth",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "auth",
+        "authentication",
+        "react",
+        "context",
+        "hooks",
+        "jwt",
+        "oauth"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { AuthProvider, useAuth } from 'library/react-auth/context';\nconst { login, logout, isAuthenticated, user } = useAuth();",
+      "source_project": "https://github.com/authts/react-oidc-context",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 89,
+      "lego_compatible": false,
+      "exports": [
+        "// Components\n  ProtectedRoute",
+        "// Hooks\n  useAuth",
+        "// Provider\n  AuthProvider",
+        "// Types\n  type User",
+        "type AuthConfig",
+        "type AuthContextValue",
+        "type AuthProviderProps",
+        "type AuthState",
+        "type AuthTokens",
+        "type LoginCredentials",
+        "type ProtectedRouteProps",
+        "useHasPermission",
+        "useHasRole",
+        "useIsAuthenticated",
+        "useUser"
+      ]
+    }
+  ]
+}

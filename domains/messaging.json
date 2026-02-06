@@ -1,0 +1,46 @@
+{
+  "domain": "messaging",
+  "count": 1,
+  "components": [
+    {
+      "id": "redis-pubsub",
+      "name": "Redis Pub/Sub Manager",
+      "version": "1.0.0",
+      "description": "Thread-safe Redis pub/sub with connection verification, exponential backoff retry, and async callback support. Prevents race conditions in subscription management.",
+      "location": "components/messaging/redis_pubsub/",
+      "domain": "messaging",
+      "technology": [
+        "Python",
+        "Redis",
+        "asyncio",
+        "threading"
+      ],
+      "keywords": [
+        "redis",
+        "pubsub",
+        "messaging",
+        "subscribe",
+        "publish",
+        "realtime"
+      ],
+      "dependencies": [
+        "redis"
+      ],
+      "test_coverage": 88,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.messaging.redis_pubsub import RedisPubSub\npubsub = RedisPubSub(redis_client)\nawait pubsub.subscribe('channel', callback)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "MessageHandler",
+        "RedisPubSub",
+        "create_redis_pubsub"
+      ]
+    }
+  ]
+}

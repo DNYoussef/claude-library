@@ -92,7 +92,7 @@ export interface DropdownMenuContentProps extends HTMLAttributes<HTMLDivElement>
 // =============================================================================
 
 /** Props for the DropdownMenuItem component */
-export interface DropdownMenuItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuItemProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /** Item content */
   children: Children;
   /** Whether item is disabled */
@@ -116,7 +116,7 @@ export interface DropdownMenuItemProps extends HTMLAttributes<HTMLDivElement> {
 // =============================================================================
 
 /** Props for the DropdownMenuCheckboxItem component */
-export interface DropdownMenuCheckboxItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuCheckboxItemProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /** Item content */
   children: Children;
   /** Checked state */
@@ -144,7 +144,7 @@ export interface DropdownMenuRadioGroupProps {
 }
 
 /** Props for the DropdownMenuRadioItem component */
-export interface DropdownMenuRadioItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuRadioItemProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /** Item content */
   children: Children;
   /** Item value */

@@ -7,7 +7,7 @@ Provides Plaid API client for:
 - Account data retrieval (balances, metadata)
 - Transaction history (with pagination)
 
-Source: Adapted from D:\Projects\trader-ai\src\finances\plaid_client.py
+Source: Adapted from D:/Projects/trader-ai/src/finances/plaid_client.py
 
 Usage:
     from library.components.banking.plaid import PlaidClient

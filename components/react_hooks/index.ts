@@ -27,6 +27,7 @@ export {
 
 export {
   useAbortableAsync,
+  useAbortableAsyncState,
   type AbortableStatus,
   type AbortableAsyncState,
   type UseAbortableAsyncOptions,
@@ -50,7 +51,3 @@ export {
   type UseThrottleReturn,
   type UseThrottledCallbackReturn,
 } from './useThrottle';
-
-// LEGACY EXPORTS
-export { useLocalStorage as useLocalStorageLegacy } from './use-local-storage';
-export { useAsyncState as useAsyncStateLegacy, useAbortableAsyncState } from './use-async-state';

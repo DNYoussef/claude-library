@@ -1,0 +1,48 @@
+{
+  "domain": "ai",
+  "count": 1,
+  "components": [
+    {
+      "id": "consensus-display",
+      "name": "LLM Council Consensus Display",
+      "version": "1.0.0",
+      "description": "React components for displaying LLM Council consensus results. Shows model votes, agreement percentages, and dissent explanations.",
+      "location": "components/ai/consensus_display/",
+      "domain": "ai",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "consensus",
+        "llm",
+        "council",
+        "ai",
+        "voting",
+        "display"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 75,
+      "tests_passing": 10,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { ConsensusDisplay } from '@library/ai';\n<ConsensusDisplay result={councilResult} />",
+      "source_project": "D:\\Projects\\life-os-frontend\\src\\components\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 78,
+      "lego_compatible": false,
+      "exports": [
+        "ConsensusDisplay",
+        "DEFAULT_CONSENSUS_COLORS",
+        "MODEL_STATUS_COLORS",
+        "formatConsensusStatus",
+        "getConsensusColor",
+        "getModelStatusColor",
+        "type"
+      ]
+    }
+  ]
+}

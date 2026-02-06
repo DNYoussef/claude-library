@@ -1,0 +1,274 @@
+{
+  "domain": "testing",
+  "count": 5,
+  "components": [
+    {
+      "id": "pytest-fixtures-base",
+      "name": "Pytest Fixtures Base",
+      "version": "1.0.0",
+      "description": "Common pytest fixtures: async client, database session, mock user, test data factories.",
+      "location": "components/testing/pytest-fixtures/fixtures.py",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "pytest",
+        "pytest-asyncio"
+      ],
+      "keywords": [
+        "pytest",
+        "fixtures",
+        "testing",
+        "mock",
+        "factory",
+        "async"
+      ],
+      "dependencies": [
+        "pytest",
+        "pytest-asyncio",
+        "httpx"
+      ],
+      "test_coverage": 100,
+      "tests_passing": 10,
+      "usage_count": 4,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.testing import async_client, db_session\n@pytest.fixture\ndef client(async_client): yield async_client",
+      "source_project": "life-os-dashboard/tests/conftest.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 100,
+      "lego_compatible": false,
+      "exports": [
+        "PerformanceTracker:",
+        "concurrent_executor",
+        "configure_test_environment",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
+    },
+    {
+      "id": "jest-setup-base",
+      "name": "Jest Setup Base",
+      "version": "1.0.0",
+      "description": "Common Jest setup: React Testing Library, mock providers, test utilities, custom matchers.",
+      "location": "components/testing/jest-setup/setup.ts",
+      "domain": "testing",
+      "technology": [
+        "TypeScript",
+        "Jest",
+        "React Testing Library"
+      ],
+      "keywords": [
+        "jest",
+        "testing",
+        "react",
+        "mock",
+        "setup",
+        "matchers"
+      ],
+      "dependencies": [
+        "jest",
+        "@testing-library/react",
+        "@testing-library/jest-dom"
+      ],
+      "test_coverage": 100,
+      "tests_passing": 8,
+      "usage_count": 3,
+      "last_used": "2026-01-07T00:00:00Z",
+      "example_usage": "// jest.setup.ts\nimport '@library/testing/jest-setup';",
+      "source_project": "life-os-frontend/jest.setup.ts",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 100,
+      "lego_compatible": false,
+      "exports": [
+        "cleanupMocks",
+        "configure",
+        "createMockFetch",
+        "getConfig",
+        "interface",
+        "mockAPIResponse",
+        "mockErrorResponse",
+        "setupMocks"
+      ]
+    },
+    {
+      "id": "backtest-harness",
+      "name": "Backtest Harness",
+      "version": "1.0.0",
+      "description": "Generic backtesting framework with event-driven architecture. Supports multiple data sources, custom strategies, and comprehensive metrics (Sharpe, Sortino, max drawdown).",
+      "location": "components/testing/backtest_harness/",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "Decimal",
+        "pandas"
+      ],
+      "keywords": [
+        "backtest",
+        "testing",
+        "strategy",
+        "sharpe",
+        "drawdown",
+        "simulation"
+      ],
+      "dependencies": [
+        "pandas",
+        "numpy"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 22,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.testing.backtest_harness import BacktestEngine\nengine = BacktestEngine(strategy=my_strategy)\nresults = engine.run(data=historical_data)",
+      "source_project": "D:\\Projects\\trader-ai\\src\\backtest\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "BacktestConfig",
+        "BacktestEngine",
+        "BacktestResults",
+        "CostModel",
+        "FoldResult",
+        "PerformanceCalculator",
+        "SignalFunction",
+        "Strategy",
+        "Trade",
+        "WindowType",
+        "run_slippage_sensitivity"
+      ]
+    },
+    {
+      "id": "pytest-fixtures-collection",
+      "name": "Pytest Fixtures Collection",
+      "version": "1.0.0",
+      "description": "LEGO-compatible pytest fixture collection for FastAPI + SQLAlchemy async testing. Includes event loop, database session, HTTP client, mock fixtures, and test data factories.",
+      "location": "components/testing/pytest-fixtures/",
+      "domain": "testing",
+      "technology": [
+        "Python",
+        "pytest",
+        "pytest-asyncio",
+        "httpx",
+        "SQLAlchemy"
+      ],
+      "keywords": [
+        "pytest",
+        "fixtures",
+        "testing",
+        "async",
+        "database",
+        "mock",
+        "factory",
+        "fastapi",
+        "sqlalchemy",
+        "lego"
+      ],
+      "dependencies": [
+        "pytest>=7.0.0",
+        "pytest-asyncio>=0.21.0",
+        "httpx>=0.24.0",
+        "sqlalchemy[asyncio]>=2.0.0"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from pytest_fixtures import event_loop, db_session, async_client, mock_db_session\nfrom pytest_fixtures.factories import UserFactory, ProjectFactory\n\nasync def test_create(db_session):\n    user = UserFactory.create()\n    db_session.add(user)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\consolidated-ui\\backend\\tests\\conftest.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "AgentFactory",
+        "BaseFactory",
+        "ExecutionResultFactory",
+        "ProjectFactory",
+        "TaskFactory",
+        "UserFactory",
+        "async_client",
+        "async_db_engine",
+        "cleanup_after_test",
+        "concurrent_executor",
+        "db_session",
+        "event_loop",
+        "mock_db_session",
+        "mock_memory_mcp_client",
+        "mock_redis_client",
+        "mock_websocket",
+        "performance_tracker",
+        "pytest_configure"
+      ]
+    },
+    {
+      "id": "jest-setup-collection",
+      "name": "Jest Setup Collection",
+      "version": "1.0.0",
+      "description": "LEGO-compatible Jest + React Testing Library setup for React 18/19 projects. Includes custom render with providers, mock utilities, and custom matchers.",
+      "location": "components/testing/jest-setup/",
+      "domain": "testing",
+      "technology": [
+        "TypeScript",
+        "Jest",
+        "React Testing Library",
+        "React"
+      ],
+      "keywords": [
+        "jest",
+        "testing",
+        "react",
+        "rtl",
+        "mock",
+        "matcher",
+        "providers",
+        "render",
+        "lego"
+      ],
+      "dependencies": [
+        "jest",
+        "@types/jest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "@testing-library/user-event",
+        "react-router-dom",
+        "@tanstack/react-query"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 15,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { render, screen, userEvent } from 'jest-setup/test-utils';\nimport { matchers } from 'jest-setup/matchers';\n\ntest('button click', async () => {\n  render(<Button>Click</Button>);\n  await userEvent.click(screen.getByRole('button'));\n});",
+      "source_project": "D:\\Projects\\life-os-frontend",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T16:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "AllProviders",
+        "cleanup",
+        "cleanupMocks",
+        "commonly",
+        "configure",
+        "default",
+        "fireEvent",
+        "render",
+        "renderHook",
+        "screen",
+        "setupMocks",
+        "toBeValidJSON",
+        "toBeWithinRange",
+        "toHaveBeenCalledWithMatch",
+        "toMatchAPIResponse",
+        "waitFor",
+        "within"
+      ]
+    }
+  ]
+}

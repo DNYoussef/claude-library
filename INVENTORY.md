@@ -1,72 +1,168 @@
-| Module | Purpose | Has Tests? | Test Coverage | Dependencies | Exports |
-|---|---|---|---|---|---|
-| accounting/categorizer | Transaction Categorizer Component | Yes | Unknown | Unknown | TransactionCategorizer, TransactionCategory, CategoryResult, CategorizerConfig |
-| accounting/transactions | Transaction Store Component | Yes | Unknown | Unknown | TransactionStore, TransactionQuery |
-| ai/consensus_display | Consensus Display | Yes | Unknown | Unknown | export {, export type {, export { |
-| ai/model_router | Model Router Component | Yes | Unknown | Unknown | ModelRouter, RouterConfig, RoutingResult, RoutingStrategy, Provider, ProviderConfig, ProviderStatus, BaseProvider, ClaudeProvider, GeminiProvider, CodexProvider, ProviderRegistry |
-| analysis/ast_visitor | AST Visitor Base Component | Yes | Unknown | Unknown | AnalysisVisitor, AnalysisTransformer, CompositeVisitor, VisitorContext, parse_file, parse_source, visit_file, visit_source, is_name, is_call, is_method_call, get_assigned_name, count_nodes |
-| analysis/ast_visitor_base | AST Visitor Base Component | Yes | Unknown | Unknown | VisitorContext, BaseConnascenceVisitor, MagicLiteralVisitor, ParameterPositionVisitor, GodObjectVisitor, ComplexityVisitor |
-| analysis/metric_collector | Metric Collector Component | Yes | Unknown | Unknown | MetricCollector, Counter, Gauge, Histogram, MetricType, MetricValue, create_quality_collector |
-| analysis/pattern_matcher | Pattern Matcher | Yes | Unknown | Unknown | PatternMatcher, PatternDatabase, PatternConfig, PatternDefinition, PatternMatch, MatchResult, SignalLevel, PatternType, create_matcher_from_wordlist |
-| analysis/scoring_aggregator | Scoring Aggregator | Yes | Unknown | Unknown | AnalyzerScore, AggregatedResult, GradeConfig, GradeThreshold, GradeMode, ConfidenceLevel, ScoringAggregator, TextLengthConfidenceCalculator, create_quality_gate_aggregator, create_content_analysis_aggregator |
-| analysis/statistical_analyzer | Statistical Analyzer | Yes | Unknown | Unknown | StatisticalAnalyzer, StatisticalMetrics, EntropyMetrics, BurstinessMetrics, LexicalDiversityMetrics, HapaxMetrics, SentenceStartMetrics, calculate_shannon_entropy, calculate_coefficient_of_variation, calculate_type_token_ratio, calculate_hapax_ratio |
-| analysis/violation_factory | Violation Factory | Yes | Unknown | Unknown | Severity, Location, Violation, ViolationFactory, ViolationCollection |
-| api/fastapi_router | FastAPI CRUD Router Component | Yes | Unknown | Unknown | CRUDRouter, PaginationParams, PaginatedResponse, create_crud_router |
-| api/pydantic_base | Pydantic Base Models Component | Yes | Unknown | Unknown | PaginatedResponse, ErrorResponse, ErrorDetail, MessageResponse, IDResponse, IDListResponse, HealthResponse, ComponentHealth, TimestampMixin, AuditMixin, VersionMixin, PaginationRequest, FilterRequest, StatusEnum, SortOrder, ErrorCode, HealthStatus |
-| auth/fastapi_jwt | FastAPI JWT Authentication | Yes | Unknown | Unknown | JWTAuthConfig, TokenData, User, AuthenticationError, AuthorizationError, JWTAuthService, init_jwt_auth, get_auth_service, get_current_user, get_current_user_optional, require_role, require_any_role, verify_resource_ownership, verify_resource_ownership_or_admin |
-| auth/jwt_middleware_ts | JWT Middleware for Express (TypeScript) | Yes | Unknown | Unknown | export { JWTAuth } from './middleware';, export { authenticate, requireRole } from './middleware';, export { generateSecureToken, generateApiKey } from './middleware';, export type {, export { AuthError } from './types'; |
-| banking/mercury | Mercury Bank Integration Component | Yes | Unknown | Unknown | MercuryClient, MercuryConfig, MercuryAccount, MercuryTransaction, MercuryRecipient, AccountType, TransactionStatus, TransactionType |
-| banking/plaid | Plaid Banking Integration | Yes | Unknown | Unknown | PlaidClient, PlaidError |
-| caching/redis_cache | Redis Cache Library Component | Yes | Unknown | Unknown | RedisCache, RedisCacheConfig, cached, invalidate_on_write, generate_cache_key, init_default_cache, close_default_cache, get_default_cache |
-| cognitive/agent_base | Agent Base Class Component | Yes | Unknown | Unknown | AgentBase, CompositeAgent, AgentTask, AgentResult, AgentMetadata, AgentCategory, AgentType, AgentPhase, AgentStatus, MemoryTag, MCPServer, QualityGate, ArtifactContract, ConfidenceLevel, InputContract, OutputContract, PerformanceMetrics, agent_metadata, get_agent, list_agents, list_agents_by_category |
-| cognitive/cognitive_config | Cognitive Configuration Manager | Yes | Unknown | Unknown | VerixStrictness, CompressionLevel, DEFAULT_FRAME_WEIGHTS, DEFAULT_EVIDENTIAL_MINIMUM, FrameworkConfig, PromptConfig, FullConfig, VectorCodec, DEFAULT_CONFIG, MINIMAL_CONFIG, STRICT_CONFIG, create_audit_config, create_speed_config, create_research_config, create_robust_config, create_balanced_config, NAMED_MODES, get_named_mode |
-| cognitive/command_base | Command Base Class Component | Yes | Unknown | Unknown | CommandBase, CommandArgs, CommandArg, CommandResult, CommandMetadata, CommandCategory, command_metadata, get_command, list_commands, list_commands_by_category |
-| cognitive/hook_base | Hook Base Class Component | Yes | Unknown | Unknown | HookBase, CompositeHook, HookContext, HookResult, HookMetadata, HookState, HookEvent, HookExitCode, hook_metadata, get_hook, list_hooks, list_hooks_by_event |
-| cognitive/playbook_base | Playbook Base Class Component | Yes | Unknown | Unknown | PlaybookBase, PlaybookContext, PlaybookResult, PlaybookMetadata, PlaybookCategory, PhaseSpec, PhaseResult, PhaseStatus, playbook_metadata, get_playbook, list_playbooks |
-| cognitive/script_base | Script Base Class Component | Yes | Unknown | Unknown | ScriptBase, ScriptArgs, ScriptArg, ScriptResult, ScriptMetadata, ScriptCategory, LogLevel, script_metadata, get_script, list_scripts |
-| cognitive/skill_base | Skill Base Class Component | Yes | Unknown | Unknown | SkillBase, CompositeSkill, SkillContext, SkillResult, SkillMetadata, SkillCategory, SkillPhase, InputContract, OutputContract, QualityScore, ConfidenceLevel, skill_metadata, get_skill, list_skills |
-| cognitive/verix_parser | VERIX Epistemic Notation Parser | Yes | Unknown | Unknown | __version__, VERSION, MAX_INPUT_LENGTH, MAX_CLAIMS_LIMIT, L0_CONTENT_TRUNCATION_LENGTH, Illocution, Affect, State, Agent, MetaLevel, VerixStrictness, CompressionLevel, VerixClaim, PromptConfig, VerixParser, VerixValidator, create_claim, create_meta_claim, create_meta_verix_claim, format_claim |
-| cognitive_architecture/core | VCL (VERILINGUA Cognitive Language) Validator v3.1.1 | Yes | Unknown | Unknown | N/A |
-| cognitive_architecture/evals | CLI-Based Real Task Evaluator for VVV Dogfooding | Yes | Unknown | Unknown | N/A |
-| cognitive_architecture/integration | Integration Bridges for Cognitive Architecture | Yes | Unknown | Unknown | TelemetryBridge, LoopTelemetryRecord, bridge_loop_to_telemetry, ConnascenceBridge, ConnascenceResult, analyze_artifact, quality_gate |
-| cognitive_architecture/loopctl | loopctl - Loop Control for Cognitive Architecture | Yes | Unknown | Unknown | FrozenHarness, GradeMetrics, check_emergency_stop |
-| cognitive_architecture/modes | Mode library for cognitive architecture. | Yes | Unknown | Unknown | N/A |
-| cognitive_architecture/optimization | Two-Stage Multi-Objective Optimization for Cognitive Architecture | Yes | Unknown | Unknown | N/A |
-| database/connection_pool | PostgreSQL Async Connection Pool | Yes | Unknown | Unknown | ConnectionPool, PoolConfig, Base, get_pool, get_db, init_pool, close_pool, with_retry, DatabaseHealthChecker, HealthCheckEndpoint, HealthCheckConfig, HealthStatus, HealthState |
-| http/api_services | API Services Library | Yes | Unknown | Unknown | export {, export type {, export type {, export type {, export type {, export type {, export type {, export {, export type {, export {, export async function createServices(config: {, export function createServicesFromEnv( |
-| http/fetch_api_client | Fetch API Client | Yes | Unknown | Unknown | export {, export function quickClient(baseUrl: string): ReturnType<typeof createFetchClient> {, export function restClient( |
-| memory/memory_mcp_client | Memory MCP Client | Yes | Unknown | Unknown | __version__, __author__, __source__, CircuitBreaker, CircuitBreakerConfig, CircuitBreakerState, CircuitBreakerStatus, CircuitBreakerError, Intent, AgentCategory, INTENT_DESCRIPTIONS, TaggingConfig, TaggingProtocol, WhoTag, WhenTag, ProjectTag, WhyTag, MemoryTags, MemoryStorePayload, create_backend_tagger, create_frontend_tagger, create_testing_tagger, create_custom_tagger, FallbackStorage, CacheLayer, MCPTransport, InMemoryCache, InMemoryFallback, MockMCPTransport, MemoryMCPConfig, MemoryMCPClient, StoreResult, TaskHistoryResult, HealthStatus, create_memory_mcp_client |
-| messaging/redis_pubsub | Redis Pub/Sub Component | Yes | Unknown | Unknown | RedisPubSub, MessageHandler, create_redis_pubsub |
-| middleware/express_chain | Express Middleware Chain Component | Yes | Unknown | Unknown | export {, export type { |
-| multi_entity/isolation | Multi-Entity Tenant Isolation Component | Yes | Unknown | Unknown | TenantContext, get_current_tenant, set_current_tenant, require_tenant, TenantMixin, setup_tenant_isolation, setup_rls_session, RLSPolicy, enable_rls, disable_rls, force_rls, create_tenant_policy, generate_rls_migration, extract_tenant_from_header, extract_tenant_from_subdomain, extract_tenant_from_path, TenantMiddleware |
-| observability/audit_logging | Audit Logging Component | Yes | Unknown | Unknown | AuditLogger, SyncAuditLogger, create_audit_log_model, AuditOperation, AuditEntry, AuditLogModelProtocol |
-| observability/opentelemetry_lite | OpenTelemetry-Lite | Yes | Unknown | Unknown | export {, export type {, export {, export {, export {, export {, export {, export { createTelemetry as default } from './telemetry'; |
-| observability/tagging_protocol | Tagging Protocol Component | Yes | Unknown | Unknown | TaggingProtocol, Intent, AgentCategory, create_tagger, create_simple_tagger, INTENT_DESCRIPTIONS |
-| orchestration/pipeline_executor | Pipeline Executor Component | Yes | Unknown | Unknown | PipelineExecutor, PipelineConfig, StepConfig, StepResult, StepStatus |
-| parsing/markdown_metadata | Markdown Metadata Parser | Yes | Unknown | Unknown | export { |
-| patterns/auditor_base | Auditor Base Component | Yes | Unknown | Unknown | Illocution, Affect, ActionClass, AuditorResult, BaseAuditor |
-| patterns/image_generator_base | Image Generator Base Component | Yes | Unknown | Unknown | ImageProvider, ImageConfig, GeneratedImage, ImageGeneratorBase, ProviderRegistry |
-| payments/stripe | Stripe Payment Integration Component | Yes | Unknown | Unknown | StripeClient, StripeConfig, Customer, PaymentIntent, Subscription, PaymentStatus, SubscriptionStatus, StripeWebhookHandler, WebhookEvent, WebhookEventType, SignatureVerificationError, WebhookProcessingError, create_stripe_webhook_route |
-| pipelines/content_pipeline | Content Pipeline Component | Yes | Unknown | Unknown | ContentPipeline, PipelineConfig, PipelineResult, PhaseResult, Phase, PhaseType, PhaseStatus, DownloadPhase, TranscribePhase, AnalyzePhase, SynthesizePhase, DraftPhase, StylePhase, SlopDetectPhase, ImageGenPhase, CommitPhase, DeployPhase |
-| react_auth/context | React Auth Context Component | Yes | Unknown | Unknown | export { |
-| realtime/websocket_manager | WebSocket Manager Component | Yes | Unknown | Unknown | ConnectionManager, DistributedWebSocketManager, RedisBroadcaster, Connection, Message, MessageType |
-| reporting/report_generator | Report Generator | Yes | Unknown | Unknown | Severity, OutputFormat, Issue, Report, ReportSummary, ReportGenerator, create_issue, generate_simple_report |
-| scheduling/task_scheduler | Task Scheduler Component | Yes | Unknown | Unknown | TaskScheduler, SchedulerConfig, JobConfig, TriggerType, create_scheduler_lifespan |
-| security/jwt_auth | JWT Authentication Component | Yes | Unknown | Unknown | JWTAuth, JWTConfig, generate_secure_token, generate_api_key |
-| state/kanban_store | Kanban Store | Yes | Unknown | Unknown | export type {, export {, export const DEFAULT_3_COLUMN_CONFIG = [, export const DEFAULT_4_COLUMN_CONFIG = [, export const DEFAULT_5_COLUMN_CONFIG = [, export const SCRUM_COLUMN_CONFIG = [, export const DEV_PIPELINE_CONFIG = [, export type Default3ColumnId = (typeof DEFAULT_3_COLUMN_CONFIG)[number]['id'];, export type Default4ColumnId = (typeof DEFAULT_4_COLUMN_CONFIG)[number]['id'];, export type Default5ColumnId = (typeof DEFAULT_5_COLUMN_CONFIG)[number]['id'];, export type ScrumColumnId = (typeof SCRUM_COLUMN_CONFIG)[number]['id'];, export type DevPipelineColumnId = (typeof DEV_PIPELINE_CONFIG)[number]['id']; |
-| testing/backtest_harness | Backtest Harness | Yes | Unknown | Unknown | BacktestConfig, CostModel, WindowType, BacktestEngine, BacktestResults, FoldResult, Trade, Strategy, SignalFunction, PerformanceCalculator, run_slippage_sensitivity |
-| testing/jest-setup | Jest Setup Library Component | Yes | Unknown | Unknown | export { configure, setupMocks, cleanupMocks } from './setup';, export { render, renderHook, AllProviders } from './test-utils';, export {, export {, export { default as userEvent } from '@testing-library/user-event'; |
-| testing/pytest-fixtures | Pytest Fixtures Library Component | Yes | Unknown | Unknown | event_loop, async_db_engine, db_session, async_client, mock_db_session, mock_redis_client, mock_websocket, mock_memory_mcp_client, performance_tracker, concurrent_executor, cleanup_after_test, pytest_configure, BaseFactory, UserFactory, ProjectFactory, AgentFactory, TaskFactory, ExecutionResultFactory |
-| trading/circuit_breakers | Circuit Breakers Library Component | Yes | Unknown | Unknown | CircuitBreaker, CircuitBreakerManager, CircuitBreakerConfig, CircuitBreakerMetrics, CircuitState, CircuitType, RequestResult, CircuitOpenException, TradingCircuitBreakers, TradingBreakerConfig, TradingBreakerStatus, TradingBreakerType, PortfolioProvider |
-| trading/gate_system | Gate System - Capital-Based Trading Progression | Yes | Unknown | Unknown | GateLevel, ViolationType, GateConfig, TradeValidationResult, ViolationRecord, GraduationMetrics, GateManager, create_default_gate_configs, DEFAULT_GATE_THRESHOLDS |
-| trading/position_sizing | Kelly Criterion Position Sizing Library | Yes | Unknown | Unknown | KellyCriterion, KellyResult, PositionSizeResult, KellyRegime, quick_kelly, FULL_KELLY, HALF_KELLY, QUARTER_KELLY, TENTH_KELLY |
-| ui/design_system | Design System UI Components | Yes | Unknown | Unknown | export { Card, CardHeader, CardContent, CardFooter } from './Card';, export { Badge, StatusDot } from './Badge';, export { Input, Textarea } from './Input';, export { MetricCard, MetricGrid } from './MetricCard';, export type {, export { CSS_TOKENS } from './types'; |
-| ui/radix_dialog | Radix Dialog Component | Yes | Unknown | Unknown | export {, export type {, export { DIALOG_SIZE_STYLES, DIALOG_ANIMATIONS } from './types'; |
-| ui/radix_dropdown | Radix Dropdown Menu Component | Yes | Unknown | Unknown | export {, export type {, export { ITEM_VARIANT_STYLES, MENU_ANIMATIONS } from './types'; |
-| utilities/circuit_breaker | Circuit Breaker Component | Yes | Unknown | Unknown | CircuitState, CircuitBreakerConfig, CircuitBreakerError, CircuitBreakerMetrics, CircuitBreakerStatus, CircuitBreaker, CircuitBreakerManager |
-| utilities/health_monitor | Health Monitor Component | Yes | Unknown | Unknown | HealthState, HealthCheckResult, HealthStatus, HealthCheckConfig, AlertConfig, HealthMonitor |
-| utilities/io_helpers | I/O Helpers Component | Yes | Unknown | Unknown | WriteResult, BackupConfig, AtomicWriter, yaml_safe_write, yaml_safe_read, yaml_safe_write_sync, yaml_safe_read_sync, safe_text_write, restore_from_backup, list_backups |
-| utilities/quality_gate | Quality Gate Component | Yes | Unknown | Unknown | GateType, GateStatus, GateConfig, GateResult, GateManager, GateFailedError, RichMetricResult, QualityGate, create_sync_gate, create_quality_gate, create_dependency_gate, create_compile_gate |
-| validation/quality_validator | Quality Validator Component | Yes | Unknown | Unknown | QualityValidator, QualityClaim, QualityValidationResult, ValidationResult, Violation, AnalysisResult, Severity, EvidenceQuality, RiskLevel, TheaterDetector, TheaterPattern, TheaterDetectionResult, SystemicTheaterResult, detect_theater, is_theater |
-| validation/skill_validator | Skill Validator | Yes | Unknown | Unknown | __version__, __author__, YAML_AVAILABLE, SkillValidator, ValidationResult, validate_single_file, parse_yaml_safe, parse_yaml_fallback, SkillIndexer, SkillData, parse_yaml_frontmatter, extract_trigger_positive, extract_section, extract_keywords, STOPWORDS, DEFAULT_CATEGORY_KEYWORDS |
-| validation/spec_validation | Spec Validation Component | Yes | Unknown | Unknown | ValidationResult, ValidationSchema, BaseValidator, SpecValidator, PrereqsValidator, JSONFileValidator, ContextValidator, MarkdownDocumentValidator, SpecDocumentValidator, ImplementationPlanValidator, DEFAULT_CONTEXT_SCHEMA, DEFAULT_REQUIREMENTS_SCHEMA, DEFAULT_IMPLEMENTATION_PLAN_SCHEMA, DEFAULT_PHASE_SCHEMA, DEFAULT_SUBTASK_SCHEMA, DEFAULT_VERIFICATION_SCHEMA, DEFAULT_SPEC_REQUIRED_SECTIONS, DEFAULT_SPEC_RECOMMENDED_SECTIONS, validate_spec_directory, create_validator_from_config, Validatable, ValidatorFactory |
+# Component Library Inventory
+
+Generated from `catalog-index.json` - the single source of truth.
+
+**Total Components**: 80 | **Domains**: 32 | **Last Updated**: 2026-02-04
+
+---
+
+## Python Components
+
+| Module | Purpose | Domain | Quality Score |
+|--------|---------|--------|---------------|
+| accounting/categorizer | Transaction Categorizer | accounting | 84 |
+| accounting/transactions | Transaction Store | accounting | 85 |
+| analysis/ast_visitor | AST Visitor Base | analysis | 93 |
+| analysis/ast_visitor_base | AST Visitor Base Pattern | analysis | 88 |
+| analysis/metric_collector | Metric Collector | analysis | 91 |
+| analysis/pattern_matcher | Pattern Matcher | analysis | 90 |
+| analysis/scoring_aggregator | Scoring Aggregator | analysis | 86 |
+| analysis/statistical_analyzer | Statistical Analyzer | analysis | 86 |
+| analysis/violation_factory | Violation Factory | analysis | 88 |
+| api/fastapi_router | FastAPI CRUD Router | api | 88 |
+| api/pydantic_base | Pydantic Base Models | api | 92 |
+| auth/fastapi_jwt | FastAPI JWT Authentication | authentication | 88 |
+| banking/mercury | Mercury Bank Integration | banking | 85 |
+| banking/plaid | Plaid Banking Integration | banking | 85 |
+| caching/redis_cache | Redis Cache Layer | caching | 88 |
+| cognitive/agent_base | Agent Base Class | cognitive | 90 |
+| cognitive/cognitive_config | Cognitive Frame Configuration | cognitive | 86 |
+| cognitive/command_base | Command Base Class | cognitive | 88 |
+| cognitive/hook_base | Hook Base Class | cognitive | 87 |
+| cognitive/playbook_base | Playbook Base Class | cognitive | 89 |
+| cognitive/script_base | Script Base Class | cognitive | 85 |
+| cognitive/skill_base | Skill Base Class | cognitive | 92 |
+| cognitive/verix_parser | VERIX Epistemic Parser | cognitive | 90 |
+| cognitive_architecture/core | VCL Validator | cognitive | 90 |
+| cognitive_architecture/evals | CLI Evaluator | cognitive | 70 |
+| cognitive_architecture/integration | Integration Bridges | cognitive | 70-75 |
+| cognitive_architecture/loopctl | FrozenHarness Evaluation | cognitive | 80 |
+| cognitive_architecture/modes | Mode Library | cognitive | 85 |
+| cognitive_architecture/optimization | Two-Stage Optimizer | cognitive | 75 |
+| database/connection_pool | Database Connection Pool | database | 85 |
+| governance/guard_lane_base | Guard Lane Base ABC | governance | 95 |
+| memory/memory_mcp_client | Memory MCP Client v2 | memory | 90 |
+| messaging/redis_pubsub | Redis Pub/Sub Manager | messaging | 90 |
+| multi_entity/isolation | Multi-Entity Tenant Isolation | multi-entity | 91 |
+| observability/audit_logging | Audit Logging System | observability | 86 |
+| observability/library_drift_audit | Library Drift Audit | observability | 85 |
+| observability/opentelemetry_lite | OpenTelemetry Lite Wrapper | observability | 82 |
+| observability/status_registry | Status Registry | observability | 85 |
+| observability/tagging_protocol | WHO/WHEN/PROJECT/WHY Tagging | observability | 88 |
+| orchestration/pipeline_executor | Pipeline Executor | orchestration | 90 |
+| parsing/markdown_metadata | Markdown Metadata Parser | parsing | 88 |
+| patterns/auditor_base | Auditor Base Pattern | patterns | 85 |
+| patterns/image_generator_base | Image Generator Base Pattern | patterns | 82 |
+| payments/stripe | Stripe Payment Integration | payments | 90 |
+| pipelines/content_pipeline | Content Pipeline Template | integrations | 70 |
+| reporting/report_generator | Report Generator | reporting | 84 |
+| scheduling/task_scheduler | Task Scheduler | scheduling | 88 |
+| security/jwt_auth | Security JWT Authentication | security | 92 |
+| testing/backtest_harness | Backtest Harness | testing | 88 |
+| testing/pytest_fixtures | Pytest Fixtures Collection | testing | 90-100 |
+| trading/circuit_breakers | Trading Circuit Breakers | trading | 92 |
+| trading/gate_system | Gate System Manager | trading | 90 |
+| trading/position_sizing | Kelly Criterion Calculator | trading | 94 |
+| utilities/circuit_breaker | Circuit Breaker Pattern | utilities | 90 |
+| utilities/health_monitor | Health Check Monitor | utilities | 80 |
+| utilities/io_helpers | YAML Safe Write | utilities | 95 |
+| utilities/quality_gate | Quality Gate System | utilities | 85 |
+| validation/quality_validator | Quality Validator | validation | 90 |
+| validation/skill_validator | Skill Validator | validation | 84 |
+| validation/spec_validation | Spec Validation Framework | validation | 92 |
+
+---
+
+## TypeScript Components
+
+| Module | Purpose | Domain | Quality Score |
+|--------|---------|--------|---------------|
+| ai/consensus_display | LLM Council Consensus Display | ai | 78 |
+| ai/model_router | Multi-Model Router | integrations | 82 |
+| auth/jwt_middleware_ts | JWT Authentication Middleware | authentication | 90 |
+| http/api_services | API Service Layer | http | 82 |
+| http/fetch_api_client | Fetch API Client | http | 88 |
+| middleware/express_chain | Express Middleware Chain | api | 85 |
+| react_auth/context | React Auth Context | react-auth | 89 |
+| react_hooks | React Hooks Library | react | 88 |
+| realtime/websocket_manager | WebSocket Connection Manager | realtime | 88-90 |
+| state/kanban_store | Kanban Store (Zustand) | state | 85 |
+| testing/jest_setup | Jest Setup Collection | testing | 88-100 |
+| ui/design_system | Design System Components | ui-components | 80 |
+| ui/radix_dialog | Radix Dialog Component | ui-components | 85 |
+| ui/radix_dropdown | Radix Dropdown Menu Component | ui-components | 85 |
+
+---
+
+## Top-Level Patterns
+
+| Pattern | Location | Purpose | Quality Score |
+|---------|----------|---------|---------------|
+| money_handling | patterns/money_handling/ | Decimal-only money handling | 95 |
+| webhook_idempotency | patterns/webhook_idempotency/ | Idempotent webhook processing | 90 |
+
+---
+
+## Key Exports by Category
+
+### Shared Types (common/types.py)
+```python
+from library.common.types import (
+    Severity,           # CRITICAL, HIGH, MEDIUM, LOW, INFO
+    Money,              # Decimal-based monetary values
+    Violation,          # Standard violation format
+    ValidationResult,   # Validation outcomes
+    QualityResult,      # Quality analysis results
+    TaggedEntry,        # WHO/WHEN/PROJECT/WHY tagged entries
+    ConfidenceLevel,    # CERTAIN, HIGHLY_CONFIDENT, CONFIDENT, UNCERTAIN
+    InputContract,      # Input contract dataclass
+    OutputContract,     # Output contract dataclass
+)
+```
+
+### Analysis Components
+```python
+from library.components.analysis.pattern_matcher.pattern_matcher import PatternMatcher
+from library.components.analysis.violation_factory.violation_factory import ViolationFactory, Location
+from library.components.analysis.scoring_aggregator.scoring_aggregator import ScoringAggregator
+from library.components.analysis.metric_collector.metric_collector import MetricCollector
+```
+
+### Trading Components
+```python
+from library.components.trading.circuit_breakers.circuit_breaker import CircuitBreaker, CircuitBreakerManager
+from library.components.trading.gate_system.gate_manager import GateManager
+from library.components.trading.position_sizing.kelly import KellyCriterion
+```
+
+### Cognitive Components
+```python
+from library.components.cognitive.skill_base.skill_base import SkillBase
+from library.components.cognitive.agent_base.agent_base import AgentBase
+from library.components.cognitive.verix_parser.verix_parser import VerixParser
+```
+
+### Observability Components
+```python
+from library.components.observability.tagging_protocol.tagging_protocol import (
+    TaggingProtocol,
+    Intent,
+    AgentCategory,
+    create_tagger,
+)
+```
+
+### Validation Components
+```python
+from library.components.validation.quality_validator.quality_validator import QualityValidator
+from library.components.validation.spec_validation.spec_validation import SpecValidator
+```
+
+---
+
+## Notes
+
+- All Python components use shared types from `common/types.py`
+- TypeScript components use types from `common/types.ts`
+- Quality scores are from catalog-index.json (0-100 scale)
+- Components follow LEGO pattern (self-contained, copy-ready)

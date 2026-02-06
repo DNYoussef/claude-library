@@ -5,22 +5,106 @@ Defines named configuration modes with their settings,
 use cases, and expected performance characteristics.
 """
 
-import os
-import sys
 from dataclasses import dataclass, field
 from typing import Dict, List, Any, Optional
 from enum import Enum
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+try:
+    from cognitive_architecture.core.config import (
+        FullConfig,
+        FrameworkConfig,
+        PromptConfig,
+        VerixStrictness,
+        CompressionLevel,
+        VectorCodec,
+    )
+except Exception:
+    try:
+        from ..core.config import (
+            FullConfig,
+            FrameworkConfig,
+            PromptConfig,
+            VerixStrictness,
+            CompressionLevel,
+            VectorCodec,
+        )
+    except Exception:
+        class VerixStrictness(Enum):
+            RELAXED = 0
+            MODERATE = 1
+            STRICT = 2
 
-from core.config import (
-    FullConfig,
-    FrameworkConfig,
-    PromptConfig,
-    VerixStrictness,
-    CompressionLevel,
-    VectorCodec,
-)
+        class CompressionLevel(Enum):
+            L0_AI_AI = 0
+            L1_AI_HUMAN = 1
+            L2_HUMAN = 2
+
+        @dataclass
+        class FrameworkConfig:
+            evidential: bool = False
+            aspectual: bool = False
+            morphological: bool = False
+            compositional: bool = False
+            honorific: bool = False
+            classifier: bool = False
+            spatial: bool = False
+
+            def active_frames(self) -> List[str]:
+                return [
+                    frame
+                    for frame in [
+                        "evidential",
+                        "aspectual",
+                        "morphological",
+                        "compositional",
+                        "honorific",
+                        "classifier",
+                        "spatial",
+                    ]
+                    if getattr(self, frame, False)
+                ]
+
+        @dataclass
+        class PromptConfig:
+            verix_strictness: VerixStrictness = VerixStrictness.MODERATE
+            compression_level: CompressionLevel = CompressionLevel.L1_AI_HUMAN
+            require_ground: bool = True
+            require_confidence: bool = True
+
+        @dataclass
+        class FullConfig:
+            framework: FrameworkConfig
+            prompt: PromptConfig
+
+            def summary(self) -> Dict[str, Any]:
+                return {
+                    "active_frames": self.framework.active_frames(),
+                    "verix_strictness": self.prompt.verix_strictness.name,
+                    "compression_level": self.prompt.compression_level.name,
+                    "require_ground": self.prompt.require_ground,
+                    "require_confidence": self.prompt.require_confidence,
+                }
+
+        class VectorCodec:
+            @staticmethod
+            def encode(config: FullConfig) -> List[float]:
+                return [
+                    1.0 if config.framework.evidential else 0.0,
+                    1.0 if config.framework.aspectual else 0.0,
+                    1.0 if config.framework.morphological else 0.0,
+                    1.0 if config.framework.compositional else 0.0,
+                    1.0 if config.framework.honorific else 0.0,
+                    1.0 if config.framework.classifier else 0.0,
+                    1.0 if config.framework.spatial else 0.0,
+                    float(config.prompt.verix_strictness.value),
+                    float(config.prompt.compression_level.value),
+                    1.0 if config.prompt.require_ground else 0.0,
+                    1.0 if config.prompt.require_confidence else 0.0,
+                ]
+
+            @staticmethod
+            def cluster_key(config: FullConfig) -> str:
+                return ":".join(f"{value:.0f}" for value in VectorCodec.encode(config))
 
 
 class ModeType(Enum):

@@ -1,0 +1,208 @@
+{
+  "domain": "observability",
+  "count": 5,
+  "components": [
+    {
+      "id": "tagging-protocol",
+      "name": "WHO/WHEN/PROJECT/WHY Tagging Protocol",
+      "version": "1.0.0",
+      "description": "Standardized tagging protocol for Memory MCP writes. Enforces WHO, WHEN, PROJECT, WHY metadata on all memory operations.",
+      "location": "components/observability/tagging_protocol/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "tagging",
+        "metadata",
+        "memory-mcp",
+        "audit",
+        "traceability"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.tagging_protocol import TaggedEntry\nentry = TaggedEntry(who='agent:1.0', project='trader-ai', why='bugfix')",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\utils\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "AgentCategory",
+        "INTENT_DESCRIPTIONS",
+        "Intent",
+        "TaggingProtocol",
+        "create_simple_tagger",
+        "create_tagger"
+      ]
+    },
+    {
+      "id": "audit-logging",
+      "name": "Audit Logging System",
+      "version": "1.0.0",
+      "description": "Structured audit logging with diff tracking, batch operations, and async support. Tracks changes for compliance and debugging.",
+      "location": "components/observability/audit_logging/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "asyncio"
+      ],
+      "keywords": [
+        "audit",
+        "logging",
+        "diff",
+        "compliance",
+        "tracking",
+        "history"
+      ],
+      "dependencies": [],
+      "test_coverage": 85,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.audit_logging import AuditLogger\nlogger = AuditLogger()\nawait logger.log_change(entity='user', action='update', diff=changes)",
+      "source_project": "D:\\Projects\\life-os-dashboard\\src\\services\\",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 86,
+      "lego_compatible": false,
+      "exports": [
+        "AuditEntry",
+        "AuditLogModelProtocol",
+        "AuditLogger",
+        "AuditOperation",
+        "SyncAuditLogger",
+        "create_audit_log_model"
+      ]
+    },
+    {
+      "id": "opentelemetry-lite",
+      "name": "OpenTelemetry Lite Wrapper",
+      "version": "1.0.0",
+      "description": "Lightweight OpenTelemetry wrapper for tracing and metrics. Configurable exporters, span context propagation, and metric aggregation.",
+      "location": "components/observability/opentelemetry_lite/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "OpenTelemetry"
+      ],
+      "keywords": [
+        "opentelemetry",
+        "tracing",
+        "metrics",
+        "observability",
+        "spans"
+      ],
+      "dependencies": [
+        "opentelemetry-api",
+        "opentelemetry-sdk"
+      ],
+      "test_coverage": 80,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.otel import OTelTracer\nwith OTelTracer.span('operation'):\n    do_work()",
+      "source_project": "context-cascade/telemetry/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "CallbackSpanExporter",
+        "ConsoleSpanExporter",
+        "DEFAULT_TELEMETRY_CONFIG",
+        "InMemorySpanExporter",
+        "LogLevel",
+        "MetricsCollector",
+        "Span",
+        "SpanStatus",
+        "StructuredLogger",
+        "Tracer",
+        "createTelemetry",
+        "generateSpanId",
+        "generateTraceId",
+        "type"
+      ]
+    },
+    {
+      "id": "status-registry",
+      "name": "Status Registry",
+      "version": "1.0.0",
+      "description": "Canonical status registry for the AI Exoskeleton doc set. Generates JSON source of truth and renders markdown summaries.",
+      "location": "components/observability/status_registry/",
+      "domain": "observability",
+      "technology": [
+        "Python",
+        "JSON"
+      ],
+      "keywords": [
+        "status",
+        "registry",
+        "documentation",
+        "metadata",
+        "automation"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 2,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.status_registry import build_registry, render_markdown",
+      "source_project": "2026-AI-EXOSKELETON documentation suite",
+      "created_by": "codex",
+      "created_at": "2026-01-13T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "ProjectStatus:",
+        "RepoSignals:",
+        "STATUS_END_MARKER",
+        "STATUS_START_MARKER",
+        "build_registry",
+        "parse_project_table",
+        "render_project_markdown",
+        "render_markdown",
+        "scan_repo_signals",
+        "update_marked_section",
+        "update_project_readme",
+        "update_repo_readmes"
+      ]
+    },
+    {
+      "id": "library-drift-audit",
+      "name": "Library Drift Audit",
+      "version": "1.0.0",
+      "description": "Component-by-component audit of library drift across repos. Compares imports and on-disk copies of library components.",
+      "location": "components/observability/library_drift_audit/",
+      "domain": "observability",
+      "technology": [
+        "Python"
+      ],
+      "keywords": [
+        "drift",
+        "audit",
+        "library",
+        "deployment",
+        "diff"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 2,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.observability.library_drift_audit import build_report",
+      "source_project": "2026-AI-EXOSKELETON documentation suite",
+      "created_by": "codex",
+      "created_at": "2026-01-13T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "build_report"
+      ]
+    }
+  ]
+}

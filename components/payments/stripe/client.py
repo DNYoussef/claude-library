@@ -19,36 +19,11 @@ from datetime import datetime
 import os
 
 # Import shared types with multi-path fallback (LEGO pattern)
-_money_imported = False
-
+# REQUIRED: Copy common/types.py alongside this component for standalone use
 try:
     from library.common.types import Money, FloatNotAllowedError
-    _money_imported = True
 except ImportError:
-    pass
-
-if not _money_imported:
-    try:
-        from common.types import Money, FloatNotAllowedError
-        _money_imported = True
-    except ImportError:
-        pass
-
-if not _money_imported:
-    # Fallback for standalone usage (copy-paste scenarios)
-    class FloatNotAllowedError(TypeError):
-        """Raised when float is used instead of Decimal for money."""
-        pass
-
-    @dataclass(frozen=True)
-    class Money:
-        """Minimal Money implementation for standalone use."""
-        amount: Decimal
-        currency: str = "USD"
-
-        def __post_init__(self):
-            if isinstance(self.amount, float):
-                raise FloatNotAllowedError("Use Decimal, not float for money")
+    from common.types import Money, FloatNotAllowedError
 
 
 class PaymentStatus(Enum):

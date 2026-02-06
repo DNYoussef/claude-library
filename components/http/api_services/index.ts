@@ -225,15 +225,15 @@ export async function createServices(config: {
 /**
  * Create services from environment variable
  */
-export function createServicesFromEnv(
+export async function createServicesFromEnv(
   envVar = 'VITE_API_URL',
   fallbackUrl = '',
   tokenKey = 'auth_token'
-): {
+): Promise<{
   client: import('./base_service').ApiClient;
   productivity: import('./productivity_service').ProductivityService;
   qa: import('./qa_service').QAService;
-} {
+}> {
   const baseUrl =
     (typeof import.meta !== 'undefined' && (import.meta as { env?: Record<string, string> }).env?.[envVar]) ||
     (typeof process !== 'undefined' && process.env?.[envVar]) ||
@@ -243,7 +243,7 @@ export function createServicesFromEnv(
     throw new Error(`API URL not configured. Set ${envVar} environment variable.`);
   }
 
-  return createServices({
+  return await createServices({
     baseUrl,
     getAuthToken: () => {
       if (typeof localStorage !== 'undefined') {

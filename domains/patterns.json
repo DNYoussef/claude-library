@@ -1,0 +1,179 @@
+{
+  "domain": "patterns",
+  "count": 4,
+  "components": [
+    {
+      "id": "money-handling",
+      "name": "Money Handling Pattern",
+      "version": "1.0.0",
+      "description": "CRITICAL: Decimal-based currency handling that REJECTS float entirely. Prevents precision errors in financial calculations. Includes Money class, arithmetic operations, formatting, and validation.",
+      "location": "patterns/money_handling/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "Decimal"
+      ],
+      "keywords": [
+        "money",
+        "currency",
+        "decimal",
+        "financial",
+        "amount",
+        "precision",
+        "float-rejection"
+      ],
+      "dependencies": [],
+      "test_coverage": 95,
+      "tests_passing": 25,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.patterns.money_handling import Money, FloatNotAllowedError\nm = Money(Decimal('19.99'), 'USD')  # OK\nm = Money(19.99)  # RAISES FloatNotAllowedError",
+      "source_project": "D:\\Projects\\trader-ai\\src\\utils\\money.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 95,
+      "critical": true,
+      "lego_compatible": false,
+      "exports": [
+        "CurrencyMismatchError",
+        "FloatNotAllowedError",
+        "Money",
+        "MoneyError",
+        "add_money",
+        "allocate_money",
+        "format_money",
+        "is_valid_currency",
+        "parse_money",
+        "subtract_money",
+        "validate_amount"
+      ]
+    },
+    {
+      "id": "webhook-idempotency",
+      "name": "Webhook Idempotency Pattern",
+      "version": "1.0.0",
+      "description": "CRITICAL: Prevents duplicate webhook processing via cached responses and distributed locking. Supports InMemory, Redis, and PostgreSQL backends. Includes FastAPI middleware and decorators.",
+      "location": "patterns/webhook_idempotency/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "asyncio",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "keywords": [
+        "webhook",
+        "idempotency",
+        "duplicate",
+        "stripe",
+        "payment",
+        "cache",
+        "distributed-lock"
+      ],
+      "dependencies": [
+        "redis",
+        "asyncpg"
+      ],
+      "test_coverage": 90,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.patterns.webhook_idempotency import idempotent, RedisIdempotencyStore\nstore = RedisIdempotencyStore(redis_client)\n@idempotent(store)\nasync def handle_webhook(request): ...",
+      "source_project": null,
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "critical": true,
+      "lego_compatible": false,
+      "exports": [
+        "FastAPIIdempotencyMiddleware",
+        "IdempotencyStore",
+        "InMemoryIdempotencyStore",
+        "PostgresIdempotencyStore",
+        "RedisIdempotencyStore",
+        "ensure_idempotent",
+        "extract_key_from_request",
+        "generate_idempotency_key",
+        "idempotent",
+        "idempotent_handler"
+      ]
+    },
+    {
+      "id": "auditor-base",
+      "name": "Auditor Base Pattern",
+      "version": "1.0.0",
+      "description": "Abstract base class for structured auditors with VERIX-compatible output. Includes Illocution, Affect, ActionClass enums and AuditorResult dataclass with confidence ceiling enforcement.",
+      "location": "components/patterns/auditor_base/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "auditor",
+        "audit",
+        "verix",
+        "illocution",
+        "confidence",
+        "action-class"
+      ],
+      "dependencies": [],
+      "test_coverage": 80,
+      "tests_passing": 12,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.patterns.auditor_base import BaseAuditor, AuditorResult\nclass MyAuditor(BaseAuditor):\n    auditor_type = 'custom'\n    def audit(self, artifact, eval_report, config): ...",
+      "source_project": "context-cascade/cognitive-architecture/integration/auditors.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "ActionClass",
+        "Affect",
+        "AuditorResult",
+        "BaseAuditor",
+        "Illocution"
+      ]
+    },
+    {
+      "id": "image-generator-base",
+      "name": "Image Generator Base Pattern",
+      "version": "1.0.0",
+      "description": "Abstract base class for pluggable image generation with provider registry. Supports local models (SDXL, SD1.5), APIs (OpenAI, Replicate). Priority-based provider selection prefers local over API.",
+      "location": "components/patterns/image_generator_base/",
+      "domain": "patterns",
+      "technology": [
+        "Python",
+        "dataclasses"
+      ],
+      "keywords": [
+        "image",
+        "generator",
+        "provider",
+        "registry",
+        "sdxl",
+        "dalle",
+        "replicate"
+      ],
+      "dependencies": [],
+      "test_coverage": 78,
+      "tests_passing": 14,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.patterns.image_generator_base import ImageGeneratorBase, ProviderRegistry\nclass MyGenerator(ImageGeneratorBase):\n    provider = ImageProvider.CUSTOM\n    def generate(self, prompt, output_path, config=None): ...",
+      "source_project": "context-cascade/scripts/multi-model/image-gen/base.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 82,
+      "lego_compatible": false,
+      "exports": [
+        "GeneratedImage",
+        "ImageConfig",
+        "ImageGeneratorBase",
+        "ImageProvider",
+        "ProviderRegistry"
+      ]
+    }
+  ]
+}

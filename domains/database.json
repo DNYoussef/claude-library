@@ -1,0 +1,56 @@
+{
+  "domain": "database",
+  "count": 1,
+  "components": [
+    {
+      "id": "db-connection-pool",
+      "name": "Database Connection Pool",
+      "version": "1.0.0",
+      "description": "PostgreSQL connection pool with health checks, retry logic, and query logging. Async SQLAlchemy pattern.",
+      "location": "components/database/connection_pool/",
+      "domain": "database",
+      "technology": [
+        "Python",
+        "SQLAlchemy",
+        "asyncpg"
+      ],
+      "keywords": [
+        "database",
+        "postgres",
+        "pool",
+        "connection",
+        "sqlalchemy",
+        "async"
+      ],
+      "dependencies": [
+        "sqlalchemy",
+        "asyncpg"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 14,
+      "usage_count": 4,
+      "last_used": "2026-01-09T00:00:00Z",
+      "example_usage": "from library.database import create_engine, get_session\nengine = create_engine(DATABASE_URL)\nasync with get_session() as session:",
+      "source_project": "life-os-dashboard/src/database/",
+      "created_by": "claude-code",
+      "created_at": "2026-01-09T00:00:00Z",
+      "quality_score": 85,
+      "lego_compatible": false,
+      "exports": [
+        "Base",
+        "ConnectionPool",
+        "DatabaseHealthChecker",
+        "HealthCheckConfig",
+        "HealthCheckEndpoint",
+        "HealthState",
+        "HealthStatus",
+        "PoolConfig",
+        "close_pool",
+        "get_db",
+        "get_pool",
+        "init_pool",
+        "with_retry"
+      ]
+    }
+  ]
+}

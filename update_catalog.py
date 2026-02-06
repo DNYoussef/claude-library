@@ -1,33 +1,212 @@
+#!/usr/bin/env python3
+"""
+Catalog Update Script for Component Library
+
+Updates catalog-index.json by scanning the components directory.
+This is the source of truth for the library.
+
+Usage:
+    python update_catalog.py [--scan] [--stats]
+
+Options:
+    --scan   Scan components/ directory and add new components
+    --stats  Print statistics only
+"""
+
 import json
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
-with open('C:/Users/17175/.claude/library/catalog.json', 'r') as f:
-    catalog = json.load(f)
+# Use relative path from script location
+LIBRARY_ROOT = Path(__file__).parent
+CATALOG_FILE = LIBRARY_ROOT / "catalog-index.json"
+LEGACY_CATALOG_FILE = LIBRARY_ROOT / "catalog.json"
+COMPONENTS_DIR = LIBRARY_ROOT / "components"
+PATTERNS_DIR = LIBRARY_ROOT / "patterns"
 
-existing_ids = [c['id'] for c in catalog['components']]
-if 'frozen-harness' in existing_ids:
-    print('Cognitive components already exist, skipping')
-else:
-    new_components = [
-        {'id': 'frozen-harness', 'name': 'FrozenHarness Evaluation System', 'version': '1.0.0', 'description': 'Immutable evaluation harness for grading artifacts.', 'location': 'cognitive-architecture/loopctl/core.py', 'domain': 'cognitive', 'technology': ['Python', 'dataclasses'], 'keywords': ['evaluation', 'harness', 'grading', 'metrics'], 'dependencies': [], 'test_coverage': 80, 'tests_passing': 15, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from loopctl.core import FrozenHarness', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 80},
-        {'id': 'telemetry-bridge', 'name': 'TelemetryBridge Memory MCP Integration', 'version': '1.0.0', 'description': 'Bridges loop telemetry with Memory MCP storage.', 'location': 'cognitive-architecture/integration/telemetry_bridge.py', 'domain': 'cognitive', 'technology': ['Python', 'Memory MCP'], 'keywords': ['telemetry', 'memory', 'mcp'], 'dependencies': ['chromadb'], 'test_coverage': 75, 'tests_passing': 10, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from integration.telemetry_bridge import TelemetryBridge', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 75},
-        {'id': 'connascence-bridge', 'name': 'ConnascenceBridge Quality Analyzer', 'version': '1.0.0', 'description': '7-Analyzer Suite bridge.', 'location': 'cognitive-architecture/integration/connascence_bridge.py', 'domain': 'cognitive', 'technology': ['Python'], 'keywords': ['connascence', 'quality', 'analyzer', 'nasa', 'six-sigma'], 'dependencies': [], 'test_coverage': 70, 'tests_passing': 8, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from integration.connascence_bridge import ConnascenceBridge', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 70},
-        {'id': 'mode-library', 'name': 'ModeLibrary Configuration System', 'version': '1.0.0', 'description': 'Pareto-optimal configuration modes.', 'location': 'cognitive-architecture/modes/library.py', 'domain': 'cognitive', 'technology': ['Python', 'dataclasses'], 'keywords': ['mode', 'library', 'pareto', 'configuration'], 'dependencies': [], 'test_coverage': 85, 'tests_passing': 12, 'usage_count': 2, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from modes.library import get_mode', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 85},
-        {'id': 'vcl-validator', 'name': 'VCL Validator', 'version': '1.0.0', 'description': 'Validates VERILINGUA v3.1.1 compliance.', 'location': 'cognitive-architecture/core/vcl_validator.py', 'domain': 'cognitive', 'technology': ['Python', 'regex'], 'keywords': ['vcl', 'validator', 'verilingua', 'verix'], 'dependencies': [], 'test_coverage': 90, 'tests_passing': 20, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from core.vcl_validator import VCLValidator', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 90},
-        {'id': 'two-stage-optimizer', 'name': 'Two-Stage Multi-Objective Optimizer', 'version': '1.0.0', 'description': 'GlobalMOO 5D + PyMOO NSGA-II 14D optimization.', 'location': 'cognitive-architecture/optimization/two_stage_optimizer.py', 'domain': 'cognitive', 'technology': ['Python', 'pymoo'], 'keywords': ['optimization', 'pareto', 'moo', 'nsga-ii'], 'dependencies': ['pymoo', 'requests'], 'test_coverage': 75, 'tests_passing': 10, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from optimization.two_stage_optimizer import TwoStageOptimizer', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 75},
-        {'id': 'cli-evaluator', 'name': 'CLI Evaluator (Real LLM)', 'version': '1.0.0', 'description': 'Real LLM-based evaluation using Claude CLI.', 'location': 'cognitive-architecture/evals/cli_evaluator.py', 'domain': 'cognitive', 'technology': ['Python', 'subprocess'], 'keywords': ['evaluator', 'llm', 'claude', 'cli'], 'dependencies': [], 'test_coverage': 70, 'tests_passing': 8, 'usage_count': 1, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from evals.cli_evaluator import CLIEvaluator', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 70},
-        {'id': 'memory-mcp-client', 'name': 'Memory MCP Client', 'version': '1.0.0', 'description': 'Memory MCP triple-layer client.', 'location': 'cognitive-architecture/optimization/mcp_client.py', 'domain': 'cognitive', 'technology': ['Python', 'chromadb'], 'keywords': ['memory', 'mcp', 'client', 'chromadb'], 'dependencies': ['chromadb'], 'test_coverage': 85, 'tests_passing': 16, 'usage_count': 2, 'last_used': '2026-01-09T00:00:00Z', 'example_usage': 'from optimization.mcp_client import get_mcp_client', 'source_project': 'context-cascade/cognitive-architecture', 'created_by': 'claude-code', 'created_at': '2026-01-09T00:00:00Z', 'quality_score': 85}
-    ]
 
-    catalog['components'].extend(new_components)
-    catalog['domains']['cognitive'] = {'description': 'Cognitive architecture components', 'component_count': 8, 'primary_technology': 'Python'}
-    catalog['version'] = '1.1.0'
-    catalog['last_updated'] = '2026-01-09T12:00:00Z'
-    catalog['statistics']['total_components'] = len(catalog['components'])
-    catalog['statistics']['total_usage'] = sum(c['usage_count'] for c in catalog['components'])
-    catalog['statistics']['avg_quality_score'] = round(sum(c['quality_score'] for c in catalog['components']) / len(catalog['components']), 1)
-    catalog['statistics']['avg_test_coverage'] = round(sum(c['test_coverage'] for c in catalog['components']) / len(catalog['components']), 1)
+def load_catalog() -> dict:
+    """Load the catalog from disk."""
+    if CATALOG_FILE.exists():
+        with open(CATALOG_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {
+        "version": "2.0.0",
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "total_components": 0,
+        "domains": {},
+        "quick_lookup": {}
+    }
 
-    with open('C:/Users/17175/.claude/library/catalog.json', 'w') as f:
+
+def _collect_exports_for_location(location: str) -> list[str]:
+    """Best-effort export discovery from component.json metadata."""
+    path = LIBRARY_ROOT / location
+    if path.is_file():
+        return []
+    metadata_file = path / "component.json"
+    if not metadata_file.exists():
+        return []
+    try:
+        metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    exports = metadata.get("exports", [])
+    if isinstance(exports, list):
+        return [item for item in exports if isinstance(item, str) and item]
+    return []
+
+
+def build_legacy_catalog(catalog: dict) -> dict:
+    """Build legacy catalog.json with flattened component list."""
+    components = []
+    for domain_name, domain_data in catalog.get("domains", {}).items():
+        for component in domain_data.get("components", []):
+            location = component.get("location", "")
+            components.append(
+                {
+                    "id": component.get("id"),
+                    "name": component.get("name"),
+                    "domain": domain_name,
+                    "location": location,
+                    "quality_score": component.get("quality_score"),
+                    "exports": _collect_exports_for_location(location),
+                }
+            )
+
+    return {
+        "version": catalog.get("schema_version", catalog.get("version", "2.0.0")),
+        "last_updated": catalog.get("last_updated"),
+        "total_components": len(components),
+        "components": components,
+    }
+
+
+def save_catalog(catalog: dict) -> None:
+    """Save canonical and compatibility catalog files to disk."""
+    catalog["last_updated"] = datetime.now(timezone.utc).isoformat()
+    with open(CATALOG_FILE, 'w', encoding='utf-8') as f:
         json.dump(catalog, f, indent=2)
+    print(f"Saved catalog to {CATALOG_FILE}")
 
-    print(f"Updated catalog: {len(catalog['components'])} components, {len(catalog['domains'])} domains")
+    legacy_catalog = build_legacy_catalog(catalog)
+    with open(LEGACY_CATALOG_FILE, 'w', encoding='utf-8') as f:
+        json.dump(legacy_catalog, f, indent=2)
+    print(f"Saved compatibility catalog to {LEGACY_CATALOG_FILE}")
+
+
+def count_components(catalog: dict) -> int:
+    """Count total components across all domains."""
+    total = 0
+    for domain_data in catalog.get("domains", {}).values():
+        total += domain_data.get("count", len(domain_data.get("components", [])))
+    return total
+
+
+def get_all_component_ids(catalog: dict) -> set:
+    """Get all component IDs from the catalog."""
+    ids = set()
+    for domain_data in catalog.get("domains", {}).values():
+        for component in domain_data.get("components", []):
+            ids.add(component.get("id"))
+    return ids
+
+
+def print_stats(catalog: dict) -> None:
+    """Print catalog statistics."""
+    total = count_components(catalog)
+    domains = catalog.get("domains", {})
+
+    print(f"\n=== Catalog Statistics ===")
+    print(f"Version: {catalog.get('version', 'unknown')}")
+    print(f"Last Updated: {catalog.get('last_updated', 'unknown')}")
+    print(f"Total Components: {total}")
+    print(f"Total Domains: {len(domains)}")
+    print(f"\nComponents by Domain:")
+
+    # Sort by count descending
+    sorted_domains = sorted(domains.items(), key=lambda x: x[1].get("count", 0), reverse=True)
+    for domain, data in sorted_domains:
+        count = data.get("count", len(data.get("components", [])))
+        print(f"  {domain}: {count}")
+
+
+def scan_components(catalog: dict) -> dict:
+    """Scan components directory for new components."""
+    existing_ids = get_all_component_ids(catalog)
+    new_count = 0
+
+    # Scan components/ directory
+    if COMPONENTS_DIR.exists():
+        for domain_dir in COMPONENTS_DIR.iterdir():
+            if not domain_dir.is_dir():
+                continue
+
+            domain_name = domain_dir.name
+
+            # Initialize domain if not exists
+            if domain_name not in catalog["domains"]:
+                catalog["domains"][domain_name] = {
+                    "count": 0,
+                    "file": f"domains/{domain_name}.json",
+                    "components": []
+                }
+
+            # Scan for component directories
+            for component_dir in domain_dir.iterdir():
+                if not component_dir.is_dir():
+                    continue
+
+                component_id = f"{domain_name}-{component_dir.name}".replace("_", "-")
+
+                if component_id not in existing_ids:
+                    # Add new component
+                    new_component = {
+                        "id": component_id,
+                        "name": component_dir.name.replace("_", " ").title(),
+                        "location": f"components/{domain_name}/{component_dir.name}/",
+                        "quality_score": 70  # Default score
+                    }
+                    catalog["domains"][domain_name]["components"].append(new_component)
+                    catalog["quick_lookup"][component_id] = {
+                        "domain": domain_name,
+                        "name": new_component["name"],
+                        "location": new_component["location"]
+                    }
+                    existing_ids.add(component_id)
+                    new_count += 1
+                    print(f"  Added: {component_id}")
+
+            # Update domain count
+            catalog["domains"][domain_name]["count"] = len(catalog["domains"][domain_name]["components"])
+
+    # Update total
+    catalog["total_components"] = count_components(catalog)
+
+    if new_count > 0:
+        print(f"\nAdded {new_count} new components")
+    else:
+        print("\nNo new components found")
+
+    return catalog
+
+
+def main():
+    """Main entry point."""
+    catalog = load_catalog()
+
+    if "--stats" in sys.argv:
+        print_stats(catalog)
+        return
+
+    if "--scan" in sys.argv:
+        print("Scanning for new components...")
+        catalog = scan_components(catalog)
+        save_catalog(catalog)
+
+    print_stats(catalog)
+
+
+if __name__ == "__main__":
+    main()

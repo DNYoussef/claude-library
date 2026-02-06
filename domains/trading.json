@@ -1,0 +1,136 @@
+{
+  "domain": "trading",
+  "count": 3,
+  "components": [
+    {
+      "id": "circuit-breaker-trading",
+      "name": "Trading Circuit Breakers",
+      "version": "1.0.0",
+      "description": "Trading-specific circuit breakers and risk thresholds.",
+      "location": "components/trading/circuit_breakers/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal",
+        "threading"
+      ],
+      "keywords": [
+        "circuit-breaker",
+        "trading",
+        "risk",
+        "drawdown",
+        "volatility",
+        "loss-limit"
+      ],
+      "dependencies": [],
+      "test_coverage": 90,
+      "tests_passing": 24,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.circuit_breakers import CircuitBreakerManager\ncb = CircuitBreakerManager(daily_loss_limit=Decimal('0.02'))\nif cb.can_trade(): execute_trade()",
+      "source_project": "D:\\Projects\\trader-ai\\src\\risk\\circuit_breakers.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 92,
+      "lego_compatible": false,
+      "exports": [
+        "CircuitBreaker",
+        "CircuitBreakerConfig",
+        "CircuitBreakerManager",
+        "CircuitBreakerMetrics",
+        "CircuitOpenException",
+        "CircuitState",
+        "CircuitType",
+        "PortfolioProvider",
+        "RequestResult",
+        "TradingBreakerConfig",
+        "TradingBreakerStatus",
+        "TradingBreakerType",
+        "TradingCircuitBreakers"
+      ]
+    },
+    {
+      "id": "gate-system-manager",
+      "name": "Gate System Manager",
+      "version": "1.0.0",
+      "description": "Capital-based gate system (G0-G12) with progressive position sizing and risk scaling. Async-safe state transitions. Supports gate upgrades and downgrades.",
+      "location": "components/trading/gate_system/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal",
+        "asyncio"
+      ],
+      "keywords": [
+        "gate",
+        "capital",
+        "position-sizing",
+        "risk-scaling",
+        "tier"
+      ],
+      "dependencies": [],
+      "test_coverage": 88,
+      "tests_passing": 20,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.gate_system import GateManager\ngm = GateManager()\ncurrent_gate = gm.calculate_gate(capital=Decimal('5000'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\gates\\gate_manager.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 90,
+      "lego_compatible": false,
+      "exports": [
+        "DEFAULT_GATE_THRESHOLDS",
+        "GateConfig",
+        "GateLevel",
+        "GateManager",
+        "GraduationMetrics",
+        "TradeValidationResult",
+        "ViolationRecord",
+        "ViolationType",
+        "create_default_gate_configs"
+      ]
+    },
+    {
+      "id": "kelly-criterion-calculator",
+      "name": "Kelly Criterion Calculator",
+      "version": "1.0.0",
+      "description": "Position sizing using Kelly Criterion with fractional Kelly support. Decimal-only calculations, configurable max position size, and risk-adjusted returns.",
+      "location": "components/trading/position_sizing/",
+      "domain": "trading",
+      "technology": [
+        "Python",
+        "Decimal"
+      ],
+      "keywords": [
+        "kelly",
+        "position-sizing",
+        "risk",
+        "optimal-f",
+        "bet-size"
+      ],
+      "dependencies": [],
+      "test_coverage": 92,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.trading.position_sizing import KellyCalculator\nkelly = KellyCalculator(fraction=Decimal('0.5'))\nsize = kelly.calculate(win_rate=Decimal('0.55'), win_loss_ratio=Decimal('1.5'))",
+      "source_project": "D:\\Projects\\trader-ai\\src\\sizing\\kelly.py",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T00:00:00Z",
+      "quality_score": 94,
+      "lego_compatible": false,
+      "exports": [
+        "FULL_KELLY",
+        "HALF_KELLY",
+        "KellyCriterion",
+        "KellyRegime",
+        "KellyResult",
+        "PositionSizeResult",
+        "QUARTER_KELLY",
+        "TENTH_KELLY",
+        "quick_kelly"
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import type { AuthContextValue, User } from './types';
 
 export function useAuth(): AuthContextValue {
   const context = useContext(AuthContext);
-  if (\!context) {
+  if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;

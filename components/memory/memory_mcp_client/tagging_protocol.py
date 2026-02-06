@@ -1,21 +1,14 @@
 """
-Memory MCP Tagging Protocol
-WHO/WHEN/PROJECT/WHY metadata for all memory_store operations
+Memory MCP Tagging Protocol Adapter
 
-NOTE: This is a LOCAL COPY bundled with memory-mcp-client for convenience.
-The canonical standalone component is at:
-    C:/Users/17175/.claude/library/components/memory/tagging-protocol/
+This module adapts the canonical tagging protocol for Memory MCP operations.
+All core types (Intent, AgentCategory, INTENT_DESCRIPTIONS) come from the
+canonical observability component.
 
-If updating this file, consider whether the standalone component should also
-be updated to maintain consistency across the library ecosystem.
+CANONICAL SOURCE: library.components.observability.tagging_protocol
+This adapter adds memory-specific dataclasses and factory functions.
 
-Implements mandatory tagging as per Memory MCP specification:
-- WHO (agent_id, user_id, agent_category, capabilities)
-- WHEN (ISO timestamp, Unix timestamp, readable format)
-- PROJECT (project_id, project_name, task_id)
-- WHY (intent: implementation/bugfix/refactor/testing/documentation/analysis/planning/research)
-
-Example:
+Usage:
     >>> config = TaggingConfig(
     ...     agent_id="my-agent",
     ...     agent_category=AgentCategory.BACKEND,
@@ -33,57 +26,63 @@ Example:
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Dict, Any, Optional, List
-from enum import Enum
+from typing import Dict, Any, Optional, List, Union
 import uuid
 
+# Import canonical types - REQUIRED: copy observability/tagging_protocol alongside
+try:
+    from library.components.observability.tagging_protocol.tagging_protocol import (
+        Intent,
+        AgentCategory,
+        INTENT_DESCRIPTIONS,
+        TaggingProtocol as CanonicalTaggingProtocol,
+    )
+except ImportError:
+    try:
+        from observability.tagging_protocol.tagging_protocol import (
+            Intent,
+            AgentCategory,
+            INTENT_DESCRIPTIONS,
+            TaggingProtocol as CanonicalTaggingProtocol,
+        )
+    except ImportError:
+        # For standalone use, import from sibling if copied alongside
+        from tagging_protocol_canonical import (
+            Intent,
+            AgentCategory,
+            INTENT_DESCRIPTIONS,
+            TaggingProtocol as CanonicalTaggingProtocol,
+        )
 
-class Intent(str, Enum):
-    """Intent categories for Memory MCP operations"""
-    IMPLEMENTATION = "implementation"
-    BUGFIX = "bugfix"
-    REFACTOR = "refactor"
-    TESTING = "testing"
-    DOCUMENTATION = "documentation"
-    ANALYSIS = "analysis"
-    PLANNING = "planning"
-    RESEARCH = "research"
+# Re-export canonical types for backward compatibility
+__all__ = [
+    "Intent",
+    "AgentCategory",
+    "INTENT_DESCRIPTIONS",
+    "TaggingConfig",
+    "TaggingProtocol",
+    "WhoTag",
+    "WhenTag",
+    "ProjectTag",
+    "WhyTag",
+    "MemoryTags",
+    "MemoryStorePayload",
+    "create_backend_tagger",
+    "create_frontend_tagger",
+    "create_testing_tagger",
+    "create_custom_tagger",
+]
 
 
-class AgentCategory(str, Enum):
-    """Agent categories for WHO tagging"""
-    CORE_DEVELOPMENT = "core-development"
-    TESTING_VALIDATION = "testing-validation"
-    FRONTEND = "frontend"
-    BACKEND = "backend"
-    DATABASE = "database"
-    DOCUMENTATION = "documentation"
-    SWARM_COORDINATION = "swarm-coordination"
-    PERFORMANCE = "performance"
-    SECURITY = "security"
-    RESEARCH = "research"
-    ORCHESTRATION = "orchestration"
-    DEVOPS = "devops"
-    CUSTOM = "custom"
-
-
-# Intent descriptions mapping
-INTENT_DESCRIPTIONS: Dict[Intent, str] = {
-    Intent.IMPLEMENTATION: "Implementing new feature or functionality",
-    Intent.BUGFIX: "Fixing bugs or errors in existing code",
-    Intent.REFACTOR: "Refactoring code for better quality or performance",
-    Intent.TESTING: "Writing or executing tests",
-    Intent.DOCUMENTATION: "Creating or updating documentation",
-    Intent.ANALYSIS: "Analyzing code, performance, or system behavior",
-    Intent.PLANNING: "Planning architecture or approach",
-    Intent.RESEARCH: "Researching solutions or best practices"
-}
+# =============================================================================
+# Memory-specific dataclasses (not in canonical)
+# =============================================================================
 
 
 @dataclass
 class TaggingConfig:
     """
-    Configuration for TaggingProtocol
+    Configuration for TaggingProtocol (Memory MCP adapter pattern)
 
     Attributes:
         agent_id: Unique agent identifier (e.g., "backend-dev", "test-runner")
@@ -187,9 +186,8 @@ class MemoryTags:
             "project": self.project.to_dict(),
             "why": self.why.to_dict()
         }
-        if not self.additional:
-            return result
-        result["additional"] = self.additional
+        if self.additional:
+            result["additional"] = self.additional
         return result
 
 
@@ -208,12 +206,17 @@ class MemoryStorePayload:
         }
 
 
+# =============================================================================
+# Memory MCP Tagging Protocol Adapter
+# =============================================================================
+
+
 class TaggingProtocol:
     """
     Memory MCP Tagging Protocol Implementation
 
-    Automatically generates WHO/WHEN/PROJECT/WHY metadata for all memory operations.
-    Ensures compliance with Memory MCP tagging requirements.
+    This adapter wraps the canonical TaggingProtocol with memory-specific
+    dataclasses and initialization pattern.
 
     Example:
         >>> config = TaggingConfig(
@@ -235,6 +238,14 @@ class TaggingProtocol:
             config: TaggingConfig with agent and project information
         """
         self._config = config
+        # Create underlying canonical tagger
+        self._canonical = CanonicalTaggingProtocol(
+            agent_id=config.agent_id,
+            agent_category=config.agent_category,
+            capabilities=config.capabilities,
+            project_id=config.project_id,
+            project_name=config.project_name
+        )
 
     @property
     def config(self) -> TaggingConfig:
@@ -253,7 +264,7 @@ class TaggingProtocol:
 
     def generate_tags(
         self,
-        intent: Intent,
+        intent: Union[Intent, str],
         user_id: Optional[str] = None,
         task_id: Optional[str] = None,
         additional_metadata: Optional[Dict[str, Any]] = None
@@ -285,6 +296,10 @@ class TaggingProtocol:
             task_id=task_id or f"auto-{uuid.uuid4().hex[:8]}"
         )
 
+        # Handle string intent
+        if isinstance(intent, str):
+            intent = Intent(intent)
+
         why = WhyTag(
             intent=intent.value,
             description=INTENT_DESCRIPTIONS.get(intent, "Unknown intent")
@@ -301,7 +316,7 @@ class TaggingProtocol:
     def create_memory_store_payload(
         self,
         content: str,
-        intent: Intent,
+        intent: Union[Intent, str],
         user_id: Optional[str] = None,
         task_id: Optional[str] = None,
         additional_metadata: Optional[Dict[str, Any]] = None
@@ -328,7 +343,10 @@ class TaggingProtocol:
         )
 
 
+# =============================================================================
 # Factory functions for common agent types
+# =============================================================================
+
 
 def create_backend_tagger(
     project_id: str,
@@ -336,18 +354,7 @@ def create_backend_tagger(
     agent_id: str = "backend-dev",
     capabilities: Optional[List[str]] = None
 ) -> TaggingProtocol:
-    """
-    Create tagging protocol for backend development agent
-
-    Args:
-        project_id: Project identifier
-        project_name: Human-readable project name
-        agent_id: Agent identifier (default: "backend-dev")
-        capabilities: Agent capabilities (default: backend-related)
-
-    Returns:
-        TaggingProtocol instance configured for backend development
-    """
+    """Create tagging protocol for backend development agent"""
     return TaggingProtocol(TaggingConfig(
         agent_id=agent_id,
         agent_category=AgentCategory.BACKEND,
@@ -368,18 +375,7 @@ def create_frontend_tagger(
     agent_id: str = "frontend-dev",
     capabilities: Optional[List[str]] = None
 ) -> TaggingProtocol:
-    """
-    Create tagging protocol for frontend development agent
-
-    Args:
-        project_id: Project identifier
-        project_name: Human-readable project name
-        agent_id: Agent identifier (default: "frontend-dev")
-        capabilities: Agent capabilities (default: frontend-related)
-
-    Returns:
-        TaggingProtocol instance configured for frontend development
-    """
+    """Create tagging protocol for frontend development agent"""
     return TaggingProtocol(TaggingConfig(
         agent_id=agent_id,
         agent_category=AgentCategory.FRONTEND,
@@ -400,18 +396,7 @@ def create_testing_tagger(
     agent_id: str = "test-runner",
     capabilities: Optional[List[str]] = None
 ) -> TaggingProtocol:
-    """
-    Create tagging protocol for testing/QA agent
-
-    Args:
-        project_id: Project identifier
-        project_name: Human-readable project name
-        agent_id: Agent identifier (default: "test-runner")
-        capabilities: Agent capabilities (default: testing-related)
-
-    Returns:
-        TaggingProtocol instance configured for testing
-    """
+    """Create tagging protocol for testing/QA agent"""
     return TaggingProtocol(TaggingConfig(
         agent_id=agent_id,
         agent_category=AgentCategory.TESTING_VALIDATION,
@@ -434,20 +419,7 @@ def create_custom_tagger(
     project_name: str,
     default_user_id: str = "system"
 ) -> TaggingProtocol:
-    """
-    Create tagging protocol with custom configuration
-
-    Args:
-        agent_id: Unique agent identifier
-        agent_category: Agent category
-        capabilities: List of agent capabilities
-        project_id: Project identifier
-        project_name: Human-readable project name
-        default_user_id: Default user ID
-
-    Returns:
-        TaggingProtocol instance with custom configuration
-    """
+    """Create tagging protocol with custom configuration"""
     return TaggingProtocol(TaggingConfig(
         agent_id=agent_id,
         agent_category=agent_category,

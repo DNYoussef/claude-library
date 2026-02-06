@@ -13,7 +13,8 @@ describe('markdown-metadata', () => {
   })
 
   it('contains declared exports in source', () => {
-    if (exportsList.length === 0) return
+    // LIB-005: Fail fast if no exports declared - prevents tautological test
+    expect(exportsList.length, 'exportsList must not be empty - declare exports to test').toBeGreaterThan(0)
     const source = fs.readFileSync(targetPath, 'utf8')
     for (const name of exportsList) {
       expect(source).toContain(name)

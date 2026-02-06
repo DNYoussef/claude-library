@@ -153,10 +153,10 @@ export class ApiClient {
 
   constructor(config: ApiClientConfig) {
     this.config = {
+      ...config,
       baseUrl: config.baseUrl.replace(/\/$/, ''), // Remove trailing slash
       timeout: config.timeout ?? 30000,
       defaultHeaders: config.defaultHeaders ?? {},
-      ...config,
     };
   }
 
@@ -384,7 +384,7 @@ export abstract class BaseResourceService<
   TEntity extends Identifiable,
   TCreateRequest = Partial<TEntity>,
   TUpdateRequest = Partial<TEntity>,
-  TListParams extends ListParams = ListParams,
+  TListParams extends object = ListParams,
   TListResponse = ListResponse<TEntity>
 > {
   protected client: ApiClient;

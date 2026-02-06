@@ -1,0 +1,59 @@
+{
+  "domain": "multi-entity",
+  "count": 1,
+  "components": [
+    {
+      "id": "tenant-isolation",
+      "name": "Multi-Entity Tenant Isolation",
+      "version": "1.0.0",
+      "description": "Row-Level Security (RLS) based tenant isolation for SQLAlchemy. Automatic tenant_id injection, PostgreSQL RLS policies, and ASGI middleware.",
+      "location": "components/multi_entity/isolation/",
+      "domain": "multi-entity",
+      "technology": [
+        "Python",
+        "SQLAlchemy",
+        "PostgreSQL"
+      ],
+      "keywords": [
+        "multi-tenant",
+        "rls",
+        "isolation",
+        "security",
+        "sqlalchemy",
+        "saas"
+      ],
+      "dependencies": [
+        "sqlalchemy"
+      ],
+      "test_coverage": 87,
+      "tests_passing": 16,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "from library.components.multi_entity.isolation import TenantContext, TenantMixin\nclass Project(TenantMixin, Base): ...\nwith TenantContext('tenant_123'): ...",
+      "source_project": "https://github.com/Telemaco019/sqlalchemy-tenants",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T15:00:00Z",
+      "quality_score": 91,
+      "lego_compatible": false,
+      "exports": [
+        "RLSPolicy",
+        "TenantContext",
+        "TenantMiddleware",
+        "TenantMixin",
+        "create_tenant_policy",
+        "disable_rls",
+        "enable_rls",
+        "extract_tenant_from_header",
+        "extract_tenant_from_path",
+        "extract_tenant_from_subdomain",
+        "force_rls",
+        "generate_rls_migration",
+        "get_current_tenant",
+        "require_tenant",
+        "set_current_tenant",
+        "setup_rls_session",
+        "setup_tenant_isolation"
+      ]
+    }
+  ]
+}

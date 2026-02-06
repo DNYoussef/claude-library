@@ -236,7 +236,7 @@ export function toBeSorted(
 
   const defaultCompare = (a: unknown, b: unknown): number => {
     if (a === b) return 0;
-    return a < b ? -1 : 1;
+    return String(a).localeCompare(String(b));
   };
 
   const compare = compareFn ?? defaultCompare;

@@ -1,0 +1,66 @@
+{
+  "domain": "react",
+  "count": 1,
+  "components": [
+    {
+      "id": "react-hooks",
+      "name": "React Hooks Library",
+      "version": "1.0.0",
+      "description": "Production React hooks: useLocalStorage (cross-tab sync, SSR-safe), useAsyncState (loading/error states, race condition prevention), useAbortableAsyncState.",
+      "location": "components/react_hooks/",
+      "domain": "react",
+      "technology": [
+        "TypeScript",
+        "React"
+      ],
+      "keywords": [
+        "hooks",
+        "localStorage",
+        "async",
+        "state",
+        "react"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "test_coverage": 85,
+      "tests_passing": 18,
+      "usage_count": 0,
+      "last_used": null,
+      "example_usage": "import { useLocalStorage, useAsyncState } from '@library/react-hooks';\nconst [theme, setTheme] = useLocalStorage('theme', 'light');",
+      "source_project": "https://github.com/juliencrn/usehooks-ts",
+      "created_by": "claude-code",
+      "created_at": "2026-01-10T12:00:00Z",
+      "quality_score": 88,
+      "lego_compatible": false,
+      "exports": [
+        "type AbortableAsyncFn",
+        "type AbortableAsyncState",
+        "type AbortableStatus",
+        "type AsyncState",
+        "type AsyncStatus",
+        "type SetValue",
+        "type UseAbortableAsyncOptions",
+        "type UseAbortableAsyncReturn",
+        "type UseAsyncStateOptions",
+        "type UseAsyncStateReturn",
+        "type UseDebounceOptions",
+        "type UseDebounceReturn",
+        "type UseDebouncedCallbackReturn",
+        "type UseLocalStorageOptions",
+        "type UseLocalStorageReturn",
+        "type UseThrottleOptions",
+        "type UseThrottleReturn",
+        "type UseThrottledCallbackReturn",
+        "useAbortableAsync",
+        "useAbortableAsyncState",
+        "useAsyncState",
+        "useDebounce",
+        "useDebouncedCallback",
+        "useLocalStorage",
+        "useThrottle",
+        "useThrottledCallback"
+      ]
+    }
+  ]
+}
